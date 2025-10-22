@@ -1,0 +1,852 @@
+<section class="crpl-faq-section" aria-labelledby="crpl-faq-title-service">
+<style>
+/* ===== CARPOOL FAQ — Modern Design (Avada-safe with resets) ===== */
+.crpl-faq-section{
+  --crpl-accent: #500000;
+  --crpl-accent-600: hsl(350 84% 24%);
+  --crpl-text: #111827;
+  --crpl-muted: #6b7280;
+  --crpl-bg: transparent;
+  --crpl-surface: #fff;
+  --crpl-border: rgba(17, 24, 39, 0.06);
+  --crpl-ring: rgba(80, 0, 0, 0.1);
+  --crpl-radius: 16px;
+  --crpl-shadow: 0 4px 20px -8px rgba(0,0,0,.12);
+  --crpl-shadow-hover: 0 12px 40px -12px rgba(0,0,0,.2);
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--crpl-text) !important;
+  background: transparent !important;
+  min-height: auto;
+  box-sizing: border-box;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+.crpl-faq-section *,
+.crpl-faq-section *::before,
+.crpl-faq-section *::after{
+  box-sizing: border-box;
+}
+
+.crpl-faq-section .crpl-container{
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  padding: 48px 20px 72px !important;
+  width: 100%;
+}
+
+/* ===== HEADER ===== */
+.crpl-faq-section .crpl-page-header{
+  text-align: left !important;
+  margin: 0 0 12px !important;
+}
+
+.crpl-faq-section .crpl-page-header .crpl-title{
+  margin: 0 !important;
+  font-weight: 900 !important;
+  letter-spacing: .2px !important;
+  font-size: clamp(28px, 3.4vw, 42px) !important;
+  color: var(--crpl-text) !important;
+  line-height: 1.2 !important;
+}
+
+.crpl-faq-section .crpl-page-header .crpl-title::after{
+  content: "" !important;
+  display: block !important;
+  width: 90px !important;
+  height: 3px !important;
+  margin: 12px 0 0 !important;
+  background: linear-gradient(90deg, var(--crpl-accent), #8c3a3a) !important;
+  border-radius: 999px !important;
+}
+
+.crpl-faq-section .crpl-subtitle{
+  color: var(--crpl-muted) !important;
+  margin: 10px 0 20px !important;
+  font-size: clamp(15px, 1.8vw, 17px) !important;
+  line-height: 1.6 !important;
+  max-width: 800px !important;
+  text-align: left !important;
+  font-weight: 400 !important;
+}
+
+/* ===== CONTROLS BAR ===== */
+.crpl-controls{
+  display: flex !important;
+  gap: 12px !important;
+  margin: 24px 0 !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+}
+
+.crpl-search-box{
+  flex: 1 !important;
+  min-width: 250px !important;
+  position: relative !important;
+}
+
+.crpl-search-input{
+  width: 100% !important;
+  padding: 12px 16px 12px 42px !important;
+  border: 1px solid var(--crpl-border) !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  background: #fff !important;
+  transition: all .25s ease !important;
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,.08) !important;
+}
+
+.crpl-search-input:focus{
+  outline: none !important;
+  border-color: var(--crpl-accent) !important;
+  box-shadow: 0 0 0 3px rgba(80,0,0,.1), 0 2px 8px -4px rgba(0,0,0,.08) !important;
+}
+
+.crpl-search-icon{
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--crpl-muted) !important;
+  pointer-events: none !important;
+}
+
+.crpl-control-btn{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 10px 16px !important;
+  background: #fff !important;
+  border: 1px solid var(--crpl-border) !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--crpl-text) !important;
+  cursor: pointer !important;
+  transition: all .25s ease !important;
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,.08) !important;
+}
+
+.crpl-control-btn:hover{
+  background: var(--crpl-accent) !important;
+  color: #fff !important;
+  border-color: var(--crpl-accent) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px -4px rgba(80,0,0,.3) !important;
+}
+
+.crpl-results-count{
+  font-size: 14px !important;
+  color: var(--crpl-muted) !important;
+  margin: 8px 0 !important;
+  font-weight: 500 !important;
+}
+
+/* ===== FAQ Grid ===== */
+.crpl-faq-section .crpl-faq-grid{
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 20px !important;
+  margin-top: 32px !important;
+}
+
+@media (min-width: 900px){
+  .crpl-faq-section .crpl-faq-grid{
+    grid-template-columns: 1fr 1fr !important;
+    align-items: start !important;
+  }
+  
+  .crpl-faq-section .crpl-faq-grid:not(:has(.crpl-faq-item[open])){
+    align-items: stretch !important;
+    grid-auto-rows: 1fr !important;
+  }
+}
+
+/* ===== FAQ Cards ===== */
+.crpl-faq-section .crpl-faq-item{
+  background: #ffffff !important;
+  border: 2px solid rgba(17, 24, 39, 0.15) !important;
+  border-radius: var(--crpl-radius) !important;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,.06),
+    0 4px 12px rgba(0,0,0,.08),
+    0 8px 24px -4px rgba(0,0,0,.10) !important;
+  overflow: hidden !important;
+  transition: all .35s cubic-bezier(.4,0,.2,1) !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 900px){
+  .crpl-faq-section .crpl-faq-grid:not(:has(.crpl-faq-item[open])) .crpl-faq-item:not(.crpl-hidden){
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+}
+
+/* Hidden state for search - must come after media queries for proper specificity */
+.crpl-faq-section .crpl-faq-item.crpl-hidden{
+  display: none !important;
+}
+
+.crpl-faq-section .crpl-faq-item:hover{
+  transform: translateY(-4px) !important;
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,.08),
+    0 8px 20px rgba(0,0,0,.12),
+    0 16px 40px -8px rgba(0,0,0,.16) !important;
+  border-color: rgba(80,0,0,.25) !important;
+}
+
+.crpl-faq-section .crpl-faq-item[open]{
+  border-color: rgba(80,0,0,.3) !important;
+  box-shadow: 
+    inset 4px 0 0 var(--crpl-accent),
+    0 4px 8px rgba(0,0,0,.08),
+    0 8px 20px rgba(0,0,0,.12),
+    0 16px 40px -8px rgba(0,0,0,.16) !important;
+}
+
+/* Highlight matched text */
+.crpl-highlight{
+  background: rgba(255, 255, 0, 0.3) !important;
+  font-weight: 700 !important;
+  padding: 2px 0 !important;
+}
+
+/* ===== Summary (Question) ===== */
+.crpl-faq-section .crpl-faq-item .crpl-question-wrapper{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  font-weight: 800 !important;
+  padding: 14px 20px !important;
+  min-height: 48px !important;
+  line-height: 1.35 !important;
+  list-style: none !important;
+  transition: color .2s ease !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 900px){
+  .crpl-faq-section .crpl-faq-grid:not(:has(.crpl-faq-item[open])) .crpl-faq-item .crpl-question-wrapper{
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+.crpl-faq-section .crpl-faq-item .crpl-question-wrapper::-webkit-details-marker{
+  display: none !important;
+}
+
+.crpl-faq-section .crpl-faq-item .crpl-question-wrapper::marker{
+  display: none !important;
+  content: '' !important;
+}
+
+.crpl-faq-section .crpl-faq-item .crpl-question-wrapper:hover{
+  color: var(--crpl-accent) !important;
+}
+
+.crpl-faq-section .crpl-faq-item[open] .crpl-question-wrapper{
+  color: var(--crpl-accent) !important;
+}
+
+.crpl-faq-section .crpl-question-text{
+  display: block !important;
+  min-width: 0 !important;
+  flex: 1 !important;
+  font-size: clamp(15px, 1.9vw, 16px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ===== Chevron Icon ===== */
+.crpl-faq-section .crpl-chevron{
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  margin-left: 12px !important;
+  color: var(--crpl-muted) !important;
+  transition: all .3s cubic-bezier(.4,0,.2,1) !important;
+}
+
+.crpl-faq-section .crpl-faq-item:hover .crpl-chevron{
+  color: var(--crpl-accent) !important;
+}
+
+.crpl-faq-section .crpl-faq-item[open] .crpl-chevron{
+  transform: rotate(180deg) !important;
+  color: var(--crpl-accent) !important;
+}
+
+.crpl-faq-section .crpl-chevron path{
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* ===== Answer ===== */
+.crpl-faq-section .crpl-answer{
+  border-top: 1px solid var(--crpl-border) !important;
+  padding: 16px 20px 20px !important;
+  color: var(--crpl-muted) !important;
+  line-height: 1.7 !important;
+  font-size: clamp(14px, 1.8vw, 15px) !important;
+  text-align: left !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+
+.crpl-faq-section .crpl-answer strong{
+  color: var(--crpl-text) !important;
+  font-weight: 700 !important;
+}
+
+/* ===== Section Spacing ===== */
+.crpl-faq-section .crpl-spacing-lg{
+  margin-top: 72px !important;
+}
+
+/* ===== Focus States ===== */
+.crpl-faq-section .crpl-faq-item .crpl-question-wrapper:focus-visible{
+  outline: 3px solid var(--crpl-ring) !important;
+  outline-offset: 2px !important;
+  border-radius: calc(var(--crpl-radius) - 2px) !important;
+}
+
+/* ===== Animations ===== */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes crplFadeInUp{
+    from{ opacity: 0; transform: translateY(30px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+  
+  .crpl-faq-section .crpl-page-header{
+    animation: crplFadeInUp .6s cubic-bezier(.4,0,.2,1) backwards;
+  }
+  
+  .crpl-faq-section .crpl-faq-item{
+    animation: crplFadeInUp .6s cubic-bezier(.4,0,.2,1) backwards;
+  }
+  
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(1){ animation-delay: .05s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(2){ animation-delay: .1s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(3){ animation-delay: .15s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(4){ animation-delay: .2s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(5){ animation-delay: .25s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(6){ animation-delay: .3s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(7){ animation-delay: .35s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(8){ animation-delay: .4s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(9){ animation-delay: .45s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(1) .crpl-faq-item:nth-child(10){ animation-delay: .5s; }
+  
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(1){ animation-delay: .05s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(2){ animation-delay: .1s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(3){ animation-delay: .15s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(4){ animation-delay: .2s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(5){ animation-delay: .25s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(6){ animation-delay: .3s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(7){ animation-delay: .35s; }
+  .crpl-faq-section .crpl-faq-grid:nth-of-type(2) .crpl-faq-item:nth-child(8){ animation-delay: .4s; }
+}
+
+/* ===== Mobile Optimizations ===== */
+@media (max-width: 640px) {
+  .crpl-faq-section .crpl-container{
+    padding: 32px 16px 56px;
+  }
+
+  .crpl-faq-section .crpl-faq-item .crpl-question-wrapper{
+    padding: 12px 16px;
+    min-height: 44px;
+  }
+
+  .crpl-faq-section .crpl-answer{
+    padding: 14px 16px 18px;
+  }
+
+  .crpl-faq-section .crpl-faq-grid{
+    gap: 16px;
+  }
+
+  .crpl-faq-section .crpl-spacing-lg{
+    margin-top: 56px;
+  }
+  
+  .crpl-controls{
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .crpl-search-box{
+    width: 100% !important;
+  }
+  
+  .crpl-control-btn{
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+</style>
+
+<div class="crpl-container">
+  <!-- Service Questions -->
+  <header class="crpl-page-header">
+    <h1 class="crpl-title" id="crpl-faq-title-service">Service Related Questions</h1>
+    <p class="crpl-subtitle">Quick answers about how CARPOOL operates and who can ride.</p>
+  </header>
+
+  <!-- Controls -->
+  <div class="crpl-controls">
+    <div class="crpl-search-box">
+      <svg class="crpl-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <input 
+        type="text" 
+        class="crpl-search-input" 
+        id="crpl-search" 
+        placeholder="Search questions..."
+        aria-label="Search FAQ questions"
+      />
+    </div>
+    <button class="crpl-control-btn" id="crpl-expand-all" aria-label="Expand all questions">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+      Expand All
+    </button>
+    <button class="crpl-control-btn" id="crpl-collapse-all" aria-label="Collapse all questions">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+      Collapse All
+    </button>
+  </div>
+  
+  <div class="crpl-results-count" id="crpl-results-count" role="status" aria-live="polite"></div>
+
+  <div class="crpl-faq-grid">
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Can CARPOOL members take CARPOOL?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Absolutely. Members are encouraged to use the service whenever they need a safe ride. Using CARPOOL shows trust in the organization—no questions asked.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Is CARPOOL anti-alcohol?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No. It's your choice whether to drink—we just ask that it's done responsibly and never with driving. CARPOOL is nonjudgmental and partners with campus education groups to promote safety. We also take sober riders home; our numbers are not just intoxicated riders.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Does CARPOOL frown on underage drinking?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        We recognize the law (21+), but we're not law enforcement. Our role is ensuring people get home safely, regardless of the reason they need a ride.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">What is your favorite story from a ride?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Rides are confidential—"what happens in CARPOOL stays in CARPOOL." We don't share who rode, what happened during rides, or what was seen at operations. This protects patron comfort and safety.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Why do I have to give my Resident Advisor's name for rides to campus?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        It's a Texas A&amp;M Residence Life policy to verify you live on campus and keep residents safe. We <strong>do not</strong> inform your RA or anyone else.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Do I have to be a student to take CARPOOL?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Not at all. We'll take anyone home within Bryan/College Station city limits—just call before 3:00&nbsp;am.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Do I have to be drunk?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No. We want everyone to get home safely, whatever the reason for needing a ride.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">What if I need a ride from Northgate?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Call our phone lines as usual. At times we also run a Northgate Station behind the Dixie Chicken by the Spirit Statue. Look for members in lime-green shirts to sign up there. You must still sign up before 3:00&nbsp;am.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">It's after 3:00 am and my ride hasn't arrived. Did I get skipped?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        We stop accepting new calls at 3:00&nbsp;am, but we continue operating until everyone who signed up gets home. Phone lines are closed after 3:00, so please wait for your driver's callback.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Can I schedule a ride in advance?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No. We operate first-come, first-served and begin taking calls at 10:00&nbsp;pm. You'll get a callback when a team is on the way.
+      </div>
+    </details>
+  </div>
+
+  <!-- Membership Questions -->
+  <header class="crpl-page-header crpl-spacing-lg">
+    <h1 class="crpl-title" id="crpl-faq-title-membership">Membership Related Questions</h1>
+    <p class="crpl-subtitle">How volunteering works, requirements, and perks.</p>
+  </header>
+
+  <div class="crpl-faq-grid">
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Do you drive your own cars?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No. We partner with Enterprise and rent a fleet each weekend, so members don't use personal vehicles and riders get clean, well-maintained cars.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">What if I don't have a car?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No problem. You won't drive your own car for operations. If you need a lift to our base (The Lime) for your shift, members are happy to help—just ask.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">What if I don't like driving?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Plenty of roles aren't driving: navigating, answering phones, and staffing Northgate Station. We won't assign a role you're uncomfortable with.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Do you work every weekend?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Only if you want to. Sign up for nights that work for you. New members: 4 nights/semester. Returning members: 5 nights/semester. However often you serve—you're saving lives.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Do members get paid?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No salary, but lots of perks: free food during shifts (thanks to sponsors), service hours, training, leadership development, and a tight community. The biggest reward is knowing you helped keep people safe.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Do I pay for gas?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No. Gas is covered by CARPOOL's budget.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">Can I still go out if I'm a member?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        Yes—on nights you're not scheduled. Members must not consume alcohol after 6:00&nbsp;am on a day they've signed up to work.
+      </div>
+    </details>
+
+    <details class="crpl-faq-item">
+      <summary class="crpl-question-wrapper">
+        <span class="crpl-question-text">If someone calls mid-week, do I have to pick them up?</span>
+        <svg class="crpl-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M6 8l4 4 4-4"/>
+        </svg>
+      </summary>
+      <div class="crpl-answer">
+        No. We only run Friday &amp; Saturday from 10:00&nbsp;pm–3:00&nbsp;am. Calls aren't answered outside operating hours.
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('crpl-search');
+    const expandAllBtn = document.getElementById('crpl-expand-all');
+    const collapseAllBtn = document.getElementById('crpl-collapse-all');
+    const resultsCount = document.getElementById('crpl-results-count');
+    const allFaqItems = document.querySelectorAll('.crpl-faq-item');
+    
+    // Store original text for each FAQ
+    const originalTexts = new Map();
+    allFaqItems.forEach(function(item) {
+      const question = item.querySelector('.crpl-question-text');
+      const answer = item.querySelector('.crpl-answer');
+      if (question && answer) {
+        originalTexts.set(item, {
+          question: question.textContent,
+          answer: answer.textContent
+        });
+      }
+    });
+    
+    // Expand all functionality
+    if (expandAllBtn) {
+      expandAllBtn.addEventListener('click', function() {
+        allFaqItems.forEach(function(item) {
+          if (!item.classList.contains('crpl-hidden')) {
+            item.setAttribute('open', '');
+          }
+        });
+      });
+    }
+    
+    // Collapse all functionality
+    if (collapseAllBtn) {
+      collapseAllBtn.addEventListener('click', function() {
+        allFaqItems.forEach(function(item) {
+          item.removeAttribute('open');
+        });
+      });
+    }
+    
+    // Search functionality
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const query = searchInput.value.toLowerCase().trim();
+        
+        // Clear all highlights first
+        allFaqItems.forEach(function(item) {
+          const original = originalTexts.get(item);
+          if (original) {
+            const question = item.querySelector('.crpl-question-text');
+            const answer = item.querySelector('.crpl-answer');
+            if (question) question.textContent = original.question;
+            if (answer) answer.textContent = original.answer;
+          }
+        });
+        
+        if (!query) {
+          // Show all items if search is empty
+          allFaqItems.forEach(function(item) {
+            item.classList.remove('crpl-hidden');
+          });
+          // Show all section headers
+          document.querySelectorAll('.crpl-page-header').forEach(function(header) {
+            header.style.display = '';
+          });
+          document.querySelectorAll('.crpl-faq-grid').forEach(function(grid) {
+            grid.style.display = '';
+          });
+          resultsCount.textContent = '';
+          return;
+        }
+        
+        let visibleCount = 0;
+        
+        allFaqItems.forEach(function(item) {
+          const original = originalTexts.get(item);
+          if (!original) return;
+          
+          const questionText = original.question.toLowerCase();
+          const answerText = original.answer.toLowerCase();
+          const matches = questionText.includes(query) || answerText.includes(query);
+          
+          if (matches) {
+            item.classList.remove('crpl-hidden');
+            visibleCount++;
+            
+            // Highlight matching text
+            const question = item.querySelector('.crpl-question-text');
+            const answer = item.querySelector('.crpl-answer');
+            
+            if (question && questionText.includes(query)) {
+              question.innerHTML = highlightText(original.question, query);
+            }
+            
+            if (answer && answerText.includes(query)) {
+              answer.innerHTML = highlightText(original.answer, query);
+            }
+          } else {
+            item.classList.add('crpl-hidden');
+          }
+        });
+        
+        // Hide section headers if all their cards are hidden
+        document.querySelectorAll('.crpl-faq-grid').forEach(function(grid) {
+          const itemsInGrid = grid.querySelectorAll('.crpl-faq-item');
+          const allHidden = Array.from(itemsInGrid).every(function(item) {
+            return item.classList.contains('crpl-hidden');
+          });
+          
+          // Find the header before this grid
+          let prevElement = grid.previousElementSibling;
+          while (prevElement && !prevElement.classList.contains('crpl-page-header')) {
+            prevElement = prevElement.previousElementSibling;
+          }
+          
+          if (allHidden) {
+            grid.style.display = 'none';
+            if (prevElement) prevElement.style.display = 'none';
+          } else {
+            grid.style.display = '';
+            if (prevElement) prevElement.style.display = '';
+          }
+        });
+        
+        // Update results count
+        if (visibleCount === 0) {
+          resultsCount.textContent = 'No results found';
+        } else if (visibleCount === allFaqItems.length) {
+          resultsCount.textContent = 'Showing all questions';
+        } else {
+          resultsCount.textContent = 'Showing ' + visibleCount + ' of ' + allFaqItems.length + ' questions';
+        }
+      });
+    }
+    
+    // Helper function to highlight matching text
+    function highlightText(text, query) {
+      if (!query) return escapeHtml(text);
+      
+      const regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
+      return escapeHtml(text).replace(regex, '<span class="crpl-highlight">$1</span>');
+    }
+    
+    // Escape HTML
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+    
+    // Escape regex special characters
+    function escapeRegex(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Ctrl/Cmd + K to focus search
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        if (searchInput) {
+          searchInput.focus();
+        }
+      }
+      
+      // Escape to clear search
+      if (e.key === 'Escape' && searchInput === document.activeElement) {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.blur();
+      }
+    });
+    
+    console.log('[CRPL FAQ] Interactive features initialized');
+  });
+})();
+</script>
+</section>

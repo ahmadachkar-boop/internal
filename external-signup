@@ -1,0 +1,581 @@
+<!-- Place this in an Avada Code Block -->
+<div id="vsu-widget"></div>
+
+<script type="module">
+(() => {
+  // ====== EDITABLE CONFIG ======
+  const API = {
+    endpoint: 'https://script.google.com/macros/s/AKfycbwn0p9Jz6zXGVlIPz9a5QJnrO7qH1FLHgx6nnELutrkel5A72GzYZpcZtO2rs3DxUtL/exec',
+    token: 'production'
+  };
+  const AVAILABLE_MMD = [
+    '9/5','9/6','9/12','9/13','9/19','9/20','9/26','9/27',
+    '10/3','10/4','10/17','10/18','10/24','10/25',
+    '11/1','11/7','11/8','11/14','11/15'
+  ];
+  const NIGHTS_YEAR = new Date().getFullYear();
+
+  // ====== HOST / SHADOW ROOT ======
+  const host = document.getElementById('vsu-widget');
+Object.assign(host.style, {
+  display: 'block',
+  width: '100vw',
+  position: 'relative',
+  left: '50%',
+  right: '50%',
+  marginLeft: '-50vw',
+  marginRight: '-50vw',
+  maxWidth: '100vw',
+  overflow: 'hidden' // avoids tiny horizontal scrollbars on some themes
+});
+  if (!host) { console.error('[vsu] host #vsu-widget not found'); return; }
+  const root = host.attachShadow({ mode: 'open' });
+
+  // ====== STYLE (Shadow-scoped) ======
+  const style = document.createElement('style');
+  style.textContent = `
+    :host{all:initial}
+    :host, *,:before,:after{box-sizing:border-box}
+    :host{display:block;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#1a1a1a;--maroon:#500000;--maroon-light:#6d0000;--maroon-dark:#3a0000;--cream:#f5f1e8;--gold:#ffdc7a;--success:#047857;--gray:#6b7280;--light-gray:#f9fafb;--white:#fff;--shadow-sm:0 1px 3px rgba(80,0,0,.08),0 1px 2px rgba(80,0,0,.04);--shadow-md:0 4px 12px rgba(80,0,0,.12),0 2px 4px rgba(80,0,0,.06);--shadow-lg:0 10px 30px rgba(80,0,0,.15),0 4px 12px rgba(80,0,0,.08);--radius:16px}
+    
+    .wrap{min-height:100vh;background:linear-gradient(135deg,#faf8f3 0%,#f5f1e8 50%,#ede8dc 100%);padding:clamp(24px,5vw,48px) 0}
+    .container{max-width:100%;margin:0;padding:0 clamp(16px,3vw,32px)}
+    
+   header.head{
+  text-align:left;
+  /* center within the same 1200px max width as the calendar */
+  margin:0 auto clamp(16px,3vh,32px);
+  padding:0 16px;
+  max-width:1200px;
+}
+    h1{margin:0 0 12px;font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--maroon);letter-spacing:-.02em;text-shadow:0 2px 8px rgba(80,0,0,.08)}
+    h1::after{content:"";display:block;width:80px;height:4px;background:var(--maroon);margin:12px 0 0;border-radius:2px}
+    .sub{margin:0 0 16px;color:var(--maroon-light);font-size:clamp(14px,2vw,17px);font-weight:500;line-height:1.5}
+    .prereq{margin:16px 0 0;padding:16px 20px;background:linear-gradient(135deg,#fff9f9 0%,#ffebeb 100%);border-left:4px solid var(--maroon);border-radius:8px;font-size:clamp(14px,1.8vw,16px);line-height:1.6;color:var(--maroon-dark)}
+    .prereq strong{font-weight:900;color:var(--maroon)}
+    .prereq a{color:var(--maroon);text-decoration:underline;font-weight:700}
+    .prereq a:hover{color:var(--maroon-light)}
+    
+    /* ===== Layout: always 2 columns on desktop, stacked on mobile ===== */
+    .layout{display:grid;grid-template-columns:1fr;gap:24px;align-items:start;transition:all .5s cubic-bezier(.4,0,.2,1)}
+    @media(min-width:900px){
+      .layout{grid-template-columns:60fr 40fr;max-width:1200px;margin:0 auto;gap:32px}
+    }
+    /* Keep the right column visible while scrolling on desktop */
+    @media(min-width:900px){
+      .form-wrapper{position:sticky; top:24px}
+    }
+
+    .form-wrapper{opacity:1;transform:translateX(0)}
+    
+    .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden;border:2px solid rgba(80,0,0,.06);transition:all .3s ease}
+    
+    
+    .cal-card{position:relative;overflow:hidden}
+    .cal-card::before{content:"";position:absolute;top:-2px;left:-2px;right:-2px;height:8px;background:linear-gradient(90deg,var(--maroon) 0%,var(--maroon-light) 50%,var(--maroon) 100%);border-radius:var(--radius) var(--radius) 0 0}
+    
+    .cal-inner{padding:clamp(20px,4vw,32px);padding-bottom:clamp(28px,5vw,40px)}
+    
+    .cal-legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--cream)}
+    .cal-legend .key{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:var(--light-gray);font-weight:700;font-size:14px;color:#2d2d2d;border:2px solid transparent;transition:all .2s ease}
+    .cal-legend .key::before{content:"";width:12px;height:12px;border-radius:50%;display:inline-block;border:2px solid rgba(0,0,0,.1)}
+    .cal-legend .key.open::before{background:var(--maroon);box-shadow:0 0 0 3px rgba(80,0,0,.15)}
+    .cal-legend .key.selected::before{background:var(--success);box-shadow:0 0 0 3px rgba(4,120,87,.15)}
+    .cal-legend .key.disabled::before{background:#cbd5e1}
+    
+    .cal-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .cal-title{font-weight:900;font-size:clamp(20px,3vw,26px);color:var(--maroon);text-align:center;flex:1;letter-spacing:-.01em}
+    
+    .nav-btn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 20px;border-radius:12px;border:2px solid var(--maroon);background:var(--white);font-weight:800;font-size:15px;color:var(--maroon);cursor:pointer;transition:all .2s ease;box-shadow:var(--shadow-sm)}
+    .nav-btn:hover:not([disabled]){background:var(--maroon);color:var(--white);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .nav-btn:active:not([disabled]){transform:translateY(0)}
+    .nav-btn[disabled]{opacity:.35;cursor:not-allowed;border-color:#cbd5e1;color:#9ca3af}
+    .nav-btn.prev::before,.nav-btn.next::after{content:"";display:inline-block;width:0;height:0;border-style:solid}
+    .nav-btn.prev::before{border-width:6px 8px 6px 0;border-color:transparent currentColor transparent transparent;margin-right:4px}
+    .nav-btn.next::after{border-width:6px 0 6px 8px;border-color:transparent transparent transparent currentColor;margin-left:4px}
+    
+    .cal-month{padding:0;margin:0;border:none;background:transparent}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(6px,1.5vw,10px)}
+    .dow{text-align:center;font-weight:900;font-size:clamp(12px,1.8vw,15px);color:var(--maroon);padding:12px 0;text-transform:uppercase;letter-spacing:.5px}
+    
+    .cell{position:relative;aspect-ratio:1;min-height:unset;border:2px solid #e5e7eb;border-radius:14px;background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;overflow:visible;cursor:default;transition:all .25s ease;-webkit-tap-highlight-color:transparent}
+    .cell .date{font-weight:900;font-size:clamp(16px,2.2vw,20px);color:#1a1a1a;line-height:1}
+    
+    .badge{position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:800;padding:3px 8px;border-radius:999px;background:var(--white);white-space:nowrap;box-shadow:var(--shadow-sm);border:2px solid currentColor}
+    
+    .cell.open{background:linear-gradient(135deg,#fff 0%,#fff9f9 100%);border-color:var(--maroon);cursor:pointer;box-shadow:var(--shadow-sm)}
+    .cell.open:hover{transform:translateY(-4px) scale(1.05);box-shadow:var(--shadow-md);border-color:var(--maroon-light);background:linear-gradient(135deg,#fff5f5 0%,#ffebeb 100%)}
+    .cell.open .badge{color:var(--maroon);border-color:var(--maroon)}
+    
+    .cell.selected{background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);border-color:var(--success);border-width:3px;transform:scale(1.08);box-shadow:0 8px 20px rgba(4,120,87,.25)}
+    .cell.selected .badge{color:var(--success);border-color:var(--success)}
+    
+    .cell.disabled{background:#f9fafb;border-color:#e5e7eb;color:#9ca3af;opacity:.6}
+    .cell.disabled .badge{color:#6b7280;border-color:#9ca3af}
+    
+    .cell.today{box-shadow:0 0 0 3px rgba(255,220,122,.5),var(--shadow-sm)}
+    .cell.today .date{color:var(--maroon)}
+    
+    .picked{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:linear-gradient(135deg,#fff9f9 0%,#ffebeb 100%);border-radius:var(--radius);border:3px solid var(--maroon);box-shadow:var(--shadow-md);margin-bottom:24px;transition:all .3s ease}
+    .picked.has-date{background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);border-color:var(--success)}
+    .picked-copy{margin:0;font-weight:600;font-size:16px;color:var(--maroon-dark);line-height:1.4;flex:1}
+    .picked.has-date .picked-copy{color:#065f46}
+    .picked-copy strong{font-weight:900;color:var(--success)}
+    
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 24px;border-radius:12px;border:2px solid transparent;background:var(--maroon);font-weight:800;font-size:15px;text-decoration:none;color:var(--white);box-shadow:var(--shadow-md);transition:all .2s ease;cursor:pointer;white-space:nowrap}
+    .btn:hover:not([disabled]){background:var(--maroon-light);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+    .btn:active:not([disabled]){transform:translateY(0)}
+    .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+    .btn.ghost{background:var(--white);border-color:var(--success);color:var(--success)}
+    .btn.ghost:hover{background:var(--success);color:var(--white)}
+    
+    .form{padding:clamp(24px,4vw,40px);background:var(--white)}
+    .form::before{content:"";display:block;height:8px;background:linear-gradient(90deg,var(--maroon) 0%,var(--maroon-light) 50%,var(--maroon) 100%);margin:-24px -24px 24px;border-radius:var(--radius) var(--radius) 0 0}
+    @media(min-width:900px){
+      .form::before{margin:-40px -40px 32px}
+    }
+    .form h2{margin:0 0 24px;font-size:clamp(22px,3vw,28px);font-weight:900;color:var(--maroon);letter-spacing:-.01em}
+    
+    .grid{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:640px){
+      .grid{grid-template-columns:repeat(2,1fr);gap:24px}
+    }
+    
+    .field{display:grid;gap:8px;margin:0}
+    .label{display:block;margin:0;font-weight:800;font-size:15px;color:var(--maroon-dark);line-height:1.3}
+    .field input,.field select{height:52px;padding:14px 16px;margin:0;border-radius:12px;border:2px solid #e5e7eb;font:inherit;font-size:15px;outline:none;box-shadow:var(--shadow-sm);background:var(--white);transition:all .2s ease;-webkit-appearance:none;appearance:none}
+    .field input:focus,.field select:focus{border-color:var(--maroon);box-shadow:0 0 0 4px rgba(80,0,0,.1),var(--shadow-sm)}
+    .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%23500000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:44px}
+    
+    .err{display:none;color:#dc2626;font-size:13px;font-weight:600;margin-top:4px}
+    .invalid .err{display:block}
+    .invalid input,.invalid select{border-color:#dc2626;background:#fef2f2}
+    
+    .actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:28px;padding-top:28px;border-top:2px solid var(--cream)}
+    .status{display:inline-block;min-height:1.5em;margin:0;font-weight:700;font-size:15px;color:var(--maroon)}
+    .status.ok{color:var(--success)}
+    .status.fail{color:#dc2626}
+    
+    @media(max-width:899px){
+      .layout{gap:32px}
+    }
+    
+    @media(max-width:640px){
+      h1{font-size:28px}
+      h1::after{width:60px;height:3px}
+      .sub{font-size:16px}
+      header.head{padding:0 12px}
+      .cal-inner{padding:20px}
+      .cal-legend{gap:8px;margin-bottom:20px;padding-bottom:16px}
+      .cal-legend .key{padding:6px 12px;font-size:13px;gap:8px}
+      .cal-legend .key::before{width:10px;height:10px}
+      .cal-nav{gap:12px;margin-bottom:20px}
+      .cal-title{font-size:18px}
+      .nav-btn{min-width:40px;min-height:40px;padding:0 16px;font-size:14px}
+      .cal-grid{gap:6px}
+      .cell{border-radius:12px;padding:6px}
+      .cell .date{font-size:15px}
+      .dow{font-size:11px;padding:10px 0}
+      .badge{bottom:-4px;font-size:8px;padding:2px 6px;font-weight:700;letter-spacing:0}
+      .picked{flex-direction:column;align-items:stretch;padding:16px 20px;gap:12px}
+      .picked-copy{font-size:15px}
+      .btn{min-height:48px;font-size:16px}
+      .prereq{margin:12px 0 0;padding:12px 16px;font-size:14px}
+      .form{padding:24px 20px}
+      .form::before{margin:-24px -20px 20px}
+      .form h2{font-size:22px;margin-bottom:20px}
+      .grid{gap:16px}
+      .actions{margin-top:24px;padding-top:24px}
+    }
+    
+    @media(max-width:480px){
+      .badge{font-size:7px;padding:2px 5px;bottom:-3px}
+      .cell{padding:4px}
+      .cal-grid{gap:4px}
+    }
+  `;
+
+  // ====== TEMPLATE (markup inside shadow) ======
+  const tpl = document.createElement('template');
+  tpl.innerHTML = `
+    <div class="wrap">
+      <div class="container">
+        <header class="head">
+          <h1>Volunteer Nights — Sign Up</h1>
+          <p class="sub">Select an available night from the calendar below to begin your volunteer registration</p>
+          <div class="prereq">
+            <strong>⚠️ Important:</strong> Before signing up for a volunteer night, you must first complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRQnL5ZUicnLiwjbb_VUma0Bw21vUiVhL72nZDIt8VNGEMag/viewform?usp=sharing&ouid=108869989350245222689" target="_blank" rel="noopener noreferrer">volunteer registration form</a>. Once completed, return here to select your preferred date.
+          </div>
+        </header>
+
+        <div class="layout">
+          <div class="cal-card card" aria-label="Volunteer nights calendar">
+            <div class="cal-inner">
+              <div class="cal-legend" aria-hidden="true">
+                <span class="key open">Available</span>
+                <span class="key selected">Selected</span>
+                <span class="key disabled">Not Available</span>
+              </div>
+              <div id="cal" data-mode="single" aria-live="polite"></div>
+              <noscript><p style="margin:10px 0;color:var(--maroon)">Please enable JavaScript to view the calendar.</p></noscript>
+            </div>
+          </div>
+
+          <div class="form-wrapper" id="formWrapper">
+            <div id="picked" class="picked">
+              <p class="picked-copy" id="pickedCopy">📅 Please select a date from the calendar to continue</p>
+              <button type="button" id="changeDateBtn" class="btn ghost" hidden>Change date</button>
+            </div>
+
+            <form id="form" class="card form" novalidate>
+              <h2>Volunteer Details</h2>
+              <div class="grid">
+                <label class="field">
+                  <span class="label">Full name</span>
+                  <input type="text" name="name" required placeholder="First Last" />
+                  <small class="err">Please enter your name.</small>
+                </label>
+
+                <label class="field">
+                  <span class="label">Email</span>
+                  <input type="email" name="email" required placeholder="you@domain.com" />
+                  <small class="err">Please enter a valid email.</small>
+                </label>
+
+                <label class="field">
+                  <span class="label">UIN</span>
+                  <input type="text" name="uin" inputmode="numeric" pattern="\\d{9}" title="9-digit UIN" required placeholder="#########" />
+                  <small class="err">Please enter your 9-digit UIN.</small>
+                </label>
+
+                <label class="field">
+                  <span class="label">Gender</span>
+                  <select name="gender" required>
+                    <option value="" selected disabled>Select…</option>
+                    <option>Woman</option>
+                    <option>Man</option>
+                    <option>Non-binary</option>
+                    <option>Prefer not to say</option>
+                    <option>Other</option>
+                  </select>
+                  <small class="err">Please select a value.</small>
+                </label>
+
+                <label class="field">
+                  <span class="label">Organization</span>
+                  <input type="text" name="organization" required placeholder="Organization / Group name" />
+                  <small class="err">Please enter an organization.</small>
+                </label>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="btn">Submit sign-up</button>
+                <output id="status" class="status" role="status" aria-live="polite"></output>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  root.append(style, tpl.content.cloneNode(true));
+
+  // ====== JS LOGIC (scoped to shadow) ======
+  const $ = (sel, el = root) => el.querySelector(sel);
+  const ui = {
+    layout: $('.layout'),
+    formWrapper: $('#formWrapper'),
+    calMount: $('#cal'),
+    pickedBar: $('#picked'),
+    pickedCopy: $('#pickedCopy'),
+    changeDateBtn: $('#changeDateBtn'),
+    form: $('#form'),
+    formStatus: $('#status')
+  };
+
+  // hidden ISO date input
+  let hiddenNight = ui.form.querySelector('input[name="night"]');
+  if (!hiddenNight) {
+    hiddenNight = document.createElement('input');
+    hiddenNight.type = 'hidden';
+    hiddenNight.name = 'night';
+    ui.form.appendChild(hiddenNight);
+  }
+
+  const fmtLong  = new Intl.DateTimeFormat(undefined, { weekday:'short', month:'long', day:'numeric', year:'numeric' });
+  const fmtMonth = new Intl.DateTimeFormat(undefined, { month:'long', year:'numeric' });
+
+  const isoFromMDY = (y, m, d) => {
+    const dt = new Date(y, m - 1, d, 12, 0, 0);
+    return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
+  };
+  const isPastISO = (iso) => {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return new Date(iso + 'T00:00:00') < today;
+  };
+  const isTodayISO = (iso) => {
+    const t = new Date();
+    const k = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
+    return iso === k;
+  };
+
+  const availableISO = new Set((AVAILABLE_MMD || []).map(s => {
+    const [m, d] = s.split('/').map(n => parseInt(n, 10));
+    return isoFromMDY(NIGHTS_YEAR, m, d);
+  }));
+
+  const monthsPresent = [...availableISO].reduce((acc, iso) => {
+    const dt = new Date(iso + 'T12:00:00');
+    acc.add(`${dt.getFullYear()}-${dt.getMonth()}`);
+    return acc;
+  }, new Set());
+  const monthList = [...monthsPresent].sort((a,b) => {
+    const [ya,ma] = a.split('-').map(Number);
+    const [yb,mb] = b.split('-').map(Number);
+    return ya === yb ? ma - mb : ya - yb;
+  });
+
+  const now = new Date();
+  const currentKey = `${now.getFullYear()}-${now.getMonth()}`;
+  let viewIndex = Math.max(0, monthList.indexOf(currentKey));
+  if (viewIndex === -1) viewIndex = 0;
+
+  function renderMonth(key){
+    const mount = ui.calMount; if (!mount) return;
+    mount.innerHTML = '';
+
+    const [yStr, mStr] = key.split('-');
+    const y = +yStr, m0 = +mStr, m = m0 + 1;
+
+    const first = new Date(y, m0, 1);
+    const last  = new Date(y, m0 + 1, 0);
+    const firstDow = first.getDay();
+    const daysInMonth = last.getDate();
+
+    const nav = document.createElement('div');
+    nav.className = 'cal-nav';
+
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'nav-btn prev';
+    prev.setAttribute('aria-label', 'Previous month');
+    prev.textContent = 'Prev';
+    prev.disabled = (viewIndex === 0);
+    prev.addEventListener('click', () => { viewIndex--; renderMonth(monthList[viewIndex]); });
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'nav-btn next';
+    next.setAttribute('aria-label', 'Next month');
+    next.textContent = 'Next';
+    next.disabled = (viewIndex === monthList.length - 1);
+    next.addEventListener('click', () => { viewIndex++; renderMonth(monthList[viewIndex]); });
+
+    const title = document.createElement('div');
+    title.className = 'cal-title';
+    title.textContent = fmtMonth.format(first);
+
+    nav.append(prev, title, next);
+
+    const wrap = document.createElement('section');
+    wrap.className = 'cal-month';
+
+    const grid = document.createElement('div');
+    grid.className = 'cal-grid';
+
+    ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d => {
+      const h = document.createElement('div');
+      h.className = 'dow'; h.textContent = d;
+      grid.appendChild(h);
+    });
+
+    for (let i = 0; i < firstDow; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'cell disabled';
+      grid.appendChild(empty);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const iso = isoFromMDY(y, m, day);
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'cell';
+      cell.innerHTML = `<div class="date">${day}</div>`;
+
+      if (isTodayISO(iso)) cell.classList.add('today');
+
+      if (availableISO.has(iso) && !isPastISO(iso)) {
+        cell.classList.add('open');
+        cell.dataset.iso = iso;
+
+        const badge = document.createElement('div');
+        badge.className = 'badge'; badge.textContent = 'Open';
+        cell.appendChild(badge);
+
+        cell.addEventListener('click', () => onPick(iso, cell));
+        cell.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(iso, cell); }
+        });
+      } else {
+        cell.classList.add('disabled');
+        if (availableISO.has(iso) && isPastISO(iso)) {
+          const badge = document.createElement('div');
+          badge.className = 'badge'; badge.textContent = 'Closed';
+          cell.appendChild(badge);
+        }
+      }
+
+      grid.appendChild(cell);
+    }
+
+    wrap.appendChild(grid);
+    mount.append(nav, wrap);
+
+    if (hiddenNight.value) {
+      const selectedBtn = mount.querySelector(`.cell.open[data-iso="${hiddenNight.value}"]`);
+      if (selectedBtn) {
+        selectedBtn.classList.add('selected');
+        selectedBtn.setAttribute('aria-pressed','true');
+      }
+    }
+  }
+
+  function clearSelected(){
+    ui.calMount?.querySelectorAll('.cell.open[aria-pressed="true"]').forEach(el => {
+      el.setAttribute('aria-pressed','false');
+      el.classList.remove('selected');
+    });
+  }
+  function onPick(iso, btn){
+    clearSelected();
+    btn.classList.add('selected');
+    btn.setAttribute('aria-pressed','true');
+
+    ui.pickedBar?.classList.add('has-date');
+    ui.pickedCopy.innerHTML = `You selected: <strong>${fmtLong.format(new Date(iso + 'T12:00:00'))}</strong>`;
+    ui.changeDateBtn.hidden = false;
+    hiddenNight.value = iso;
+
+    ui.form.querySelector('input[name="name"]')?.focus();
+  }
+
+  ui.changeDateBtn?.addEventListener('click', () => {
+    clearSelected();
+    ui.pickedBar?.classList.remove('has-date');
+    ui.pickedCopy.textContent = '📅 Please select a date from the calendar to continue';
+    ui.changeDateBtn.hidden = true;
+    hiddenNight.value = '';
+    ui.form.reset();
+  });
+
+  function showStatus(msg, type = ''){
+    const el = ui.formStatus; if (!el) return;
+    el.hidden = !msg; el.textContent = msg || '';
+    el.className = 'status' + (type ? (' ' + type) : '');
+  }
+  function getFormData(){
+    const f = ui.form;
+    return {
+      night:        (hiddenNight?.value || '').trim(),
+      name:         (f.elements['name']?.value || '').trim(),
+      email:        (f.elements['email']?.value || '').trim(),
+      uin:          (f.elements['uin']?.value || '').trim(),
+      gender:       (f.elements['gender']?.value || '').trim(),
+      organization: (f.elements['organization']?.value || '').trim()
+    };
+  }
+  function isValidEmail(v){
+    return !!v && v.includes('@') && v.includes('.');
+  }
+  function isValidUIN(v){
+    return /^\d{9}$/.test(v);
+  }
+  function markInvalid(name, bad){
+    const field = ui.form.querySelector(`[name="${name}"]`)?.closest('.field');
+    if (field) field.classList.toggle('invalid', bad);
+  }
+  function validate(payload){
+    const errors = [];
+    if (!payload.night)        errors.push('Please select a date from the calendar.');
+    if (!payload.name)         errors.push('Please enter your name.');
+    if (!payload.email || !isValidEmail(payload.email)) errors.push('Please enter a valid email.');
+    if (!payload.uin || !isValidUIN(payload.uin))       errors.push('Please enter your 9-digit UIN.');
+    if (!payload.gender)       errors.push('Please select a gender.');
+    if (!payload.organization) errors.push('Please enter your organization.');
+
+    ['name','email','uin','gender','organization'].forEach(n => {
+      let bad = !payload[n];
+      if (n === 'email') bad = !isValidEmail(payload.email);
+      if (n === 'uin')   bad = !isValidUIN(payload.uin);
+      markInvalid(n, bad);
+    });
+    return errors;
+  }
+
+  async function onSubmit(e){
+    e.preventDefault();
+    showStatus('');
+    const submitBtn = ui.form.querySelector('button[type="submit"]');
+
+    const payload = getFormData();
+    const errors  = validate(payload);
+    if (errors.length){ showStatus(errors[0], 'fail'); return; }
+
+    if (submitBtn){
+      submitBtn.disabled = true;
+      submitBtn.dataset.label = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting…';
+    }
+
+    try {
+      const body = new URLSearchParams();
+      body.set('night', payload.night);
+      body.set('name', payload.name);
+      body.set('email', payload.email);
+      body.set('uin', payload.uin);
+      body.set('gender', payload.gender);
+      body.set('organization', payload.organization);
+
+      const res = await fetch(API.endpoint + '?token=' + encodeURIComponent(API.token), {
+        method: 'POST',
+        body,
+        credentials: 'omit'
+      });
+
+      let json = {}; let text = '';
+      try { text = await res.text(); json = JSON.parse(text); } catch {}
+
+      if (res.ok && json.ok) {
+        showStatus('Thanks! Your signup was received ', 'ok');
+        ui.form.reset();
+        hiddenNight.value = payload.night;
+      } else if (res.status === 403) {
+        showStatus('Access blocked (token mismatch).', 'fail');
+        console.warn('403 response:', text);
+      } else {
+        showStatus('Submission failed. Please try again.', 'fail');
+        console.warn('Non-OK response:', res.status, text);
+      }
+    } catch (err) {
+      console.error('[vsu] fetch failed:', err);
+      showStatus('Network error. Please try again.', 'fail');
+    } finally {
+      if (submitBtn){
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn.dataset.label || 'Submit sign-up';
+      }
+    }
+  }
+
+  function init(){
+    ui.form?.addEventListener('submit', onSubmit);
+    ui.calMount?.setAttribute('data-mode','single');
+    if (monthList.length) renderMonth(monthList[Math.max(0, viewIndex)]);
+    else ui.calMount.innerHTML = '<p style="margin:10px 0;color:var(--maroon)">No volunteer nights available right now.</p>';
+  }
+
+  init();
+})();
+</script>

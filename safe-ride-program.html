@@ -1,0 +1,400 @@
+<section class="carpool-srp" aria-labelledby="srp-title">
+  <style>
+    /* ====== Modern Styled: Start a Safe Ride Program ====== */
+    .carpool-srp{
+      --accent:#500000;            /* Aggie maroon */
+      --accent-600:#6a0000;
+      --accent-400:#8c3a3a;
+      --accent-200:#c48d8d;
+      --accent-50:#fef5f5;
+      --text:#111827;
+      --text-light:#374151;
+      --muted:#6b7280;
+      --bg:#fafafa;
+      --card:#ffffff;
+      --radius:18px;
+      --shadow-sm: 0 2px 8px rgba(80,0,0,.08);
+      --shadow-md: 0 6px 20px rgba(80,0,0,.12);
+      --shadow-lg: 0 12px 32px rgba(80,0,0,.16);
+      --shadow-xl: 0 20px 50px rgba(80,0,0,.20);
+    }
+    
+    .carpool-srp{ 
+      color:var(--text); 
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      min-height:100vh;
+    }
+    
+    .carpool-srp .wrap{ 
+      max-width:1200px; 
+      margin:0 auto; 
+      padding:60px 24px 80px; 
+      display:flow-root; 
+    }
+
+    /* ---- Page Header (matching other pages) ---- */
+    .carpool-srp .page-head{ 
+      margin:0 0 24px; 
+      text-align:left;
+    }
+    
+    .carpool-srp .page-head h1{
+      margin:0 0 10px; 
+      font-weight:900; 
+      letter-spacing:.2px;
+      line-height:1.1; 
+      font-size:clamp(30px,3.6vw,46px);
+    }
+    
+    .carpool-srp .page-head h1::after{
+      content:""; 
+      display:block; 
+      width:96px; 
+      height:3px; 
+      margin:14px 0 0;
+      background:linear-gradient(90deg,var(--accent),var(--accent-400)); 
+      border-radius:999px;
+    }
+    
+    .carpool-srp .page-head .sub{ 
+      margin:10px 0 0; 
+      color:var(--muted); 
+      font-size:clamp(15px,1.6vw,17px);
+    }
+
+    /* ---- Modern Cards ---- */
+    .carpool-srp .card{
+      background:var(--card); 
+      border:1px solid rgba(80,0,0,.08); 
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-md); 
+      padding:32px;
+      position:relative;
+      overflow:hidden;
+      transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .carpool-srp .card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(90deg, var(--accent), var(--accent-400), var(--accent-200));
+      opacity:.8;
+    }
+    
+    .carpool-srp .card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-xl);
+      border-color:rgba(80,0,0,.12);
+    }
+    
+    .carpool-srp .card h2{
+      margin:0 0 16px; 
+      font-size:clamp(22px,2.6vw,28px); 
+      font-weight:900;
+      color:var(--accent);
+      letter-spacing:-.01em;
+    }
+    
+    .carpool-srp .card p{ 
+      margin:0 0 16px; 
+      line-height:1.8; 
+      color:var(--text-light);
+      font-size:16px;
+    }
+    
+    .carpool-srp .checklist{ 
+      margin:16px 0 0; 
+      padding-left:0;
+      list-style:none;
+    }
+    
+    .carpool-srp .checklist li{ 
+      margin:10px 0;
+      padding-left:32px;
+      position:relative;
+      line-height:1.6;
+      color:var(--text-light);
+    }
+    
+    .carpool-srp .checklist li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      width:24px;
+      height:24px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-400));
+      color:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:14px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    /* ---- Media Grid Layout ---- */
+    .carpool-srp .media{
+      display:grid; 
+      gap:24px; 
+      grid-template-columns:1fr;
+      align-items:start;
+      margin-bottom:32px;
+    }
+    
+    @media (min-width:900px){
+      .carpool-srp .media{ 
+        grid-template-columns:1.1fr .9fr; 
+      }
+    }
+    
+    .carpool-srp .figure{
+      background:var(--card); 
+      border:1px solid rgba(80,0,0,.08); 
+      border-radius:var(--radius);
+      overflow:hidden; 
+      box-shadow:var(--shadow-md);
+      transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      position:relative;
+    }
+    
+    .carpool-srp .figure::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, transparent 60%, rgba(80,0,0,.03));
+      pointer-events:none;
+    }
+    
+    .carpool-srp .figure:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-xl);
+    }
+    
+    .carpool-srp .figure img{ 
+      display:block; 
+      width:100%; 
+      height:auto;
+      transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .carpool-srp .figure:hover img{
+      transform:scale(1.02);
+    }
+    
+    .carpool-srp .figure figcaption{
+      font-size:.94rem; 
+      color:var(--muted); 
+      padding:14px 16px; 
+      text-align:center;
+      font-weight:500;
+      background:rgba(250,250,250,.8);
+      backdrop-filter:blur(8px);
+    }
+
+    /* ---- Modern CTA Buttons ---- */
+    .carpool-srp .cta-row{
+      display:grid; 
+      gap:14px; 
+      margin:24px 0 0;
+      grid-template-columns:1fr;
+    }
+    
+    @media (min-width:680px){
+      .carpool-srp .cta-row{ 
+        grid-template-columns:auto auto; 
+        justify-content:start; 
+      }
+    }
+    
+    .carpool-srp .btn{
+      display:inline-flex; 
+      align-items:center; 
+      justify-content:center; 
+      gap:10px;
+      padding:14px 24px; 
+      border-radius:12px; 
+      font-weight:700; 
+      text-decoration:none;
+      font-size:15px;
+      letter-spacing:.01em;
+      border:2px solid var(--accent); 
+      color:var(--accent); 
+      background:#fff;
+      box-shadow:var(--shadow-sm); 
+      transition:all .25s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space:nowrap;
+      position:relative;
+      overflow:hidden;
+    }
+    
+    .carpool-srp .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, var(--accent-50), transparent);
+      opacity:0;
+      transition:opacity .25s ease;
+    }
+    
+    .carpool-srp .btn:hover{ 
+      background:var(--accent-50); 
+      color:var(--accent-600); 
+      transform:translateY(-2px); 
+      box-shadow:var(--shadow-md);
+      border-color:var(--accent-600);
+    }
+    
+    .carpool-srp .btn:hover::before{
+      opacity:1;
+    }
+    
+    .carpool-srp .btn--solid{ 
+      background:linear-gradient(135deg, var(--accent), var(--accent-600)); 
+      color:#fff;
+      border-color:transparent;
+      box-shadow:var(--shadow-md);
+    }
+    
+    .carpool-srp .btn--solid::before{
+      background:linear-gradient(135deg, rgba(255,255,255,.1), transparent);
+    }
+    
+    .carpool-srp .btn--solid:hover{ 
+      background:linear-gradient(135deg, var(--accent-600), #7d0000); 
+      color:#fff;
+      box-shadow:var(--shadow-lg);
+    }
+    
+    .carpool-srp .btn:active{
+      transform:translateY(0);
+    }
+
+    /* ---- Support Card with Enhanced Design ---- */
+    .carpool-srp .support{
+      display:grid; 
+      gap:20px; 
+      grid-template-columns:1fr;
+    }
+    
+    @media (min-width:800px){
+      .carpool-srp .support{ 
+        grid-template-columns:1fr auto; 
+        align-items:center; 
+      }
+    }
+    
+    .carpool-srp .support .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-weight:800; 
+      font-size:14px;
+      color:var(--accent);
+      background:linear-gradient(135deg, var(--accent-50), #fff) padding-box,
+                 linear-gradient(90deg,var(--accent),var(--accent-400)) border-box;
+      border:2px solid transparent; 
+      border-radius:999px; 
+      padding:8px 18px;
+      box-shadow:var(--shadow-sm);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+    
+    .carpool-srp .support .badge::before{
+      content:"★";
+      font-size:16px;
+    }
+
+    /* ---- Utility Classes ---- */
+    .carpool-srp .muted{ 
+      color:var(--muted); 
+    }
+    
+    /* ---- Spacing Utilities ---- */
+    .carpool-srp .mt-20{ margin-top:20px; }
+    .carpool-srp .mt-24{ margin-top:24px; }
+    .carpool-srp .mb-0{ margin-bottom:0; }
+
+    /* ---- Mobile Refinements ---- */
+    @media (max-width:700px){
+      .carpool-srp .wrap{ 
+        padding:40px 18px 60px; 
+      }
+      
+      .carpool-srp .card{ 
+        padding:24px; 
+      }
+      
+      .carpool-srp .page-head{ 
+        margin:0 0 36px; 
+      }
+    }
+
+    /* ---- Reduced Motion ---- */
+    @media (prefers-reduced-motion: reduce){
+      .carpool-srp *,
+      .carpool-srp *::before,
+      .carpool-srp *::after{ 
+        transition:none !important;
+        animation:none !important;
+      }
+    }
+  </style>
+
+  <div class="wrap">
+    <header class="page-head">
+      <h1 id="srp-title">Start a Safe Ride Program</h1>
+      <p class="sub">Starter resources, templates, and where to get help.</p>
+    </header>
+
+    <!-- Intro & image -->
+    <div class="media">
+      <article class="card">
+        <h2>Resources to Get Started</h2>
+        <p>Use our starter materials to plan your launch and operations.</p>
+        <ul class="checklist">
+          <li>Program overview &amp; "quick how-to"</li>
+          <li>Condensed operations manual</li>
+          <li>Sample beginning budget</li>
+          <li>Training materials &amp; templates</li>
+        </ul>
+
+        <div class="cta-row">
+          <a class="btn btn--solid" href="https://drive.google.com/open?id=0B5tVie3SKGvWbF9ORW9vUVNRY2c" target="_blank" rel="noopener">
+            Open Resources Folder
+          </a>
+          <a class="btn" href="mailto:publicrelations.carpool@gmail.com?subject=Starting%20a%20Safe%20Ride%20Program" rel="noopener">
+            Email Public Relations
+          </a>
+        </div>
+      </article>
+
+      <figure class="figure">
+        <img src="https://carpool.tamu.edu/wp-content/uploads/2022/11/SRPU-800x591.jpg" alt="Safe Ride Program resources">
+        <figcaption>Examples from trainings, operations, and outreach.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Extra support -->
+    <section class="card mt-20">
+      <div class="support">
+        <div>
+          <h2 class="mb-0" style="margin:0 0 12px;">More Help &amp; Community</h2>
+          <p class="muted mb-0" style="margin:0;">Connect with peers who run similar programs, share best practices, and get answers to specific questions.</p>
+        </div>
+        <p style="margin:0;align-self:center;">
+          <span class="badge">Recommended</span>
+        </p>
+      </div>
+
+      <div class="cta-row mt-24">
+        <a class="btn btn--solid" href="https://www.nasrp.org/contact" target="_blank" rel="noopener">National Association of Safe Ride Programs</a>
+      </div>
+    </section>
+  </div>
+</section>

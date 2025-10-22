@@ -1,0 +1,791 @@
+<section class="carpool-prospects" aria-labelledby="prospects-title" itemscope itemtype="https://schema.org/WebPage">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://carpool.tamu.edu"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Prospective Members",
+        "item": "https://carpool.tamu.edu/prospective-members"
+      }
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CARPOOL",
+    "url": "https://carpool.tamu.edu",
+    "logo": "https://carpool.tamu.edu/wp-content/uploads/2023/09/carpool-logo.png",
+    "description": "CARPOOL is a student-run safe ride service at Texas A&M University providing free rides to keep the Aggieland community safe.",
+    "knowsAbout": "Safe ride service, drunk driving prevention, community service, student volunteers",
+    "memberOf": {
+      "@type": "EducationalOrganization",
+      "name": "Texas A&M University"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Bryan-College Station, Texas"
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "Volunteer Membership",
+      "description": "Join CARPOOL as a volunteer member to help keep Aggieland safe",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I join CARPOOL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We host two application cycles each semester—one at the beginning and another around mid-semester. If your application is accepted, expect an interview the following week. Accepted members attend a mandatory orientation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a car to volunteer with CARPOOL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We partner with Enterprise and rent a fleet each weekend, so members don't use personal vehicles. You'll never be asked to use your own car for operations nights."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a driver's license to volunteer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A driver's license isn't required to volunteer. Plenty of roles aren't driving like navigating, answering phones, and staffing the Northgate Station."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many hours do CARPOOL members volunteer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Members work at least 4 nights per semester (6–7 hours each) plus a few events, totaling approximately 33 hours per semester."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* ===== Modern Scoped Styles ===== */
+    .carpool-prospects{
+      --accent: #500000;
+      --accent-light: #8c3a3a;
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #fff;
+      --surface: #fafafa;
+      --radius: 16px;
+      --tile-b: rgba(17, 24, 39, 0.08);
+      --shadow: 0 4px 20px -8px rgba(0,0,0,.12);
+      --shadow-lg: 0 12px 40px -12px rgba(0,0,0,.2);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .carpool-prospects{ 
+      color: var(--text); 
+      background: transparent;
+      padding: 0;
+    }
+    
+    .carpool-prospects .wrap{ 
+      max-width: 1100px; 
+      margin: 0 auto; 
+      padding: 48px 20px 72px;
+    }
+
+    /* Header */
+    .carpool-prospects .page-head{ 
+      text-align: left;
+      margin: 0 0 12px;
+    }
+    
+    .carpool-prospects .page-head h1{
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      font-size: clamp(28px, 3.6vw, 42px);
+      color: var(--text);
+      line-height: 1.2;
+    }
+    
+    .carpool-prospects .page-head h1::after{
+      content: "";
+      display: block;
+      width: 90px;
+      height: 3px;
+      margin: 12px 0 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 999px;
+    }
+
+    /* Impact Card */
+    .carpool-prospects .impact-card{
+      margin: 24px 0 20px;
+      background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+      border: 2px solid rgba(17, 24, 39, 0.1);
+      border-left: 5px solid var(--accent);
+      border-radius: var(--radius);
+      box-shadow: 
+        0 2px 4px rgba(0,0,0,.06),
+        0 4px 12px rgba(0,0,0,.08),
+        0 8px 24px -4px rgba(0,0,0,.10);
+      padding: 20px 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .carpool-prospects .impact-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 
+        0 4px 8px rgba(0,0,0,.08),
+        0 8px 20px rgba(0,0,0,.12),
+        0 16px 40px -8px rgba(0,0,0,.16);
+    }
+    
+    .carpool-prospects .impact-card p{
+      margin: 0;
+      font-weight: 700;
+      color: var(--text);
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      line-height: 1.5;
+    }
+
+    /* CTA Buttons */
+    .carpool-prospects .cta{
+      margin: 0 0 32px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    
+    .carpool-prospects .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carpool-prospects .btn::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    
+    .carpool-prospects .btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(80, 0, 0, 0.25);
+      border-color: var(--accent);
+    }
+    
+    .carpool-prospects .btn--solid{
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    
+    .carpool-prospects .btn--solid:hover{
+      background: #600000;
+      border-color: #600000;
+    }
+
+    /* Details/Process Section */
+    .carpool-prospects .details{
+      background: #fff;
+      border: 2px solid rgba(17, 24, 39, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-top: 0;
+    }
+    
+    .carpool-prospects .details h2{
+      margin: 0 0 20px;
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 900;
+      text-align: left;
+      color: var(--text);
+    }
+
+    /* Numbered Steps */
+    .carpool-prospects .steps{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+    
+    .carpool-prospects .steps li{
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      gap: 14px;
+      background: #fafafa;
+      border: 1px solid rgba(17, 24, 39, 0.06);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.25s ease;
+    }
+    
+    .carpool-prospects .steps li:hover{
+      background: #fff;
+      border-color: rgba(80, 0, 0, 0.15);
+      transform: translateX(4px);
+    }
+    
+    .carpool-prospects .steps li::before{
+      content: counter(step);
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 1;
+      box-shadow: 0 2px 8px rgba(80, 0, 0, 0.25);
+    }
+    
+    .carpool-prospects .steps p{
+      margin: 0;
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* Section Spacing */
+    .carpool-prospects .section{
+      margin-top: 56px;
+    }
+    
+    .carpool-prospects .section h2{
+      text-align: center;
+      margin: 0 0 24px;
+      font-weight: 900;
+      font-size: clamp(22px, 2.6vw, 28px);
+      color: var(--text);
+    }
+
+    /* Features Grid */
+    .carpool-prospects .features{
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 800px){
+      .carpool-prospects .features{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    
+    .carpool-prospects .feature{
+      background: #fff;
+      border: 2px solid rgba(17, 24, 39, 0.08);
+      border-radius: var(--radius);
+      box-shadow: 
+        0 2px 4px rgba(0,0,0,.06),
+        0 4px 12px rgba(0,0,0,.08);
+      padding: 20px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .carpool-prospects .feature::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+    
+    .carpool-prospects .feature:hover{
+      transform: translateY(-4px);
+      box-shadow: 
+        0 4px 8px rgba(0,0,0,.08),
+        0 8px 20px rgba(0,0,0,.12),
+        0 16px 40px -8px rgba(0,0,0,.16);
+      border-color: rgba(80, 0, 0, 0.15);
+    }
+    
+    .carpool-prospects .feature:hover::before{
+      height: 100%;
+    }
+    
+    .carpool-prospects .feature h3{
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--text);
+    }
+    
+    .carpool-prospects .feature p{
+      margin: 0;
+      line-height: 1.65;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* Photo Grid */
+    .carpool-prospects .grid{
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    @media (min-width: 640px){
+      .carpool-prospects .grid{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    
+    @media (min-width: 1024px){
+      .carpool-prospects .grid{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    
+    @media (min-width: 1280px){
+      .carpool-prospects .grid{
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+    
+    @media (min-width: 1536px){
+      .carpool-prospects .grid{
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+    }
+
+    .carpool-prospects .grid > p,
+    .carpool-prospects .grid > figure,
+    .carpool-prospects .grid > div{
+      display: contents;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carpool-prospects .tile{
+      background: #fff;
+      border: 2px solid var(--tile-b);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: clamp(80px, 10vw, 110px);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .carpool-prospects .tile:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(80, 0, 0, 0.2);
+    }
+    
+    .carpool-prospects .tile img{
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .carpool-prospects .tile:hover img{
+      transform: scale(1.05);
+    }
+
+    /* Quotes */
+    .carpool-prospects .quotes{
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 900px){
+      .carpool-prospects .quotes{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    
+    .carpool-prospects .quote{
+      background: #fff;
+      border: 2px solid rgba(17, 24, 39, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    
+    .carpool-prospects .quote::before{
+      content: '"';
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(80, 0, 0, 0.08);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    
+    .carpool-prospects .quote:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(80, 0, 0, 0.15);
+    }
+    
+    .carpool-prospects .quote p{
+      margin: 0;
+      line-height: 1.7;
+      color: var(--text);
+      font-size: 15px;
+      padding-left: 8px;
+    }
+    
+    .carpool-prospects .quote figcaption{
+      padding-left: 8px;
+    }
+    
+    .carpool-prospects .quote .who{
+      font-weight: 800;
+      color: var(--text);
+      font-size: 15px;
+    }
+    
+    .carpool-prospects .quote .role{
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 640px){
+      .carpool-prospects .wrap{
+        padding: 32px 16px 56px;
+      }
+      
+      .carpool-prospects .cta{
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .carpool-prospects .btn{
+        justify-content: center;
+      }
+    }
+
+    /* Screen reader only content */
+    .carpool-prospects .sr-only{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Animations */
+    @media (prefers-reduced-motion: no-preference){
+      @keyframes fadeInUp{
+        from{
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to{
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .carpool-prospects .page-head,
+      .carpool-prospects .impact-card,
+      .carpool-prospects .cta,
+      .carpool-prospects .details,
+      .carpool-prospects .section{
+        animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+      }
+      
+      .carpool-prospects .impact-card{
+        animation-delay: 0.1s;
+      }
+      
+      .carpool-prospects .cta{
+        animation-delay: 0.2s;
+      }
+      
+      .carpool-prospects .details{
+        animation-delay: 0.3s;
+      }
+    }
+  </style>
+
+  <div class="wrap" itemprop="mainContentOfPage">
+    <header class="page-head">
+      <h1 id="prospects-title" itemprop="headline">Information for Prospective Members</h1>
+      <meta itemprop="description" content="Join CARPOOL at Texas A&M University as a volunteer member. Get service hours, leadership experience, and help keep the Bryan-College Station community safe with our free safe ride service.">
+    </header>
+
+    <!-- Impact Card -->
+    <div class="impact-card" role="note" aria-label="Impact statement" itemprop="description">
+      <p>Help keep Aggieland safe while gaining community, leadership experience, and making a real impact.</p>
+    </div>
+
+    <!-- Apply + Email buttons -->
+    <nav class="cta" role="group" aria-label="Apply or email">
+      <a class="btn btn--solid" href="https://docs.google.com/forms/d/e/1FAIpQLSffgukNmOrCsUTjJ5FHga8TBUsibbascaq2i7IHD7vezcHlJA/viewform" target="_blank" rel="noopener" itemprop="potentialAction" itemscope itemtype="https://schema.org/ApplyAction">
+        <span itemprop="name">Apply for Fall 2025</span>
+      </a>
+      <a class="btn" href="mailto:recruitment.carpool@gmail.com?subject=Prospective%20Member%20Question" aria-label="Email recruitment team" itemprop="potentialAction" itemscope itemtype="https://schema.org/CommunicateAction">
+        <span itemprop="name">Email us</span>
+      </a>
+    </nav>
+
+    <!-- How the process works -->
+    <section class="details" aria-labelledby="details-title" itemscope itemtype="https://schema.org/HowTo">
+      <h2 id="details-title" itemprop="name">How the Process Works</h2>
+      <meta itemprop="description" content="Step-by-step guide to joining CARPOOL at Texas A&M University as a volunteer member.">
+      <ol class="steps">
+        <li itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <meta itemprop="position" content="1">
+          <p itemprop="text">We host two application cycles each semester—one at the beginning and another around mid-semester.</p>
+        </li>
+        <li itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <meta itemprop="position" content="2">
+          <p itemprop="text">If your application is accepted, expect an interview the following week. Accepted members attend a mandatory orientation.</p>
+        </li>
+        <li itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+          <meta itemprop="position" content="3">
+          <p itemprop="text">Questions anytime? Tap the email button above.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Why Join -->
+    <section class="section" aria-labelledby="why-title" itemscope itemtype="https://schema.org/ItemList">
+      <h2 id="why-title" itemprop="name">Why Join CARPOOL?</h2>
+      <meta itemprop="description" content="Benefits of joining CARPOOL include service hours, community, leadership opportunities, scholarships, and free food during volunteer shifts.">
+      <div class="features">
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="1">
+          <h3 itemprop="name">Service Hours</h3>
+          <p itemprop="description">Members work at least 4 nights per semester (6–7 hours each) plus a few events, totaling ~33 hours per semester—great experience for your résumé.</p>
+        </article>
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="2">
+          <h3 itemprop="name">Community</h3>
+          <p itemprop="description">Meet students from across majors. From study nights to pickup soccer and D&amp;D, you'll find your people and make a real difference together.</p>
+        </article>
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="3">
+          <h3 itemprop="name">Leadership Opportunities</h3>
+          <p itemprop="description">Join a committee or serve on staff to help steer operations, sponsorships, and outreach while growing practical leadership skills.</p>
+        </article>
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="4">
+          <h3 itemprop="name">Scholarships, Merch &amp; Prizes</h3>
+          <p itemprop="description">Active members are eligible for CARPOOL scholarships, get member-exclusive merch, and can win prizes throughout the semester for showing up, serving, and leading.</p>
+        </article>
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="5">
+          <h3 itemprop="name">Free Food</h3>
+          <p itemprop="description">Every ops night is sponsored—pizza, tenders, Tex-Mex, and more. (Food is provided on work nights.)</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- No car or license section -->
+    <section class="section" aria-labelledby="no-car-title" itemscope itemtype="https://schema.org/ItemList">
+      <h2 id="no-car-title" itemprop="name">No Car or License? No Problem.</h2>
+      <meta itemprop="description" content="You don't need a personal vehicle or driver's license to volunteer with CARPOOL. We provide rental cars and have many non-driving roles available.">
+      <div class="features">
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="1">
+          <h3 itemprop="name">No Personal Car Required</h3>
+          <p itemprop="description">We partner with Enterprise and rent a fleet each weekend, so members don't use personal vehicles and riders get clean, well-maintained cars. You'll never be asked to use your own car for operations nights.</p>
+        </article>
+        <article class="feature" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="2">
+          <h3 itemprop="name">Plenty of Non-Driving Roles</h3>
+          <p itemprop="description">A driver's license isn't required to volunteer. Plenty of roles aren't driving like navigating, answering phones, and staffing the Northgate Station. We won't assign a role you're uncomfortable with.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Photos -->
+    <section class="section" aria-label="Life in CARPOOL" itemscope itemtype="https://schema.org/ImageGallery">
+      <h2 itemprop="name" class="sr-only">CARPOOL Member Activities and Events</h2>
+      <meta itemprop="description" content="Photos of CARPOOL volunteers at Texas A&M University during operations nights, community events, and team activities.">
+      <div class="grid">
+        <div class="tile" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+          <img loading="lazy" src="https://carpool.tamu.edu/wp-content/uploads/2022/12/TexasRoadhouse-scaled.jpg" alt="CARPOOL members posing with Texas Roadhouse sponsor at community event" itemprop="contentUrl">
+          <meta itemprop="description" content="CARPOOL volunteers with Texas Roadhouse food sponsor">
+        </div>
+        <div class="tile" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+          <img loading="lazy" src="https://carpool.tamu.edu/wp-content/uploads/2022/12/CarpoolNov18-e1674714221419.jpg" alt="CARPOOL volunteers during Friday night operations providing safe rides" itemprop="contentUrl">
+          <meta itemprop="description" content="CARPOOL operations night at Texas A&M">
+        </div>
+        <div class="tile" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+          <img loading="lazy" src="https://carpool.tamu.edu/wp-content/uploads/2022/11/IMG_8332-scaled.jpg" alt="CARPOOL student volunteers at campus outreach tabling event" itemprop="contentUrl">
+          <meta itemprop="description" content="CARPOOL members at campus outreach event">
+        </div>
+        <div class="tile" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+          <img loading="lazy" src="https://carpool.tamu.edu/wp-content/uploads/2021/10/243711731_579322229938225_1114406679430999244_n.jpg" alt="CARPOOL team group photo showing diverse student volunteers" itemprop="contentUrl">
+          <meta itemprop="description" content="CARPOOL volunteer team at Texas A&M University">
+        </div>
+        <div class="tile" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+          <img loading="lazy" src="https://carpool.tamu.edu/wp-content/uploads/2021/10/242115441_433597971447056_5825105156148892108_n.jpg" alt="CARPOOL members recruiting new volunteers at campus tabling event" itemprop="contentUrl">
+          <meta itemprop="description" content="CARPOOL recruitment at Texas A&M campus">
+        </div>
+        <div class="tile" itemprop="associatedMedia" itemscope itemtype="https://schema.org/ImageObject">
+          <img loading="lazy" src="https://carpool.tamu.edu/wp-content/uploads/2021/10/244075086_905994653679760_4175473701291191032_n.jpg" alt="CARPOOL operations night with sponsored food for volunteers" itemprop="contentUrl">
+          <meta itemprop="description" content="Free food provided during CARPOOL operations">
+        </div>
+      </div>
+    </section>
+
+    <!-- Member Stories -->
+    <section class="section" aria-labelledby="quotes-title" itemscope itemtype="https://schema.org/ItemList">
+      <h2 id="quotes-title" itemprop="name">Member Stories</h2>
+      <meta itemprop="description" content="Testimonials from current and former CARPOOL members about their volunteer experience at Texas A&M University.">
+      <div class="quotes">
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="1">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"It's a great way to help the community and it's great everybody knows each other and you get to be with everybody, serving the same mission and goals."</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Sophia Hernandez</span> · <span class="role" itemprop="jobTitle">Former Staff</span>
+          </figcaption>
+        </figure>
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="2">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"I was personally a victim of drunk driving. I had experienced that and I wanted people to not have to experience that. I've felt so great being a part of CARPOOL. There is a certain kind of bonding that comes with working people at 2, 3, 4 a.m. It really does feel like I am making an impact."</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Baysia Herron</span> · <span class="role" itemprop="jobTitle">Former Chair</span>
+          </figcaption>
+        </figure>
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="3">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"Since joining CARPOOL my freshman year, I've made a lot of friends and gained a lot of confidence. I'm better at talking to new people now and I certainly know the BCS area much better."</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Hailey Bridgford</span> · <span class="role" itemprop="jobTitle">Member</span>
+          </figcaption>
+        </figure>
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="4">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"It is an easy and fun way to get community service hours and help your community. I joined because it gave me a fun thing to do on Friday and Saturday nights and socialize. CARPOOL has given me a social outlet with people I would likely never meet, and I'm happy to know them."</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Trevor Hresko</span> · <span class="role" itemprop="jobTitle">Member</span>
+          </figcaption>
+        </figure>
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="5">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"I joined CARPOOL to make a difference in the campus and BCS communities!"</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Gemini Creason-Parker</span> · <span class="role" itemprop="jobTitle">Staff</span>
+          </figcaption>
+        </figure>
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="6">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"It's a great way to volunteer while meeting a lot of fun people. You get to have a tangible impact on people in the community."</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Esha Uddaraju</span> · <span class="role" itemprop="jobTitle">Member</span>
+          </figcaption>
+        </figure>
+        <figure class="quote" itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+          <meta itemprop="position" content="7">
+          <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+            <meta itemprop="ratingValue" content="5">
+            <meta itemprop="bestRating" content="5">
+          </div>
+          <p itemprop="reviewBody">"It's a great way to meet people and feel like you're making a positive impact in the A&amp;M community."</p>
+          <figcaption itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="who" itemprop="name">Zoe Moss</span> · <span class="role" itemprop="jobTitle">Staff</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+</section>

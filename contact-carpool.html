@@ -1,0 +1,217 @@
+<section class="carpool-contact" aria-labelledby="contact-title">
+  <style>
+/* ===============================
+   CARPOOL Contact – full CSS
+   Scope: .carpool-contact (page) + .carpool-form-4 (form wrapper class)
+   =============================== */
+.carpool-contact{
+  --accent:#500000;              /* maroon */
+  --accent-600:#6a0000;
+  --accent-300:#8c3a3a;
+  --text:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --ring: color-mix(in oklab, var(--accent), white 78%);
+  --field-border: color-mix(in oklab, var(--accent), white 78%);
+  --field-border-hover: color-mix(in oklab, var(--accent), white 68%);
+  --field-border-focus: color-mix(in oklab, var(--accent), white 55%);
+  --shadow:0 10px 30px rgba(17,24,39,.08), 0 2px 8px rgba(17,24,39,.06);
+  --shadow-sm: 0 2px 8px rgba(80,0,0,.10);
+  --shadow-md: 0 4px 14px rgba(80,0,0,.14);
+  --shadow-lg: 0 6px 20px rgba(80,0,0,.18);
+  --radius:16px;
+}
+.carpool-contact{
+  color:var(--text);
+  background:
+    var(--bg);
+}
+.carpool-contact .wrap{ max-width:1000px; margin:0 auto; padding:40px 18px 72px; }
+
+/* ---- Page header ---- */
+.carpool-contact .page-head{ margin:0 0 24px; text-align:left; }
+.carpool-contact .page-head h1{
+  margin:0 0 10px; font-weight:900; letter-spacing:.2px;
+  line-height:1.1; font-size:clamp(30px,3.6vw,46px);
+}
+.carpool-contact .page-head h1::after{
+  content:""; display:block; width:96px; height:3px; margin:14px 0 0;
+  background:linear-gradient(90deg,var(--accent),var(--accent-300)); border-radius:999px;
+}
+.carpool-contact .page-head .sub{ margin:10px 0 0; color:var(--muted); font-size:clamp(15px,1.6vw,17px); }
+.carpool-contact .page-head .staff-link{ margin:10px 0 0; }
+.carpool-contact .page-head .staff-link a{
+  color:var(--accent); font-weight:700; text-underline-offset:3px; text-decoration:underline;
+}
+.carpool-contact .page-head .staff-link a:hover{ color:var(--accent-600); }
+
+/* ---- Layout & card ---- */
+.carpool-contact .grid{ display:grid; gap:22px; grid-template-columns:1fr; }
+@media (min-width:900px){
+  .carpool-contact .grid{ grid-template-columns:minmax(0,1.05fr); }
+}
+.carpool-contact .form-card{
+  background:var(--card); border:1px solid #eceff3; border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:clamp(18px,2.8vw,28px);
+  position:relative; overflow:hidden; isolation:isolate;
+}
+.carpool-contact .form-card::before{
+  content:""; position:absolute; inset:auto -30% -40% auto; width:420px; height:420px;
+  background:radial-gradient(closest-side, color-mix(in oklab, var(--accent), white 88%) 0%, transparent 70%);
+  transform:translateY(40px); z-index:-1; pointer-events:none; opacity:.4;
+}
+
+/* ===============================
+   FORM: Avada + Gravity (scoped to .carpool-form-4)
+   Add "carpool-form-4" in the form's "Form CSS Class Name"
+   =============================== */
+
+/* Labels */
+.carpool-contact .carpool-form-4 .fusion-form-field label,
+.carpool-contact .carpool-form-4 .gfield_label{
+  font-weight:700; color: color-mix(in oklab,var(--accent),black 70%) !important;
+  margin-bottom:6px;
+}
+
+/* Base inputs (Avada + Gravity) */
+.carpool-contact .carpool-form-4 input[type="text"],
+.carpool-contact .carpool-form-4 input[type="email"],
+.carpool-contact .carpool-form-4 input[type="tel"],
+.carpool-contact .carpool-form-4 input[type="url"],
+.carpool-contact .carpool-form-4 input[type="number"],
+.carpool-contact .carpool-form-4 input[type="password"],
+.carpool-contact .carpool-form-4 textarea,
+.carpool-contact .carpool-form-4 select{
+  width:100%;
+  background:#fff !important;
+  border:1.5px solid var(--field-border) !important;
+  border-radius:14px !important;
+  padding:12px 14px !important;
+  line-height:1.4;
+  box-shadow: var(--shadow-sm), 0 1px 0 rgba(17,24,39,.03) inset !important;
+  transition: border-color .15s ease, box-shadow .2s ease, transform .05s ease !important;
+}
+.carpool-contact .carpool-form-4 textarea{ min-height:150px }
+
+/* Hover & focus */
+.carpool-contact .carpool-form-4 input:hover,
+.carpool-contact .carpool-form-4 textarea:hover,
+.carpool-contact .carpool-form-4 select:hover{
+  border-color: var(--field-border-hover) !important;
+  box-shadow: var(--shadow-md), 0 1px 0 rgba(17,24,39,.03) inset !important;
+}
+.carpool-contact .carpool-form-4 input:focus,
+.carpool-contact .carpool-form-4 textarea:focus,
+.carpool-contact .carpool-form-4 select:focus{
+  outline:none !important;
+  border-color: var(--field-border-focus) !important;
+  box-shadow: 0 0 0 4px var(--ring), var(--shadow-lg) !important;
+  transform: translateY(-1px);
+}
+
+/* Placeholder */
+.carpool-contact .carpool-form-4 ::placeholder{
+  color: color-mix(in oklab, var(--accent), white 82%);
+}
+
+/* Checkboxes / radios */
+.carpool-contact .carpool-form-4 input[type="checkbox"],
+.carpool-contact .carpool-form-4 input[type="radio"]{
+  accent-color: var(--accent);
+  filter: drop-shadow(0 1px 1px rgba(80,0,0,.14));
+}
+
+/* Per-field chip background for extra separation (optional but on) */
+.carpool-contact .carpool-form-4 .fusion-form-field,
+.carpool-contact .carpool-form-4 .gfield{
+  padding:10px 12px; border-radius:14px;
+  background: color-mix(in oklab, var(--accent), white 96%);
+  margin-bottom:14px;
+}
+
+/* Error states (Avada .fusion-has-error and GF .gfield_error) */
+.carpool-contact .carpool-form-4 .fusion-has-error input,
+.carpool-contact .carpool-form-4 .fusion-has-error textarea,
+.carpool-contact .carpool-form-4 .fusion-has-error select,
+.carpool-contact .carpool-form-4 .gfield_error .ginput_container input,
+.carpool-contact .carpool-form-4 .gfield_error .ginput_container textarea,
+.carpool-contact .carpool-form-4 .gfield_error .ginput_container select{
+  border-color: color-mix(in oklab, var(--accent), #ef4444 30%) !important;
+  box-shadow: 0 0 0 4px color-mix(in oklab, #ef4444, white 82%), 0 6px 20px rgba(239,68,68,.12) !important;
+}
+.carpool-contact .carpool-form-4 .fusion-form-error,
+.carpool-contact .carpool-form-4 .validation_message{
+  color:#7f1d1d; background:#fff1f2; border:1px solid #fee2e2;
+  padding:10px 12px; border-radius:12px;
+}
+
+/* Hide internal Gravity Forms title/desc if present (page already has header) */
+.carpool-contact .carpool-form-4 .gform_heading .gform_title,
+.carpool-contact .carpool-form-4 .gform_heading .gform_description{
+  display:none !important;
+}
+
+/* Submit buttons (Avada + Gravity) */
+.carpool-contact .carpool-form-4 .fusion-form-submit button,
+.carpool-contact .carpool-form-4 .fusion-button.button-submit,
+.carpool-contact .carpool-form-4 .gform_button{
+  background:linear-gradient(180deg, var(--accent), var(--accent-600)) !important;
+  color:#fff !important; font-weight:800; letter-spacing:.2px;
+  border:0 !important; border-radius:999px !important;
+  padding:12px 20px !important; cursor:pointer;
+  box-shadow: 0 10px 18px rgba(80,0,0,.18), 0 2px 8px rgba(80,0,0,.22) !important;
+  transition: transform .08s ease, box-shadow .15s ease, filter .15s ease;
+}
+.carpool-contact .carpool-form-4 .fusion-form-submit button:hover,
+.carpool-contact .carpool-form-4 .gform_button:hover{
+  filter:saturate(1.05) brightness(1.02);
+}
+.carpool-contact .carpool-form-4 .fusion-form-submit button:active,
+.carpool-contact .carpool-form-4 .gform_button:active{
+  transform: translateY(1px);
+}
+.carpool-contact .carpool-form-4 .fusion-form-submit button:focus-visible,
+.carpool-contact .carpool-form-4 .gform_button:focus-visible{
+  outline:none; box-shadow: 0 0 0 4px var(--ring), 0 10px 18px rgba(80,0,0,.18) !important;
+}
+
+/* Confirmation (GF) */
+.carpool-contact .carpool-form-4 #gform_confirmation_wrapper_4{
+  border:1px solid #d1fae5; background:#ecfdf5; color:#065f46;
+  padding:16px 18px; border-radius:12px; font-weight:600;
+}
+
+/* Mobile tweaks */
+@media (max-width:700px){
+  .carpool-contact .wrap{ padding:28px 14px 48px; }
+  .carpool-contact .form-card{ padding:18px; }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .carpool-contact .carpool-form-4 input,
+  .carpool-contact .carpool-form-4 textarea,
+  .carpool-contact .carpool-form-4 select,
+  .carpool-contact .carpool-form-4 .fusion-form-submit button,
+  .carpool-contact .carpool-form-4 .gform_button{ transition:none !important; }
+}
+
+
+</style>
+
+
+  <div class="wrap">
+    <header class="page-head">
+      <h1 id="contact-title">Contact CARPOOL</h1>
+      <p class="sub">Do you have a question, story, compliment, concern, or thoughts about CARPOOL? If you have questions about your ride from the receipt, or anything else, please fill out the form below.</p>
+      <p class="staff-link"><a href="https://carpool.tamu.edu/mission-vision-and-values/staff/">Looking for one of our staff?</a></p></p>
+    </header>
+
+    <div class="grid">
+      <div class="form-card">
+        <!-- Gravity Form -->
+        [gravityform id="4" title="true" description="true" ajax="true"]
+      </div>
+    </div>
+  </div>
+</section>

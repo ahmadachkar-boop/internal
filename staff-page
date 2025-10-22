@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>CARPOOL Staff Directory | Meet Our Student Leadership Team at Texas A&M</title>
+    <meta name="title" content="CARPOOL Staff Directory | Meet Our Student Leadership Team at Texas A&M">
+    <meta name="description" content="Meet the dedicated student leaders running CARPOOL at Texas A&M University. Our volunteer staff provides free, safe rides to the Bryan/College Station community every Friday and Saturday night.">
+    <meta name="keywords" content="CARPOOL staff, Texas A&M student leaders, CARPOOL team, College Station volunteers, student organization officers, CARPOOL directors, safe ride volunteers, TAMU student safety">
+    <meta name="author" content="CARPOOL - Texas A&M University">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://carpool.tamu.edu/staff/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carpool.tamu.edu/staff/">
+    <meta property="og:title" content="CARPOOL Staff Directory | Student Leadership Team">
+    <meta property="og:description" content="Meet the dedicated student volunteers leading CARPOOL at Texas A&M. Our team provides free, safe, nonjudgmental rides across Bryan/College Station every weekend.">
+    <meta property="og:image" content="https://carpool.tamu.edu/wp-content/uploads/2025/09/IMG_1755-1-scaled.jpg">
+    <meta property="og:site_name" content="CARPOOL">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://carpool.tamu.edu/staff/">
+    <meta property="twitter:title" content="CARPOOL Staff | Texas A&M Student Leaders">
+    <meta property="twitter:description" content="Meet the student volunteers providing free safe rides across Bryan/College Station every Friday and Saturday night.">
+    <meta property="twitter:image" content="https://carpool.tamu.edu/wp-content/uploads/2025/09/IMG_1755-1-scaled.jpg">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-TX">
+    <meta name="geo.placename" content="College Station">
+    <meta name="geo.position" content="30.627977;-96.334407">
+    <meta name="ICBM" content="30.627977, -96.334407">
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "CARPOOL",
+      "alternateName": "CARPOOL Texas A&M",
+      "url": "https://carpool.tamu.edu",
+      "logo": "https://carpool.tamu.edu/wp-content/uploads/logo.png",
+      "description": "Student-run 501(c)(3) non-profit providing free, safe, nonjudgmental rides across Bryan/College Station since 1999",
+      "foundingDate": "1999-09-16",
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Isabella Ritchey",
+          "jobTitle": "Chair",
+          "email": "chair.carpool@gmail.com",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Texas A&M University"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Kaden Smith",
+          "jobTitle": "Vice Chair of Finance",
+          "email": "finance.carpool@gmail.com",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Texas A&M University"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Rahul Rajulu",
+          "jobTitle": "Vice Chair of Internal Relations",
+          "email": "internalrelations.carpool@gmail.com",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Texas A&M University"
+          }
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "College Station",
+        "addressRegion": "TX",
+        "postalCode": "77840",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-979-693-9905",
+      "email": "publicrelations.carpool@gmail.com",
+      "sameAs": [
+        "https://www.facebook.com/tamucarpool/",
+        "https://www.instagram.com/tamucarpool/"
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://carpool.tamu.edu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://carpool.tamu.edu/about/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Staff",
+          "item": "https://carpool.tamu.edu/staff/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "CARPOOL Staff Directory",
+      "description": "Meet the dedicated student leaders and volunteers running CARPOOL at Texas A&M University in College Station, Texas",
+      "url": "https://carpool.tamu.edu/staff/",
+      "about": {
+        "@type": "Organization",
+        "name": "CARPOOL"
+      },
+      "keywords": "student leadership, volunteer team, Texas A&M students, CARPOOL staff, safe ride volunteers"
+    }
+    </script>
+</head>
+<body>
+
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" style="padding: 12px 24px; background: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; font-size: 14px; color: #6b7280;">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://carpool.tamu.edu/" style="color: #500000; text-decoration: none;">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+      <span style="margin: 0 4px;">›</span>
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="https://carpool.tamu.edu/about/" style="color: #500000; text-decoration: none;">
+        <span itemprop="name">About</span>
+      </a>
+      <meta itemprop="position" content="2" />
+      <span style="margin: 0 4px;">›</span>
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name" style="color: #374151; font-weight: 600;">Staff</span>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ol>
+</nav>
+
+<main>
+<section id="carpool-staff" itemscope itemtype="https://schema.org/AboutPage">
+  <style>
+    /* ====== Modern Styled: CARPOOL Staff Directory ====== */
+    #carpool-staff {
+      --accent:#500000;
+      --accent-600:#6a0000;
+      --accent-400:#8c3a3a;
+      --accent-200:#c48d8d;
+      --accent-50:#fef5f5;
+      --text:#111827;
+      --text-light:#374151;
+      --muted:#6b7280;
+      --bg:#fafafa;
+      --card:#ffffff;
+      --radius:18px;
+      --shadow-sm: 0 2px 8px rgba(80,0,0,.08);
+      --shadow-md: 0 6px 20px rgba(80,0,0,.12);
+      --shadow-lg: 0 12px 32px rgba(80,0,0,.16);
+      --shadow-xl: 0 20px 50px rgba(80,0,0,.20);
+    }
+    
+    #carpool-staff,
+    #carpool-staff * {
+      box-sizing:border-box;
+    }
+    
+    #carpool-staff {
+      color:var(--text);
+      background:var(--bg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    }
+    
+    #carpool-staff .carpool-wrap {
+      max-width:1100px;
+      margin:0 auto;
+      padding:40px 24px 80px;
+      width:100%;
+      box-sizing:border-box;
+    }
+    
+    /* Force all content to align flush left within the wrap */
+    #carpool-staff .carpool-wrap > * {
+      margin-left:0 !important;
+      margin-right:0 !important;
+      padding-left:0 !important;
+      padding-right:0 !important;
+    }
+
+    /* ---- Page Header (matching other pages) ---- */
+    #carpool-staff .page-title {
+      margin:0 0 32px;
+      text-align:left;
+    }
+    
+    #carpool-staff .page-title h1 {
+      margin:0 0 10px;
+      font-weight:900;
+      letter-spacing:.2px;
+      line-height:1.1;
+      font-size:clamp(30px,3.6vw,46px);
+    }
+    
+    #carpool-staff .page-title h1::after {
+      content:"";
+      display:block;
+      width:96px;
+      height:3px;
+      margin:14px 0 0;
+      background:linear-gradient(90deg,var(--accent),var(--accent-400));
+      border-radius:999px;
+    }
+    
+    #carpool-staff .page-title p {
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:clamp(15px,1.6vw,17px);
+    }
+
+    /* ---- Group Photo Banner ---- */
+    #carpool-staff .group-photo {
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius);
+      margin:0 0 48px;
+      aspect-ratio:900/360;
+      box-shadow:var(--shadow-lg);
+      border:1px solid rgba(80,0,0,.08);
+    }
+    
+    #carpool-staff .group-photo-img {
+      position:absolute;
+      inset:0;
+      background:url('https://carpool.tamu.edu/wp-content/uploads/2025/09/IMG_1755-1-scaled.jpg') center/cover no-repeat;
+    }
+    
+    #carpool-staff .group-photo::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.5), transparent 50%);
+      z-index:1;
+    }
+    
+    #carpool-staff .group-photo-caption {
+      position:absolute;
+      right:16px;
+      bottom:16px;
+      z-index:2;
+      padding:10px 20px;
+      border-radius:12px;
+      background:rgba(0,0,0,.5);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.2);
+      color:#fff;
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:.2px;
+    }
+
+    /* ---- Section Headers ---- */
+    #carpool-staff .section {
+      margin:0 0 40px !important;
+      padding:0 !important;
+      width:100% !important;
+      display:block !important;
+    }
+    
+    #carpool-staff .section h2 {
+      margin:0 0 24px !important;
+      padding:0 !important;
+      font-size:clamp(20px,2.4vw,26px);
+      font-weight:900;
+      color:var(--accent);
+      letter-spacing:-.01em;
+      text-align:left !important;
+      width:100% !important;
+      display:block !important;
+    }
+    
+    /* Remove any global underline or centered styling on h2 */
+    #carpool-staff .section h2::after {
+      display:none !important;
+      content:none !important;
+    }
+    
+    #carpool-staff h2::before {
+      display:none !important;
+      content:none !important;
+    }
+    
+    /* Ensure no wrapper or container adds spacing */
+    #carpool-staff .section > * {
+      margin-left:0 !important;
+      margin-right:0 !important;
+      padding-left:0 !important;
+      padding-right:0 !important;
+    }
+
+    /* ---- Staff Grid ---- */
+    #carpool-staff .grid,
+    #carpool-staff div.grid {
+      display:grid !important;
+      grid-template-columns:repeat(3,1fr) !important;
+      gap:20px !important;
+      align-items:stretch !important;
+      margin:0 auto 0 0 !important;
+      padding:0 !important;
+      width:100% !important;
+      max-width:100% !important;
+      position:relative !important;
+      left:0 !important;
+      right:0 !important;
+      list-style:none !important;
+      justify-items:stretch !important;
+    }
+    
+    #carpool-staff .grid > *,
+    #carpool-staff .grid > article,
+    #carpool-staff div.grid > * {
+      margin:0 !important;
+      padding:0 !important;
+      position:relative !important;
+      left:0 !important;
+      max-width:100% !important;
+    }
+    
+    /* Override any theme indentation */
+    #carpool-staff .section .grid,
+    #carpool-staff .section div.grid {
+      margin-left:0 !important;
+      margin-right:0 !important;
+      padding-left:0 !important;
+      padding-right:0 !important;
+      text-indent:0 !important;
+    }
+    
+    /* Kill any list indentation if grid is treated as list */
+    #carpool-staff ul.grid,
+    #carpool-staff ol.grid {
+      list-style:none !important;
+      padding-left:0 !important;
+      margin-left:0 !important;
+    }
+    
+    /* Desktop-specific fix for the indent issue */
+    @media (min-width:701px) {
+      #carpool-staff .grid,
+      #carpool-staff div.grid {
+        margin-left:0 !important;
+        margin-right:0 !important;
+      }
+    }
+    
+    @media (max-width:500px) {
+      #carpool-staff .grid {
+        gap:16px !important;
+      }
+    }
+
+    /* ---- Staff Cards ---- */
+    #carpool-staff .card,
+    #carpool-staff article.card {
+      background:var(--card);
+      border:1px solid rgba(80,0,0,.08);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow-md);
+      transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      margin:0 !important;
+      padding:0 !important;
+      width:100% !important;
+      left:0 !important;
+      cursor:pointer;
+    }
+    
+    #carpool-staff .card::before {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:4px;
+      background:linear-gradient(90deg, var(--accent), var(--accent-400), var(--accent-200));
+      opacity:.8;
+      z-index:1;
+    }
+    
+    #carpool-staff .card:hover {
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-xl);
+      border-color:rgba(80,0,0,.12);
+    }
+    
+    #carpool-staff .avatar {
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+      border-radius:0 !important;
+      transition:transform .4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #carpool-staff .card:hover .avatar {
+      transform:scale(1.05);
+    }
+    
+    #carpool-staff .content {
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+      gap:8px;
+    }
+    
+    #carpool-staff .name {
+      margin:0;
+      font-size:clamp(16px,2vw,18px);
+      font-weight:800;
+      line-height:1.2;
+      color:var(--accent);
+    }
+    
+    #carpool-staff .name a {
+      color:inherit;
+      text-decoration:none;
+      transition:color .2s ease;
+      cursor:pointer;
+    }
+    
+    #carpool-staff .name a:hover,
+    #carpool-staff .card:hover .name a {
+      color:var(--accent-600);
+    }
+    
+    #carpool-staff .role {
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+    
+    #carpool-staff .actions {
+      margin-top:auto;
+      padding-top:8px;
+      display:flex;
+      justify-content:center;
+    }
+    
+    #carpool-staff .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 18px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:14px;
+      text-decoration:none;
+      background:linear-gradient(135deg, var(--accent), var(--accent-600));
+      color:#fff;
+      border:none;
+      box-shadow:var(--shadow-sm);
+      transition:all .25s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space:nowrap;
+    }
+    
+    #carpool-staff .btn:hover {
+      background:linear-gradient(135deg, var(--accent-600), #7d0000);
+      transform:translateY(-1px);
+      box-shadow:var(--shadow-md);
+    }
+
+    /* ---- Internal Links Section ---- */
+    #carpool-staff .related-links{
+      margin:48px 0 !important;
+      padding:32px !important;
+      background:var(--card);
+      border:1px solid rgba(80,0,0,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-md);
+      text-align:left !important;
+    }
+    
+    #carpool-staff .related-links h2{
+      margin:0 0 20px;
+      font-size:22px;
+      font-weight:800;
+      color:var(--accent);
+      text-align:left !important;
+    }
+    
+    #carpool-staff .related-links ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:12px;
+      text-align:left !important;
+    }
+    
+    #carpool-staff .related-links li{
+      text-align:left !important;
+    }
+    
+    #carpool-staff .related-links a{
+      display:block;
+      padding:14px 18px;
+      background:var(--accent-50);
+      border:1px solid rgba(80,0,0,.1);
+      border-radius:8px;
+      color:var(--accent-600);
+      text-decoration:none;
+      font-weight:600;
+      transition:all .2s ease;
+      text-align:left !important;
+    }
+    
+    #carpool-staff .related-links a:hover{
+      background:var(--accent);
+      color:#fff;
+      transform:translateX(4px);
+    }
+
+    /* ---- Modal/Sheet Styles ---- */
+    .staff-sheet {
+      position:fixed;
+      inset:0;
+      display:none;
+      z-index:9999;
+    }
+    
+    .staff-sheet:target {
+      display:block;
+    }
+    
+    .staff-sheet .sheet-overlay {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.7);
+      backdrop-filter:blur(8px);
+    }
+    
+    .staff-sheet .sheet-panel {
+      position:fixed;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:min(94vw,700px);
+      max-height:90vh;
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-xl);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      animation:sheet-pop .25s cubic-bezier(0.2,.7,.2,1);
+    }
+    
+    @keyframes sheet-pop {
+      from {
+        transform:translate(-50%,-50%) scale(.96);
+        opacity:0;
+      }
+      to {
+        transform:translate(-50%,-50%) scale(1);
+        opacity:1;
+      }
+    }
+    
+    .staff-sheet .sheet-head {
+      background:linear-gradient(135deg, var(--accent), var(--accent-600));
+      color:#fff;
+      padding:20px 24px;
+      position:relative;
+    }
+    
+    .staff-sheet .sheet-head h3 {
+      margin:0 0 6px;
+      font-size:clamp(20px,3vw,24px);
+      font-weight:900;
+      color:#fff;
+    }
+    
+    .staff-sheet .sheet-head .role {
+      margin:0;
+      font-size:15px;
+      color:rgba(255,255,255,.95);
+    }
+    
+    .staff-sheet .sheet-close {
+      position:absolute;
+      top:12px;
+      right:12px;
+      width:36px;
+      height:36px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      text-decoration:none;
+      font-size:28px;
+      line-height:1;
+      border-radius:8px;
+      transition:background .2s;
+    }
+    
+    .staff-sheet .sheet-close:hover {
+      background:rgba(255,255,255,.2);
+    }
+    
+    .staff-sheet .sheet-body {
+      flex:1;
+      overflow-y:auto;
+      padding:24px;
+      display:grid;
+      grid-template-columns:minmax(180px,35%) 1fr;
+      grid-template-rows:auto auto;
+      gap:16px 24px;
+      align-items:center;
+      align-content:center;
+    }
+    
+    .staff-sheet .sheet-photo {
+      grid-column:1;
+      grid-row:1;
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:14px;
+      box-shadow:var(--shadow-md);
+      align-self:center;
+    }
+    
+    .staff-sheet .sheet-info {
+      grid-column:2;
+      grid-row:1 / span 2;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-self:center;
+      text-align:left !important;
+    }
+    
+    .staff-sheet .sheet-info p {
+      margin:0 !important;
+      line-height:1.6;
+      color:var(--text-light);
+      font-size:15px;
+      text-align:left !important;
+    }
+    
+    .staff-sheet .sheet-info strong {
+      color:var(--accent);
+      font-weight:800;
+    }
+    
+    .staff-sheet .sheet-actions {
+      grid-column:1;
+      grid-row:2;
+      justify-self:center;
+      align-self:start;
+      margin:0;
+    }
+    
+    .staff-sheet .sheet-actions .btn {
+      padding:12px 20px;
+      font-size:15px;
+    }
+
+    /* ---- Mobile Adjustments ---- */
+    @media (max-width:700px) {
+      #carpool-staff .carpool-wrap {
+        padding:32px 18px 60px;
+      }
+      
+      #carpool-staff .page-title {
+        margin-bottom:24px;
+      }
+      
+      #carpool-staff .group-photo {
+        margin-bottom:32px;
+      }
+      
+      #carpool-staff .section {
+        margin-bottom:32px;
+      }
+      
+      #carpool-staff .content {
+        padding:12px;
+      }
+      
+      #carpool-staff .related-links{
+        padding:24px 20px !important;
+      }
+      
+      .staff-sheet .sheet-panel {
+        width:min(96vw,600px);
+        max-height:88vh;
+      }
+      
+      .staff-sheet .sheet-body {
+        padding:16px;
+        grid-template-columns:minmax(140px,45%) 1fr;
+        grid-template-rows:auto auto;
+        gap:12px 16px;
+        align-content:center;
+      }
+      
+      .staff-sheet .sheet-photo {
+        grid-column:1;
+        grid-row:1;
+        align-self:center;
+      }
+      
+      .staff-sheet .sheet-info {
+        grid-column:2;
+        grid-row:1 / span 2;
+        align-self:center;
+      }
+      
+      .staff-sheet .sheet-actions {
+        grid-column:1;
+        grid-row:2;
+        align-self:start;
+        justify-self:center;
+      }
+      
+      .staff-sheet .sheet-actions .btn {
+        width:auto;
+        padding:10px 16px;
+      }
+    }
+
+    /* ---- Reduced Motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      #carpool-staff *,
+      #carpool-staff *::before,
+      #carpool-staff *::after,
+      .staff-sheet * {
+        transition:none !important;
+        animation:none !important;
+      }
+    }
+    @media (max-width:768px) {
+      #carpool-staff div.grid {
+        grid-template-columns:repeat(2,1fr) !important;
+      }
+    }
+    
+    @media (max-width:900px) and (min-width:769px) {
+      #carpool-staff div.grid {
+        grid-template-columns:repeat(2,1fr) !important;
+      }
+    }
+  </style>
+
+  <div class="carpool-wrap">
+    <!-- Page Header -->
+    <div class="page-title">
+      <h1 itemprop="name">CARPOOL Staff Directory</h1>
+      <p itemprop="description">Meet the dedicated student leaders running CARPOOL at Texas A&amp;M!</p>
+    </div>
+
+    <!-- Group Photo -->
+    <figure class="group-photo" itemscope itemtype="https://schema.org/ImageObject">
+      <div class="group-photo-img" role="img" aria-label="CARPOOL staff group photo Fall 2025 at Texas A&M University"></div>
+      <figcaption class="group-photo-caption" itemprop="caption">Fall 2025 Leadership Team</figcaption>
+      <meta itemprop="contentUrl" content="https://carpool.tamu.edu/wp-content/uploads/2025/09/IMG_1755-1-scaled.jpg">
+      <meta itemprop="description" content="CARPOOL student leadership team for Fall 2025 semester at Texas A&M University">
+    </figure>
+
+    <!-- Chairs -->
+    <section class="section" aria-labelledby="chairs">
+      <h2 id="chairs">Executive Leadership - Chairs</h2>
+      <div class="grid">
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/isabella-scaled.jpg" alt="Isabella Ritchey - CARPOOL Chair at Texas A&M University, student leader providing free safe rides" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-isabella-ritchey" itemprop="name">Isabella Ritchey</a></h3>
+            <p class="role" itemprop="jobTitle">Chair</p>
+            <meta itemprop="email" content="chair.carpool@gmail.com">
+            <meta itemprop="affiliation" content="CARPOOL, Texas A&M University">
+            <div class="actions">
+              <a class="btn" href="mailto:chair.carpool@gmail.com?subject=CARPOOL — Hello Isabella">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/kaden-scaled.jpg" alt="Kaden Smith - CARPOOL Vice Chair of Finance, Texas A&M student managing nonprofit finances" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-kaden-smith" itemprop="name">Kaden Smith</a></h3>
+            <p class="role" itemprop="jobTitle">Vice Chair of Finance</p>
+            <meta itemprop="email" content="finance.carpool@gmail.com">
+            <meta itemprop="affiliation" content="CARPOOL, Texas A&M University">
+            <div class="actions">
+              <a class="btn" href="mailto:finance.carpool@gmail.com?subject=CARPOOL — Finance question">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/rahul-scaled.jpg" alt="Rahul Rajulu - CARPOOL Vice Chair of Internal Relations, coordinating volunteer operations at TAMU" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-rahul-rajulu" itemprop="name">Rahul Rajulu</a></h3>
+            <p class="role" itemprop="jobTitle">Vice Chair of Internal Relations</p>
+            <meta itemprop="email" content="internalrelations.carpool@gmail.com">
+            <meta itemprop="affiliation" content="CARPOOL, Texas A&M University">
+            <div class="actions">
+              <a class="btn" href="mailto:internalrelations.carpool@gmail.com?subject=CARPOOL — Internal Relations">Email Me</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Directors -->
+    <section class="section" aria-labelledby="directors">
+      <h2 id="directors">Directors</h2>
+      <div class="grid">
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/luisa-scaled.jpg" alt="Luisa Lopez Villagran - Director of Member Relations at CARPOOL Texas A&M" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-luisa-lopez-villagran" itemprop="name">Luisa Lopez Villagran</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Member Relations</p>
+            <meta itemprop="email" content="memberrelations.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:memberrelations.carpool@gmail.com?subject=CARPOOL — Member Relations">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/nick-scaled.jpg" alt="Nicholas Ballard - Director of Development, securing sponsorships for CARPOOL safe rides" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-nicholas-ballard" itemprop="name">Nicholas Ballard</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Development</p>
+            <meta itemprop="email" content="development.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:development.carpool@gmail.com?subject=CARPOOL — Development/Sponsorships">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/Prachi-scaled.jpg" alt="Prachi Rajput - Director of Recruitment, managing volunteer recruitment for CARPOOL" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-prachi-rajput" itemprop="name">Prachi Rajput</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Recruitment</p>
+            <meta itemprop="email" content="recruitment.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:recruitment.carpool@gmail.com?subject=CARPOOL — Recruitment">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/ahmad-scaled.jpg" alt="Ahmad Achkar - Director of Technology, managing CARPOOL's technical operations and systems" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-ahmad-achkar" itemprop="name">Ahmad Achkar</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Technology</p>
+            <meta itemprop="email" content="logistics.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:logistics.carpool@gmail.com?subject=CARPOOL — Technology">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/samantha-scaled.jpg" alt="Samantha Fehlis - Director of Fundraising, organizing events to fund free safe rides" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-samantha-fehlis" itemprop="name">Samantha Fehlis</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Fundraising</p>
+            <meta itemprop="email" content="fundraising.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:fundraising.carpool@gmail.com?subject=CARPOOL — Fundraising">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/hannah-scaled.jpg" alt="Hannah Abraham - Director of Provisions, coordinating supplies for CARPOOL operations" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-hannah-abraham" itemprop="name">Hannah Abraham</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Provisions</p>
+            <meta itemprop="email" content="provisions.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:provisions.carpool@gmail.com?subject=CARPOOL — Provisions">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/pardhava-meka.jpg" alt="Pardhava Meka - Director of Public Relations, promoting CARPOOL across Texas A&M campus" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-pardhava-meka" itemprop="name">Pardhava Meka</a></h3>
+            <p class="role" itemprop="jobTitle">Director of Public Relations</p>
+            <meta itemprop="email" content="publicrelations.carpool@gmail.com">
+            <div class="actions">
+              <a class="btn" href="mailto:publicrelations.carpool@gmail.com?subject=CARPOOL — Public Relations">Email Me</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Deputy Directors -->
+    <section class="section" aria-labelledby="deputy-directors">
+      <h2 id="deputy-directors">Deputy Directors</h2>
+      <div class="grid">
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/owen-scaled.jpg" alt="Owen Wyatt - Deputy Director of Recruitment at CARPOOL TAMU" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-owen-wyatt" itemprop="name">Owen Wyatt</a></h3>
+            <p class="role" itemprop="jobTitle">Deputy Director of Recruitment</p>
+            <div class="actions">
+              <a class="btn" href="mailto:recruitment.carpool@gmail.com?subject=CARPOOL — Recruitment (Attn: Owen)">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/Abhinav-scaled.jpg" alt="Abhinav Karnati - Deputy Director of Development, supporting CARPOOL fundraising" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-abhinav-karnati" itemprop="name">Abhinav Karnati</a></h3>
+            <p class="role" itemprop="jobTitle">Deputy Director of Development</p>
+            <div class="actions">
+              <a class="btn" href="mailto:development.carpool@gmail.com?subject=CARPOOL — Development (Attn: Abhinav)">Email Me</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/Pehrrson-scaled.jpg" alt="Pehrsson Vaughan - Deputy Director of Provisions at CARPOOL Texas A&M" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-pehrsson-vaughan" itemprop="name">Pehrsson Vaughan</a></h3>
+            <p class="role" itemprop="jobTitle">Deputy Director of Provisions</p>
+            <div class="actions">
+              <a class="btn" href="mailto:provisions.carpool@gmail.com?subject=CARPOOL — Provisions (Attn: Pehrsson)">Email Me</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Advisors -->
+    <section class="section" aria-labelledby="advisors">
+      <h2 id="advisors">Advisors</h2>
+      <div class="grid">
+        <article class="card" itemscope itemtype="https://schema.org/Person">
+          <img class="avatar" itemprop="image" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/1746219686905.jpg" alt="Emma Charles - CARPOOL Advisor providing guidance to student leadership" />
+          <div class="content">
+            <h3 class="name"><a href="#sheet-emma-charles" itemprop="name">Emma Charles</a></h3>
+            <p class="role" itemprop="jobTitle">Advisor</p>
+            <div class="actions">
+              <a class="btn" href="mailto:publicrelations.carpool@gmail.com?subject=CARPOOL — Advisor (Attn: Emma)">Email Me</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Related Links for Internal SEO -->
+    <aside class="related-links" aria-labelledby="related-heading">
+      <h2 id="related-heading">Learn More About CARPOOL</h2>
+      <ul>
+        <li><a href="https://carpool.tamu.edu/">Request a Free Safe Ride - Friday & Saturday Nights</a></li>
+        <li><a href="https://carpool.tamu.edu/apply-for-carpool/">Join Our Team - Volunteer Driver Application</a></li>
+        <li><a href="https://carpool.tamu.edu/story/">The Story of CARPOOL - How We Started in 1999</a></li>
+        <li><a href="https://carpool.tamu.edu/mission-vision-values/">Our Mission, Vision & Values</a></li>
+        <li><a href="https://carpool.tamu.edu/faq/">Frequently Asked Questions</a></li>
+        <li><a href="https://carpool.tamu.edu/donate/">Support CARPOOL - Make a Tax-Deductible Donation</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- Modal Popups (keeping all existing modals) -->
+  <div id="sheet-isabella-ritchey" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Isabella Ritchey</h3>
+        <p class="role">Chair</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/isabella-scaled.jpg" alt="Isabella Ritchey portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2028</p>
+          <p><strong>Major:</strong> Public Health</p>
+          <p><strong>Minor:</strong> Spanish for Health Professions</p>
+          <p><strong>Hometown:</strong> Pearland, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is meeting new people in car rides!</p>
+          <p><strong>Fun fact:</strong> I can do the orange justice</p>
+          <p><strong>Hobbies:</strong> Photography, volunteering, and cleaning!</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:chair.carpool@gmail.com?subject=CARPOOL — Hello Isabella">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All other modal sheets from original code... -->
+  <div id="sheet-kaden-smith" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Kaden Smith</h3>
+        <p class="role">Vice Chair of Finance</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/kaden-scaled.jpg" alt="Kaden Smith portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2027</p>
+          <p><strong>Major:</strong> Biomedical Sciences</p>
+          <p><strong>Hometown:</strong> The Woodlands, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is the people</p>
+          <p><strong>Fun fact:</strong> I am a triplet</p>
+          <p><strong>Hobbies:</strong> I'm surprisingly proficient at karaoke</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:finance.carpool@gmail.com?subject=CARPOOL — Finance question">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continuing with remaining modals... -->
+  <div id="sheet-rahul-rajulu" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Rahul Rajulu</h3>
+        <p class="role">Vice Chair of Internal Relations</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/rahul-scaled.jpg" alt="Rahul Rajulu portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2027</p>
+          <p><strong>Major:</strong> Microbiology</p>
+          <p><strong>Minor:</strong> Psychology</p>
+          <p><strong>Hometown:</strong> Katy, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is talking to all the patrons. It's always fun to hear about people's week and talk about life in general</p>
+          <p><strong>Fun fact:</strong> I'm missing a bone in my left leg</p>
+          <p><strong>Hobbies:</strong> I will literally watch any sporting event that is on, I love watching sports. Also love to cook different cuisines and a variety of dishes</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:internalrelations.carpool@gmail.com?subject=CARPOOL — Internal Relations">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include all remaining staff modals from original code -->
+  <div id="sheet-luisa-lopez-villagran" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Luisa Lopez Villagran</h3>
+        <p class="role">Director of Member Relations</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/luisa-scaled.jpg" alt="Luisa Lopez Villagran portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Major:</strong> Behavioral and Cognitive Neuroscience</p>
+          <p><strong>Minor:</strong> Biology</p>
+          <p><strong>Hometown:</strong> Fort Worth, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is getting to talk to people</p>
+          <p><strong>Fun fact:</strong> I had a pony growing up</p>
+          <p><strong>Hobbies:</strong> I like to crochet and play pool</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:memberrelations.carpool@gmail.com?subject=CARPOOL — Member Relations">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-nicholas-ballard" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Nicholas Ballard</h3>
+        <p class="role">Director of Development</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/nick-scaled.jpg" alt="Nicholas Ballard portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Major:</strong> Biomedical Sciences</p>
+          <p><strong>Hometown:</strong> Frisco, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is meeting all kinds of people</p>
+          <p><strong>Fun fact:</strong> I have never broken a bone or been to the ER</p>
+          <p><strong>Hobbies:</strong> I like to spend my time finding cheesy horror movies</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:development.carpool@gmail.com?subject=CARPOOL — Development/Sponsorships">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-prachi-rajput" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Prachi Rajput</h3>
+        <p class="role">Director of Recruitment</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/Prachi-scaled.jpg" alt="Prachi Rajput portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2027</p>
+          <p><strong>Major:</strong> Public Health</p>
+          <p><strong>Hometown:</strong> Katy, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is the eccentric and niche conversations with strangers!</p>
+          <p><strong>Fun fact:</strong> I have an eyebrow business, so let me know if you want to get cleaned up!</p>
+          <p><strong>Hobbies:</strong> I like to cook, watch movies, rot outdoors, and visit dogs at dog parks!</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:recruitment.carpool@gmail.com?subject=CARPOOL — Recruitment">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-ahmad-achkar" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Ahmad Achkar</h3>
+        <p class="role">Director of Technology</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/ahmad-scaled.jpg" alt="Ahmad Achkar portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Major:</strong> Biomedical Sciences</p>
+          <p><strong>Hometown:</strong> Pearland, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL are that the people are pretty chill and free food doesn't hurt either</p>
+          <p><strong>Fun fact:</strong> I fell from the sky wearing a monkey costume once</p>
+          <p><strong>Hobbies:</strong> Hiking, swimming, coding, and love watching new TV series</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:logistics.carpool@gmail.com?subject=CARPOOL — Technology">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-samantha-fehlis" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Samantha Fehlis</h3>
+        <p class="role">Director of Fundraising</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/samantha-scaled.jpg" alt="Samantha Fehlis portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Major:</strong> Chemistry</p>
+          <p><strong>Minor:</strong> Economics</p>
+          <p><strong>Hometown:</strong> San Antonio, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is meeting new people!</p>
+          <p><strong>Fun fact:</strong> I have been to 17 countries</p>
+          <p><strong>Hobbies:</strong> Crochet and reading</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:fundraising.carpool@gmail.com?subject=CARPOOL — Fundraising">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-hannah-abraham" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Hannah Abraham</h3>
+        <p class="role">Director of Provisions</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/hannah-scaled.jpg" alt="Hannah Abraham portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Major:</strong> Microbiology</p>
+          <p><strong>Minor:</strong> Psychology</p>
+          <p><strong>Hometown:</strong> Belton, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is the amazing people!</p>
+          <p><strong>Fun fact:</strong> I still have a baby tooth</p>
+          <p><strong>Hobbies:</strong> I like rollercoasters, baking, tennis, and hanging out with friends!</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:provisions.carpool@gmail.com?subject=CARPOOL — Provisions">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-pardhava-meka" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Pardhava Meka</h3>
+        <p class="role">Director of Public Relations</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/pardhava-meka.jpg" alt="Pardhava Meka portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2027</p>
+          <p><strong>Major:</strong> Biology</p>
+          <p><strong>Hometown:</strong> Katy, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is working OPS nights and being able to help others</p>
+          <p><strong>Fun fact:</strong> I once walked 14 kilometers in a single night barefoot (with breaks of course)</p>
+          <p><strong>Hobbies:</strong> Playing videogames, singing, watching movies, listening to music</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:publicrelations.carpool@gmail.com?subject=CARPOOL — Public Relations">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-owen-wyatt" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Owen Wyatt</h3>
+        <p class="role">Deputy Director of Recruitment</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/owen-scaled.jpg" alt="Owen Wyatt portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2028</p>
+          <p><strong>Major:</strong> Public Health</p>
+          <p><strong>Hometown:</strong> Needville, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is getting to talk to passengers while helping them get home safe.</p>
+          <p><strong>Fun fact:</strong> I did musical theatre for 6 years!</p>
+          <p><strong>Hobbies:</strong> Video games and playing card/board games</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:recruitment.carpool@gmail.com?subject=CARPOOL — Recruitment (Attn: Owen)">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-abhinav-karnati" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Abhinav Karnati</h3>
+        <p class="role">Deputy Director of Development</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/Abhinav-scaled.jpg" alt="Abhinav Karnati portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2027</p>
+          <p><strong>Major:</strong> Public Health</p>
+          <p><strong>Hometown:</strong> Frisco, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is the people!</p>
+          <p><strong>Fun fact:</strong> I have a dog named Charlie</p>
+          <p><strong>Hobbies:</strong> I enjoy reading, playing the piano, and karting</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:development.carpool@gmail.com?subject=CARPOOL — Development (Attn: Abhinav)">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-pehrsson-vaughan" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Pehrsson Vaughan</h3>
+        <p class="role">Deputy Director of Provisions</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/Pehrrson-scaled.jpg" alt="Pehrsson Vaughan portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> 2027</p>
+          <p><strong>Major:</strong> Biomedical Sciences</p>
+          <p><strong>Hometown:</strong> Harlingen, TX</p>
+          <p><strong>Favorite part of CARPOOL:</strong> My favorite part of CARPOOL is the people! Between the students I work with and patrons we serve there is never a dull moment</p>
+          <p><strong>Fun fact:</strong> I used to Barrel Race competitively</p>
+          <p><strong>Hobbies:</strong> I enjoy reading, playing pickleball, exercising, and traveling!</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:provisions.carpool@gmail.com?subject=CARPOOL — Provisions (Attn: Pehrsson)">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sheet-emma-charles" class="staff-sheet">
+    <a href="#close" class="sheet-overlay" onclick="event.preventDefault(); window.location.hash = '';"></a>
+    <div class="sheet-panel">
+      <div class="sheet-head">
+        <h3>Emma Charles</h3>
+        <p class="role">Advisor</p>
+        <a class="sheet-close" href="#close" onclick="event.preventDefault(); window.location.hash = '';" aria-label="Close modal">×</a>
+      </div>
+      <div class="sheet-body">
+        <img class="sheet-photo" src="https://carpool.tamu.edu/wp-content/uploads/2025/08/1746219686905.jpg" alt="Emma Charles portrait" />
+        <div class="sheet-info">
+          <p><strong>Graduation:</strong> —</p>
+          <p><strong>Major:</strong> —</p>
+          <p><strong>Hometown:</strong> —</p>
+          <p><strong>Favorite part of CARPOOL:</strong> —</p>
+          <p><strong>Fun fact:</strong> —</p>
+          <p><strong>Hobbies:</strong> —</p>
+        </div>
+        <div class="sheet-actions">
+          <a class="btn" href="mailto:publicrelations.carpool@gmail.com?subject=CARPOOL — Advisor (Attn: Emma)">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  (function() {
+    // Store scroll position before opening modal
+    let savedScrollPosition = 0;
+    
+    // Save scroll position when clicking on staff cards
+    document.querySelectorAll('.card, .name a').forEach(function(element) {
+      element.addEventListener('click', function(e) {
+        // Only save if clicking a link that opens a modal
+        const href = e.target.closest('a')?.getAttribute('href');
+        if (href && href.startsWith('#sheet-')) {
+          savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        }
+      });
+    });
+    
+    // Restore scroll position when modal is closed
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash === '' || window.location.hash === '#close') {
+        // Small delay to ensure DOM is updated
+        setTimeout(function() {
+          window.scrollTo(0, savedScrollPosition);
+        }, 0);
+      }
+    });
+    
+    // Handle overlay and close button clicks
+    document.querySelectorAll('.sheet-overlay, .sheet-close').forEach(function(element) {
+      element.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.hash = '';
+        // Restore scroll position
+        setTimeout(function() {
+          window.scrollTo(0, savedScrollPosition);
+        }, 0);
+      });
+    });
+    
+    // Prevent body scroll when modal is open
+    const observer = new MutationObserver(function() {
+      const hasOpenModal = document.querySelector('.staff-sheet:target');
+      document.body.style.overflow = hasOpenModal ? 'hidden' : '';
+    });
+    
+    observer.observe(document.body, { 
+      attributes: false, 
+      childList: false, 
+      subtree: false 
+    });
+    
+    // Check on page load if there's a hash
+    if (window.location.hash && window.location.hash.startsWith('#sheet-')) {
+      savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    }
+  })();
+</script>
+</section>
+</main>
+
+<!-- Full-Width Maroon Footer -->
+<footer itemscope itemtype="https://schema.org/WPFooter" style="background: #500000; color: #fff; padding: 48px 24px; text-align: center; margin: 60px 0 0 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-shadow: 0 -4px 20px rgba(0,0,0,.1);">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;">
+      <strong itemprop="name">CARPOOL</strong> - Student-run 501(c)(3) non-profit
+    </p>
+    <p style="margin: 0 0 20px; font-size: 15px; opacity: 0.95;">
+      Serving Bryan/College Station since 1999 • Over 297,588 free rides given
+    </p>
+    <p style="margin: 0 0 24px; font-size: 15px;">
+      <a href="tel:+19796939905" style="color: #fff; text-decoration: none; padding: 10px 20px; background: rgba(255,255,255,0.15); border-radius: 6px; display: inline-block; margin: 0 8px 8px 0; transition: background 0.2s;" itemprop="telephone">📞 Call: (979) 693-9905</a>
+      <a href="mailto:publicrelations.carpool@gmail.com" style="color: #fff; text-decoration: none; padding: 10px 20px; background: rgba(255,255,255,0.15); border-radius: 6px; display: inline-block; margin: 0 8px 8px 0; transition: background 0.2s;" itemprop="email">✉️ Email Us</a>
+    </p>
+    <p style="margin: 0; font-size: 13px; opacity: 0.8; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+      © <span itemprop="copyrightYear">2025</span> CARPOOL. All rights reserved. Free, safe, nonjudgmental rides for the Texas A&M community.
+    </p>
+  </div>
+  <meta itemprop="copyrightHolder" content="CARPOOL">
+</footer>
+
+</body>
+</html>
