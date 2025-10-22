@@ -1,0 +1,224 @@
+<section class="carpool-lost" aria-labelledby="lost-title">
+  <style>
+/* ===============================
+   CARPOOL Lost & Found – full CSS
+   Scope: .carpool-lost (page) + .carpool-form-5 (form wrapper class)
+   =============================== */
+.carpool-lost{
+  --accent:#500000;              /* maroon */
+  --accent-600:#6a0000;
+  --accent-300:#8c3a3a;
+  --text:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --ring: color-mix(in oklab, var(--accent), white 78%);
+  --field-border: color-mix(in oklab, var(--accent), white 78%);
+  --field-border-hover: color-mix(in oklab, var(--accent), white 68%);
+  --field-border-focus: color-mix(in oklab, var(--accent), white 55%);
+  --shadow:0 10px 30px rgba(17,24,39,.08), 0 2px 8px rgba(17,24,39,.06);
+  --shadow-sm: 0 2px 8px rgba(80,0,0,.10);
+  --shadow-md: 0 4px 14px rgba(80,0,0,.14);
+  --shadow-lg: 0 6px 20px rgba(80,0,0,.18);
+  --radius:16px;
+}
+.carpool-lost{
+  color:var(--text);
+}
+.carpool-lost .wrap{ max-width:1000px; margin:0 auto; padding:40px 18px 72px; }
+
+/* ---- Page header ---- */
+.carpool-lost .page-head{ margin:0 0 24px; text-align:left; }
+.carpool-lost .page-head h1{
+  margin:0 0 10px; font-weight:900; letter-spacing:.2px;
+  line-height:1.1; font-size:clamp(30px,3.6vw,46px);
+}
+.carpool-lost .page-head h1::after{
+  content:""; display:block; width:96px; height:3px; margin:14px 0 0;
+  background:linear-gradient(90deg,var(--accent),var(--accent-300)); border-radius:999px;
+}
+.carpool-lost .page-head .sub{ margin:10px 0 0; color:var(--muted); font-size:clamp(15px,1.6vw,17px); }
+
+/* ---- Notice box ---- */
+.carpool-lost .notice{
+  background: color-mix(in oklab, var(--accent), white 94%);
+  border-left:4px solid var(--accent);
+  padding:18px 20px;
+  border-radius:12px;
+  margin:0 0 28px;
+  box-shadow: var(--shadow-sm);
+}
+.carpool-lost .notice p{ margin:0; line-height:1.6; color:var(--text); }
+.carpool-lost .notice strong{ color:var(--accent-600); font-weight:800; }
+.carpool-lost .notice a{
+  color:var(--accent); font-weight:700; text-underline-offset:3px; text-decoration:underline;
+}
+.carpool-lost .notice a:hover{ color:var(--accent-600); }
+
+/* ---- Layout & card ---- */
+.carpool-lost .grid{ display:grid; gap:22px; grid-template-columns:1fr; }
+@media (min-width:900px){
+  .carpool-lost .grid{ grid-template-columns:minmax(0,1.05fr); }
+}
+.carpool-lost .form-card{
+  background:var(--card); border:1px solid #eceff3; border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:clamp(18px,2.8vw,28px);
+  position:relative; overflow:hidden; isolation:isolate;
+}
+.carpool-lost .form-card::before{
+  content:""; position:absolute; inset:auto -30% -40% auto; width:420px; height:420px;
+  background:radial-gradient(closest-side, color-mix(in oklab, var(--accent), white 88%) 0%, transparent 70%);
+  transform:translateY(40px); z-index:-1; pointer-events:none; opacity:.4;
+}
+
+/* ===============================
+   FORM: Avada + Gravity (scoped to .carpool-form-5)
+   Add "carpool-form-5" in the form's "Form CSS Class Name"
+   =============================== */
+
+/* Labels */
+.carpool-lost .carpool-form-5 .fusion-form-field label,
+.carpool-lost .carpool-form-5 .gfield_label{
+  font-weight:700; color: color-mix(in oklab,var(--accent),black 70%) !important;
+  margin-bottom:6px;
+}
+
+/* Base inputs (Avada + Gravity) */
+.carpool-lost .carpool-form-5 input[type="text"],
+.carpool-lost .carpool-form-5 input[type="email"],
+.carpool-lost .carpool-form-5 input[type="tel"],
+.carpool-lost .carpool-form-5 input[type="url"],
+.carpool-lost .carpool-form-5 input[type="number"],
+.carpool-lost .carpool-form-5 input[type="password"],
+.carpool-lost .carpool-form-5 textarea,
+.carpool-lost .carpool-form-5 select{
+  width:100%;
+  background:#fff !important;
+  border:1.5px solid var(--field-border) !important;
+  border-radius:14px !important;
+  padding:12px 14px !important;
+  line-height:1.4;
+  box-shadow: var(--shadow-sm), 0 1px 0 rgba(17,24,39,.03) inset !important;
+  transition: border-color .15s ease, box-shadow .2s ease, transform .05s ease !important;
+}
+.carpool-lost .carpool-form-5 textarea{ min-height:150px }
+
+/* Hover & focus */
+.carpool-lost .carpool-form-5 input:hover,
+.carpool-lost .carpool-form-5 textarea:hover,
+.carpool-lost .carpool-form-5 select:hover{
+  border-color: var(--field-border-hover) !important;
+  box-shadow: var(--shadow-md), 0 1px 0 rgba(17,24,39,.03) inset !important;
+}
+.carpool-lost .carpool-form-5 input:focus,
+.carpool-lost .carpool-form-5 textarea:focus,
+.carpool-lost .carpool-form-5 select:focus{
+  outline:none !important;
+  border-color: var(--field-border-focus) !important;
+  box-shadow: 0 0 0 4px var(--ring), var(--shadow-lg) !important;
+  transform: translateY(-1px);
+}
+
+/* Placeholder */
+.carpool-lost .carpool-form-5 ::placeholder{
+  color: color-mix(in oklab, var(--accent), white 82%);
+}
+
+/* Checkboxes / radios */
+.carpool-lost .carpool-form-5 input[type="checkbox"],
+.carpool-lost .carpool-form-5 input[type="radio"]{
+  accent-color: var(--accent);
+  filter: drop-shadow(0 1px 1px rgba(80,0,0,.14));
+}
+
+/* Field spacing only - no background */
+.carpool-lost .carpool-form-5 .fusion-form-field,
+.carpool-lost .carpool-form-5 .gfield{
+  margin-bottom:14px;
+}
+
+/* Error states (Avada .fusion-has-error and GF .gfield_error) */
+.carpool-lost .carpool-form-5 .fusion-has-error input,
+.carpool-lost .carpool-form-5 .fusion-has-error textarea,
+.carpool-lost .carpool-form-5 .fusion-has-error select,
+.carpool-lost .carpool-form-5 .gfield_error .ginput_container input,
+.carpool-lost .carpool-form-5 .gfield_error .ginput_container textarea,
+.carpool-lost .carpool-form-5 .gfield_error .ginput_container select{
+  border-color: color-mix(in oklab, var(--accent), #ef4444 30%) !important;
+  box-shadow: 0 0 0 4px color-mix(in oklab, #ef4444, white 82%), 0 6px 20px rgba(239,68,68,.12) !important;
+}
+.carpool-lost .carpool-form-5 .fusion-form-error,
+.carpool-lost .carpool-form-5 .validation_message{
+  color:#7f1d1d; background:#fff1f2; border:1px solid #fee2e2;
+  padding:10px 12px; border-radius:12px;
+}
+
+/* Hide internal Gravity Forms title/desc if present (page already has header) */
+.carpool-lost .carpool-form-5 .gform_heading .gform_title,
+.carpool-lost .carpool-form-5 .gform_heading .gform_description{
+  display:none !important;
+}
+
+/* Submit buttons (Avada + Gravity) */
+.carpool-lost .carpool-form-5 .fusion-form-submit button,
+.carpool-lost .carpool-form-5 .fusion-button.button-submit,
+.carpool-lost .carpool-form-5 .gform_button{
+  background:linear-gradient(180deg, var(--accent), var(--accent-600)) !important;
+  color:#fff !important; font-weight:800; letter-spacing:.2px;
+  border:0 !important; border-radius:999px !important;
+  padding:12px 20px !important; cursor:pointer;
+  box-shadow: 0 10px 18px rgba(80,0,0,.18), 0 2px 8px rgba(80,0,0,.22) !important;
+  transition: transform .08s ease, box-shadow .15s ease, filter .15s ease;
+}
+.carpool-lost .carpool-form-5 .fusion-form-submit button:hover,
+.carpool-lost .carpool-form-5 .gform_button:hover{
+  filter:saturate(1.05) brightness(1.02);
+}
+.carpool-lost .carpool-form-5 .fusion-form-submit button:active,
+.carpool-lost .carpool-form-5 .gform_button:active{
+  transform: translateY(1px);
+}
+.carpool-lost .carpool-form-5 .fusion-form-submit button:focus-visible,
+.carpool-lost .carpool-form-5 .gform_button:focus-visible{
+  outline:none; box-shadow: 0 0 0 4px var(--ring), 0 10px 18px rgba(80,0,0,.18) !important;
+}
+
+/* Confirmation (GF) */
+.carpool-lost .carpool-form-5 #gform_confirmation_wrapper_5{
+  border:1px solid #d1fae5; background:#ecfdf5; color:#065f46;
+  padding:16px 18px; border-radius:12px; font-weight:600;
+}
+
+/* Mobile tweaks */
+@media (max-width:700px){
+  .carpool-lost .wrap{ padding:28px 14px 48px; }
+  .carpool-lost .form-card{ padding:18px; }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .carpool-lost .carpool-form-5 input,
+  .carpool-lost .carpool-form-5 textarea,
+  .carpool-lost .carpool-form-5 select,
+  .carpool-lost .carpool-form-5 .fusion-form-submit button,
+  .carpool-lost .carpool-form-5 .gform_button{ transition:none !important; }
+}
+</style>
+
+  <div class="wrap">
+    <header class="page-head">
+      <h1 id="lost-title">Lost & Found</h1>
+      <p class="sub">Left something in a CARPOOL vehicle? Here's how to get it back.</p>
+    </header>
+
+    <div class="notice" role="note" aria-label="Lost & Found policy">
+      <p>If you lost an item on Friday or Saturday, we will keep the item until the first Monday after the weekend at <strong>5:00 pm</strong>. At 5:00 pm on Monday, we transfer unclaimed items to <a href="https://msc.ucenter.tamu.edu/general-information/lost-and-found/" target="_blank" rel="noopener">MSC Hospitality</a>.</p>
+    </div>
+
+    <div class="grid">
+      <div class="form-card">
+        <!-- Gravity Form -->
+        [gravityform id="5" title="true" description="true" ajax="true"]
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,2957 @@
+/* ========================================================================== */
+/* ================  GLOBAL TOKENS & BASE (applies site-wide)  ============== */
+/* ========================================================================== */
+
+/* Design tokens */
+:root{
+  --accent:#500000;           /* Aggie maroon */
+  --bg:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --radius:14px;
+  --shadow:0 10px 26px -14px rgba(0,0,0,.22);
+}
+
+/* Base */
+.carpool-landing *{ box-sizing:border-box; }
+.carpool-landing{
+  color:var(--text);
+  background:var(--bg);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+.carpool-wrap{
+  max-width:960px;
+  margin:0 auto;
+  padding:24px 16px 40px;
+}
+
+/* Reusable button (base) */
+.btn{
+  text-decoration:none;
+  border-radius:12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:8px;
+  font-size:.95rem;
+  border:1px solid var(--accent);
+  color:var(--accent); background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+  transition:.2s ease;
+}
+.btn:hover{
+  background:#fff6f6; color:#6d1a1a;
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+}
+
+/* Section headings */
+.section{ margin:22px 0 8px; }
+.section h2{
+  text-align:center; margin:0 0 10px;
+  font-size:clamp(18px,2vw,24px); font-weight:800;
+}
+.section h2::after{
+  content:""; display:block; height:2px; width:64px; margin:8px auto 0;
+  background:linear-gradient(90deg,var(--accent),#8c3a3a); border-radius:999px;
+}
+
+/* Focus styles (a11y) */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 55%, #ffffff);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Utility margins used in HTML */
+.mt-6 { margin-top: 0.75rem; }
+.mt-8 { margin-top: 0.5rem; }
+.mt-10 { margin-top: 0.75rem; }
+
+
+/* ========================================================================== */
+/* ===========================  HOMEPAGE (Landing)  ========================== */
+/* ========================================================================== */
+
+/* --- Status Banner (base) --- */
+.carpool-banner{
+  display:grid; grid-template-columns:auto 1fr; gap:10px;
+  background:#fff8f8; border-left:5px solid var(--accent);
+  border-radius:12px; padding:10px 12px; box-shadow:var(--shadow);
+  margin:0 0 16px;
+}
+.carpool-banner .icon{
+  width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;
+  display:grid;place-items:center;font-weight:800;font-size:12px;line-height:1;
+}
+
+/* --- Hero --- */
+.hero{ text-align:center; }
+.hero h1{
+  margin:0 0 8px;
+  font-size:clamp(24px,3vw,36px);
+  font-weight:900;
+  letter-spacing:.2px;
+}
+
+/* --- Hero Highlight --- */
+.hero-highlight{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin:20px auto 24px;
+  padding:22px 18px;
+  max-width:880px;
+  background:#fff;
+  border:1px solid rgba(80,0,0,.18);
+  border-left:6px solid var(--accent);
+  border-right:6px solid var(--accent);
+  border-radius:16px;
+  box-shadow:0 12px 28px -16px rgba(0,0,0,.24);
+}
+.hero-highlight .stat-value{
+  /* animated count-up writes here (id="rideCount") */
+  font-size:clamp(40px,6.5vw,64px);
+  font-weight:900;
+  color:var(--accent);
+  line-height:1.1;
+}
+.hero-highlight .stat-label{
+  margin-top:6px;
+  color:var(--muted);
+  font-size:clamp(.9rem,1.5vw,1rem);
+}
+.hero-highlight .hero-promise{
+  margin-top:18px;
+  font-size:clamp(1.2rem,3vw,1.8rem);
+  font-weight:800;
+  color:#000;
+  line-height:1.35;
+  max-width:760px;
+}
+/* Subtle pop for key phrase */
+.hero-highlight .promise-pop{
+  position:relative;
+  font-weight:900;
+  background:rgba(80,0,0,0.08);
+  padding:0 .25em;
+  border-radius:6px;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+.hero-highlight .promise-pop::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-2px;
+  width:100%; height:3px;
+  background:var(--accent);
+  opacity:0.6;
+  border-radius:2px;
+}
+
+/* --- Call button wrapper --- */
+.actions{ display:flex; justify-content:center; margin:12px auto 4px; }
+
+/* --- Info grid (card left, video right) --- */
+.info-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
+  grid-template-areas: "left right";
+  gap:24px;
+  align-items:center;
+}
+.info-grid > .card{ grid-area:left; min-width:0; }
+.info-grid > .video-wrap{ grid-area:right; min-width:0; }
+
+/* Stack on narrow */
+@media (max-width:900px){
+  .info-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "left"
+      "right";
+    gap:16px;
+  }
+}
+
+/* --- Video (right column) --- */
+.video-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+.video-frame{
+  width:100%;
+  max-width:480px;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  margin:auto;
+  padding:2px;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg, var(--accent), #b85a5a) border-box;
+  border:2px solid transparent;
+  box-shadow:0 12px 28px -16px rgba(0,0,0,.24), 0 2px 0 rgba(255,255,255,.6) inset;
+  background-clip: padding-box, border-box;
+  border-radius:16px;
+}
+.video-frame video{
+  width:100%; height:100%;
+  object-fit:cover; display:block;
+  border-radius:14px;
+  background:#0f1115;
+}
+.video-caption{
+  font-size:.9rem;
+  color:var(--muted);
+  text-align:center;
+  margin-top:8px;
+}
+
+/* --- FAQ (inline on homepage card) --- */
+.faq details{
+  background:#fff; border:1px solid rgba(17,24,39,.08); border-radius:10px;
+  padding:10px 12px; margin-bottom:8px;
+}
+.faq summary{ cursor:pointer; font-weight:700; list-style:none; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq .answer{ color:var(--muted); margin-top:6px; }
+
+/* --- Hours block --- */
+.hours{ text-align:center; }
+.hours .big{ font-weight:800; font-size:clamp(16px,1.8vw,20px); }
+.hours .note{ color:var(--muted); }
+
+/* --- CTA row --- */
+.cta-row{
+  display:grid; gap:12px; margin-top:10px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+@media (max-width:900px){ .cta-row{ grid-template-columns:1fr; } }
+.cta{
+  background:#fff; border:1px solid rgba(17,24,39,.08);
+  border-left:4px solid var(--accent);
+  border-radius:12px; padding:12px 14px; text-align:center;
+  box-shadow:var(--shadow);
+}
+
+/* --- SGA footer --- */
+.sga{ text-align:center; margin-top:14px; }
+.sga img{ width:88px; height:auto; filter:grayscale(8%); opacity:.95; }
+.sga p{ color:var(--muted); margin-top:6px; }
+
+/* Optional: promise as text centerpiece (if reused elsewhere) */
+.carpool-promise-text {
+  text-align: center;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: #000000;
+  margin: 36px auto 24px;
+  max-width: 840px;
+  line-height: 1.35;
+}
+
+
+/* ========================================================================== */
+/* =====================  HOMEPAGE Banner Variant Classes  =================== */
+/* ========================================================================== */
+
+/* Error / downtime style */
+.carpool-banner.error{ background:#fff8f8; border-left:5px solid var(--accent); }
+.carpool-banner.error .icon{ background:var(--accent); color:#fff; }
+
+/* Success / running style */
+.carpool-banner.success{ background:#f6fff8; border-left:5px solid #15803d; }
+.carpool-banner.success .icon{ background:#15803d; color:#fff; font-size:14px; }
+
+
+
+
+/* ==== Bolder banner colors (high-contrast) ==== */
+:root{
+  --danger:  #991b1b;         /* deep red/maroon */
+  --danger-bg: #fee2e2;       /* stronger red tint */
+  --success: #166534;         /* deep green */
+  --success-bg: #dcfce7;      /* stronger green tint */
+}
+
+/* Base banner tweaks for contrast */
+.carpool-banner{
+  box-shadow: 0 10px 26px -14px rgba(0,0,0,.20);
+  border-radius: 12px;
+}
+.carpool-banner .banner-text{ color:#0b0f14; }  /* darker copy */
+
+/* Error / downtime */
+.carpool-banner.error{
+  background: var(--danger-bg) !important;
+  border-left: 6px solid var(--danger) !important;
+}
+.carpool-banner.error .icon{
+  background: var(--danger) !important;
+  color:#fff !important;
+  box-shadow: 0 0 0 2px #fff inset, 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* Success / running */
+.carpool-banner.success{
+  background: var(--success-bg) !important;
+  border-left: 6px solid var(--success) !important;
+}
+.carpool-banner.success .icon{
+  background: var(--success) !important;
+  color:#fff !important;
+  box-shadow: 0 0 0 2px #fff inset, 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* Optional: tint key words to match the state */
+.carpool-banner.error .banner-text strong{ color: var(--danger) !important; }
+.carpool-banner.success .banner-text strong{ color: var(--success) !important; }
+
+/* Optional (slightly richer panels using a soft gradient) */
+.carpool-banner.error{
+  background: linear-gradient(180deg, #ffe5e5, var(--danger-bg)) !important;
+}
+.carpool-banner.success{
+  background: linear-gradient(180deg, #e8fff1, var(--success-bg)) !important;
+}
+
+
+
+
+/* Keep full highlight styling even on mobile */
+@media (max-width: 600px) {
+  .hero-highlight .promise-pop {
+    display: inline-block;
+    background: rgba(80,0,0,0.08);
+    padding: 0 .25em;
+    border-radius: 6px;
+  }
+  .hero-highlight .promise-pop::after {
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    width:100%; height:3px;
+    background:var(--accent);
+    opacity:0.6;
+    border-radius:2px;
+  }
+}
+
+
+/* ========================================================================== */
+/* ======================  HOMEPAGE POLISH (small tweaks)  =================== */
+/* ========================================================================== */
+
+/* Banner text tightening */
+.carpool-banner .banner-text { margin: 0; line-height: 1.4; }
+.carpool-banner strong, .carpool-banner em { white-space: nowrap; }
+
+/* Hero spacing consistency */
+.hero { text-align: center; margin: 6px 0 10px; }
+.hero .actions { margin-top: 10px; }
+
+/* “What is CARPOOL?” card: make it a feature tile */
+.info-grid > .card {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, .08);
+  border-radius: 16px;
+  padding: 16px 16px 14px;
+  box-shadow: 0 10px 26px -14px rgba(0,0,0,.16);
+}
+
+/* Paragraph rhythm inside the card */
+.info-grid .card p { margin: 0 0 10px; }
+.info-grid .card p:last-child { margin-bottom: 0; }
+
+/* FAQ inside the card */
+.info-grid .faq details { margin-bottom: 8px; }
+.info-grid .faq details:last-child { margin-bottom: 0; }
+
+/* Video emphasis overrides */
+.video-frame { max-width: 520px; box-shadow: 0 12px 28px -16px rgba(0,0,0,.22); }
+
+/* Hours card look */
+#hours .hours {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, .06);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 6px 18px -12px rgba(0,0,0,.15);
+}
+
+/* Compact CTA layout */
+.carpool-landing .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.cta-row .cta { display: flex; flex-direction: column; align-items: center; justify-content: start; gap: 8px; }
+.cta-title { margin: 0; }
+
+/* Buttons: slightly bolder, tighter padding for mobile */
+.btn { padding: 10px 14px; font-weight: 700; }
+
+/* Mobile polish */
+@media (max-width: 900px) {
+  .carpool-landing .grid-2 { grid-template-columns: 1fr; }
+  .carpool-banner .banner-text { font-size: .95rem; }
+}
+
+/* Landscape phones: keep hero copy and banner tidy */
+@media (orientation: landscape) and (max-width: 930px) {
+  .hero .hero-promise { margin-top: 12px; }
+  .carpool-banner .banner-text { line-height: 1.35; }
+}
+
+/* Footer spacing */
+.sga img { display: block; margin: 0 auto 8px; }
+.sga p { margin: 0; color: var(--muted); }
+
+/* Center the social buttons inside their CTA */
+.cta-row .cta .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin-inline: auto;
+}
+@media (max-width: 900px) {
+  .cta-row .cta .grid-2 { grid-template-columns: auto; justify-items: center; }
+}
+
+
+/* ========================================================================== */
+/* =======================  CSS-ONLY RIDE MODAL (GLOBAL)  ==================== */
+/* ========================================================================== */
+
+
+
+/* 1) Hoist modal root above site chrome (still useful on desktop) */
+.ride-modal-root { position: relative !important; z-index: 2147483600 !important; isolation: isolate; }
+
+/* 2) Checkbox (kept for label close) */
+#ride-modal-toggle {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; clip-path: inset(50%);
+  border: 0; padding: 0; margin: -1px;
+}
+
+/* 3) Overlay + modal containers */
+.ride-modal-overlay,
+.ride-modal { position: fixed; inset: 0; display: none; z-index:  ; }
+
+/* 4) Show when checked */
+.ride-modal-root #ride-modal-toggle:checked ~ .ride-modal-overlay,
+.ride-modal-root #ride-modal-toggle:checked ~ .ride-modal { display: block !important; }
+
+/* 5) Overlay (click-to-close; desktop dim—mobile guaranteed by body::before) */
+.ride-modal-overlay { cursor: pointer; background: rgba(0,0,0,0.6); pointer-events: auto; z-index: 2 !important; }
+
+/* 6) Optional extra blur behind on desktop via ::before */
+.ride-modal { position: fixed; }
+.ride-modal::before {
+  content: "";
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 1; pointer-events: none;
+}
+@supports (-webkit-touch-callout: none) { .ride-modal::before { display: none !important; } }
+
+/* 7) Panel: true center; allow viewport scroll if too tall */
+.ride-modal__panel {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+  overflow: auto;
+  pointer-events: none;
+  z-index: 3 !important;
+  font-family: inherit;
+  -webkit-transform: translateZ(0); transform: translateZ(0);
+}
+
+/* 8) Card */
+.ride-modal__card {
+  pointer-events: auto;
+  width: min(92vw, 560px);
+  max-height: 90vh;
+  background: #fff; color: #111;
+  border-radius: 16px;
+  border: 1px solid rgba(17,24,39,.08);
+  box-shadow: 0 30px 70px rgba(0,0,0,.28);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  z-index: ;
+}
+
+/* 9) Header */
+.ride-modal__head { position: relative; background: linear-gradient(180deg, #5a0000 0%, #500000 100%); padding: 20px 22px 18px; }
+.ride-modal__title { margin: 0; font-size: 1.35rem; line-height: 1.25; letter-spacing: .2px; color: #fff !important; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
+.ride-modal__subtitle { margin: 6px 0 0; font-size: .98rem; color: rgba(255,255,255,.95) !important; text-shadow: 0 1px 0 rgba(0,0,0,.25); }
+
+/* 10) Close (label for checkbox) */
+.ride-modal__close { position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; font-size: 1.1rem; color: #fff; text-decoration: none; }
+.ride-modal__close:hover,
+.ride-modal__close:focus-visible { background: rgba(255,255,255,.12); outline: none; }
+
+/* 11) Body */
+.ride-modal__body { padding: 20px 22px 0; font-size: 1rem; line-height: 1.6; overflow: auto; flex: 1; }
+
+/* 12) Actions: equal-size, centered buttons */
+.ride-modal .ride-btn { display: flex !important; align-items: center !important; justify-content: center !important; gap: 10px; min-height: 48px; width: 100%; padding: 12px 16px; border-radius: 12px; font-weight: 700; text-decoration: none; line-height: 1 !important; }
+@media (min-width: 560px) { .ride-modal .ride-btn { flex: 1 1 0 !important; width: auto; max-width: none; } }
+.ride-modal .ride-btn .ride-icon,
+.ride-modal .ride-btn > svg { width: 20px; height: 20px; display: block; flex: 0 0 20px; line-height: 0; }
+.ride-modal .ride-btn > span,
+.ride-modal .ride-btn > strong,
+.ride-modal .ride-btn > em { line-height: 1; }
+.ride-modal .ride-btn > * { margin: 0 !important; transform: none !important; }
+
+/* 13) Button visuals */
+.ride-btn--call { background: #0f766e; color: #fff; box-shadow: 0 6px 16px rgba(15,118,110,.25); }
+.ride-btn--call:hover { background: #0c6a63; }
+.ride-btn--secondary { background: #eef2f7; color: #111; }
+.ride-btn--secondary:hover { background: #e5eaf1; }
+
+/* 14) Call icon alignment */
+.ride-icon { width: 20px; height: 20px; flex-shrink: 0; display: block; }
+
+/* 15) Motion (respect reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .ride-modal__card { transform: translateY(10px) scale(.992); opacity: 0; animation: ride-pop .22s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes ride-pop { to { transform: translateY(0) scale(1); opacity: 1; } }
+}
+
+/* Prevent top margin collapse with first child */
+.carpool-landing .carpool-wrap { padding-top: 1px; margin-top: -1px; }
+
+/* Remove WYSIWYG-injected spacing around the modal */
+.ride-modal-root > p { margin: 0; padding: 0; }
+.ride-modal-root > p:empty { display: none; }
+.ride-modal-root br { display: none; }
+
+
+/* ========================================================================== */
+/* ==============================  AVADA RESETS  ============================= */
+/* ========================================================================== */
+
+/* Make the whole canvas white */
+html, body, .fusion-body .site, .fusion-body #wrapper, .fusion-body .fusion-wrapper { background: #fff !important; }
+html, body { margin: 0; }
+
+/* Remove the theme's content box/shadow/border */
+.fusion-body #main,
+.fusion-body .fusion-content-wrapper,
+.fusion-body .entry-content,
+.fusion-body .fusion-row,
+.fusion-body .fusion-builder-container,
+.fusion-body .fusion-builder-row,
+.fusion-body .fusion-page-builder-container,
+.fusion-body .post, .fusion-body .page {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Kill all outer gutters */
+.fusion-body #main,
+.fusion-body .fusion-content-wrapper,
+.fusion-body .entry-content,
+.fusion-body .fusion-row,
+.fusion-body .fusion-builder-container,
+.fusion-body .fusion-builder-row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Avada rows add side padding by default—zero it */
+.fusion-body .fusion-row,
+.fusion-body .fusion-builder-row { padding-left: 0 !important; padding-right: 0 !important; }
+
+/* ✅ Restore centering on Avada wrappers while keeping no-gutter look */
+.fusion-body #main,
+.fusion-body .fusion-content-wrapper,
+.fusion-body .fusion-row,
+.fusion-body .fusion-builder-container,
+.fusion-body .fusion-builder-row,
+.fusion-body .entry-content { margin-left: auto !important; margin-right: auto !important; }
+
+/* Your section uses full width bg with a centered inner column */
+.carpool-landing { margin: 0; background: #fff; width: 100%; }
+.carpool-wrap { max-width: 960px; margin: 0 auto; }
+
+
+
+
+
+
+
+
+
+/* ===========================================================
+   HARD ALIGNMENT — INNER PAGES ONLY (homepage untouched)
+   Forces identical vertical start + gutters + title baseline.
+   SIGNIFICANTLY TIGHTER TOP BASELINE.
+   =========================================================== */
+
+:root{
+  --shell-max: 1000px;     /* inner page content width */
+  --shell-pad-x: 16px;     /* side gutters */
+  --shell-pad-bottom: 56px;
+
+  /* === Vertical baseline tuning ===
+     Keep header height accurate; we zero the extra gap to move content UP. */
+  --header-fixed-h: 40px;   /* desktop header height (adjust to your theme) */
+  --baseline-gap: 0px;      /* was 24px — tighter baseline for a higher start */
+  --admin-offset: 0px;      /* auto-set below when admin bar is present */
+}
+
+/* WordPress admin bar offsets (logged-in) */
+body.admin-bar { --admin-offset: 32px; }
+@media (max-width: 782px){
+  body.admin-bar { --admin-offset: 46px; }
+}
+
+/* 1) Uniform inner-page shell + viewport-anchored vertical start */
+body:not(.home)
+  :is(
+.carpool-contact .wrap,
+    .crpl-faq-section .crpl-container,
+    .carpool-mvv .wrap,
+    .carpool-prospects .wrap,
+    .carpool-news .wrap,
+    .carpool-sponsors .wrap,
+    #carpool-staff .carpool-wrap,
+    .carpool-story .wrap,
+		.carpool-give .wrap,
+		.carpool-leaderboard .wrap,
+		.carpool-prospects .wrap,
+.carpool-lost .wrap,
+.carpool-srp .wrap,
+.gallery-section
+  ){
+  max-width: var(--shell-max) !important;
+  margin-inline: auto !important;
+
+  /* FIRST CONTENT PIXEL now sits significantly higher due to 0px baseline gap */
+  padding: calc(var(--header-fixed-h) + var(--admin-offset) + var(--baseline-gap))
+           var(--shell-pad-x)
+           var(--shell-pad-bottom) !important;
+
+  background: #fff !important;
+  min-width: 0 !important;
+}
+
+/* Prevent top-margin collapse so the vertical baseline never shifts */
+body:not(.home)
+  :is(
+.carpool-contact .wrap,
+    .crpl-faq-section .crpl-container,
+    .carpool-mvv .wrap,
+    .carpool-prospects .wrap,
+    .carpool-news .wrap,
+    .carpool-sponsors .wrap,
+    #carpool-staff .carpool-wrap,
+    .carpool-story .wrap,
+		.carpool-give .wrap,
+		.carpool-leaderboard .wrap,
+		.carpool-prospects .wrap,
+.carpool-lost .wrap,
+.carpool-srp .wrap,
+.gallery-section
+  ) > :first-child{
+  margin-top: 0 !important;
+}
+
+/* 2) Neutralize theme gutters that could nudge the baseline (inner pages only) */
+body.fusion-body:not(.home)
+  :is(#main,.fusion-content-wrapper,.entry-content,.fusion-row,.fusion-builder-container,.fusion-builder-row){
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 3) Remove Avada's page-title bar (height varies per page and breaks alignment) */
+body.fusion-body:not(.home) .fusion-page-title-bar{
+  display: none !important;
+}
+
+/* 4) Title alignment rail — identical H1 left edge + underline across inner pages */
+:is(
+.carpool-contact .page-head h1,
+  .crpl-faq-section .crpl-page-header h1,
+  #carpool-staff .page-title h1,
+  .carpool-prospects .page-head h1,
+  .carpool-sponsors .page-head h1,
+  .carpool-story .story-hero h1,
+.carpool-leaderboard .page-head h1,
+	.carpool-give .page-head h1,
+.carpool-prospects .page-head h1,
+.carpool-lost .page-head h1,
+.carpool-srp .page-head h1,
+.gallery-section .gallery-header h1
+){
+  margin: 0 0 10px !important;
+  text-align: left !important;
+  letter-spacing: .2px;
+  font-weight: 900;
+}
+:is(
+.carpool-contact .page-head h1,
+  .crpl-faq-section .crpl-page-header h1,
+  #carpool-staff .page-title h1,
+	.carpool-give .page-head h1,
+  .carpool-prospects .page-head h1,
+  .carpool-sponsors .page-head h1,
+  .carpool-story .story-hero h1,
+.carpool-prospects .page-head h1,
+.carpool-leaderboard .page-head h1,
+.carpool-lost .page-head h1,
+.carpool-srp .page-head h1,
+.gallery-section .gallery-header h1
+
+)::after{
+  content:"";
+  display:block;
+  width: 84px;
+  height: 3px;
+  margin: 12px 0 0 0 !important;
+  background: linear-gradient(90deg, var(--accent, #500000), #8c3a3a);
+  border-radius: 999px;
+}
+
+/* 5) Smooth anchor jumps: account for fixed header + baseline on inner pages */
+html:not(.home) {
+  scroll-padding-top: calc(var(--header-fixed-h) + var(--admin-offset) + var(--baseline-gap));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Home → Social buttons (mobile)
+   Remove the large gap between Facebook & Instagram
+   ========================= */
+@media (max-width: 900px){
+  .carpool-landing .cta-row .cta .grid-2{
+    /* keep stacked */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    /* nuke all grid gaps */
+    gap: 0 !important;
+    row-gap: 0 !important;
+    column-gap: 0 !important;
+
+    /* don't distribute extra space between rows */
+    align-content: start !important;
+    justify-items: stretch !important;
+  }
+
+  /* remove any margins the theme might add to the buttons */
+  .carpool-landing .cta-row .cta .grid-2 > *{
+    margin: 0 !important;
+  }
+}
+/* =========================
+   HOMEPAGE — Mobile polish
+   Drop at end of stylesheet
+   ========================= */
+
+/* 1) Safe-area gutters + tighter rhythm on phones */
+@media (max-width: 600px){
+  .carpool-wrap{
+    padding: 16px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-right)) !important;
+  }
+}
+
+/* 2) Status banner: compact */
+@media (max-width: 600px){
+  .carpool-banner{ padding: 8px 10px !important; gap: 8px !important; }
+  .carpool-banner .icon{ width: 20px !important; height: 20px !important; font-size: 11px !important; }
+}
+
+/* 3) Hero: balance lines + trim visual weight */
+@media (max-width: 420px){
+  .hero h1{
+    text-wrap: balance;
+    font-size: clamp(20px, 7vw, 26px) !important;
+  }
+  .hero-highlight{
+    padding: 14px 12px !important;
+    border-left-width: 4px !important;
+    border-right-width: 4px !important;
+    box-shadow: 0 8px 18px -12px rgba(0,0,0,.2) !important;
+  }
+  .hero-highlight .stat-value{ font-size: clamp(34px, 10vw, 44px) !important; }
+  .hero-highlight .hero-promise{
+    font-size: clamp(1rem, 4.5vw, 1.25rem) !important;
+    max-width: 30ch !important;   /* shorter lines = easier reading */
+    margin-inline: auto !important;
+  }
+}
+
+/* 4) Info grid: smaller gaps + comfy card padding on mobile */
+@media (max-width: 900px){
+  .info-grid{ gap: 12px !important; }
+  .info-grid > .card{ padding: 14px 12px !important; }
+  .video-frame{ max-width: none !important; } /* let video be full-width */
+}
+
+/* 5) CTAs: friendlier buttons on phones + fix social pair spacing */
+@media (max-width: 900px){
+  .cta-row .cta .btn{ width: 100% !important; }
+  .cta-row .cta .grid-2{ gap: 6px !important; }
+  .cta-row .cta .grid-2 > *{ margin: 0 !important; }
+}
+
+/* 6) Hours card: compact text + padding on tiny screens */
+@media (max-width: 420px){
+  #hours .hours{ padding: 10px 12px !important; }
+  .hours .big{ font-size: clamp(15px, 4.2vw, 18px) !important; }
+}
+
+/* 7) Footer: lighter footprint */
+@media (max-width: 420px){
+  .sga img{ width: 72px !important; }
+  .sga p{ font-size: .92rem !important; }
+}
+
+/* 8) Better tap targets + nicer iOS highlight */
+.carpool-landing a, .carpool-landing .btn{
+  min-height: 44px;
+  -webkit-tap-highlight-color: rgba(80,0,0,.1);
+}
+
+/* 9) (Optional) hide the auto-open modal on very small screens */
+@media (max-width: 420px){
+  /* comment this out if you want the modal on phones */
+  /* .ride-modal-root{ display: none !important; } */
+}
+
+
+
+
+
+/* === Inner page titles (Fusion Title) — force house style + maroon underline === */
+
+/* 1) Kill any centering Avada applies via wrappers or inline styles */
+body:not(.home) .fusion-title,
+body:not(.home) .fusion-title * { text-align: left !important; }
+body:not(.home) .fusion-title [style*="text-align"] { text-align: left !important; }
+
+/* 2) Normalize the actual heading element */
+body:not(.home) .fusion-title h1,
+body:not(.home) .fusion-title .fusion-title-heading,
+body:not(.home) .fusion-title .title-heading-left,
+body:not(.home) .fusion-title .title-heading-center {
+  display: block !important;
+  margin: 0 0 10px !important;
+  font-weight: 900 !important;
+  letter-spacing: .2px !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
+  line-height: 1.2 !important;
+  color: #111827 !important;
+  position: relative !important;
+  overflow: visible !important;
+
+  /* 3) Robust underline: background gradient instead of ::after */
+  padding-bottom: 12px !important; /* space for the underline */
+  background-image: linear-gradient(90deg, var(--accent, #500000), #8c3a3a) !important;
+  background-repeat: no-repeat !important;
+  background-size: 84px 3px !important;     /* width × thickness of underline */
+  background-position: 0 100% !important;    /* left edge, bottom */
+}
+
+/* 4) Remove Avada's own separators so they don't clash */
+body:not(.home) .fusion-title .title-sep,
+body:not(.home) .fusion-title .title-sep-container { display: none !important; }
+
+/* 5) Optional: the first paragraph under the title matches your page lead style */
+body:not(.home) .fusion-title + .fusion-text p:first-child,
+body:not(.home) .fusion-title + p {
+  margin: 6px 0 0 !important;
+  color: var(--muted, #6b7280) !important;
+  text-align: left !important;
+}
+
+
+
+
+
+    
+
+
+
+
+
+
+
+/* Hero count → tighten spacing above the "Rides given…" line */
+.hero-highlight .stat-value{
+  display:block;                /* so margin-bottom applies */
+  line-height:0.5 !important;
+  margin:0 10 2px 0 !important;  /* was visually too tall */
+}
+
+.hero-highlight .stat-label{
+  margin-top:0 !important;      /* override previous 6px */
+}
+
+/* Mobile: keep zero gap below the number, but add a little space above it */
+@media (max-width:700px){
+  #rideCount.stat-value::before{
+    content:"";
+    display:block;
+    height:8px;          /* tweak to taste (e.g., 6–12px) */
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ——— HOME: fix “What is CARPOOL?” size + spacing ——— */
+
+.home .fusion-title { 
+  margin-bottom: 12px !important;            /* tighten big gap under Avada Title element */
+}
+.home .fusion-title .title-sep,
+.home .fusion-title .title-sep-container {
+  display: none !important;                  /* hide any decorative separator Avada adds */
+}
+
+/* Make oversized H1/H2 sane again on home */
+.home h1,
+.home .fusion-title .title-heading-left {     /* Avada Title element heading */
+  font-size: clamp(28px, 3vw + 1rem, 44px) !important;
+  line-height: 1.15 !important;
+  margin: 0 0 0.5rem !important;
+}
+.home h2 {
+  font-size: clamp(24px, 2.2vw + 0.9rem, 36px) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 0.5rem !important;
+}
+
+/* Tighten the paragraph under the title */
+.home .fusion-text > p { 
+  margin: 0 0 1rem !important;
+}
+.home .fusion-text > p:last-child { 
+  margin-bottom: 0 !important;
+}
+
+/* Remove accidental empty-gap makers under that section */
+.home .fusion-text > p:empty,
+.home .fusion-text > p:has(br) { 
+  display: none !important;                  /* hides stray blank paragraphs */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==== Modal dimmer guard: only show when a card is visible ==== */
+
+/* If the toggle is NOT checked, never show the page dimmer */
+body:has(.ride-modal-root #ride-modal-toggle:not(:checked))::before{
+  content: none !important;
+}
+
+
+
+/* If your stylesheet earlier defines body::before unconditionally when checked,
+   this neutralizes any leftover cases when no card is visible. */
+body:not(:has(.ride-modal-root #ride-card-open:not([hidden]), .ride-modal-root #ride-card-winddown:not([hidden])))::before{
+  content: none !important;
+}
+
+
+
+
+
+/* Modal: hide inactive state */
+.ride-modal__card[hidden]{ display:none !important; }
+
+/* Ensure overlay < modal < panel, so the popup is never greyed out */
+.ride-modal-overlay{ z-index: 2147483601 !important; }
+.ride-modal{ z-index: 2147483602 !important; }
+.ride-modal__panel{ z-index: 2147483603 !important; }
+
+/* Keep the extra blur behind only inside the modal, under the panel */
+.ride-modal::before{
+  content:"";
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 1;                 /* under the panel */
+  pointer-events: none;
+}
+
+/* Belt & suspenders: if NO visible card, no dimming anywhere */
+body:not(:has(#ride-card-open:not([hidden]), #ride-card-winddown:not([hidden]))){
+  /* When neither card is visible, hide the modal containers too */
+}
+
+
+
+/* ==== Hard kill modal/blur when no popup card is visible ==== */
+.ride-modal-root:not(:has(#ride-card-open:not([hidden]), #ride-card-winddown:not([hidden]))) .ride-modal,
+.ride-modal-root:not(:has(#ride-card-open:not([hidden]), #ride-card-winddown:not([hidden]))) .ride-modal-overlay {
+  display: none !important;
+}
+
+/* Belt & suspenders: if the checkbox is NOT checked, nothing shows */
+.ride-modal-root #ride-modal-toggle:not(:checked) ~ .ride-modal,
+.ride-modal-root #ride-modal-toggle:not(:checked) ~ .ride-modal-overlay {
+  display: none !important;
+}
+
+
+
+
+
+.carpool-banner .banner-text strong,
+.carpool-banner .banner-text em { 
+  white-space: normal !important;   /* allow wrapping for the date/time */
+}
+
+
+/* =========================
+   HOW IT WORKS — unique style
+   ========================= */
+
+/* Layout: lock 3 across on one row (even on mobile) */
+.how-it-works .hiw-steps{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  justify-content:space-between;
+  align-items:stretch;
+  gap:12px;
+  margin:0; padding:0; list-style:none;
+  columns: initial !important; column-count: initial !important;
+  overflow:visible;                         /* keep one row, no scroll */
+}
+.how-it-works .hiw-steps > li{ margin:0 !important; }
+
+/* Cards */
+.how-it-works .hiw-step{
+  position:relative;
+  flex:0 0 calc((100% - 24px) / 3) !important;   /* 3 fixed columns */
+  background:#fff;
+  border:1px solid rgba(17,24,39,.08);
+  border-left:none !important;                   /* nuke the maroon stripe look */
+  border-radius:16px;
+  box-shadow:0 10px 26px -14px rgba(0,0,0,.18);
+  padding:16px 14px 14px;
+  text-align:center;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  isolation:isolate;
+}
+.how-it-works .hiw-step:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px -16px rgba(0,0,0,.22);
+  border-color:rgba(17,24,39,.12);
+}
+
+/* Gentle top accent (thin gradient bar) */
+.how-it-works .hiw-step::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0; height:6px; border-top-left-radius:16px; border-top-right-radius:16px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent, #500000) 25%, #ffffff), #c9d6ff 60%, #e2e8f0);
+}
+
+/* Number badge floating above the card */
+.how-it-works .badge{
+  position:absolute; left:50%; top:0;
+  transform:translate(-50%, -50%);
+  width:40px; height:40px; border-radius:999px;
+  display:grid; place-items:center;
+  background:#fff;
+  border:1px solid rgba(17,24,39,.10);
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  font-weight:900; color:#111;
+}
+
+/* Optional icon circle (SVG or emoji) */
+.how-it-works .hiw-icon{
+  width:52px; height:52px; margin:18px auto 10px;
+  border-radius:999px; display:grid; place-items:center;
+  background: #f7fafc;
+  border:1px solid rgba(17,24,39,.08);
+  font-size:22px; line-height:1;
+  color: var(--accent, #500000);
+}
+
+/* Titles & text */
+.how-it-works .hiw-title{
+  margin:6px 0 4px; font-weight:900;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+}
+.how-it-works .hiw-text{
+  margin:0; color:var(--muted, #6b7280);
+  font-size:.96rem; line-height:1.55;
+}
+
+
+
+/* Make sure nothing upstream reintroduces the left stripe */
+.how-it-works .hiw-step{
+  border-left: none !important;
+  box-shadow: 0 10px 26px -14px rgba(0,0,0,.18) !important;
+}
+
+/* If your theme tries to stack on tiny screens, keep 3-in-row */
+@media (max-width: 600px){
+  .how-it-works .hiw-step{ flex-basis: calc((100% - 24px) / 3) !important; }
+}
+.how-it-works .hiw-step::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:6px; border-radius:16px 16px 0 0;
+  background: linear-gradient(90deg,#500000 0%,#6f1d1d 55%,#9d4c4c 100%);
+}
+/* 1) Let the How It Works section go full-bleed on phones
+      (reclaims the page’s side padding so cards get more width) */
+@media (max-width: 700px){
+  .how-it-works{
+    margin-left: calc(-1 * max(16px, env(safe-area-inset-left)));
+    margin-right: calc(-1 * max(16px, env(safe-area-inset-right)));
+    padding-left: max(10px, env(safe-area-inset-left));
+    padding-right: max(10px, env(safe-area-inset-right));
+  }
+}
+
+/* 2) Keep three columns at all sizes, but tune the gaps */
+.how-it-works .hiw-steps{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;                      /* default */
+}
+@media (max-width: 700px){
+  .how-it-works .hiw-steps{ gap: 8px; }  /* tighter gutter on phones */
+}
+
+/* 3) Make each card feel roomier without looking crammed */
+.how-it-works .hiw-step{
+  min-width: 0;                   /* fix overflow on narrow columns */
+  padding: 14px 12px;             /* default */
+  border-radius: 14px;
+}
+@media (max-width: 700px){
+  .how-it-works .hiw-step{
+    padding: 12px 10px;           /* trim inner padding a bit */
+  }
+}
+
+/* 4) Compact typography + icon sizing just for mobile */
+@media (max-width: 700px){
+  .how-it-works .hiw-step .hiw-icon{
+    width: 34px; height: 34px;    /* was larger */
+    font-size: 16px;              /* if it’s an inline icon */
+  }
+  .how-it-works .hiw-step h3{
+    font-size: 1rem;
+    line-height: 1.2;
+    margin: 6px 0 4px;
+    text-wrap: balance;
+  }
+  .how-it-works .hiw-step p{
+    font-size: .92rem;
+    line-height: 1.35;
+    margin: 0;
+  }
+}
+
+/* 5) Give content more vertical breathing room by letting cards be taller */
+@media (max-width: 700px){
+  .how-it-works .hiw-step{ min-height: 130px; } /* tweak to taste (120–150px) */
+}
+
+/* 6) Prevent the “cap” from visually shrinking the content area */
+@media (max-width: 700px){
+  .how-it-works .hiw-step::before{ height: 5px; } /* was 6–8px; slimmer on phones */
+}
+
+/* 7) If your container has a max-width cap, let just this grid stretch */
+@media (max-width: 700px){
+  .how-it-works .inner{
+    max-width: none !important;   /* optional wrapper inside the section */
+  }
+}
+/* --- Hard guard: no horizontal scrolling from this section --- */
+.how-it-works,
+.how-it-works * { box-sizing: border-box; }
+.how-it-works { max-width: 100%; overflow-x: hidden; }
+
+/* Reclaim side gutters on tiny screens so the grid gets the full width */
+@media (max-width: 700px){
+  .how-it-works{
+    margin-left: calc(-1 * max(16px, env(safe-area-inset-left)));
+    margin-right: calc(-1 * max(16px, env(safe-area-inset-right)));
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
+  }
+}
+
+/* 3-up grid that cannot exceed the viewport width */
+.how-it-works .hiw-steps{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;                      /* desktop/tablet */
+  width: 100%;
+  max-width: 100%;
+}
+@media (max-width: 700px){
+  .how-it-works .hiw-steps{
+    gap: 6px;                     /* phone-friendly gutter */
+  }
+}
+
+/* Cards: make contents wrap and never force the column to grow */
+.how-it-works .hiw-step{
+  min-width: 0;                   /* critical: allows shrink inside grid */
+  padding: 12px 10px;
+  border-radius: 14px;
+}
+.how-it-works .hiw-step *{
+  min-width: 0;
+  overflow-wrap: anywhere;        /* long words/URLs won’t push width */
+  word-break: break-word;
+}
+
+/* Compact type + icon on the smallest screens so all three still breathe */
+@media (max-width: 360px){
+  .how-it-works .hiw-step{ padding: 10px 8px; }
+  .how-it-works .hiw-step .hiw-icon{ width: 30px; height: 30px; font-size: 14px; }
+  .how-it-works .hiw-step h3{ font-size: .95rem; margin: 4px 0 3px; line-height: 1.15; }
+  .how-it-works .hiw-step p{ font-size: .9rem; line-height: 1.3; margin: 0; }
+}
+
+/* If you use a decorative “cap” (::before), keep it super thin on phones */
+@media (max-width: 700px){
+  .how-it-works .hiw-step::before{ height: 4px; }
+}
+/* Center the whole section, even when we reclaim full width on phones */
+.how-it-works { 
+  max-width: 100%;
+  margin-inline: auto;            /* center in normal layouts */
+}
+
+@media (max-width: 700px){
+  .how-it-works{
+    width: 100vw;                 /* use full viewport width */
+    max-width: 100vw;
+    margin-left: 50%;             /* center the full-bleed block */
+    transform: translateX(-50%);
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
+  }
+}
+
+/* Center the grid itself inside the section */
+.how-it-works .hiw-steps{
+  margin: 0 auto;                 /* centers the grid tracks */
+  justify-items: stretch;         /* cards fill their columns */
+}
+
+/* Safety: prevent any stray left bias */
+.how-it-works .hiw-step{ 
+  min-width: 0; 
+}
+
+
+
+/* ===== Quick Call modal — stacked, full-width buttons aligned to text ===== */
+
+/* 1) Actions container uses the same side padding as the text body */
+.ride-modal__actions,
+.ride-modal__body .actions,
+.ride-modal__body .ride-actions{
+  display: grid !important;
+  grid-template-columns: 1fr !important;   /* stacked */
+  gap: 10px !important;
+  margin: 14px 0 18px !important;
+
+  /* Match the body’s horizontal padding (your body uses 20px 22px 0) */
+  padding: 0 22px 0 22px !important;
+  box-sizing: border-box !important;
+}
+
+/* 2) Keep buttons long (full width of the padded actions area) */
+.ride-modal .ride-btn{
+  width: 100% !important;                 /* stay long */
+  max-width: 100% !important;
+  justify-content: center !important;
+  padding: 12px 14px !important;          /* comfy vertical rhythm */
+  box-sizing: border-box !important;
+
+  /* prevent desktop rule from forcing equal flex growth */
+  flex: initial !important;
+}
+
+/* 3) If you also render actions outside the body, apply the same padding */
+.ride-modal__footer .ride-actions{
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+  padding: 0 22px 18px 22px !important;   /* mirror body padding */
+  box-sizing: border-box !important;
+}
+
+
+
+
+/* ===== Quick Call modal — improve contrast for "Not now" button ===== */
+.ride-modal .ride-btn--secondary{
+  background: #f3f4f6 !important;                /* light gray vs. white card */
+  color: #111 !important;
+  border: 1px solid rgba(17,24,39,.14) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8),
+    0 2px 8px rgba(0,0,0,.06) !important;
+  font-weight: 800 !important;                    /* bolder label */
+}
+
+.ride-modal .ride-btn--secondary:hover{
+  background: #e7ebf0 !important;
+}
+
+.ride-modal .ride-btn--secondary:active{
+  background: #dde3ea !important;
+}
+
+.ride-modal .ride-btn--secondary:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--accent,#500000) 45%, #ffffff) !important;
+  outline-offset: 2px !important;
+  border-radius: 10px !important;
+}
+
+/* Keep it full-width and aligned with body text (matches your earlier patch) */
+.ride-modal__actions,
+.ride-modal__body .actions,
+.ride-modal__body .ride-actions{
+  padding: 0 22px !important;  /* keep edges aligned with paragraph text */
+}
+
+
+
+
+
+/* ======================= Team Spotlight (base) ======================= */
+.team-spotlight{
+  --ts-radius: 16px;
+  --ts-shadow: 0 18px 46px -22px rgba(0,0,0,.35);
+  --ts-border: 1px solid rgba(17,24,39,.10);
+  --ts-bg: #fff;
+  margin: 18px 0 10px;
+}
+.team-spotlight h2{
+  margin: 0 0 12px;
+  text-align: left;
+  font-weight: 900;
+  font-size: clamp(20px, 2.4vw, 26px);
+}
+.team-spotlight .ts-stage{
+  position: relative;
+  min-height: 240px;
+  border-radius: var(--ts-radius);
+  background: var(--ts-bg);
+  border: var(--ts-border);
+  box-shadow: var(--ts-shadow);
+  overflow: hidden;
+}
+
+/* Slide layout (image left, text right; stacks on mobile) */
+.ts-slide{
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 14px;
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(6px) scale(.994);
+  pointer-events: none;
+  transition: opacity .5s ease, transform .5s ease;
+}
+.ts-slide.is-active{
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+@media (max-width: 700px){
+  .ts-slide{ grid-template-columns: 1fr; }
+}
+
+/* Image */
+.ts-photo{
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  object-position: 50% 30%; /* face bias */
+  border-radius: 12px;
+  background: #f6f7f9;
+}
+
+/* Text */
+.ts-info{ display: grid; align-content: start; gap: 8px; }
+.ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 Inter, system-ui, sans-serif; }
+.ts-role{ margin: 0; color: #6b7280; font-weight: 700; }
+.ts-actions{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.ts-btn{
+  display: inline-grid; place-items: center;
+  padding: 10px 14px; border-radius: 12px;
+  border: 1px solid rgba(17,24,39,.12);
+  background: #fff; font-weight: 800; text-decoration: none; color: #111;
+}
+.ts-btn:hover{ background: #f3f4f6; }
+
+/* Controls */
+.ts-controls{ display: flex; gap: 8px; margin-top: 10px; }
+.ts-controls .ts-prev, .ts-controls .ts-next{
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid rgba(17,24,39,.12);
+  background: #fff; font-size: 20px; line-height: 1;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.ts-controls button:hover{ background:#f3f4f6; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ts-slide{ transition: none; }
+}
+
+/* Facts block (base aesthetics only; behavior set per home override) */
+.ts-facts{
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+/* =================== HOME SECTION OVERRIDES =================== */
+/* Let the spotlight stage auto-size; stack slides on same grid cell */
+#team-spotlight .ts-stage{
+  display: grid;
+  overflow: visible;                /* allow inner panels to extend */
+}
+#team-spotlight .ts-slide{
+  position: static;                 /* reset from absolute */
+  inset: unset;
+  grid-area: 1 / 1;                 /* all slides share the same cell */
+  transform: none;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+#team-spotlight .ts-slide.is-active{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Make staff facts scrollable (no ellipsis), with optional expand */
+#team-spotlight .ts-facts{
+  max-height: 220px;                /* scroll panel height (desktop) */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  padding-right: 12px;              /* breathing room near scrollbar */
+}
+#team-spotlight .ts-facts.ts--expanded{
+  max-height: none;
+}
+#team-spotlight .ts-facts.ts--masked::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0; height:48px;
+  background: linear-gradient(transparent, #fafafa);
+  pointer-events:none;
+}
+
+/* Wrap keys/values (remove one-line ellipsis behavior) */
+#team-spotlight .ts-fact{
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  flex-wrap: wrap;                   /* values can wrap to next line */
+  font-size: .98rem;
+  line-height: 1.45;
+}
+#team-spotlight .ts-fact .k{
+  flex: 0 0 auto;
+  font-weight: 800;
+  color: #374151;
+  min-width: 0;
+}
+#team-spotlight .ts-fact .k::after{
+  content: ":";
+  margin-left: 2px;
+}
+#team-spotlight .ts-fact .v{
+  flex: 1 1 100%;
+  min-width: 0;
+  color: #111;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Center just the "Meet the Team" heading on home */
+#team-spotlight #team-spotlight-title{
+  text-align: center;
+  display: block;
+  margin-inline: auto;
+}
+
+/* =================== MOBILE TWEAKS =================== */
+@media (max-width: 700px){
+  #team-spotlight .ts-slide{
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 14px;
+  }
+  #team-spotlight .ts-photo{
+    width: 100%;
+    height: auto;                   /* prevent tall crops */
+    min-height: 0;
+    object-fit: cover;
+    object-position: 50% 5%;        /* bias higher for faces */
+    aspect-ratio: 19 / 15;          /* predictable window; adjust if needed */
+  }
+  #team-spotlight .ts-facts{
+    gap: 8px;
+    padding: 10px 12px;
+    max-height: 200px;              /* slightly shorter on phones */
+  }
+  #team-spotlight .ts-fact{
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+  #team-spotlight .ts-toggle{
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(17,24,39,.12);
+    background: #fff;
+    font-weight: 700;
+  }
+  #team-spotlight .ts-toggle:hover{ background:#f3f4f6; }
+}
+/* Home spotlight: scrollable facts panel stays the same */
+#team-spotlight .ts-facts{
+  max-height: 220px;              /* adjust to taste */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  padding-right: 12px;
+  text-align: left;               /* ensure left alignment */
+}
+
+/* Make each fact read inline: "Key: Value" */
+#team-spotlight .ts-fact{
+  display: block;                 /* block container */
+  white-space: normal;            /* allow wrapping */
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.45;
+  gap: 0;                         /* ignore any previous grid/flex gaps */
+}
+
+/* Key + value inline so wraps align to the left edge */
+#team-spotlight .ts-fact .k{
+  display: inline;
+  font-weight: 800;
+  color: #374151;
+}
+#team-spotlight .ts-fact .k::after{
+  content: ": ";                  /* colon + space */
+  margin: 0;
+}
+#team-spotlight .ts-fact .v{
+  display: inline;                /* sits on same line as key */
+  color: #111;
+  min-width: 0;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Optional: a bit shorter on phones */
+@media (max-width:700px){
+  #team-spotlight .ts-facts{ max-height: 100px; }
+}
+
+
+
+
+
+/* ==================== Mobile: photo-first hero layout ==================== */
+@media (max-width:700px){
+  /* Tighter, lighter card */
+  #team-spotlight .ts-stage{
+    min-height: 0;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px -18px rgba(0,0,0,.28);
+    border: 1px solid rgba(17,24,39,.10);
+  }
+
+  /* One-column stack: photo → name → role → facts → actions */
+  #team-spotlight .ts-slide{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ph"
+      "name"
+      "role"
+      "facts"
+      "actions";
+    gap: 2px;
+    padding: 12px;
+  }
+
+  /* BIG photo at the top (hero style) */
+  #team-spotlight .ts-photo{
+    grid-area: ph;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;                 /* bigger/more emphasis than avatar */
+    object-fit: cover;
+    object-position: 50% 9%;            /* bias a bit high for faces */
+    border-radius: 12px;
+    background: #f1f2f4;
+    box-shadow: 0 0 0 1px rgba(17,24,39,.08) inset;
+  }
+
+  /* Name / role tuned for mobile (not oversized) */
+  #team-spotlight .ts-info{ display: contents; }
+  #team-spotlight .ts-name{
+    grid-area: name;
+    font-size: clamp(18px, 5.2vw, 21px);
+    line-height: 1.2;
+    margin: 0;
+  }
+  #team-spotlight .ts-role{
+    grid-area: role;
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin: -4px 0 2px 0;
+  }
+
+  /* Facts: compact, scrollable, flush-left, no ellipsis */
+  #team-spotlight .ts-facts{
+    grid-area: facts;
+    max-height: 100px;                   /* good balance with larger photo */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 12px;
+    gap: 6px;
+    text-align: left;
+    scrollbar-gutter: stable both-edges;
+  }
+  #team-spotlight .ts-fact{
+    display: block;                      /* inline paragraph feel */
+    white-space: normal;
+    line-height: 1.4;
+    margin: 0;
+  }
+  #team-spotlight .ts-fact .k{
+    display: inline;
+    font-weight: 800;
+    color: #374151;
+  }
+  #team-spotlight .ts-fact .k::after{ content: ": "; }
+  #team-spotlight .ts-fact .v{
+    display: inline;
+    color: #111;
+    overflow-wrap: anywhere;             /* long values break nicely */
+  }
+
+  /* Actions: subtle */
+  #team-spotlight .ts-actions{
+    grid-area: actions;
+    gap: 8px;
+    margin-top: 2px;
+  }
+  #team-spotlight .ts-btn{
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-weight: 750;
+    font-size: 0.95rem;
+  }
+
+  /* Navigation controls: slim */
+  #team-spotlight .ts-controls{
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  #team-spotlight .ts-controls .ts-prev,
+  #team-spotlight .ts-controls .ts-next{
+    width: 36px; height: 36px; font-size: 18px; border-radius: 9px;
+  }
+}
+
+/* === Put controls inside the card on the same row as actions === */
+
+/* Variables for control sizing */
+#team-spotlight{
+  --ts-ctrl-w: 40px;   /* button size desktop */
+  --ts-ctrl-gap: 8px;  /* gap between prev/next */
+}
+
+/* Make the section a grid: title row + stage row (controls share stage area) */
+#team-spotlight{
+  display: grid;
+  grid-template-rows: auto minmax(0, auto);
+  grid-template-areas:
+    "title"
+    "stage";
+}
+#team-spotlight #team-spotlight-title{ grid-area: title; }
+#team-spotlight .ts-stage{ grid-area: stage; }
+
+/* Visually place controls *inside* the stage, bottom-right */
+#team-spotlight .ts-controls{
+  grid-area: stage;               /* share the stage cell */
+  align-self: end;                /* bottom */
+  justify-self: end;              /* right */
+  margin: 12px;                   /* inset from edges */
+  display: flex;
+  gap: var(--ts-ctrl-gap);
+  z-index: 3;                     /* above content */
+}
+
+/* Size/shape of the buttons */
+#team-spotlight .ts-controls .ts-prev,
+#team-spotlight .ts-controls .ts-next{
+  width: var(--ts-ctrl-w);
+  height: var(--ts-ctrl-w);
+  border-radius: 10px;
+  border: 1px solid rgba(17,24,39,.12);
+  background: #fff;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  display: grid;
+  place-items: center;
+}
+#team-spotlight .ts-controls button:hover{ background:#f3f4f6; }
+
+/* Give the actions row space so text/buttons don't collide with arrows */
+#team-spotlight .ts-actions{
+  position: relative;
+  padding-right: calc(var(--ts-ctrl-w) * 2 + var(--ts-ctrl-gap) + 16px);
+}
+
+/* Mobile tuning: slightly smaller arrows and tighter inset */
+@media (max-width:700px){
+  #team-spotlight{
+    --ts-ctrl-w: 36px;
+    --ts-ctrl-gap: 6px;
+  }
+  #team-spotlight .ts-controls{ margin: 10px; }
+  #team-spotlight .ts-actions{
+    padding-right: calc(var(--ts-ctrl-w) * 2 + var(--ts-ctrl-gap) + 14px);
+  }
+}
+
+
+
+/* ---------- Global shell: wider on desktops, sensible gutters ---------- */
+:root{
+  /* bump these as you like (1280–1360 is a nice sweet spot) */
+  --shell-max: 1240px;
+  --shell-pad: clamp(12px, 2vw, 24px);  /* small on phones, modest on 4K */
+}
+
+@media (min-width: 1400px){
+  :root{ --shell-max: 1320px; }         /* widen a bit more on very large */
+}
+ 
+/* Your own wrappers */
+.carpool-wrap{ 
+  max-width: var(--shell-max) !important; 
+  margin-inline: auto !important; 
+  padding-inline: var(--shell-pad) !important; 
+}
+
+/* Inner page wrappers you use elsewhere */
+body:not(.home)
+:is(
+.carpool-contact .wrap,
+  .crpl-faq-section .crpl-container,
+  .carpool-mvv .wrap,
+  .carpool-prospects .wrap,
+  .carpool-news .wrap,
+  .carpool-sponsors .wrap,
+  #carpool-staff .carpool-wrap,
+  .carpool-story .wrap,
+	.carpool-give .wrap,
+	.carpool-leaderboard .wrap,
+.carpool-lost .wrap,
+.carpool-srp .wrap,
+.gallery-section 
+){
+  max-width: var(--shell-max) !important;
+  margin-inline: auto !important;
+  padding-inline: var(--shell-pad) !important;
+}
+
+/* ---------- Avada containers: center, widen, remove big gutters ---------- */
+.fusion-body
+:is(#main,.fusion-content-wrapper,.entry-content,
+    .fusion-row,.fusion-builder-container,.fusion-builder-row){
+  max-width: var(--shell-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--shell-pad) !important;
+  padding-right: var(--shell-pad) !important;
+}
+
+/* Kill inner column padding that creates “double gutters” */
+.fusion-layout-column .fusion-column-wrapper{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Some Avada elements add % padding; neutralize on big screens */
+@media (min-width: 1024px){
+  .fusion-row,
+  .fusion-builder-row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* ---------- Optional: make a section go truly edge-to-edge ---------- */
+/* Add class="full-bleed" to any section you want to span the full viewport */
+.full-bleed{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw !important;
+  padding-left: max(0px, env(safe-area-inset-left));
+  padding-right: max(0px, env(safe-area-inset-right));
+}
+/* ======================= Mobile padding fix ======================= */
+/* Smaller base gutters on narrow screens */
+@media (max-width: 900px){
+  :root{ --shell-pad: 14px; }           /* default phone/tablet gutter */
+}
+@media (max-width: 480px){
+  :root{ --shell-pad: 12px; }           /* very small phones */
+}
+
+/* On mobile, let YOUR wrapper control side gutters; Avada = zero */
+@media (max-width: 900px){
+  /* Kill double-gutters from Avada containers */
+  .fusion-body
+  :is(#main,.fusion-content-wrapper,.entry-content,
+      .fusion-row,.fusion-builder-container,.fusion-builder-row){
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: none !important;         /* allow full width, wrap will cap */
+  }
+
+  /* Keep side padding ONLY on your shells */
+  .carpool-wrap{
+    padding-left: var(--shell-pad) !important;
+    padding-right: var(--shell-pad) !important;
+  }
+
+  /* Inner-page shells you use */
+  body:not(.home)
+  :is(
+    .carpool-faq .wrap,
+    .carpool-mvv .wrap,
+    .carpool-prospects .wrap,
+    .carpool-news .wrap,
+    .carpool-sponsors .wrap,
+    #carpool-staff .carpool-wrap,
+	#carpool-rewards .wrap,
+    .carpool-story .wrap,
+	.carpool-srp .wrap
+  ){
+    padding-left: var(--shell-pad) !important;
+    padding-right: var(--shell-pad) !important;
+  }
+
+  /* Columns sometimes re-introduce side padding on mobile */
+  .fusion-layout-column .fusion-column-wrapper{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Optional: honor notches on iOS without “widening” the look */
+@media (max-width: 900px){
+  .carpool-wrap,
+  body:not(.home)
+  :is(.carpool-faq .wrap,.carpool-mvv .wrap,.carpool-prospects .wrap,
+      .carpool-news .wrap,.carpool-sponsors .wrap,#carpool-staff .carpool-wrap,
+      .carpool-story .wrap){
+    padding-left: max(var(--shell-pad), env(safe-area-inset-left)) !important;
+    padding-right: max(var(--shell-pad), env(safe-area-inset-right)) !important;
+  }
+}
+
+
+
+
+
+
+/* === HOW IT WORKS — guaranteed visible shadows (Avada-proof) === */
+
+/* 1) Make sure nothing clips the shadow */
+.how-it-works,
+.how-it-works * { overflow: visible !important; }
+
+
+  /* normal shadow (if not clipped) */
+  box-shadow: 0 14px 34px -18px rgba(0,0,0,.30),
+              0 2px 8px -4px rgba(0,0,0,.10) !important;
+
+  /* paint-time shadow that ignores overflow clipping */
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,.20)) !important;
+}
+
+/* 3) Extra pseudo-layer under the card as a fallback shadow */
+.how-it-works .hiw-steps > li > .hiw-step::after{
+  content: "";
+  position: absolute;
+  inset: -2px;                        /* slightly bigger than the card */
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: 0 22px 40px -20px rgba(0,0,0,.30);
+}
+
+/* 4) Hover pop */
+.how-it-works .hiw-steps > li > .hiw-step:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px -22px rgba(0,0,0,.32),
+              0 6px 14px -6px rgba(0,0,0,.14) !important;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,.22)) !important;
+}
+
+/* 5) If your theme wraps the section with hidden overflow, unclip it */
+.fusion-body .how-it-works,
+.fusion-body .how-it-works .fusion-row,
+.fusion-body .how-it-works .fusion-column-wrapper{
+  overflow: visible !important;
+}
+
+
+
+/* ==== Hours of Operation — soft card shadow ==== */
+#hours .hours{
+  background: #fff !important;
+  border: 1px solid rgba(17,24,39,.06) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 18px 40px -20px rgba(17,24,39,.28),
+    0 6px 16px -14px rgba(17,24,39,.18),
+    0 1px 0 rgba(255,255,255,.65) inset !important; /* subtle inner lift */
+  transition: box-shadow .2s ease, transform .18s ease;
+}
+
+/* Very gentle hover—keeps it “card”, not “tile” */
+@media (hover: hover){
+  #hours .hours:hover{
+    transform: translateY(-1px);
+    box-shadow:
+      0 22px 48px -22px rgba(17,24,39,.30),
+      0 8px 18px -14px rgba(17,24,39,.20),
+      0 1px 0 rgba(255,255,255,.70) inset !important;
+  }
+}
+
+
+
+@media (max-width:700px){
+  h1{font-size:clamp(22px,6vw,28px);line-height:1.15;text-wrap:balance}
+  h2{font-size:clamp(18px,5vw,22px);line-height:1.2}
+  p,li{font-size:.98rem;line-height:1.55}
+}
+
+
+
+
+
+
+@media (max-width: 700px){
+
+  .how-it-works .hiw-steps{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap: 8px; }
+  .how-it-works .hiw-step{ padding: 12px 10px; border-radius: 12px; min-width:0; }
+  .how-it-works .hiw-step::before{ height:4px; }
+
+	
+	
+	
+}
+
+
+
+
+.cta-section{
+  --cta-bg: conic-gradient(from 210deg at 60% 20%, #fff 0 20%, #fff7f7 20% 48%, #fff 48% 70%, #f6fff8 70% 100%);
+  --ring: color-mix(in srgb, var(--accent,#500000) 40%, #ffffff);
+  background: var(--cta-bg);
+  position: relative;
+  margin: 24px 0 0;
+  padding: 24px 0 32px;
+}
+.cta-section::before{
+  content:""; position:absolute; inset:-40px 0 auto; height:40px;
+  background: radial-gradient(60% 100% at 50% 100%, rgba(80,0,0,.14), transparent 70%);
+  pointer-events:none;
+}
+.cta-shell{ max-width: var(--shell-max, 1000px); margin:0 auto; padding:0 var(--shell-pad, 16px); }
+
+.cta-head{ text-align:center; margin:0 0 14px; }
+.cta-head .eyebrow{
+  display:inline-block; margin:0 0 6px; padding:6px 10px;
+  font-weight:800; letter-spacing:.2px; font-size:.9rem;
+  border:1px solid rgba(17,24,39,.12); border-radius:999px; background:#fff;
+}
+.cta-head h2{ margin:0; font-weight:900; letter-spacing:.2px; font-size: clamp(20px, 2.4vw, 28px); }
+.cta-head .sub{ margin:6px 0 0; color: var(--muted,#6b7280); }
+
+.cta-grid{
+  list-style:none; margin:14px 0 0; padding:0;
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px; grid-auto-flow:row; grid-auto-rows:auto;
+}
+@media (max-width:900px){ .cta-grid{ grid-template-columns:1fr; } }
+
+.cta-grid > :not(.tile){ display:none !important; }
+.cta-grid > .tile > :not(.cta-tile){ display:none !important; }
+
+.cta-grid > .tile{ margin:0; padding:0; }
+
+.cta-tile{
+  display:flex; align-items:center; gap:12px; text-decoration:none;
+  border:1px solid rgba(17,24,39,.08);
+  border-radius:16px; padding:14px; background:#fff; color:#111;
+  box-shadow:0 16px 40px -22px rgba(0,0,0,.28);
+  transition: transform .16s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.cta-tile:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 54px -26px rgba(0,0,0,.32);
+  border-color: rgba(17,24,39,.14);
+}
+
+.cta-primary{
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(135deg, var(--accent,#500000), #8c3a3a) border-box;
+  border: 1px solid transparent;
+}
+.cta-accent{
+  background:#fffdfd;
+  border-color: color-mix(in srgb, var(--accent,#500000) 25%, #ffffff);
+}
+.cta-neutral{ background:#fff; }
+
+.cta-icon{
+  width:44px; height:44px; border-radius:12px;
+  display:grid; place-items:center;
+  background:#fff; border:1px solid rgba(17,24,39,.10);
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  color: var(--accent,#500000);
+  flex:0 0 44px;
+}
+.cta-icon svg{ display:block; }
+
+.cta-copy strong{ display:block; font-weight:900; }
+.cta-copy .meta{ display:block; color: var(--muted,#6b7280); font-weight:700; font-size:.95rem; }
+
+.cta-support{
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  margin-top:14px; background: rgba(255,255,255,.7);
+  border:1px solid rgba(17,24,39,.08); border-radius:14px;
+  padding:10px 12px; box-shadow:0 12px 34px -22px rgba(0,0,0,.24);
+}
+.cta-support .chip{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:999px;
+  background:#fff; border:1px solid rgba(17,24,39,.12);
+  font-weight:800; color:#111; text-decoration:none;
+}
+.cta-support .chip:hover{ background:#f3f4f6; }
+.cta-support .spacer{ flex:1 1 auto; }
+
+.cta-social{ display:flex; gap:8px; }
+.cta-social .social{
+  display:grid; place-items:center; width:38px; height:38px;
+  border-radius:10px; text-decoration:none;
+  background:#fff; border:1px solid rgba(17,24,39,.12);
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  font-weight:900; color:#111;
+}
+.cta-social .social:hover{ background:#f3f4f6; }
+
+.cta-tile:focus-visible,
+.cta-support .chip:focus-visible,
+.cta-social .social:focus-visible{
+  outline:3px solid var(--ring); outline-offset:3px; border-radius:12px;
+}
+
+@media (max-width:700px){
+  .cta-section{ padding:18px 0 26px; }
+  .cta-head .eyebrow{ font-size:.88rem; }
+  .cta-tile{ padding:12px; border-radius:14px; }
+  .cta-icon{ width:40px; height:40px; border-radius:10px; }
+  .cta-support{ padding:8px 10px; border-radius:12px; }
+}
+
+.cta-primary{
+  background:#fff;
+  border:1px solid rgba(17,24,39,.08);
+}
+
+.cta-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:0;
+}
+.cta-icon svg{
+  display:block;
+  width:22px;
+  height:22px;
+}
+
+.cta-head h2,
+.cta-head h2 *{
+  text-decoration:none !important;
+  border-bottom:0 !important;
+}
+
+.cta-tile:focus,
+.cta-tile:focus-visible{
+  outline:none !important;
+  box-shadow: 0 22px 54px -26px rgba(0,0,0,.32);
+}
+/* Normalize the middle card (Join CARPOOL) */
+.cta-accent{
+  /* if you still want a tiny tint, keep background:#fffdfd; otherwise use #fff */
+  background:#fff;
+  border-color: rgba(17,24,39,.08) !important;  /* same as the neutral card */
+}
+
+/* Keep hover/focus consistent with the others */
+.cta-accent:hover{ border-color: rgba(17,24,39,.14) !important; }
+.cta-accent:focus,
+.cta-accent:focus-visible{ outline: none !important; }
+
+/* (already added earlier, but repeating the key icon centering) */
+.cta-icon{ display:flex; align-items:center; justify-content:center; line-height:0; }
+.cta-icon svg{ display:block; width:22px; height:22px; }
+
+/* Remove underline under “get” in the headline */
+.cta-head h2, .cta-head h2 *{ text-decoration:none !important; border-bottom:0 !important; }
+
+
+
+
+
+
+/* -------- Mobile polish -------- */
+@media (max-width: 700px){
+  .cta-support.bleed{
+    /* full-bleed toolbar */
+    margin-inline: calc(50% - 50dvw);
+    width: 100dvw;
+    position: sticky; bottom: 0; z-index: 40;   /* remove if you don't want it sticky */
+    border-radius: 0;
+    padding: 12px clamp(12px, 4vw, 24px)
+             calc(12px + env(safe-area-inset-bottom, 0))
+             clamp(12px, 4vw, 24px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 10px;
+
+    /* glassy but lighter for mobile GPUs */
+    background: rgba(255,255,255,.75);
+    backdrop-filter: saturate(115%) blur(6px);
+    -webkit-backdrop-filter: saturate(115%) blur(6px);
+    border: 1px solid rgba(17,24,39,.06);
+    box-shadow: 0 6px 24px -18px rgba(0,0,0,.25);
+  }
+
+  /* horizontally scrollable chips */
+  .cta-support .chip-tray{
+    display: flex; gap: 8px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 2px;
+  }
+  .cta-support .chip-tray::-webkit-scrollbar{ display:none; }
+  .cta-support .chip{
+    flex: 0 0 auto;                 /* don’t wrap; let them scroll */
+    min-height: 44px;               /* thumb-friendly */
+    padding: 10px 14px;
+    font-size: .95rem;
+    scroll-snap-align: start;
+    border-radius: 999px;
+  }
+
+  /* right-side socials: consistent tap targets */
+  .cta-social{ display: flex; gap: 8px; }
+  .cta-social .social{
+    width: 44px; height: 44px;      /* big hit area */
+    border-radius: 12px;
+  }
+
+  /* spacer not needed with grid */
+  .cta-support .spacer{ display:none; }
+}
+/* Edge-to-edge, one-line SGA footer */
+.sga-bar{
+  /* full-bleed even if nested in a centered shell */
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px clamp(16px, 4vw, 28px)
+           calc(12px + env(safe-area-inset-bottom, 0))
+           clamp(16px, 4vw, 28px);
+  background: #fff;
+  border-top: 1px solid rgba(17,24,39,.1);
+  box-shadow: 0 -6px 24px -18px rgba(0,0,0,.15);
+
+  /* keep it to one line */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* tidy text */
+  color: #111;
+  font-weight: 600;
+  font-size: clamp(12px, 1.6vw, 14px);
+  line-height: 1;
+}
+
+.sga-bar img{
+  height: 50px;           /* keep logo compact */
+  width: auto;
+  display: block;
+  border-radius: 4px;     /* subtle polish */
+  flex: 0 0 auto;
+}
+
+.sga-bar a{
+  color: inherit;          /* match text color */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Optional: pin to viewport bottom as an always-visible footer */
+/* .sga-bar{ position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; } */
+
+
+/* kill any underline treatment on just that word */
+.no-underline{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  background-image: none !important;  /* handles gradient-underlines */
+  box-shadow: none !important;        /* handles shadow “underlines” */
+}
+
+/* Lock body scroll when modal is open during running or wind-down hours */
+body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([hidden]), #ride-card-winddown:not([hidden])) {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Restore scrolling when modal is closed or no card is visible */
+body:has(.ride-modal-root #ride-modal-toggle:not(:checked)),
+body:not(:has(#ride-card-open:not([hidden]), #ride-card-winddown:not([hidden]))) {
+  overflow: auto;
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+/* Ensure modal remains above locked body */
+.ride-modal-root {
+  z-index: 2147483600 !important;
+}
+
+.ride-modal-overlay {
+  z-index: 2147483601 !important;
+}
+
+.ride-modal {
+  z-index: 2147483602 !important;
+}
+
+.ride-modal__panel {
+  z-index: 2147483603 !important;
+}
+
+/* Prevent scroll bounce on mobile */
+@media (max-width: 700px) {
+  body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([hidden]), #ride-card-winddown:not([hidden])) {
+    -webkit-overflow-scrolling: none;
+    overscroll-behavior: none;
+  }
+}
+
+
+
+/* =========================
+   HOMEPAGE — Enhanced Mobile Polish (<= 700px)
+   ========================= */
+
+/* 1) Global mobile typography and spacing */
+@media (max-width: 700px) {
+  .carpool-wrap {
+    padding: 12px max(12px, env(safe-area-inset-left)) 24px max(12px, env(safe-area-inset-right)) !important;
+  }
+
+  /* Consistent typography scaling */
+  h1 {
+    font-size: clamp(20px, 6.5vw, 24px) !important;
+    line-height: 1.2 !important;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(16px, 5vw, 20px) !important;
+    line-height: 1.25 !important;
+  }
+  p, li, .banner-text, .stat-label, .video-caption {
+    font-size: clamp(0.9rem, 4vw, 0.95rem) !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* 2) Status Banner: Compact and high-contrast */
+@media (max-width: 700px) {
+  .carpool-banner {
+    padding: 6px 8px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 14px -10px rgba(0,0,0,0.2) !important;
+  }
+  .carpool-banner .icon {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 10px !important;
+  }
+  .carpool-banner .banner-text {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* 3) Hero: Streamlined and bold */
+@media (max-width: 700px) {
+  .hero {
+    margin: 4px 0 8px !important;
+  }
+  .hero-highlight {
+    padding: 12px 10px !important;
+    border-left-width: 3px !important;
+    border-right-width: 3px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.22) !important;
+    max-width: 100% !important;
+  }
+  .hero-highlight .stat-value {
+    font-size: clamp(30px, 8vw, 38px) !important;
+  }
+  .hero-highlight .hero-promise {
+    font-size: clamp(0.95rem, 4vw, 1.1rem) !important;
+    max-width: 28ch !important;
+  }
+  .hero .actions {
+    margin: 8px auto 2px !important;
+  }
+}
+
+/* 4) Info Grid: Full-width cards, tighter gaps */
+@media (max-width: 700px) {
+  .info-grid {
+    gap: 10px !important;
+  }
+  .info-grid > .card {
+    padding: 12px 10px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.2) !important;
+  }
+  .info-grid .faq details {
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+  }
+  .info-grid .faq .answer {
+    margin-top: 4px !important;
+  }
+  .info-grid .video-frame {
+    max-width: 100% !important;
+    padding: 1px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 18px -12px rgba(0,0,0,0.2) !important;
+  }
+  .info-grid .video-caption {
+    margin-top: 6px !important;
+  }
+}
+
+
+
+/* =========================
+   HOW IT WORKS — Mobile Fix (<= 700px)
+   ========================= */
+@media (max-width: 700px) {
+  .how-it-works {
+    margin: 0. auto !important;
+    padding: 0 max(8px, env(safe-area-inset-left)) 0 max(8px, env(safe-area-inset-right)) !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: visible !important; /* Prevent ancestor clipping */
+    box-sizing: border-box !important;
+  }
+
+  .how-it-works .hiw-steps {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    overflow: visible !important; /* Prevent grid clipping */
+  }
+
+  .how-it-works .hiw-step {
+    padding: 36px 6px 8px !important; /* Increased top padding for badge */
+    border-radius: 8px !important;
+    min-height: 120px !important; /* Taller to fit badge and content */
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 6px 12px -8px rgba(0,0,0,0.2) !important;
+    position: relative !important;
+    overflow: visible !important; /* Ensure badge isn’t clipped */
+  }
+
+  .how-it-works .badge {
+    position: absolute !important;
+    top: 0 !important; /* Fully inside card to avoid clipping */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important; /* Larger font for number visibility */
+    line-height: 32px !important; /* Center number vertically */
+    border-radius: 999px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    background: #fff !important;
+    z-index: 1 !important;
+    display: grid !important;
+    place-items: center !important; /* Ensure number is centered */
+  }
+
+  .how-it-works .hiw-step::before {
+    height: 2px !important;
+    top: 0 !important;
+    border-radius: 8px 8px 0 0 !important;
+  }
+
+  .how-it-works .hiw-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+    margin: 12px auto 4px !important; /* Adjusted to clear badge */
+  }
+
+  .how-it-works .hiw-title {
+    font-size: clamp(0.85rem, 3.2vw, 0.9rem) !important;
+    line-height: 1.2 !important;
+    margin: 4px 0 2px !important;
+  }
+
+  .how-it-works .hiw-text {
+    font-size: clamp(0.8rem, 3vw, 0.85rem) !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure content doesn't overflow cards */
+  .how-it-works .hiw-step * {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  /* Ultra-narrow screens (<= 360px) */
+  @media (max-width: 360px) {
+    .how-it-works .hiw-steps {
+      gap: 1px !important;
+    }
+    .how-it-works .hiw-step {
+      padding: 25px 4px 8px !important;
+      min-height: 110px !important;
+    }
+    .how-it-works .badge {
+      width: 28px !important;
+      height: 28px !important;
+      font-size: 14px !important;
+      line-height: 28px !important;
+      top: 0 !important;
+    }
+    .how-it-works .hiw-icon {
+      width: 24px !important;
+      height: 24px !important;
+      font-size: 10px !important;
+      margin: 10px auto 3px !important;
+    }
+    .how-it-works .hiw-title {
+      font-size: 0.8rem !important;
+    }
+    .how-it-works .hiw-text {
+      font-size: 0.75rem !important;
+    }
+  }
+}
+
+
+
+/* 6) Hours: Compact and centered */
+@media (max-width: 700px) {
+  #hours .hours {
+    padding: 8px 10px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 14px -10px rgba(0,0,0,0.2) !important;
+  }
+  .hours .big {
+    font-size: clamp(14px, 4vw, 16px) !important;
+  }
+  .hours .note {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* 7) Team Spotlight: Photo-first, compact layout */
+@media (max-width: 700px) {
+  #team-spotlight .ts-stage {
+    border-radius: 10px !important;
+    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.2) !important;
+  }
+  #team-spotlight .ts-slide {
+    padding: 10px !important;
+    gap: 1px !important;
+  }
+  #team-spotlight .ts-photo {
+    aspect-ratio: 3 / 2 !important;
+    border-radius: 10px !important;
+  }
+  #team-spotlight .ts-name {
+    font-size: clamp(16px, 4.5vw, 18px) !important;
+  }
+  #team-spotlight .ts-role {
+    font-size: 0.9rem !important;
+    margin: -2px 0 1px !important;
+  }
+  #team-spotlight .ts-facts {
+    max-height: 80px !important;
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+  }
+  #team-spotlight .ts-actions {
+    margin-top: 1px !important;
+    gap: 6px !important;
+  }
+  #team-spotlight .ts-btn {
+    padding: 8px 10px !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+  }
+  #team-spotlight .ts-controls {
+    margin: 8px !important;
+  }
+}
+
+/* 8) CTA Section: Equal-length buttons, full visibility */
+@media (max-width: 700px) {
+  .cta-section {
+    padding: 16px 0 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .cta-shell {
+    padding: 0 max(8px, env(safe-area-inset-left)) !important;
+  }
+  .cta-grid {
+    gap: 8px !important;
+  }
+  .cta-tile {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.2) !important;
+    width: 100% !important; /* Equal width for all tiles */
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .cta-copy {
+    flex: 1 !important; /* Ensure text area expands uniformly */
+    min-width: 0 !important;
+  }
+  .cta-copy strong {
+    font-size: 0.95rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .cta-copy .meta {
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .cta-icon {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 8px !important;
+    flex: 0 0 36px !important;
+  }
+  .cta-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .cta-support {
+    padding: 6px 8px !important;
+    border-radius: 10px !important;
+    margin-top: 10px !important;
+  }
+  .cta-support .chip {
+    padding: 8px 12px !important;
+    min-height: 44px !important;
+    font-size: 0.9rem !important;
+  }
+  .cta-social .social {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+  }
+}
+
+
+/* 10) Ride Modal: Compact, touch-friendly */
+@media (max-width: 700px) {
+  .ride-modal__panel {
+    padding: 12px !important;
+  }
+  .ride-modal__card {
+    width: min(94vw, 500px) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25) !important;
+  }
+  .ride-modal__head {
+    padding: 10px 12px !important;
+  }
+  .ride-modal__title {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+  }
+  .ride-modal__subtitle {
+    font-size: 0.9rem !important;
+  }
+  .ride-modal__close {
+    top: 8px !important;
+    right: 8px !important;
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.2rem !important;
+  }
+  .ride-modal__body {
+    padding: 12px 14px 0 !important;
+    font-size: 0.95rem !important;
+  }
+  .ride-modal__actions {
+    margin: 10px 0 14px !important;
+    padding: 0 14px !important;
+  }
+  .ride-modal .ride-btn {
+    padding: 10px 12px !important;
+    min-height: 44px !important;
+    font-size: 0.95rem !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* 11) Tap target enhancements */
+@media (max-width: 700px) {
+  .carpool-landing a, .carpool-landing .btn, .carpool-landing .ride-btn, .carpool-landing .ts-btn, .carpool-landing .chip, .carpool-landing .social {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    -webkit-tap-highlight-color: rgba(80,0,0,0.15) !important;
+  }
+}
+
+/* 12) Accessibility: Focus visibility */
+@media (max-width: 700px) {
+  a:focus-visible, button:focus-visible, .ride-btn:focus-visible, .ts-btn:focus-visible, .chip:focus-visible, .social:focus-visible {
+    outline-width: 2px !important;
+    outline-offset: 1px !important;
+  }
+}
+
+
+
+
+/* 1) Refined Typography */
+:root {
+  --font-primary: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --text-heading: #0a0a0a; /* Slightly darker for contrast */
+  --text-secondary: #4b5563; /* Softer muted tone */
+  --accent-secondary: #8c3a3a; /* Warmer maroon for accents */
+  --gold-accent: #d4a017; /* Subtle gold for highlights */
+}
+
+.carpool-landing h1 {
+  font-size: clamp(30px, 3.5vw, 48px) !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  text-wrap: balance !important;
+  letter-spacing: -0.02em !important;
+  color: var(--text-heading) !important;
+}
+
+.carpool-landing h2 {
+  font-size: clamp(20px, 2.5vw, 28px) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--text-heading) !important;
+}
+
+.carpool-landing p, .carpool-landing li, .banner-text, .stat-label, .video-caption {
+  font-size: clamp(0.95rem, 1.8vw, 1rem) !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--text-secondary) !important;
+}
+
+/* 6) Team Spotlight with Parallax */
+@media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+  #team-spotlight .ts-photo {
+    transition: transform 0.3s ease !important;
+    transform-origin: center center !important;
+  }
+
+  #team-spotlight .ts-slide:hover .ts-photo {
+    transform: perspective(1000px) rotateY(2deg) rotateX(2deg) scale(1.02) !important;
+  }
+
+  #team-spotlight .ts-slide {
+    transition: opacity 0.4s ease, transform 0.4s ease !important;
+  }
+
+  #team-spotlight .ts-slide.is-active {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+}
+
+#team-spotlight .ts-facts {
+  background: linear-gradient(180deg, #fafafa, #f3f4f6) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+}
+
+
+
+
+/* Mobile Typography and Spacing */
+@media (max-width: 700px) {
+  .carpool-landing h1 {
+    font-size: clamp(24px, 7vw, 28px) !important;
+  }
+  .carpool-landing h2 {
+    font-size: clamp(16px, 5vw, 18px) !important;
+  }
+  .carpool-landing p, .carpool-landing li {
+    font-size: clamp(0.85rem, 3.5vw, 0.9rem) !important;
+  }
+  .hero {
+    padding: 16px 0 12px !important;
+  }
+  .hero-highlight {
+    padding: 16px 12px !important;
+    border-radius: 12px !important;
+    border-left-width: 4px !important;
+    border-right-width: 4px !important;
+  }
+  .cta-section {
+    padding: 12px 0 0 !important;
+  }
+  .cta-tile {
+    padding: 8px !important;
+    border-radius: 10px !important;
+  }
+  .cta-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+
+
+
+/* HALLOWEEN SPRINKLES — styles */
+.hall-sprinkle {
+  position: fixed;
+  width: 28px; height: 28px;
+  pointer-events: none;
+  z-index: 3;            /* above bg, below modals */
+  opacity: .92;
+  animation: hall-float var(--dur, 8s) ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.35));
+}
+.hall-sprinkle.small { width: 22px; height: 22px; opacity: .9; }
+.hall-sprinkle.tiny  { width: 18px; height: 18px; opacity: .85; }
+.hall-sprinkle.web   { width: 56px; height: 56px; opacity: .75; }
+
+@keyframes hall-float {
+  0%,100% { transform: translate3d(0,0,0) rotate(var(--rot, 0deg)); }
+  50%     { transform: translate3d(0, calc(-1 * var(--amp, 8px)), 0) rotate(calc(var(--rot, 0deg) * -1)); }
+}
+
+/* light random drifting so they don’t all move together */
+.hall-sprinkle:nth-child(3n)  { --dur: 7.2s; --amp: 7px;  }
+.hall-sprinkle:nth-child(4n)  { --dur: 9.6s; --amp: 9px;  }
+.hall-sprinkle:nth-child(5n)  { --dur: 11s;  --amp: 12px; }
+.hall-sprinkle:nth-child(7n)  { --dur: 6.6s; --amp: 6px;  }
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hall-sprinkle { animation: none !important; }
+}
+
+/* keep edges tidy on mobile */
+@media (max-width: 700px){
+  .hall-sprinkle.web { display: none; }
+}
+
+
+
+
+
+
+
+
+/* Enhanced animation keyframes for smoother effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Ensure visibility and smooth transitions for animated elements */
+.carpool-landing .info-grid > .card,
+.carpool-landing .info-grid > .video-wrap,
+.carpool-landing .cta-grid .tile,
+.carpool-landing .how-it-works,
+.carpool-landing .how-it-works .hiw-step,
+.carpool-landing #hours,
+.carpool-landing #hours .hours,
+.carpool-landing .section,
+.carpool-landing .carpool-banner,
+.carpool-landing .hero-highlight {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+}
+
+/* Ensure team-spotlight is visible without animation */
+.carpool-landing #team-spotlight {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  transition: none !important;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 700px) {
+  .carpool-landing .info-grid > .card,
+  .carpool-landing .info-grid > .video-wrap,
+  .carpool-landing .cta-grid .tile,
+  .carpool-landing .how-it-works,
+  .carpool-landing .how-it-works .hiw-step,
+  .carpool-landing #hours,
+  .carpool-landing #hours .hours,
+  .carpool-landing .section,
+  .carpool-landing .carpool-banner,
+  .carpool-landing .hero-highlight {
+    transition-duration: 0.2s; /* Faster transitions on mobile */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .carpool-landing #team-spotlight {
+    transition: none !important; /* No animation on mobile */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}

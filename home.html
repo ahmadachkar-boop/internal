@@ -1,0 +1,643 @@
+<!-- ======================= CARPOOL: Scheduled popup ======================= -->
+<div class="ride-modal-root" data-nosnippet="">
+  <input id="ride-modal-toggle" type="checkbox" aria-hidden="true" />
+  <label class="ride-modal-overlay" for="ride-modal-toggle" aria-hidden="true"></label>
+
+  <div class="ride-modal" role="dialog" aria-modal="true">
+    <div class="ride-modal__panel">
+
+      <!-- State A: Running (Fri/Sat 10pm–3am) -->
+      <div class="ride-modal__card" id="ride-card-open" tabindex="-1" role="document" hidden>
+        <div class="ride-modal__head">
+          <h2 id="ride-modal-title-open" class="ride-modal__title">We are currently running!</h2>
+          <p class="ride-modal__subtitle">Free, safe, nonjudgmental rides across Bryan/College Station</p>
+          <label class="ride-modal__close" for="ride-modal-toggle" aria-label="Close">✕</label>
+        </div>
+        <div id="ride-modal-desc-open" class="ride-modal__body">
+          Tap below to call CARPOOL. Our student volunteers will get you home safely.
+        </div>
+        <div class="ride-modal__actions">
+          <a class="ride-btn ride-btn--call" href="tel:+19796939905" aria-label="Call CARPOOL now">Call (979) 693-9905</a>
+          <label class="ride-btn ride-btn--secondary" for="ride-modal-toggle">Not now</label>
+        </div>
+      </div>
+
+      <!-- State B: Wind-down (Sat/Sun 3am–6am) -->
+      <div class="ride-modal__card" id="ride-card-winddown" tabindex="-1" role="document" hidden>
+        <div class="ride-modal__head">
+          <h2 id="ride-modal-title-wd" class="ride-modal__title">We are no longer accepting new calls</h2>
+          <p class="ride-modal__subtitle">Please read important information below</p>
+          <label class="ride-modal__close" for="ride-modal-toggle" aria-label="Close">✕</label>
+        </div>
+        <div id="ride-modal-desc-wd" class="ride-modal__body">
+          If you called before 3:00&nbsp;am, don't worry — you're still in the queue. Our drivers will contact you when they're on the way.
+        </div>
+        <div class="ride-modal__actions">
+          <label class="ride-btn ride-btn--secondary" for="ride-modal-toggle">OK</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ===================== /CARPOOL: Scheduled popup ===================== -->
+
+
+<section class="carpool-landing" style="background: var(--your-bg);">
+<div class="carpool-wrap">
+<div class="carpool-banner" role="status" aria-live="polite">
+  <div class="icon" aria-hidden="true">!</div>
+  <p class="banner-text">
+  </p>
+
+</div>
+<header class="hero">
+  <h1>Keeping Aggieland safe — one free ride at a time.</h1>
+  <div class="hero-highlight" aria-label="CARPOOL promise and stats">
+    <span id="rideCount" class="stat-value" aria-label="Total rides given" data-target="297588">297,588</span>
+    <div class="stat-label">Rides given since 1999 • as of <time datetime="2025-09-29">September 29, 2025</time></div>
+    <p class="hero-promise"><span class="promise-pop">Free, safe, nonjudgmental rides</span> home across Bryan/College Station</p>
+
+
+</div>
+</header>
+
+
+<div class="info-grid"><article class="card">
+<h2>What is CARPOOL?</h2>
+CARPOOL is a student-run 501(c)(3) non-profit serving the Bryan/College Station community with <strong>free rides home</strong> every Friday and Saturday from <strong>10:00 pm – 3:00 am</strong> during Fall and Spring semesters.
+
+If you're in the area and need a safe, judgment-free ride home, call us — our number is on the back of your TAMU ID.
+<div class="faq mt-10" aria-label="Common Questions"><details><summary>Do I have to be a current TAMU student?</summary>
+<div class="answer">No. We'll take anyone home within Bryan/College Station city limits — students, parents, visitors — anyone who needs a ride.</div>
+</details><details><summary>Do I have to be intoxicated?</summary>
+<div class="answer">No. You can take CARPOOL for any reason. We just want you home safely.</div>
+</details><details><summary>Do you take riders to Northgate or parties?</summary>
+<div class="answer">We take you <em>home from</em> the party — not to it.</div>
+</details></div>
+</article>
+<figure class="video-wrap" aria-label="What is CARPOOL video">
+<div class="video-frame"><video poster="https://carpool.tamu.edu/wp-content/uploads/2023/01/CarpoolCookies2016.jpg" preload="metadata" controls="controls" width="480" height="270">
+<source src="https://carpool.tamu.edu/wp-content/uploads/2023/02/What-is-CARPOOL.mp4" type="video/mp4" />
+Your browser does not support the video tag.
+</video></div>
+<figcaption class="video-caption">3-minute overview: how CARPOOL keeps Aggieland safe</figcaption></figure>
+
+
+
+
+</div>
+
+<section class="section how-it-works" aria-labelledby="hiw-heading">
+  <h2 id="hiw-heading">How It Works</h2>
+</p></p>
+  <ol class="hiw-steps">
+    <li class="hiw-step">
+      <span class="badge">1</span>
+      <h3 class="hiw-title">Call CARPOOL</h3>
+      <p class="hiw-text">Dial (979) 693-9905 when you're ready to head home.</p>
+    </li>
+    <li class="hiw-step">
+      <span class="badge">2</span>
+      <h3 class="hiw-title">Volunteer picks you up</h3>
+      <p class="hiw-text">A student driver & navigator meet you at your location.</p>
+    </li>
+    <li class="hiw-step">
+      <span class="badge">3</span>
+      <h3 class="hiw-title">Get home safe</h3>
+      <p class="hiw-text">We'll take you home within Bryan/College Station for free.</p>
+    </li>
+  </ol>
+</section>
+
+
+
+
+<section id="hours" class="section" aria-labelledby="hours-heading">
+<h2 id="hours-heading">Hours of Operation</h2>
+<div class="hours mt-6">
+<p class="big">Fridays &amp; Saturdays • 10:00 pm – 3:00 am</p>
+<p class="note">While Texas A&amp;M classes are in session. No service during summer months.
+Changes posted on Facebook &amp; Instagram.</p>
+</div>
+</section>
+
+
+<section id="team-spotlight" class="team-spotlight" aria-labelledby="team-spotlight-title">
+  <h2 id="team-spotlight-title">Meet the Team</h2>
+  <!-- The JS will fill this -->
+  <div class="ts-stage" aria-live="polite"></div>
+
+  <!-- Optional controls (keyboard/hover will pause automatically) -->
+  <div class="ts-controls" hidden>
+    <button class="ts-prev" type="button" aria-label="Previous team member">‹</button>
+    <button class="ts-next" type="button" aria-label="Next team member">›</button>
+  </div>
+</section>
+
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="cta-shell">
+    <header class="cta-head">
+      <!-- META TAG REMOVED FROM HERE - IT BELONGS IN <HEAD>, NOT <BODY> -->
+      <p class="eyebrow">Need a safe ride?</p>
+      <h2 id="cta-title">We're here, lets get you home safely</h2>
+      <p class="sub">Free, safe rides for B/CS community members on nights CARPOOL operates.</p>
+    </header>
+
+    <!-- Primary actions -->
+    <ul class="cta-grid" role="list">
+      <li class="tile">
+        <a class="cta-tile cta-primary" href="tel:+19796939905" aria-label="Call CARPOOL">
+          <span class="cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" focusable="false" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.59 2.63a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.27 1.73.47 2.63.59A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div class="cta-copy">
+            <strong>Call CARPOOL</strong>
+            <span class="meta">979-693-9905</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="tile">
+        <a class="cta-tile cta-accent" href="/apply-for-carpool/" aria-label="Join CARPOOL">
+          <span class="cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" focusable="false" aria-hidden="true">
+              <path d="M15 14a5 5 0 1 0-6 0M4 21v-1a7 7 0 0 1 14 0v1M16 3v6M13 6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div class="cta-copy">
+            <strong>Join CARPOOL</strong>
+            <span class="meta">Volunteer sign-up & info</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="tile">
+        <a class="cta-tile cta-neutral" href="/donate/" aria-label="Donate to CARPOOL">
+          <span class="cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" focusable="false" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div class="cta-copy">
+            <strong>Donate</strong>
+            <span class="meta">Keep rides free & safe</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+   <!-- Support row -->
+    <div class="cta-support">
+      <a class="chip" href="/faq/">FAQ</a>
+      <a class="chip" href="mailto:publicrelations.carpool@gmail.com">Contact</a>
+      <span class="spacer"></span>
+      <div class="cta-social">
+        <a class="social" href="https://www.instagram.com/tamucarpool/" aria-label="Instagram">@</a>
+        <a class="social" href="https://www.facebook.com/tamucarpool/" aria-label="Facebook">f</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</section>
+
+<script>
+/* ============================================================
+   CARPOOL — Homepage + Rewards (Inline/Avada-safe)
+   ============================================================ */
+(function () {
+  /* ---------------------------
+   Utility / DOM Ready
+  ----------------------------*/
+  function onReady(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+
+  /* ============================================================
+   HOMEPAGE LOGIC
+   ============================================================ */
+  (function HomePage() {
+    var TZ = 'America/Chicago';
+    var RUN_DAYS = [5,6 ]; // Fri, Sat  (FIXED)
+    var RUN_START = { h: 22, m: 0 }; // 10:00 PM
+    var RUN_END = { h: 3, m: 0 }; // 3:00 AM (next day)
+    var WD_DAYS = [6, 0]; // Sat, Sun
+    var WD_START = { h: 3, m: 0 };
+    var WD_END = { h: 6, m: 0 };
+    var OPEN_CFG = { days: [5, 6], start: "22:00", end: "03:00" };
+    var PREOPEN_FROM = "00:01";
+    var STAFF_PAGE_URL = "/staff/";
+    var ROTATE_MS = 7000;
+    var MAX_PEOPLE = 13;
+    var SHOW_CONTROLS = true;
+
+    var parts = function(d){
+      return new Intl.DateTimeFormat('en-US', {
+        timeZone: TZ, weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+      }).formatToParts(d).reduce(function(a,p){ a[p.type]=p.value; return a; }, {});
+    };
+    var dayNum = function(w){ return ({ Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 })[w] || 0; };
+    var toMin = function(h,m){ return h*60 + m; };
+    var minsOfWeek = function(d){ var p=parts(d); return dayNum(p.weekday)*1440 + (+p.hour)*60 + (+p.minute); };
+    var buildWindows = function(days, start, end, crossesMidnight){
+      return days.map(function(d){
+        var s = d*1440 + toMin(start.h, start.m);
+        var e = d*1440 + toMin(end.h, end.m);
+        if (crossesMidnight && e <= s) e += 1440;
+        return { s:s, e:e };
+      });
+    };
+    var inAny = function(wins, m){
+      var W = 7*1440, m2 = m + W;
+      return wins.some(function(w){ return (m >= w.s && m < w.e) || (m2 >= w.s && m2 < w.e); });
+    };
+
+    function animateRideCount(){
+      var el = document.getElementById("rideCount");
+      if (!el) return;
+      var parseNum = function(s){ return Number(String(s).replace(/[^\d.-]/g,"")) || 0; };
+      var target = parseNum(el.getAttribute("data-target") || el.textContent) || 0;
+      var duration = 5000;
+      var formatter = new Intl.NumberFormat("en-US");
+      var easeFancy = function(t){
+        t = Math.max(0, Math.min(1, t));
+        if (t < 0.35) {
+          var x = t / 0.35, k = 8;
+          return 0.60 * ((Math.exp(k * x) - 1) / (Math.exp(k) - 1));
+        }
+        var x2 = (t - 0.35) / 0.65, tailPow = 50;
+        return 0.60 + 0.40 * (1 - Math.pow(1 - x2, tailPow));
+      };
+      var hasRun = false;
+      var animate = function(){
+        if (hasRun) return; hasRun = true;
+        var t0 = performance.now();
+        var frame = function(now){
+          var t = Math.min(1, (now - t0)/duration);
+          var eased = easeFancy(t);
+          el.textContent = formatter.format(Math.floor(target * eased));
+          if (t < 1) requestAnimationFrame(frame);
+          else el.textContent = formatter.format(target);
+        };
+        requestAnimationFrame(frame);
+      };
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function(entries){
+          if (entries[0].isIntersecting) { io.disconnect(); animate(); }
+        }, { threshold: 0.3 });
+        io.observe(el);
+      } else { animate(); }
+    }
+
+    var RUN_WIN = buildWindows(RUN_DAYS, RUN_START, RUN_END, true);
+    var WD_WIN = buildWindows(WD_DAYS, WD_START, WD_END, false);
+
+    function statusNow(){
+      var m = minsOfWeek(new Date());
+      if (inAny(RUN_WIN, m)) return 'open';
+      if (inAny(WD_WIN, m)) return 'winddown';
+      return 'closed';
+    }
+
+    function modalLogic(){
+      var $cb = function(){ return document.getElementById('ride-modal-toggle'); };
+      var $o  = function(){ return document.getElementById('ride-card-open'); };
+      var $wd = function(){ return document.getElementById('ride-card-winddown'); };
+      var show = function(which){
+        var o = $o(), w = $wd(); if (!o || !w) return;
+        if (which === 'open')      { o.hidden=false; w.hidden=true; }
+        else if (which==='winddown'){ o.hidden=true;  w.hidden=false; }
+        else                       { o.hidden=true;  w.hidden=true; }
+      };
+      var dismissedState = sessionStorage.getItem('carpool-dismissed') || null;
+      var getDismissed = function(){ return dismissedState; };
+      var setDismissed = function(state){ dismissedState = state; sessionStorage.setItem('carpool-dismissed', state); };
+      var clearDismissed = function(){ dismissedState = null; sessionStorage.removeItem('carpool-dismissed'); };
+      var wireDismiss = function(){
+        var cb = $cb(); if (!cb) return;
+        cb.addEventListener('change', function(){
+          if (!cb.checked) {
+            var st = statusNow();
+            if (st === 'open' || st === 'winddown') setDismissed(st);
+          }
+        });
+      };
+      var prevState = null, timer = null;
+      var tick = function(){
+        var st = statusNow();
+        var cb = $cb(); if (!cb) return;
+        if (st !== prevState) { clearDismissed(); prevState = st; }
+        var dismissed = getDismissed();
+        if (st === 'open' || st === 'winddown') {
+          if (dismissed === st) { show('none'); cb.checked = false; }
+          else { show(st); cb.checked = true; setTimeout(function(){ (st === 'open' ? $o() : $wd()) && (st === 'open' ? $o() : $wd()).focus({ preventScroll:true }); }, 0); }
+        } else {
+          show('none'); cb.checked = false; clearDismissed();
+        }
+        clearTimeout(timer);
+        var now = new Date();
+        var ms = (60 - now.getSeconds())*1000 - now.getMilliseconds();
+        timer = setTimeout(tick, Math.max(250, ms));
+      };
+      var cb = $cb(); if (cb) cb.checked = false;
+      wireDismiss(); prevState = statusNow(); tick();
+      document.addEventListener('visibilitychange', function(){ if (!document.hidden) tick(); });
+    }
+
+    function bannerLogic(){
+      var W = 7*1440;
+      var toMinHHMM = function(hhmm){ var p = hhmm.split(":").map(Number); return (p[0]||0)*60 + (p[1]||0); };
+      var fmtTime12 = function(hhmm){
+        var p = hhmm.split(":").map(Number), h = p[0]||0, m = p[1]||0;
+        var ampm = h >= 12 ? "pm" : "am"; h = h % 12 || 12;
+        return h + (m ? ":"+String(m).padStart(2,"0") : "") + ampm;
+      };
+      var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      var daysFull = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      var dayShort = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      var dayLabel = OPEN_CFG.days.map(function(d){ return dayShort[d]; }).join(" & ");
+      var startMin = toMinHHMM(OPEN_CFG.start), endMin = toMinHHMM(OPEN_CFG.end);
+      var windows = OPEN_CFG.days.map(function(d){
+        var s = d*1440 + startMin;
+        var e = d*1440 + (endMin <= startMin ? endMin + 1440 : endMin);
+        return { s:s, e:e };
+      });
+      var box = document.querySelector(".carpool-banner .banner-text"); if (!box) return;
+      var wrap = box.closest(".carpool-banner");
+
+      var isOpenNow = function(d){
+        d = d || new Date();
+        var m = minsOfWeek(d), m2 = m + W;
+        return windows.some(function(w){ return (m >= w.s && m < w.e) || (m2 >= w.s && m2 < w.e); });
+      };
+      var isPreOpenToday = function(d){
+        d = d || new Date();
+        var today = d.getDay();
+        if (OPEN_CFG.days.indexOf(today) === -1) return false;
+        var minsToday = d.getHours()*60 + d.getMinutes();
+        var preFrom = toMinHHMM(PREOPEN_FROM);
+        return minsToday >= preFrom && minsToday < startMin;
+      };
+      var nextOpenDate = function(d){
+        d = d || new Date();
+        var m = minsOfWeek(d);
+        var starts = windows.reduce(function(acc,w){ acc.push(w.s, w.s + W); return acc; }, []).filter(function(s){ return s >= m; });
+        var ns = Math.min.apply(null, starts);
+        var sow = new Date(d); sow.setHours(0,0,0,0); sow.setDate(sow.getDate() - sow.getDay());
+        return new Date(sow.getTime() + ns*60000);
+      };
+      var formatDayMonthTime = function(dt){
+        var mon = months[dt.getMonth()], dom = dt.getDate(), dow = daysFull[dt.getDay()];
+        var h = dt.getHours(), m = dt.getMinutes(), ampm = h >= 12 ? "pm" : "am"; h = h % 12 || 12;
+        var mins = m ? ":" + String(m).padStart(2,"0") : "";
+        return dow + ", " + mon + " " + dom + " at " + h + mins + ampm;
+      };
+
+      var lastStatus = null;
+      var updateBanner = function(){
+        var open = isOpenNow(), pre = isPreOpenToday();
+        var status = open ? "open" : (pre ? "pre" : "closed");
+        if (status === lastStatus) return; lastStatus = status;
+
+        if (open) {
+          wrap.classList.add("success"); wrap.classList.remove("error");
+          box.innerHTML = "<strong>Service Status:</strong> We’re <strong>running now</strong> (" + dayLabel + ", " + fmtTime12(OPEN_CFG.start) + "–" + fmtTime12(OPEN_CFG.end) + ").";
+        } else if (pre) {
+          var start = new Date();
+          var sp = OPEN_CFG.start.split(":");
+          start.setHours(Number(sp[0]||0), Number(sp[1]||0), 0, 0);
+          wrap.classList.add("success"); wrap.classList.remove("error");
+          box.innerHTML = "<strong>Service Status:</strong> We will be running <strong>today, " + formatDayMonthTime(start) + "</strong>.";
+        } else {
+          var next = nextOpenDate();
+          wrap.classList.add("error"); wrap.classList.remove("success");
+          box.innerHTML = `<strong>Service Status:</strong> Not currently running! We next offer rides on <strong>${formatDayMonthTime(next)}</strong> (${dayLabel}, ${fmtTime12(OPEN_CFG.start)}–${fmtTime12(OPEN_CFG.end)}).`;
+        }
+      };
+      updateBanner();
+      setInterval(updateBanner, 60000);
+    }
+
+    function teamSpotlight(){
+      var host = document.getElementById("team-spotlight"); if (!host) return;
+      var stage = host.querySelector(".ts-stage");
+      var ctrls = host.querySelector(".ts-controls");
+      var el = function(t, c, a){ var n=document.createElement(t); if(c) n.className=c; a=a||{}; for (var k in a) if (Object.prototype.hasOwnProperty.call(a,k)) n.setAttribute(k,a[k]); return n; };
+      var extractFromCardAndSheet = function(card, root){
+        var img = card.querySelector("img, .avatar");
+        var name = card.querySelector(".name, h3, .title");
+        var role = card.querySelector(".role");
+        var sheetLink = card.querySelector('.name a[href^="#sheet-"]') || card.querySelector('a[href^="#sheet-"]');
+        var facts = [];
+        if (sheetLink) {
+          var id = sheetLink.getAttribute("href").slice(1);
+          var sheet = root.getElementById(id);
+          if (sheet) {
+            var infoPs = sheet.querySelectorAll(".sheet-info p");
+            facts = Array.prototype.slice.call(infoPs).map(function(p){
+              var strong = p.querySelector("strong");
+              var key = strong ? strong.textContent.replace(/:\s*$/, "").trim() : "";
+              var val = p.textContent.replace(strong && strong.textContent || "", "").trim();
+              if (val.indexOf(":") === 0) val = val.slice(1).trim();
+              return (key && val) ? { k:key, v:val } : null;
+            }).filter(Boolean);
+          }
+        }
+        return {
+          name: (name && name.textContent && name.textContent.trim()) || "Staff member",
+          role: (role && role.textContent && role.textContent.trim()) || "",
+          photo: (img && img.getAttribute("src")) || "",
+          email: (card.querySelector('a[href^="mailto:"]') && card.querySelector('a[href^="mailto:"]').getAttribute("href")) || "",
+          facts: facts
+        };
+      };
+      var buildSlide = function(p){
+        var slide = el("article", "ts-slide", { role:"group", "aria-roledescription":"slide" });
+        var img = el("img", "ts-photo", { alt: p.name || "Staff photo" }); img.src = p.photo || ""; slide.appendChild(img);
+        var info = el("div", "ts-info");
+        var h3 = el("h3", "ts-name"); h3.textContent = p.name;
+        var r = el("p", "ts-role"); r.textContent = p.role;
+        info.appendChild(h3); info.appendChild(r);
+        if (p.facts && p.facts.length){
+          var factsWrap = el("div", "ts-facts");
+          p.facts.forEach(function(f){ var row = el("div","ts-fact"); var kk = el("div","k"); kk.textContent=f.k; var vv = el("div","v"); vv.textContent=f.v; row.appendChild(kk); row.appendChild(vv); factsWrap.appendChild(row); });
+          info.appendChild(factsWrap);
+        }
+        var actions = el("div", "ts-actions");
+        if (p.email) { var a = el("a","ts-btn",{href:p.email,"aria-label":"Email "+p.name}); a.textContent="Email"; actions.appendChild(a); }
+        var all = el("a","ts-btn",{href:"/staff/","aria-label":"View all staff"}); all.textContent="View all staff"; actions.appendChild(all);
+        info.appendChild(actions); slide.appendChild(info); return slide;
+      };
+      var rotator = function(slides, opts){
+        opts = opts || {}; var interval = opts.interval || ROTATE_MS;
+        if (!slides.length) return;
+        var i=0, timer=null, paused=false;
+        var show = function(idx){
+          slides.forEach(function(s, n){
+            s.classList.toggle("is-active", n===idx);
+            s.style.transition = 'opacity .4s ease, transform .4s ease';
+            s.style.opacity = n===idx ? 1 : 0;
+            s.style.transform = n===idx ? 'translateY(0)' : 'translateY(10px)';
+          });
+        };
+        var next = function(){ i=(i+1)%slides.length; show(i); };
+        var prev = function(){ i=(i-1+slides.length)%slides.length; show(i); };
+        var start = function(){ stop(); if (slides.length<2) return; timer=setInterval(function(){ if(!paused) next(); }, interval); };
+        var stop = function(){ if (timer){ clearInterval(timer); timer=null; } };
+        if (ctrls) {
+          var prevBtn = ctrls.querySelector(".ts-prev");
+          var nextBtn = ctrls.querySelector(".ts-next");
+          if (prevBtn) prevBtn.addEventListener("click", function(e){ e.preventDefault(); prev(); });
+          if (nextBtn) nextBtn.addEventListener("click", function(e){ e.preventDefault(); next(); });
+          ctrls.hidden = !SHOW_CONTROLS;
+        }
+        var stageEl = slides[0].parentElement;
+        stageEl.addEventListener("mouseenter", function(){ paused=true; });
+        stageEl.addEventListener("mouseleave", function(){ paused=false; });
+        stageEl.addEventListener("keydown", function(e){ if (e.key==="ArrowRight"){ e.preventDefault(); next(); } if (e.key==="ArrowLeft"){ e.preventDefault(); prev(); } });
+        stageEl.tabIndex = 0;
+        show(0); start();
+        return { show:show, next:next, prev:prev, start:start, stop:stop };
+      };
+      var harvestLocal = function(){
+        var root = document;
+        var cards = Array.prototype.slice.call(root.querySelectorAll("#carpool-staff .grid .card"));
+        return cards.map(function(c){ return extractFromCardAndSheet(c, root); });
+      };
+      var harvestRemote = function(){
+        return fetch(STAFF_PAGE_URL, { credentials:"same-origin" })
+          .then(function(res){ if (!res.ok) throw new Error("Fetch failed"); return res.text(); })
+          .then(function(html){
+            var doc = new DOMParser().parseFromString(html, "text/html");
+            var cards = Array.prototype.slice.call(doc.querySelectorAll("#carpool-staff .grid .card"));
+            return cards.map(function(c){ return extractFromCardAndSheet(c, doc); });
+          })
+          .catch(function(){ return []; });
+      };
+      var init = function(){
+        if (!stage) return;
+        stage.innerHTML = '<div class="ts-loading" style="text-align:center;padding:20px;color:#6b7280;">Loading team...</div>';
+        var people = harvestLocal();
+        var proceed = function(list){
+          stage.querySelector('.ts-loading') && stage.querySelector('.ts-loading').remove();
+          if (!list.length) {
+            stage.innerHTML = '<div class="ts-slide is-active"><div class="ts-info"><h3 class="ts-name">Our Student Leaders</h3><p class="ts-role">Meet the volunteers behind CARPOOL.</p><div class="ts-actions"><a class="ts-btn" href="/staff/">View all staff</a></div></div></div>';
+            return;
+          }
+          if (MAX_PEOPLE) list = list.slice(0, MAX_PEOPLE);
+          var slides = list.map(buildSlide);
+          slides.forEach(function(s){ stage.appendChild(s); });
+          rotator(slides, { interval: ROTATE_MS });
+        };
+        if (people.length) proceed(people);
+        else harvestRemote().then(proceed);
+      };
+      init();
+    }
+
+    function factsToggle(){
+      var root = document.querySelector('#team-spotlight'); if (!root) return;
+      var factsBlocks = root.querySelectorAll('.ts-facts');
+      var isOverflowing = function(el){ return (el.scrollHeight - el.clientHeight) > 2; };
+      var updateMaskAndToggle = function(facts, btn){
+        var overflowing = isOverflowing(facts) && !facts.classList.contains('ts--expanded');
+        facts.classList.toggle('ts--masked', overflowing);
+        btn.style.display = isOverflowing(facts) ? 'block' : 'none';
+      };
+      var ro = new ResizeObserver(function(entries){
+        entries.forEach(function(entry){
+          var facts = entry.target; var btn = facts.nextElementSibling;
+          if (btn && btn.classList.contains('ts-toggle')) updateMaskAndToggle(facts, btn);
+        });
+      });
+      factsBlocks.forEach(function(facts){
+        var btn = facts.nextElementSibling;
+        if (!btn || !btn.classList || !btn.classList.contains('ts-toggle')) {
+          btn = document.createElement('button');
+          btn.type = 'button'; btn.className = 'ts-toggle'; btn.setAttribute('aria-expanded','false'); btn.textContent='Show more';
+          facts.insertAdjacentElement('afterend', btn);
+          btn.addEventListener('click', function(){
+            var expanded = facts.classList.toggle('ts--expanded');
+            btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            btn.textContent = expanded ? 'Show less' : 'Show more';
+            if (!expanded) facts.scrollTo({ top:0, behavior:'smooth' });
+            updateMaskAndToggle(facts, btn);
+          });
+        }
+        updateMaskAndToggle(facts, btn); ro.observe(facts);
+      });
+    }
+
+    function cleanCTA(){
+      var clean = function(grid){
+        Array.from(grid.childNodes).forEach(function(n){ if (n.nodeType !== 1) grid.removeChild(n); });
+        Array.from(grid.children).forEach(function(el){
+          if (!el.classList.contains('tile') || !el.querySelector('.cta-tile')) el.remove();
+        });
+      };
+      document.querySelectorAll('.cta-grid').forEach(clean);
+    }
+
+    (function injectAOSKeyframes(){
+  if (document.documentElement.classList.contains('aos-kf-ready')) return;
+  document.documentElement.classList.add('aos-kf-ready');
+  var css = '\
+        @keyframes fadeInUp { 0% { opacity:0; transform: translate3d(0,25px,0) scale(.95); } 100%{ opacity:1; transform: translate3d(0,0,0) scale(1); } }\
+        @keyframes fadeInUpBounce { 0%{ opacity:0; transform: translate3d(0,30px,0) scale(.9);} 60%{ opacity:1; transform: translate3d(0,-6px,0) scale(1.02);} 100%{ opacity:1; transform: translate3d(0,0,0) scale(1);} }\
+        @keyframes fadeInScale { 0% { opacity:0; transform: translate3d(0,15px,0) scale(.98);} 100%{ opacity:1; transform: translate3d(0,0,0) scale(1);} }\
+        @keyframes slideInLeft { 0% { opacity:0; transform: translate3d(-20px,0,0) scale(.98);} 100%{ opacity:1; transform: translate3d(0,0,0) scale(1);} }';
+  var s = document.createElement('style'); s.textContent = css; (document.head || document.body).appendChild(s);
+})();
+
+
+    function animateOnScroll(){
+      if (!("IntersectionObserver" in window)) return;
+      var elements = document.querySelectorAll('.info-grid > .card, .info-grid > .video-wrap, .cta-grid .tile, .how-it-works .hiw-step, #hours .hours, #team-spotlight, .team-spotlight .ts-stage, .carpool-banner, .hero-highlight');
+      var isMobile = window.matchMedia("(max-width: 700px)").matches;
+      var duration = isMobile ? 0.8 : 1.0, stagger = isMobile ? 0.06 : 0.1;
+      var observer = new IntersectionObserver(function(entries, obs){
+        entries.forEach(function(entry, index){
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            if (el.matches('.how-it-works .hiw-step')) {
+              el.style.animation = 'fadeInUpBounce ' + duration + 's cubic-bezier(0.34, 1.56, 0.64, 1) ' + (index*stagger) + 's forwards';
+            } else if (el.matches('#team-spotlight, .team-spotlight .ts-stage')) {
+              el.style.animation = 'fadeInScale ' + (duration*0.8) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94) ' + (index*stagger) + 's forwards';
+            } else if (el.matches('#hours .hours')) {
+              el.style.animation = 'slideInLeft ' + duration + 's cubic-bezier(0.25, 0.46, 0.45, 0.94) ' + (index*stagger) + 's forwards';
+            } else {
+              el.style.animation = 'fadeInUp ' + duration + 's cubic-bezier(0.4, 0, 0.2, 1) ' + (index*stagger) + 's forwards';
+            }
+            el.style.willChange = 'opacity, transform';
+            setTimeout(function(){ el.style.willChange = 'auto'; }, duration*1000 + 100);
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: isMobile ? 0.08 : 0.12, rootMargin: '0px 0px 10px 0px' });
+      elements.forEach(function(el){
+        el.style.opacity = 0; el.style.transform = 'translateY(25px) scale(0.95)';
+        if (el.matches('.how-it-works .hiw-step')) el.style.transform = 'translateY(30px) scale(0.9)';
+        else if (el.matches('#team-spotlight, .team-spotlight .ts-stage')) el.style.transform = 'translateY(15px) scale(0.98)';
+        else if (el.matches('#hours .hours')) el.style.transform = 'translateX(-20px) scale(0.98)';
+        observer.observe(el);
+      });
+    }
+
+    onReady(function(){
+      setTimeout(function(){
+        animateRideCount();
+        modalLogic();
+        bannerLogic();
+        teamSpotlight();
+        factsToggle();
+        cleanCTA();
+        animateOnScroll();
+      }, 100);
+    });
+  })();
+})();
+</script>
+
+

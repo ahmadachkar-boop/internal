@@ -1,0 +1,1092 @@
+<section class="carpool-leaderboard" aria-labelledby="rewards-title">
+  <style>
+    /* ===== CARPOOL Rewards — Modern Design ===== */
+    .carpool-leaderboard{
+      --accent: #500000;
+      --accent-600: hsl(350 84% 24%);
+      --accent-700: hsl(350 84% 20%);
+      --accent-500: hsl(350 84% 32%);
+      --accent-200: hsl(350 56% 86%);
+      --accent-100: hsl(350 56% 94%);
+      --card: hsl(0 0% 100%);
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #fafafa;
+      --tile-b: rgba(17, 24, 39, 0.06);
+
+      --radius-lg: 16px;
+      --shadow: 0 4px 20px -8px rgba(0,0,0,.12);
+      --shadow-hover: 0 12px 40px -12px rgba(0,0,0,.2);
+      --gap: clamp(22px, 3vw, 34px);
+    }
+
+    .carpool-leaderboard{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+      min-height: 100vh;
+    }
+    .carpool-leaderboard .wrap{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    /* ===== HEADER (matching sponsors page) ===== */
+    .carpool-leaderboard .page-head{ 
+      text-align: left;
+      margin: 0 0 12px;
+    }
+    .carpool-leaderboard .page-head h1{
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: .2px;
+      font-size: clamp(28px, 3.4vw, 42px);
+      color: var(--text);
+    }
+    .carpool-leaderboard .page-head h1::after{
+      content: "";
+      display: block;
+      width: 90px;
+      height: 3px;
+      margin: 12px 0 0;
+      background: linear-gradient(90deg, var(--accent), #8c3a3a);
+      border-radius: 999px;
+    }
+    .subtitle{
+      color: var(--muted);
+      margin: 10px 0 20px;
+      font-size: clamp(15px, 1.8vw, 17px);
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    /* ===== Toolbar & Pills ===== */
+    .cr-toolbar{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 32px;
+      align-items: center;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(255,255,255,.9) 0%, rgba(250,250,250,.95) 100%);
+      border: 1px solid var(--tile-b);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: clamp(13px, 2.4vw, 14px);
+      color: var(--text);
+      box-shadow: 0 2px 8px -4px rgba(0,0,0,.1);
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent) 0%, #6b1a1a 100%);
+      color: #fff;
+      border: 1px solid rgba(0,0,0,.1);
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: clamp(13px, 2.4vw, 14px);
+      cursor: pointer;
+      min-height: 42px;
+      box-shadow: 0 8px 24px -8px rgba(80,0,0,.4);
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+      z-index: 10;
+      pointer-events: auto;
+    }
+    .btn::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(80,0,0,.5);
+    }
+    .btn:hover::before{ opacity: 1; }
+    .btn:active{
+      transform: translateY(0);
+      transform: scale(0.97);
+    }
+
+    /* ===== Modern Cards ===== */
+    .card{
+      background: linear-gradient(135deg, rgba(255,255,255,.98) 0%, #fff 100%);
+      border: 1px solid var(--tile-b);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 3.2vw, 36px);
+      box-shadow: var(--shadow);
+      transition: all .35s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: visible;
+    }
+    .card::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(80,0,0,.02), transparent 70%);
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(80,0,0,.12);
+    }
+    .card:hover::before{ opacity: 1; }
+
+    .card > *{
+      position: relative;
+      z-index: 1;
+    }
+
+    .h3{
+      margin: 0 0 16px;
+      font-size: clamp(18px, 2.1vw, 22px);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .h4{
+      margin: 12px 0 8px;
+      font-size: clamp(13px, 1.8vw, 15px);
+      font-weight: 800;
+    }
+    .muted{
+      color: var(--muted);
+      font-size: clamp(12px, 2vw, 13px);
+    }
+
+    /* ===== Page Layout Grid - SINGLE COLUMN ONLY ===== */
+    .layout{
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "stats"
+        "leaderboard"
+        "rules"
+        "rewards"
+        "prog";
+    }
+
+    .area.stats{ grid-area: stats; }
+    .area.leaderboard{ grid-area: leaderboard; }
+    .area.rules{ grid-area: rules; }
+    .area.rewards{ grid-area: rewards; }
+    .area.prog{ grid-area: prog; }
+
+    /* ===== KPI Stats ===== */
+    .kpi-grid{
+      display: grid;
+      gap: 18px;
+    }
+    .kpi-grid .stat{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: end;
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(80,0,0,.1);
+      transition: transform .2s ease;
+    }
+    .kpi-grid .stat:last-child{ border: 0; }
+    .kpi-grid .stat:hover{ transform: translateX(4px); }
+    .kpi-grid .label{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: clamp(13px, 2vw, 14px);
+    }
+    .kpi-grid .num{
+      color: var(--accent);
+      font-weight: 900;
+      font-size: clamp(26px, 4.6vw, 34px);
+      line-height: 1;
+      transition: transform .2s ease;
+    }
+    .kpi-grid .stat:hover .num{ transform: scale(1.05); }
+
+    /* ===== Leaderboard Section ===== */
+    .leaderboard-grid{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "title lba"
+        "tabs tabs"
+        "sub sub"
+        "table table";
+      gap: 12px 14px;
+    }
+    .leaderboard-grid .title{ 
+      grid-area: title;
+      position: relative;
+      z-index: 1;
+    }
+    .leaderboard-grid .lba{ 
+      grid-area: lba; 
+      justify-self: end;
+      position: relative;
+      z-index: 10;
+    }
+    .leaderboard-grid .tabs{ 
+      grid-area: tabs;
+      position: relative;
+      z-index: 10;
+    }
+    .leaderboard-grid .sub{ 
+      grid-area: sub; 
+      color: var(--muted); 
+      margin-top: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    .leaderboard-grid .table{ 
+      grid-area: table;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== View Toggle Buttons ===== */
+    .cr-viewtoggle{
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 6px;
+      background: rgba(250,250,250,.9);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid var(--tile-b);
+      white-space: nowrap;
+      box-shadow: 0 2px 8px -4px rgba(0,0,0,.08);
+      position: relative;
+      z-index: 10;
+    }
+    .cr-viewtoggle .seg{
+      background: var(--card);
+      border: 1px solid var(--tile-b);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: clamp(12px, 2vw, 13px);
+      cursor: pointer;
+      min-height: 38px;
+      transition: all .25s cubic-bezier(.4,0,.2,1);
+      color: var(--text);
+      pointer-events: auto;
+      position: relative;
+      z-index: 11;
+    }
+    .cr-viewtoggle .seg:hover{
+      background: rgba(250,250,250,.7);
+      transform: translateY(-1px);
+    }
+    .cr-viewtoggle .seg.selected{
+      background: linear-gradient(135deg, var(--accent), var(--accent-600));
+      color: #fff;
+      border-color: rgba(0,0,0,.1);
+      box-shadow: 0 4px 12px -6px rgba(80,0,0,.4);
+      transform: translateY(0);
+    }
+    .cr-viewtoggle .seg:active{
+      transform: scale(0.98);
+    }
+
+    /* ===== Tables ===== */
+    .cr-table-card{
+      width: 100%;
+      overflow: auto;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+    table{
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--tile-b);
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: clamp(13px, 2.4vw, 14px);
+      color: var(--text);
+    }
+    thead th{
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(250,250,250,.95), rgba(255,255,255,.98));
+      backdrop-filter: blur(8px);
+      font-weight: 800;
+      font-size: clamp(12px, 1.7vw, 13px);
+    }
+    th, td{
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(17,24,39,.06);
+    }
+    tbody tr{
+      transition: all .2s ease;
+    }
+    tbody tr:nth-child(even) td{
+      background: rgba(250,250,250,.4);
+    }
+    tbody tr:hover td{
+      background: rgba(255,245,245,.6);
+    }
+
+    .cr-leaderboardTbl td:nth-child(n+3),
+    .cr-membersTbl td:nth-child(n+2){
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Hide extra columns when collapsed */
+    .cr-leaderboardTbl.hide-details th:nth-child(n+5),
+    .cr-leaderboardTbl.hide-details td:nth-child(n+5),
+    .cr-membersTbl.hide-details th:nth-child(n+5),
+    .cr-membersTbl.hide-details td:nth-child(n+5){
+      display: none;
+    }
+
+    /* ===== Rules Section ===== */
+    .rules-grid{
+      display: grid;
+      gap: 12px;
+    }
+    .rules-grid ul{
+      margin: 6px 0 12px;
+      padding-left: 1.3em;
+      line-height: 1.7;
+    }
+    .rules-grid li{
+      margin: 8px 0;
+      transition: transform .2s ease;
+    }
+    .rules-grid li:hover{
+      transform: translateX(4px);
+    }
+
+    /* ===== Member Progress ===== */
+    .prog-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .filters{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
+    }
+    .input{
+      flex: 1;
+      min-width: 200px;
+      background: var(--card);
+      border: 1px solid var(--tile-b);
+      border-radius: 12px;
+      padding: 12px 16px;
+      min-height: 44px;
+      font-size: 14px;
+      transition: all .25s ease;
+      position: relative;
+      z-index: 11;
+      pointer-events: auto;
+    }
+    .input:focus{
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(80,0,0,.1);
+    }
+    .input:hover{
+      border-color: rgba(80,0,0,.2);
+    }
+
+    /* ===== Rewards Tiers Table ===== */
+    .rewards-tiers table{
+      min-width: 0;
+      table-layout: fixed;
+    }
+    .rewards-tiers th,
+    .rewards-tiers td{
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    /* ===== Animations ===== */
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes fadeInUp{
+        from{ opacity: 0; transform: translateY(30px); }
+        to{ opacity: 1; transform: translateY(0); }
+      }
+      
+      .card{
+        animation: fadeInUp .6s cubic-bezier(.4,0,.2,1) backwards;
+      }
+      .area.stats{ animation-delay: .05s; }
+      .area.leaderboard{ animation-delay: .1s; }
+      .area.rules{ animation-delay: .15s; }
+      .area.rewards{ animation-delay: .2s; }
+      .area.prog{ animation-delay: .25s; }
+    }
+
+    /* ===== Utility ===== */
+    .hidden{ display: none !important; }
+    .sr-only{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    /* ===== Mobile Optimizations ===== */
+    @media (max-width: 640px) {
+      .carpool-leaderboard .wrap{
+        padding: 32px 16px 56px;
+      }
+
+      .card{
+        padding: 20px;
+      }
+
+      .cr-toolbar{
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cr-toolbar .pill,
+      .cr-toolbar .btn{
+        width: 100%;
+        justify-content: center;
+      }
+
+      .leaderboard-grid{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "title"
+          "lba"
+          "tabs"
+          "sub"
+          "table";
+      }
+
+      .leaderboard-grid .lba{
+        justify-self: stretch;
+      }
+
+      .filters{
+        flex-direction: column;
+      }
+
+      .input{
+        width: 100%;
+      }
+
+      table{
+        min-width: 100%;
+        font-size: 12px;
+      }
+
+      th, td{
+        padding: 8px 6px;
+      }
+    }
+
+    /* ===== Chart text readability ===== */
+    .carpool-leaderboard svg text{ fill: var(--text) !important; }
+    .carpool-leaderboard .chart,
+    .carpool-leaderboard .chart *{ color: var(--text) !important; }
+  </style>
+
+  <div class="wrap">
+    <header class="page-head">
+      <h1 id="rewards-title">CARPOOL Rewards</h1>
+      <p class="subtitle">The more you give, the more you earn! Track participation, nights volunteered, and leaderboard standings.</p>
+    </header>
+
+    <div class="cr-toolbar">
+      <span class="pill">Current Term: <span id="cr-termLabel">Fall 2025</span></span>
+      <button id="cr-refreshBtn" class="btn" aria-label="Refresh data">↻ Refresh</button>
+    </div>
+
+    <div class="layout">
+      <!-- KPI Stats -->
+      <aside class="area stats card kpi-grid" aria-label="Key stats">
+        <div class="stat">
+          <span class="label">Active Members</span>
+          <span class="num" id="cr-kpiMembers">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Points Awarded</span>
+          <span class="num" id="cr-kpiPoints">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Nights Volunteered</span>
+          <span class="num" id="cr-kpiNights">—</span>
+        </div>
+      </aside>
+
+      <!-- Leaderboard -->
+      <main class="area leaderboard card leaderboard-grid" aria-label="Leaderboard">
+        <h2 class="h3 title">🏆 Leaderboard</h2>
+        <div class="lba">
+          <button id="cr-toggleColumns" class="btn" aria-expanded="true">Hide Details</button>
+        </div>
+        <div class="tabs">
+          <div class="cr-viewtoggle" role="tablist" aria-label="Leaderboard view">
+            <button class="seg selected" id="cr-leadViewCombined" data-target="leaderboard" data-view="combined" aria-pressed="true">Combined</button>
+            <button class="seg" id="cr-leadViewStaff" data-target="leaderboard" data-view="staff" aria-pressed="false">Staff</button>
+            <button class="seg" id="cr-leadViewMembers" data-target="leaderboard" data-view="members" aria-pressed="false">Members</button>
+          </div>
+        </div>
+        <p class="sub muted">Top 10 by points (this term)</p>
+        <div class="cr-table-card table">
+          <table id="cr-leaderboardTbl" class="cr-leaderboardTbl" aria-label="Leaderboard table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Member</th>
+                <th>Points</th>
+                <th>Nights</th>
+                <th>Gas Ups</th>
+                <th>Pick ups</th>
+                <th>Social Events</th>
+                <th>WNM</th>
+                <th>Tabling</th>
+                <th>Misc</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </main>
+
+      <!-- Rules -->
+      <aside class="area rules card rules-grid" aria-label="Points & Rewards rules">
+        <h2 class="h3">Points & Rewards</h2>
+        <ul>
+          <li><strong>Core:</strong> ⛽ Gas-ups / rental pick-ups – <strong>4</strong> pts; 👥 Member meeting – <strong>3</strong> pts</li>
+          <li><strong>Support:</strong> 🍽️ Profit share – <strong>3</strong>; 🎉 Social – <strong>3</strong>; 📣 Tabling – <strong>2</strong>/30m; 📣 Class presentation – <strong>2</strong> each</li>
+          <li><strong>Bonus:</strong> 👫 Recruit a friend – <strong>+1</strong> each; 🗓️ ≥2 nights/week – <strong>+2</strong></li>
+        </ul>
+      </aside>
+
+      <!-- Rewards Tiers -->
+      <section class="area rewards card rewards-tiers">
+        <h2 class="h3">🎁 Rewards Tiers (by nights)</h2>
+        <div class="cr-table-card">
+          <table aria-label="Reward tiers">
+            <thead>
+              <tr>
+                <th>Nights</th>
+                <th>Tier</th>
+                <th>Prize</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>🌙 4</td><td>Tier 1</td><td>Sticker, pin & socks</td></tr>
+              <tr><td>🌙 6</td><td>Tier 2</td><td>Limited tote (or gift card) & air freshener</td></tr>
+              <tr><td>🌙 8</td><td>Tier 3</td><td>Exclusive tee (or gift card) & Andy's Ice Cream Night</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Member Progress -->
+      <section class="area prog card">
+        <div class="prog-grid">
+          <h2 class="h3">📊 Member Progress</h2>
+
+          <div class="cr-viewtoggle" role="tablist" aria-label="Progress view">
+            <button class="seg selected" id="cr-progViewCombined" data-target="prog" data-view="combined" aria-pressed="true">Combined</button>
+            <button class="seg" id="cr-progViewStaff" data-target="prog" data-view="staff" aria-pressed="false">Staff</button>
+            <button class="seg" id="cr-progViewMembers" data-target="prog" data-view="members" aria-pressed="false">Members</button>
+          </div>
+
+          <div class="filters">
+            <input id="cr-search" class="input" placeholder="Search member by name…" aria-label="Search members" />
+            <select id="cr-filterTier" class="input" aria-label="Filter by tier">
+              <option value="">All tiers</option>
+              <option value="1">Tier 1 (≥4 nights)</option>
+              <option value="2">Tier 2 (≥6 nights)</option>
+              <option value="3">Tier 3 (≥8 nights)</option>
+            </select>
+          </div>
+
+          <div class="lba">
+            <button id="cr-toggleMembersColumns" class="btn" aria-expanded="true">Hide Details</button>
+          </div>
+
+          <div class="cr-table-card">
+            <table id="cr-membersTbl" class="cr-membersTbl" aria-label="Member progress">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Points</th>
+                  <th>Nights</th>
+                  <th>Tier</th>
+                  <th>Gas Ups</th>
+                  <th>Pick ups</th>
+                  <th>Social Events</th>
+                  <th>WNM</th>
+                  <th>Tabling</th>
+                  <th>Misc</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        const root = document.querySelector('.carpool-leaderboard');
+        if (!root) {
+          console.error('[CR] Root element not found');
+          return;
+        }
+
+        const $ = function(s) { return root.querySelector(s); };
+
+        /* Config */
+        const API_URL = "https://script.google.com/macros/s/AKfycbwUGu_OdCt7FO6g2dvxYyY1G42Qf232b4Zwt2UhZwvrKED-Ymgc5tneRfk4NFsN-wsf/exec";
+        const HAS_BACKEND = API_URL && API_URL.includes("/exec");
+        const SUBTRACT_NIGHTS = true;
+        const adjustPoints = function(pts, nights) {
+          return Math.max(0, (Number(pts) || 0) - (Number(nights) || 0));
+        };
+
+        const STAFF_NAMES = new Set([
+          "Isabella Ritchey","Kaden Smith","Rahul Rajulu","Luisa Villagran","Prachi Rajput",
+          "Nicholas Ballard","Ahmad Achkar","Hannah Abraham","Pardhava Meka","Samantha Fehlis",
+          "Owen Wyatt","Abhinav Karnati","Pehrs Vaughan"
+        ].map(function(n) { return n.toLowerCase().trim(); }));
+
+        /* Hidden members - exclude from all views */
+        const HIDDEN_MEMBERS = new Set([
+          "carpool automation",
+          "CARPOOL Automation"
+        ].map(function(n) { return n.toLowerCase().trim(); }));
+        
+        function isHiddenMember(name) {
+          const normalized = (name || "").toLowerCase().trim();
+          const isHidden = HIDDEN_MEMBERS.has(normalized);
+          if (isHidden) {
+            console.log('[CR] Hiding member:', name);
+          }
+          return isHidden;
+        }
+
+        /* Elements */
+        const kpiMembers = $("#cr-kpiMembers");
+        const kpiPoints = $("#cr-kpiPoints");
+        const kpiNights = $("#cr-kpiNights");
+        const leaderboardTblBody = $("#cr-leaderboardTbl tbody");
+        const membersTblBody = $("#cr-membersTbl tbody");
+        const refreshBtn = $("#cr-refreshBtn");
+        const searchInput = $("#cr-search");
+        const filterTier = $("#cr-filterTier");
+        const toggleColumnsBtn = $("#cr-toggleColumns");
+        const toggleMembersColumnsBtn = $("#cr-toggleMembersColumns");
+
+        const leadViewCombined = $("#cr-leadViewCombined");
+        const leadViewStaff = $("#cr-leadViewStaff");
+        const leadViewMembers = $("#cr-leadViewMembers");
+        
+        const progViewCombined = $("#cr-progViewCombined");
+        const progViewStaff = $("#cr-progViewStaff");
+        const progViewMembers = $("#cr-progViewMembers");
+
+        /* State */
+        const VIEW_KEYS = {
+          leaderboard: "cr.view.leaderboard",
+          progress: "cr.view.progress"
+        };
+        
+        const state = {
+          leadView: localStorage.getItem(VIEW_KEYS.leaderboard) || "combined",
+          progView: localStorage.getItem(VIEW_KEYS.progress) || "combined"
+        };
+
+        const store = {
+          mode: "aggregated",
+          members: new Map(),
+          aggregates: new Map()
+        };
+
+        const esc = function(s) {
+          const div = document.createElement("div");
+          div.textContent = String(s ?? "");
+          return div.innerHTML;
+        };
+
+        const toKey = function(name, email) {
+          return (email || name || "").toLowerCase();
+        };
+
+        const tierForNights = function(n) {
+          return n >= 8 ? 3 : n >= 6 ? 2 : n >= 4 ? 1 : 0;
+        };
+
+        function filterByView(list, view) {
+          if (view === "staff") return list.filter(function(r) { return r.isStaff; });
+          if (view === "members") return list.filter(function(r) { return !r.isStaff; });
+          return list;
+        }
+
+        function markSelected(target, view) {
+          console.log('[CR] markSelected:', target, view);
+          
+          if (target === "leaderboard") {
+            if (leadViewCombined) {
+              leadViewCombined.classList.toggle("selected", view === "combined");
+              leadViewCombined.setAttribute("aria-pressed", view === "combined" ? "true" : "false");
+            }
+            if (leadViewStaff) {
+              leadViewStaff.classList.toggle("selected", view === "staff");
+              leadViewStaff.setAttribute("aria-pressed", view === "staff" ? "true" : "false");
+            }
+            if (leadViewMembers) {
+              leadViewMembers.classList.toggle("selected", view === "members");
+              leadViewMembers.setAttribute("aria-pressed", view === "members" ? "true" : "false");
+            }
+          } else {
+            if (progViewCombined) {
+              progViewCombined.classList.toggle("selected", view === "combined");
+              progViewCombined.setAttribute("aria-pressed", view === "combined" ? "true" : "false");
+            }
+            if (progViewStaff) {
+              progViewStaff.classList.toggle("selected", view === "staff");
+              progViewStaff.setAttribute("aria-pressed", view === "staff" ? "true" : "false");
+            }
+            if (progViewMembers) {
+              progViewMembers.classList.toggle("selected", view === "members");
+              progViewMembers.setAttribute("aria-pressed", view === "members" ? "true" : "false");
+            }
+          }
+        }
+
+        function setView(target, view) {
+          console.log('[CR] setView:', target, view);
+          
+          if (target === "leaderboard") {
+            state.leadView = view;
+            localStorage.setItem(VIEW_KEYS.leaderboard, view);
+            markSelected("leaderboard", view);
+            renderLeaderboard();
+          } else if (target === "prog") {
+            state.progView = view;
+            localStorage.setItem(VIEW_KEYS.progress, view);
+            markSelected("prog", view);
+            renderMembersTable();
+          }
+        }
+
+        function renderKPIs() {
+          const vals = Array.from(store.aggregates.values())
+            .filter(function(v) {
+              return !isHiddenMember(v.name);
+            });
+          
+          if (kpiMembers) {
+            const activeCount = vals.filter(function(v) {
+              return v.points || v.nights || v.gasUps || v.pickUps || v.social || v.wnm || v.tabling || v.misc;
+            }).length;
+            kpiMembers.textContent = activeCount.toLocaleString();
+          }
+          
+          if (kpiPoints) {
+            const totalPoints = vals.reduce(function(s, v) { return s + v.points; }, 0);
+            kpiPoints.textContent = totalPoints.toLocaleString();
+          }
+          
+          if (kpiNights) {
+            const totalNights = vals.reduce(function(s, v) { return s + v.nights; }, 0);
+            kpiNights.textContent = totalNights.toLocaleString();
+          }
+        }
+
+        function renderLeaderboard() {
+          if (!leaderboardTblBody) return;
+          
+          const view = state.leadView;
+          const rowsAll = Array.from(store.aggregates.values())
+            .filter(function(r) {
+              return !isHiddenMember(r.name);
+            });
+          const scoped = filterByView(rowsAll, view)
+            .sort(function(a, b) {
+              return b.points - a.points || b.nights - a.nights;
+            })
+            .slice(0, 10);
+
+          console.log('[CR] Rendering leaderboard, view:', view, 'rows:', scoped.length);
+
+          leaderboardTblBody.innerHTML = scoped.map(function(r, i) {
+            return '<tr style="opacity:0;transform:translateY(10px);animation:fadeInUp 0.3s ease ' + (i * 0.05) + 's forwards">' +
+              '<td>' + (i + 1) + '</td>' +
+              '<td>' + esc(r.name || r.email || "(Unnamed)") + (r.isStaff ? ' <span class="muted">(Staff)</span>' : '') + '</td>' +
+              '<td>' + r.points + '</td>' +
+              '<td>' + r.nights + '</td>' +
+              '<td>' + r.gasUps + '</td>' +
+              '<td>' + r.pickUps + '</td>' +
+              '<td>' + r.social + '</td>' +
+              '<td>' + r.wnm + '</td>' +
+              '<td>' + r.tabling + '</td>' +
+              '<td>' + r.misc + '</td>' +
+            '</tr>';
+          }).join("");
+        }
+
+        function renderMembersTable() {
+          if (!membersTblBody) return;
+          
+          const q = (searchInput && searchInput.value ? searchInput.value : "").toLowerCase().trim();
+          const tf = filterTier && filterTier.value ? filterTier.value : "";
+          const view = state.progView;
+
+          console.log('[CR] Rendering members, view:', view, 'search:', q, 'tier:', tf);
+
+          const rows = filterByView(Array.from(store.aggregates.values()), view)
+            .filter(function(r) {
+              return !isHiddenMember(r.name);
+            })
+            .map(function(r) {
+              return Object.assign({}, r, { tier: tierForNights(r.nights) });
+            })
+            .filter(function(r) {
+              const nameMatch = r.name && r.name.toLowerCase().includes(q);
+              const emailMatch = r.email && r.email.toLowerCase().includes(q);
+              const mq = !q || nameMatch || emailMatch;
+              const mt = !tf || String(r.tier) === String(tf);
+              return mq && mt;
+            })
+            .sort(function(a, b) {
+              return b.points - a.points || (a.name || "").localeCompare(b.name || "");
+            });
+
+          console.log('[CR] Filtered rows:', rows.length);
+
+          membersTblBody.innerHTML = rows.map(function(r, i) {
+            return '<tr style="opacity:0;transform:translateY(10px);animation:fadeInUp 0.3s ease ' + (i * 0.05) + 's forwards">' +
+              '<td>' + esc(r.name || r.email || "(Unnamed)") + (r.isStaff ? ' <span class="muted">(Staff)</span>' : '') + '</td>' +
+              '<td>' + r.points + '</td>' +
+              '<td>' + r.nights + '</td>' +
+              '<td>' + (r.tier ? 'Tier ' + r.tier : "-") + '</td>' +
+              '<td>' + r.gasUps + '</td>' +
+              '<td>' + r.pickUps + '</td>' +
+              '<td>' + r.social + '</td>' +
+              '<td>' + r.wnm + '</td>' +
+              '<td>' + r.tabling + '</td>' +
+              '<td>' + r.misc + '</td>' +
+            '</tr>';
+          }).join("");
+        }
+
+        function refreshAll() {
+          renderKPIs();
+          renderLeaderboard();
+          renderMembersTable();
+        }
+
+        function loadFromBackend() {
+          fetch(API_URL, { method: "GET", credentials: "omit" })
+            .then(function(res) {
+              if (!res.ok) throw new Error("Backend load failed: " + res.status);
+              return res.json();
+            })
+            .then(function(json) {
+              store.mode = "aggregated";
+              store.members.clear();
+              store.aggregates.clear();
+
+              (json.aggregates || []).forEach(function(r) {
+                const key = toKey(r.name, r.email);
+                const nights = +r.nights || 0;
+                const rawPts = +r.points || 0;
+                const points = SUBTRACT_NIGHTS ? adjustPoints(rawPts, nights) : rawPts;
+                const isStaff = STAFF_NAMES.has((r.name || "").toLowerCase());
+
+                store.members.set(key, { 
+                  name: r.name, 
+                  email: r.email, 
+                  member_id: r.member_id || "" 
+                });
+                
+                store.aggregates.set(key, {
+                  name: r.name,
+                  email: r.email,
+                  member_id: r.member_id || "",
+                  points: points,
+                  nights: nights,
+                  gasUps: +r.gasUps || 0,
+                  pickUps: +r.pickUps || 0,
+                  social: +r.social || 0,
+                  wnm: +r.wnm || 0,
+                  tabling: +r.tabling || 0,
+                  misc: +r.misc || 0,
+                  isStaff: isStaff
+                });
+              });
+
+              console.log('[CR] Loaded', store.aggregates.size, 'records');
+              refreshAll();
+            })
+            .catch(function(e) {
+              console.warn("[CR] loadFromBackend failed:", e.message);
+              refreshAll();
+            });
+        }
+
+        function setDetailsState(btn, table) {
+          if (!btn || !table) return;
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.textContent = isExpanded ? "Show Details" : "Hide Details";
+          btn.setAttribute('aria-expanded', (!isExpanded).toString());
+          table.classList.toggle('hide-details', isExpanded);
+        }
+
+        /* Event listeners */
+        console.log('[CR] Setting up event listeners...');
+        console.log('[CR] leadViewCombined:', leadViewCombined);
+        console.log('[CR] searchInput:', searchInput);
+        console.log('[CR] filterTier:', filterTier);
+        
+        markSelected("leaderboard", state.leadView);
+        markSelected("prog", state.progView);
+
+        if (leadViewCombined) {
+          console.log('[CR] Adding click listener to leadViewCombined');
+          leadViewCombined.addEventListener("click", function(e) {
+            console.log('[CR] Combined button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            setView("leaderboard", "combined");
+          });
+        }
+        
+        if (leadViewStaff) {
+          console.log('[CR] Adding click listener to leadViewStaff');
+          leadViewStaff.addEventListener("click", function(e) {
+            console.log('[CR] Staff button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            setView("leaderboard", "staff");
+          });
+        }
+        
+        if (leadViewMembers) {
+          console.log('[CR] Adding click listener to leadViewMembers');
+          leadViewMembers.addEventListener("click", function(e) {
+            console.log('[CR] Members button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            setView("leaderboard", "members");
+          });
+        }
+
+        if (progViewCombined) {
+          console.log('[CR] Adding click listener to progViewCombined');
+          progViewCombined.addEventListener("click", function(e) {
+            console.log('[CR] Prog Combined button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            setView("prog", "combined");
+          });
+        }
+        
+        if (progViewStaff) {
+          console.log('[CR] Adding click listener to progViewStaff');
+          progViewStaff.addEventListener("click", function(e) {
+            console.log('[CR] Prog Staff button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            setView("prog", "staff");
+          });
+        }
+        
+        if (progViewMembers) {
+          console.log('[CR] Adding click listener to progViewMembers');
+          progViewMembers.addEventListener("click", function(e) {
+            console.log('[CR] Prog Members button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            setView("prog", "members");
+          });
+        }
+
+        if (searchInput) {
+          console.log('[CR] Adding input listener to search');
+          searchInput.addEventListener("input", function(e) {
+            console.log('[CR] Search input changed:', e.target.value);
+            renderMembersTable();
+          });
+        }
+        
+        if (filterTier) {
+          console.log('[CR] Adding change listener to filter');
+          filterTier.addEventListener("change", function(e) {
+            console.log('[CR] Filter changed:', e.target.value);
+            renderMembersTable();
+          });
+        }
+        
+        if (refreshBtn) {
+          refreshBtn.addEventListener("click", function() {
+            if (HAS_BACKEND) {
+              loadFromBackend();
+            } else {
+              refreshAll();
+            }
+          });
+        }
+
+        if (toggleColumnsBtn) {
+          toggleColumnsBtn.addEventListener('click', function() {
+            const table = $("#cr-leaderboardTbl");
+            setDetailsState(toggleColumnsBtn, table);
+          });
+        }
+
+        if (toggleMembersColumnsBtn) {
+          toggleMembersColumnsBtn.addEventListener('click', function() {
+            const table = $("#cr-membersTbl");
+            setDetailsState(toggleMembersColumnsBtn, table);
+          });
+        }
+
+        /* Initial load */
+        if (HAS_BACKEND) {
+          loadFromBackend();
+        } else {
+          refreshAll();
+        }
+
+        console.log("[CR] Rewards ready - HAS_BACKEND:", HAS_BACKEND);
+      });
+    })();
+  </script>
+</section>
