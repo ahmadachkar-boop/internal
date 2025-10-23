@@ -51,7 +51,7 @@
 .carpool-wrap{
   max-width:var(--shell-max);
   margin:0 auto;
-  padding:24px var(--shell-pad) 40px;
+  padding:40px var(--shell-pad) 40px;
 }
 
 /* Reusable button (base) */
@@ -75,13 +75,14 @@
 }
 
 /* Section headings */
-.section{ margin:22px 0 8px; }
+.section{ margin:28px 0 12px; }
 .section h2{
-  text-align:center; margin:0 0 10px;
-  font-size:clamp(18px,2vw,24px); font-weight:800;
+  text-align:center; margin:0 0 12px;
+  font-size:clamp(20px,2.2vw,26px); font-weight:800;
+  letter-spacing: .3px;
 }
 .section h2::after{
-  content:""; display:block; height:2px; width:64px; margin:8px auto 0;
+  content:""; display:block; height:2.5px; width:70px; margin:10px auto 0;
   background:linear-gradient(90deg,var(--accent),#8c3a3a); border-radius:999px;
 }
 
@@ -135,14 +136,15 @@ a:focus-visible, button:focus-visible {
 .carpool-banner.success .banner-text strong{ color: #166534; }
 
 /* --- Hero --- */
-.hero{ text-align:center; margin: 6px 0 10px; }
+.hero{ text-align:center; margin: 12px 0 16px; }
 .hero h1{
-  margin:0 0 8px;
-  font-size:clamp(24px,3vw,36px);
+  margin:0 0 12px;
+  font-size:clamp(26px,3.2vw,38px);
   font-weight:900;
   letter-spacing:.2px;
+  line-height: 1.25;
 }
-.hero .actions { margin-top: 10px; }
+.hero .actions { margin-top: 12px; }
 
 /* --- Hero Highlight --- */
 .hero-highlight{
@@ -150,15 +152,20 @@ a:focus-visible, button:focus-visible {
   flex-direction:column;
   align-items:center;
   text-align:center;
-  margin:20px auto 24px;
-  padding:22px 18px;
-  max-width:880px;
+  margin:24px auto 28px;
+  padding:26px 20px;
+  max-width:900px;
   background:#fff;
   border:1px solid rgba(80,0,0,.18);
   border-left:6px solid var(--accent);
   border-right:6px solid var(--accent);
-  border-radius:16px;
-  box-shadow:0 12px 28px -16px rgba(0,0,0,.24);
+  border-radius:18px;
+  box-shadow:0 12px 32px -14px rgba(0,0,0,.28);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.hero-highlight:hover{
+  box-shadow:0 16px 40px -16px rgba(0,0,0,.32);
+  transform: translateY(-2px);
 }
 .hero-highlight .stat-value{
   font-size:clamp(40px,6.5vw,64px);
@@ -208,18 +215,43 @@ a:focus-visible, button:focus-visible {
   display:grid;
   grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
   grid-template-areas: "left right";
-  gap:24px;
+  gap:28px;
   align-items:center;
+  margin-top: 8px;
 }
 .info-grid > .card{
   grid-area:left; min-width:0;
   background: #fff;
   border: 1px solid rgba(17, 24, 39, .08);
-  border-radius: 16px;
-  padding: 16px 16px 14px;
-  box-shadow: 0 10px 26px -14px rgba(0,0,0,.16);
+  border-radius: 18px;
+  padding: 20px 18px 16px;
+  box-shadow: 0 10px 28px -14px rgba(0,0,0,.18);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.info-grid > .card:hover{
+  box-shadow: 0 14px 36px -16px rgba(0,0,0,.24);
+  transform: translateY(-2px);
 }
 .info-grid > .video-wrap{ grid-area:right; min-width:0; }
+
+/* What is CARPOOL heading */
+.info-grid .card h2 {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  position: relative;
+}
+.info-grid .card h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #8c3a3a);
+  border-radius: 999px;
+}
 
 /* Paragraph rhythm inside the card */
 .info-grid .card p { margin: 0 0 10px; }
@@ -280,6 +312,12 @@ a:focus-visible, button:focus-visible {
 .faq details{
   background:#fff; border:1px solid rgba(17,24,39,.08); border-radius:10px;
   padding:10px 12px; margin-bottom:8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.faq details:hover{
+  box-shadow: 0 4px 12px rgba(0,0,0,.10);
+  transform: translateY(-1px);
 }
 .faq summary{ cursor:pointer; font-weight:700; list-style:none; }
 .faq summary::-webkit-details-marker{ display:none; }
@@ -315,7 +353,7 @@ a:focus-visible, button:focus-visible {
 /* HOW IT WORKS Section */
 .how-it-works,
 .how-it-works * { box-sizing: border-box; overflow: visible; }
-.how-it-works { max-width: 100%; margin-inline: auto; }
+.how-it-works { max-width: 100%; margin-inline: auto; margin-top: 32px; }
 
 .how-it-works .hiw-steps{
   display: grid;
@@ -829,10 +867,10 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
 
 /* MOBILE POLISH */
 @media (max-width: 700px){
-  :root{ --shell-pad: 14px; }
+  :root{ --shell-pad: 16px; }
 
   .carpool-wrap{
-    padding: 12px max(12px, env(safe-area-inset-left)) 24px max(12px, env(safe-area-inset-right));
+    padding: 24px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-right));
   }
 
   h1 {
@@ -862,14 +900,14 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
   }
 
   .hero {
-    margin: 4px 0 8px;
+    margin: 8px 0 12px;
   }
   .hero-highlight {
-    padding: 12px 10px;
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.22);
+    padding: 16px 14px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px -10px rgba(0,0,0,0.24);
     max-width: 100%;
   }
   .hero-highlight .stat-value {
@@ -887,16 +925,21 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
   }
 
   .info-grid {
-    gap: 10px;
+    gap: 14px;
   }
   .info-grid > .card {
-    padding: 12px 10px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px -10px rgba(0,0,0,0.2);
+    padding: 16px 14px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px -10px rgba(0,0,0,0.22);
+  }
+  .info-grid .card h2 {
+    font-size: clamp(16px, 4.5vw, 18px);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
   }
   .info-grid .faq details {
-    padding: 8px 10px;
-    border-radius: 8px;
+    padding: 10px 12px;
+    border-radius: 10px;
   }
   .info-grid .video-frame {
     max-width: 100%;
@@ -907,7 +950,7 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
 
   /* How It Works - Mobile */
   .how-it-works {
-    margin: 0 auto;
+    margin: 24px auto 0;
     padding: 0 max(8px, env(safe-area-inset-left)) 0 max(8px, env(safe-area-inset-right));
     max-width: 100%;
     width: 100%;
@@ -916,15 +959,15 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
   .how-it-works .hiw-steps {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
+    gap: 6px;
   }
 
   .how-it-works .hiw-step {
-    padding: 36px 6px 8px;
-    border-radius: 8px;
-    min-height: 120px;
+    padding: 38px 7px 10px;
+    border-radius: 10px;
+    min-height: 130px;
     min-width: 0;
-    box-shadow: 0 6px 12px -8px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 14px -8px rgba(0,0,0,0.22);
   }
 
   .how-it-works .badge {
