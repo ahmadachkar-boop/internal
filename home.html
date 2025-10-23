@@ -6,20 +6,19 @@
   --accent:#ff6b00;           /* Bright Halloween orange */
   --accent-light:#ff8c00;
   --accent-gradient: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
-  --bg:#1a0a2e;               /* Deep dark purple */
+  --bg:#0a0e27;               /* Deep midnight blue */
   --text:#ffffff;
-  --muted:#b8a4c9;
-  --muted-accessible:#9d88b3;
-  --card:#2d1b4e;
+  --muted:#a8b5d1;
+  --muted-accessible:#8897b8;
+  --card:#ff8c00;             /* Halloween orange cards for contrast */
 
-  /* BOLD Halloween gradients */
+  /* Starry Night Halloween gradients */
   --gradient-primary: linear-gradient(135deg, #ff6b00 0%, #ff8c00 50%, #ffa500 100%);
-  --gradient-soft: linear-gradient(135deg, rgba(255,107,0,0.3) 0%, rgba(138,43,226,0.3) 100%);
-  --gradient-mesh: radial-gradient(at 20% 30%, rgba(255,107,0,0.4) 0, transparent 40%),
-                   radial-gradient(at 80% 20%, rgba(138,43,226,0.5) 0, transparent 45%),
-                   radial-gradient(at 40% 80%, rgba(255,140,0,0.35) 0, transparent 40%),
-                   radial-gradient(at 90% 70%, rgba(75,0,130,0.4) 0, transparent 45%),
-                   linear-gradient(135deg, #0f0520 0%, #1a0a2e 50%, #2d1550 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(255,107,0,0.2) 0%, rgba(255,140,0,0.15) 100%);
+  --gradient-mesh: radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%),
+                   radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%),
+                   radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%),
+                   linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%);
 
   /* Spacing scale */
   --space-1: 4px;
@@ -321,7 +320,7 @@ a:focus-visible, button:focus-visible {
 }
 .info-grid > .card{
   grid-area:left; min-width:0;
-  background: #fff;
+  background: var(--card);
   border: none;
   border-radius: var(--radius-xl);
   padding: 40px 36px 36px;
@@ -354,10 +353,7 @@ a:focus-visible, button:focus-visible {
   padding-left: 0;
   padding-right: 0;
   position: relative;
-  background:var(--gradient-primary);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
+  color: #1a0a2e;
 }
 .info-grid .card h2::after {
   content: "";
@@ -366,12 +362,12 @@ a:focus-visible, button:focus-visible {
   left: 0;
   width: 60px;
   height: 4px;
-  background: var(--gradient-primary);
+  background: #1a0a2e;
   border-radius: var(--radius-full);
 }
 
 /* Paragraph rhythm inside the card */
-.info-grid .card p { margin: 0 0 16px; line-height:1.7; color:var(--text); }
+.info-grid .card p { margin: 0 0 16px; line-height:1.7; color:#1a0a2e; }
 .info-grid .card p:last-child { margin-bottom: 0; }
 
 /* FAQ inside the card */
@@ -459,23 +455,23 @@ a:focus-visible, button:focus-visible {
   border-color:rgba(124,45,18,.2);
 }
 .faq details[open]{
-  background:#fff;
+  background:var(--card);
   box-shadow:var(--shadow-md);
 }
 .faq summary{
   cursor:pointer;
   font-weight:700;
   list-style:none;
-  color:var(--text-heading);
+  color:#1a0a2e;
   font-size:1.05rem;
 }
 .faq summary::-webkit-details-marker{ display:none; }
 .faq .answer{
-  color:var(--text);
+  color:#1a0a2e;
   margin-top:12px;
   line-height:1.7;
   padding-top:12px;
-  border-top:1px solid rgba(0,0,0,.06);
+  border-top:1px solid rgba(0,0,0,.2);
 }
 
 /* --- Hours block --- */
@@ -536,7 +532,7 @@ a:focus-visible, button:focus-visible {
 
 .how-it-works .hiw-step{
   position:relative;
-  background:#fff;
+  background:var(--card);
   border:none;
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow-md);
@@ -572,16 +568,12 @@ a:focus-visible, button:focus-visible {
   border-radius:var(--radius-full);
   display:grid;
   place-items:center;
-  background:#fff;
+  background:#1a0a2e;
   border:4px solid var(--bg);
-  box-shadow:var(--shadow-md), 0 0 0 1px rgba(124,45,18,0.1);
+  box-shadow:var(--shadow-md), 0 0 0 1px rgba(255,107,0,0.3);
   font-weight:900;
   font-size:1.25rem;
-  color:transparent;
-  background-image:var(--gradient-primary);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
+  color:#ff6b00;
 }
 
 .how-it-works .hiw-icon{
@@ -598,11 +590,11 @@ a:focus-visible, button:focus-visible {
   margin:12px 0 8px;
   font-weight:800;
   font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-  color:var(--text-heading);
+  color:#1a0a2e;
 }
 .how-it-works .hiw-text{
   margin:0;
-  color:var(--muted-accessible, var(--muted, #6b7280));
+  color:#1a0a2e;
   font-size:1rem;
   line-height:1.6;
 }
@@ -611,8 +603,8 @@ a:focus-visible, button:focus-visible {
 .team-spotlight{
   --ts-radius: 16px;
   --ts-shadow: 0 18px 46px -22px rgba(0,0,0,.35);
-  --ts-border: 1px solid rgba(17,24,39,.10);
-  --ts-bg: #fff;
+  --ts-border: 1px solid rgba(255,107,0,.3);
+  --ts-bg: var(--card);
   --ts-ctrl-w: 40px;
   --ts-ctrl-gap: 8px;
   margin: 18px 0 10px;
@@ -679,8 +671,8 @@ a:focus-visible, button:focus-visible {
 
 /* Text */
 .ts-info{ display: grid; align-content: start; gap: 8px; }
-.ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); }
-.ts-role{ margin: 0; color: #6b7280; font-weight: 700; }
+.ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: #1a0a2e; }
+.ts-role{ margin: 0; color: #1a0a2e; font-weight: 700; opacity: 0.7; }
 .ts-actions{
   display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
   position: relative;
@@ -689,10 +681,10 @@ a:focus-visible, button:focus-visible {
 .ts-btn{
   display: inline-grid; place-items: center;
   padding: 10px 14px; border-radius: 12px;
-  border: 1px solid rgba(17,24,39,.12);
-  background: #fff; font-weight: 800; text-decoration: none; color: #111;
+  border: 1px solid rgba(26,10,46,.3);
+  background: #1a0a2e; font-weight: 800; text-decoration: none; color: #ff8c00;
 }
-.ts-btn:hover{ background: #f3f4f6; }
+.ts-btn:hover{ background: #0f0520; }
 
 /* Facts block */
 #team-spotlight .ts-facts{
@@ -860,8 +852,8 @@ a:focus-visible, button:focus-visible {
   border:none;
   border-radius:var(--radius-xl);
   padding:24px 20px;
-  background:#fff;
-  color:#111;
+  background:var(--card);
+  color:#1a0a2e;
   box-shadow:var(--shadow-md);
   transition: all 0.4s var(--ease-smooth);
   width: 100%;
@@ -1752,16 +1744,25 @@ Changes posted on Facebook &amp; Instagram.</p>
   function onReady(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
 
   /* ---------------------------
-   Force BOLD Halloween background on body/html
+   Force Starry Night Halloween background on body/html
   ----------------------------*/
   (function applyBackground(){
-    var bgColor = '#1a0a2e';  // Deep dark purple
-    var bgGradient = 'radial-gradient(at 20% 30%, rgba(255,107,0,0.4) 0, transparent 40%), radial-gradient(at 80% 20%, rgba(138,43,226,0.5) 0, transparent 45%), radial-gradient(at 40% 80%, rgba(255,140,0,0.35) 0, transparent 40%), radial-gradient(at 90% 70%, rgba(75,0,130,0.4) 0, transparent 45%), linear-gradient(135deg, #0f0520 0%, #1a0a2e 50%, #2d1550 100%)';
+    var bgColor = '#0a0e27';  // Deep midnight blue
+    var bgGradient = 'radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%), linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%)';
+
+    // Create stars
+    var starsSmall = 'radial-gradient(2px 2px at 20% 30%, white, transparent), radial-gradient(2px 2px at 60% 70%, white, transparent), radial-gradient(1px 1px at 50% 50%, white, transparent), radial-gradient(1px 1px at 80% 10%, white, transparent), radial-gradient(2px 2px at 90% 60%, white, transparent), radial-gradient(1px 1px at 33% 80%, white, transparent), radial-gradient(1px 1px at 15% 90%, white, transparent)';
+    var starsMedium = 'radial-gradient(1px 1px at 45% 20%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 75% 45%, rgba(255,255,255,0.6), transparent), radial-gradient(2px 2px at 10% 60%, rgba(255,255,255,0.7), transparent)';
+    var starsLarge = 'radial-gradient(3px 3px at 35% 15%, rgba(255,200,100,0.9), transparent), radial-gradient(2px 2px at 65% 85%, rgba(200,200,255,0.8), transparent)';
+
+    var fullBackground = starsSmall + ', ' + starsMedium + ', ' + starsLarge + ', ' + bgGradient;
 
     document.documentElement.style.setProperty('background', bgColor, 'important');
-    document.documentElement.style.setProperty('background-image', bgGradient, 'important');
+    document.documentElement.style.setProperty('background-image', fullBackground, 'important');
+    document.documentElement.style.setProperty('background-size', '200px 200px, 300px 300px, 400px 400px, 100% 100%', 'important');
     document.body.style.setProperty('background', bgColor, 'important');
-    document.body.style.setProperty('background-image', bgGradient, 'important');
+    document.body.style.setProperty('background-image', fullBackground, 'important');
+    document.body.style.setProperty('background-size', '200px 200px, 300px 300px, 400px 400px, 100% 100%', 'important');
   })();
 
   /* ============================================================
