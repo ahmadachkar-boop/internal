@@ -1678,6 +1678,23 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
   }
 }
 
+/* FINAL FALLBACK: Hardcoded background values in case CSS variables fail */
+html, body {
+  background-color: #0a0e27 !important;
+  background-image: radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%),
+                    radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%),
+                    linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%) !important;
+}
+
+.carpool-landing {
+  background-color: #0a0e27 !important;
+  background-image: radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%),
+                    radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%),
+                    radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%),
+                    linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%) !important;
+}
+
 </style>
 
 <!-- ======================= CARPOOL: Scheduled popup ======================= -->
@@ -1725,7 +1742,7 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
 <!-- ===================== /CARPOOL: Scheduled popup ===================== -->
 
 
-<section class="carpool-landing">
+<section class="carpool-landing" style="background-color: #0a0e27 !important; background-image: radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%), linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%) !important; min-height: 100vh;">
 <div class="carpool-wrap">
 <div class="carpool-banner" role="status" aria-live="polite">
   <div class="icon" aria-hidden="true">!</div>
@@ -1887,39 +1904,40 @@ Changes posted on Facebook &amp; Instagram.</p>
 </section>
 
 <script>
+console.log('[CARPOOL] ========== SCRIPT LOADED ==========');
+console.log('[CARPOOL] Current URL:', window.location.href);
+console.log('[CARPOOL] Document ready state:', document.readyState);
+
 /* ============================================================
    CARPOOL — Homepage + Rewards (Inline/Avada-safe)
    ============================================================ */
 (function () {
+  console.log('[CARPOOL] Main IIFE executing');
+
   /* ---------------------------
    Utility / DOM Ready
   ----------------------------*/
   function onReady(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
 
   /* ---------------------------
-   Force Starry Night Halloween background on body/html
+   Force Starry Night Halloween background on body/html - IMMEDIATE
   ----------------------------*/
   (function applyBackground(){
-    console.log('[CARPOOL] Applying Halloween background to body/html');
+    console.log('[CARPOOL] applyBackground executing NOW');
 
     var bgColor = '#0a0e27';  // Deep midnight blue
     var bgGradient = 'radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%), linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%)';
 
-    // Create stars
-    var starsSmall = 'radial-gradient(2px 2px at 20% 30%, white, transparent), radial-gradient(2px 2px at 60% 70%, white, transparent), radial-gradient(1px 1px at 50% 50%, white, transparent), radial-gradient(1px 1px at 80% 10%, white, transparent), radial-gradient(2px 2px at 90% 60%, white, transparent), radial-gradient(1px 1px at 33% 80%, white, transparent), radial-gradient(1px 1px at 15% 90%, white, transparent)';
-    var starsMedium = 'radial-gradient(1px 1px at 45% 20%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 75% 45%, rgba(255,255,255,0.6), transparent), radial-gradient(2px 2px at 10% 60%, rgba(255,255,255,0.7), transparent)';
-    var starsLarge = 'radial-gradient(3px 3px at 35% 15%, rgba(255,200,100,0.9), transparent), radial-gradient(2px 2px at 65% 85%, rgba(200,200,255,0.8), transparent)';
+    // FIX: Use direct property assignment, not setProperty with 'important'
+    document.documentElement.style.backgroundColor = bgColor;
+    document.documentElement.style.backgroundImage = bgGradient;
+    document.documentElement.style.backgroundSize = '200px 200px, 300px 300px, 400px 400px, 100% 100%';
+    document.body.style.backgroundColor = bgColor;
+    document.body.style.backgroundImage = bgGradient;
+    document.body.style.backgroundSize = '200px 200px, 300px 300px, 400px 400px, 100% 100%';
 
-    var fullBackground = starsSmall + ', ' + starsMedium + ', ' + starsLarge + ', ' + bgGradient;
-
-    document.documentElement.style.setProperty('background', bgColor, 'important');
-    document.documentElement.style.setProperty('background-image', fullBackground, 'important');
-    document.documentElement.style.setProperty('background-size', '200px 200px, 300px 300px, 400px 400px, 100% 100%', 'important');
-    document.body.style.setProperty('background', bgColor, 'important');
-    document.body.style.setProperty('background-image', fullBackground, 'important');
-    document.body.style.setProperty('background-size', '200px 200px, 300px 300px, 400px 400px, 100% 100%', 'important');
-
-    console.log('[CARPOOL] Background applied - body background:', document.body.style.background);
+    console.log('[CARPOOL] Background applied - html bg:', document.documentElement.style.backgroundColor);
+    console.log('[CARPOOL] Background applied - body bg:', document.body.style.backgroundColor);
   })();
 
   /* ---------------------------
