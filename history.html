@@ -486,6 +486,7 @@
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
       gap:20px;
+      justify-items:center;
     }
     
     @media (max-width:900px){
@@ -503,14 +504,16 @@
     }
     
     .carpool-story figure{
-      margin:0; 
-      background:var(--card); 
+      margin:0;
+      background:var(--card);
       border:1px solid rgba(80,0,0,.08);
-      border-radius:var(--radius); 
-      overflow:hidden; 
+      border-radius:var(--radius);
+      overflow:hidden;
       box-shadow:var(--shadow-md);
       transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
       position:relative;
+      width:100%;
+      max-width:400px;
     }
     
     .carpool-story figure::before{
