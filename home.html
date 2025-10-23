@@ -79,11 +79,154 @@ body .carpool-landing,
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   min-height:100vh;
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* ===== STARRY NIGHT SKY - Static Stars ===== */
+.carpool-landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 60px 70px, white, transparent),
+    radial-gradient(1px 1px at 50px 50px, white, transparent),
+    radial-gradient(1px 1px at 130px 80px, white, transparent),
+    radial-gradient(2px 2px at 190px 160px, white, transparent),
+    radial-gradient(1px 1px at 250px 100px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 300px 200px, white, transparent),
+    radial-gradient(1px 1px at 350px 50px, white, transparent),
+    radial-gradient(2px 2px at 400px 150px, white, transparent),
+    radial-gradient(1px 1px at 450px 90px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 500px 180px, white, transparent),
+    radial-gradient(1px 1px at 550px 60px, white, transparent),
+    radial-gradient(1px 1px at 600px 140px, white, transparent),
+    radial-gradient(2px 2px at 650px 30px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 700px 120px, white, transparent),
+    radial-gradient(2px 2px at 750px 80px, white, transparent),
+    radial-gradient(1px 1px at 100px 200px, white, transparent),
+    radial-gradient(2px 2px at 150px 250px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 200px 300px, white, transparent),
+    radial-gradient(1px 1px at 270px 280px, white, transparent),
+    radial-gradient(2px 2px at 320px 320px, white, transparent),
+    radial-gradient(1px 1px at 380px 270px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 430px 340px, white, transparent),
+    radial-gradient(1px 1px at 490px 290px, white, transparent);
+  background-size: 800px 400px;
+  background-repeat: repeat;
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+/* Twinkling animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ===== HALLOWEEN MOON ===== */
+.carpool-landing::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  right: 10%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 35% 35%, #fff9e6 0%, #ffe4b3 40%, #ffd700 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 80px rgba(255, 215, 0, 0.4),
+    inset -15px -15px 30px rgba(0,0,0,0.1);
+  pointer-events: none;
+  z-index: 1;
+  animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 40px rgba(255, 215, 0, 0.6),
+      0 0 80px rgba(255, 215, 0, 0.4),
+      inset -15px -15px 30px rgba(0,0,0,0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 60px rgba(255, 215, 0, 0.8),
+      0 0 100px rgba(255, 215, 0, 0.5),
+      inset -15px -15px 30px rgba(0,0,0,0.1);
+  }
+}
+
+/* ===== HALLOWEEN PUMPKINS (decorative) ===== */
+.carpool-landing .hero::before {
+  content: '🎃';
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  font-size: 60px;
+  opacity: 0.4;
+  animation: pumpkinBob 3s ease-in-out infinite;
+  z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(255,107,0,0.6));
+}
+
+.carpool-landing .hero::after {
+  content: '🎃';
+  position: absolute;
+  bottom: 30px;
+  right: 8%;
+  font-size: 50px;
+  opacity: 0.35;
+  animation: pumpkinBob 4s ease-in-out infinite 0.5s;
+  z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(255,107,0,0.5));
+}
+
+@keyframes pumpkinBob {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* ===== FLOATING PARTICLES ===== */
+.carpool-landing .cta-grid::before {
+  content: '✨';
+  position: absolute;
+  top: -30px;
+  left: 10%;
+  font-size: 24px;
+  animation: sparkle 4s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.carpool-landing .cta-grid::after {
+  content: '✨';
+  position: absolute;
+  top: -20px;
+  right: 15%;
+  font-size: 20px;
+  animation: sparkle 3s ease-in-out infinite 1s;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+  50% { transform: scale(1.3) rotate(180deg); opacity: 0.8; }
+}
+
 .carpool-wrap{
   max-width:var(--shell-max);
   margin:0 auto;
   padding:48px var(--shell-pad) 64px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Reusable button (base) */
@@ -223,7 +366,7 @@ a:focus-visible, button:focus-visible {
 .carpool-banner.success .banner-text strong{ color: #059669; }
 
 /* --- Hero --- */
-.hero{ text-align:center; margin: 24px 0 40px; }
+.hero{ text-align:center; margin: 24px 0 40px; position: relative; }
 .hero h1{
   margin:0 0 32px;
   font-size:clamp(36px,5vw,64px);
@@ -839,6 +982,7 @@ a:focus-visible, button:focus-visible {
   grid-auto-rows:auto;
   width: 100%;
   max-width: 100%;
+  position: relative;
 }
 .cta-grid > :not(.tile){ display:none; }
 .cta-grid > .tile > :not(.cta-tile){ display:none; }
@@ -1763,6 +1907,84 @@ Changes posted on Facebook &amp; Instagram.</p>
     document.body.style.setProperty('background', bgColor, 'important');
     document.body.style.setProperty('background-image', fullBackground, 'important');
     document.body.style.setProperty('background-size', '200px 200px, 300px 300px, 400px 400px, 100% 100%', 'important');
+  })();
+
+  /* ---------------------------
+   Halloween Decorations: Shooting Stars & Bats
+  ----------------------------*/
+  (function halloweenDecorations(){
+    var section = document.querySelector('.carpool-landing');
+    if (!section) return;
+
+    // Create shooting stars
+    function createShootingStar() {
+      var star = document.createElement('div');
+      star.className = 'shooting-star';
+      star.style.cssText = 'position:absolute;width:100px;height:2px;background:linear-gradient(90deg,transparent,white,transparent);top:' + Math.random()*40 + '%;left:-100px;animation:shoot 1.5s linear;pointer-events:none;z-index:1;';
+      section.appendChild(star);
+      setTimeout(function(){ star.remove(); }, 1500);
+    }
+
+    // Create floating bats
+    function createBat() {
+      var bat = document.createElement('div');
+      bat.className = 'halloween-bat';
+      var startY = Math.random() * 30 + 10; // 10-40% from top
+      var duration = 15 + Math.random() * 10; // 15-25 seconds
+      bat.innerHTML = '🦇';
+      bat.style.cssText = 'position:absolute;font-size:' + (20 + Math.random()*20) + 'px;top:' + startY + '%;left:-50px;animation:batFly ' + duration + 's linear;pointer-events:none;z-index:1;opacity:0.7;';
+      section.appendChild(bat);
+      setTimeout(function(){ bat.remove(); }, duration * 1000);
+    }
+
+    // Create ghost
+    function createGhost() {
+      var ghost = document.createElement('div');
+      ghost.className = 'halloween-ghost';
+      var startY = Math.random() * 40 + 20; // 20-60% from top
+      var duration = 20 + Math.random() * 10; // 20-30 seconds
+      ghost.innerHTML = '👻';
+      ghost.style.cssText = 'position:absolute;font-size:' + (25 + Math.random()*15) + 'px;top:' + startY + '%;left:-50px;animation:ghostFloat ' + duration + 's ease-in-out;pointer-events:none;z-index:1;opacity:0.5;';
+      section.appendChild(ghost);
+      setTimeout(function(){ ghost.remove(); }, duration * 1000);
+    }
+
+    // Add keyframe animations
+    var style = document.createElement('style');
+    style.textContent = '\
+      @keyframes shoot {\
+        0% { transform: translateX(0) translateY(0); opacity:1; }\
+        70% { opacity:1; }\
+        100% { transform: translateX(1000px) translateY(500px); opacity:0; }\
+      }\
+      @keyframes batFly {\
+        0% { transform: translateX(0) translateY(0); }\
+        25% { transform: translateX(25vw) translateY(-30px); }\
+        50% { transform: translateX(50vw) translateY(0); }\
+        75% { transform: translateX(75vw) translateY(-20px); }\
+        100% { transform: translateX(100vw) translateY(0); }\
+      }\
+      @keyframes ghostFloat {\
+        0% { transform: translateX(0) translateY(0); }\
+        25% { transform: translateX(20vw) translateY(-40px); }\
+        50% { transform: translateX(50vw) translateY(20px); }\
+        75% { transform: translateX(80vw) translateY(-30px); }\
+        100% { transform: translateX(100vw) translateY(0); }\
+      }\
+      .halloween-bat { filter: drop-shadow(0 0 3px rgba(255,107,0,0.5)); }\
+      .halloween-ghost { filter: drop-shadow(0 0 8px rgba(138,43,226,0.6)); animation: ghostFloat 20s ease-in-out infinite; }\
+    ';
+    document.head.appendChild(style);
+
+    // Schedule decorations
+    setInterval(createShootingStar, 3000); // Shooting star every 3 seconds
+    setInterval(createBat, 8000); // Bat every 8 seconds
+    setInterval(createGhost, 12000); // Ghost every 12 seconds
+
+    // Create initial batch
+    setTimeout(createShootingStar, 1000);
+    setTimeout(createBat, 2000);
+    setTimeout(createGhost, 4000);
   })();
 
   /* ============================================================
