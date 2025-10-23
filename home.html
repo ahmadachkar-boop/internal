@@ -59,10 +59,17 @@
 
 /* Base */
 .carpool-landing *{ box-sizing:border-box; }
+
+/* Ensure background applies with high specificity */
+body.carpool-landing,
+body .carpool-landing,
+.carpool-landing{
+  background:var(--bg) !important;
+  background-image:var(--gradient-mesh) !important;
+}
+
 .carpool-landing{
   color:var(--text);
-  background:var(--bg);
-  background-image:var(--gradient-mesh);
   font-family:var(--font-primary);
   line-height:1.6;
   font-size:16px;
