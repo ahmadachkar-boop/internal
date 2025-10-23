@@ -363,7 +363,7 @@ a:focus-visible, button:focus-visible {
   padding-left: 0;
   padding-right: 0;
   position: relative;
-  color: #1a0a2e;
+  color: var(--text-heading);
 }
 .info-grid .card h2::after {
   content: "";
@@ -372,12 +372,12 @@ a:focus-visible, button:focus-visible {
   left: 0;
   width: 60px;
   height: 4px;
-  background: #1a0a2e;
+  background: var(--accent);
   border-radius: var(--radius-full);
 }
 
 /* Paragraph rhythm inside the card */
-.info-grid .card p { margin: 0 0 16px; line-height:1.7; color:#1a0a2e; }
+.info-grid .card p { margin: 0 0 16px; line-height:1.7; color:var(--text); }
 .info-grid .card p:last-child { margin-bottom: 0; }
 
 /* FAQ inside the card */
@@ -473,12 +473,12 @@ a:focus-visible, button:focus-visible {
   cursor:pointer;
   font-weight:700;
   list-style:none;
-  color:#1a0a2e;
+  color:var(--text-heading);
   font-size:1.05rem;
 }
 .faq summary::-webkit-details-marker{ display:none; }
 .faq .answer{
-  color:#1a0a2e;
+  color:var(--text);
   margin-top:12px;
   line-height:1.7;
   padding-top:12px;
@@ -579,12 +579,12 @@ a:focus-visible, button:focus-visible {
   border-radius:var(--radius-full);
   display:grid;
   place-items:center;
-  background:#1a0a2e;
+  background:var(--accent);
   border:4px solid var(--bg);
-  box-shadow:var(--shadow-md), 0 0 0 1px rgba(255,107,0,0.3);
+  box-shadow:var(--shadow-md);
   font-weight:900;
   font-size:1.25rem;
-  color:#ff6b00;
+  color:#ffffff;
 }
 
 .how-it-works .hiw-icon{
@@ -601,11 +601,11 @@ a:focus-visible, button:focus-visible {
   margin:12px 0 8px;
   font-weight:800;
   font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-  color:#1a0a2e;
+  color:var(--text-heading);
 }
 .how-it-works .hiw-text{
   margin:0;
-  color:#1a0a2e;
+  color:var(--text);
   font-size:1rem;
   line-height:1.6;
 }
@@ -682,8 +682,8 @@ a:focus-visible, button:focus-visible {
 
 /* Text */
 .ts-info{ display: grid; align-content: start; gap: 8px; }
-.ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: #1a0a2e; }
-.ts-role{ margin: 0; color: #1a0a2e; font-weight: 700; opacity: 0.7; }
+.ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: var(--text-heading); }
+.ts-role{ margin: 0; color: var(--text); font-weight: 700; opacity: 0.7; }
 .ts-actions{
   display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
   position: relative;
@@ -692,10 +692,10 @@ a:focus-visible, button:focus-visible {
 .ts-btn{
   display: inline-grid; place-items: center;
   padding: 10px 14px; border-radius: 12px;
-  border: 1px solid rgba(26,10,46,.3);
-  background: #1a0a2e; font-weight: 800; text-decoration: none; color: #ff8c00;
+  border: 1px solid var(--accent);
+  background: var(--accent); font-weight: 800; text-decoration: none; color: #ffffff;
 }
-.ts-btn:hover{ background: #0f0520; }
+.ts-btn:hover{ background: var(--accent-light); }
 
 /* Facts block */
 #team-spotlight .ts-facts{
@@ -865,7 +865,7 @@ a:focus-visible, button:focus-visible {
   border-radius:var(--radius-xl);
   padding:24px 20px;
   background:var(--card) !important;
-  color:#1a0a2e;
+  color:var(--text);
   box-shadow:var(--shadow-md);
   transition: all 0.4s var(--ease-smooth);
   width: 100%;
