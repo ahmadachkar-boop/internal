@@ -3,21 +3,23 @@
 
 /* Design tokens */
 :root{
-  --accent:#7c2d12;           /* Modern warm maroon */
-  --accent-light:#dc2626;
-  --accent-gradient: linear-gradient(135deg, #7c2d12 0%, #dc2626 100%);
-  --bg:#fafafa;
-  --text:#0f172a;
-  --muted:#64748b;
-  --muted-accessible:#475569;
-  --card:#ffffff;
+  --accent:#ff6b00;           /* Bright Halloween orange */
+  --accent-light:#ff8c00;
+  --accent-gradient: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
+  --bg:#1a0a2e;               /* Deep dark purple */
+  --text:#ffffff;
+  --muted:#b8a4c9;
+  --muted-accessible:#9d88b3;
+  --card:#2d1b4e;
 
-  /* Modern gradients */
-  --gradient-primary: linear-gradient(135deg, #7c2d12 0%, #dc2626 50%, #ea580c 100%);
-  --gradient-soft: linear-gradient(135deg, rgba(124,45,18,0.05) 0%, rgba(220,38,38,0.08) 100%);
-  --gradient-mesh: radial-gradient(at 27% 37%, rgba(124,45,18,0.08) 0, transparent 50%),
-                   radial-gradient(at 97% 21%, rgba(220,38,38,0.06) 0, transparent 50%),
-                   radial-gradient(at 52% 99%, rgba(234,88,12,0.05) 0, transparent 50%);
+  /* BOLD Halloween gradients */
+  --gradient-primary: linear-gradient(135deg, #ff6b00 0%, #ff8c00 50%, #ffa500 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(255,107,0,0.3) 0%, rgba(138,43,226,0.3) 100%);
+  --gradient-mesh: radial-gradient(at 20% 30%, rgba(255,107,0,0.4) 0, transparent 40%),
+                   radial-gradient(at 80% 20%, rgba(138,43,226,0.5) 0, transparent 45%),
+                   radial-gradient(at 40% 80%, rgba(255,140,0,0.35) 0, transparent 40%),
+                   radial-gradient(at 90% 70%, rgba(75,0,130,0.4) 0, transparent 45%),
+                   linear-gradient(135deg, #0f0520 0%, #1a0a2e 50%, #2d1550 100%);
 
   /* Spacing scale */
   --space-1: 4px;
@@ -36,20 +38,20 @@
   --radius-xl: 32px;
   --radius-full: 999px;
 
-  /* Modern shadows */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.04), 0 1px 4px rgba(0,0,0,.06);
-  --shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-  --shadow-md: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
-  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
-  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,.25);
-  --shadow-colored: 0 8px 32px -8px rgba(124,45,18,.3);
+  /* Spooky Halloween shadows with glow */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 1px 4px rgba(138,43,226,.2);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.4), 0 2px 4px -1px rgba(138,43,226,.3);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,.5), 0 4px 6px -2px rgba(255,107,0,.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,.6), 0 10px 10px -5px rgba(138,43,226,.4);
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,.8);
+  --shadow-colored: 0 8px 32px -8px rgba(255,107,0,.6), 0 0 40px rgba(138,43,226,.4);
 
   --shell-max: 1280px;
   --shell-pad: clamp(16px, 3vw, 32px);
   --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --text-heading: #0f172a;
-  --text-secondary: #64748b;
-  --ring: rgba(124, 45, 18, 0.3);
+  --text-heading: #ffffff;
+  --text-secondary: #b8a4c9;
+  --ring: rgba(255, 107, 0, 0.5);
 
   /* Animation timing */
   --anim-duration: 0.6s;
@@ -1750,11 +1752,11 @@ Changes posted on Facebook &amp; Instagram.</p>
   function onReady(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
 
   /* ---------------------------
-   Force background on body/html
+   Force BOLD Halloween background on body/html
   ----------------------------*/
   (function applyBackground(){
-    var bgColor = '#fafafa';
-    var bgGradient = 'radial-gradient(at 27% 37%, rgba(124,45,18,0.08) 0, transparent 50%), radial-gradient(at 97% 21%, rgba(220,38,38,0.06) 0, transparent 50%), radial-gradient(at 52% 99%, rgba(234,88,12,0.05) 0, transparent 50%)';
+    var bgColor = '#1a0a2e';  // Deep dark purple
+    var bgGradient = 'radial-gradient(at 20% 30%, rgba(255,107,0,0.4) 0, transparent 40%), radial-gradient(at 80% 20%, rgba(138,43,226,0.5) 0, transparent 45%), radial-gradient(at 40% 80%, rgba(255,140,0,0.35) 0, transparent 40%), radial-gradient(at 90% 70%, rgba(75,0,130,0.4) 0, transparent 45%), linear-gradient(135deg, #0f0520 0%, #1a0a2e 50%, #2d1550 100%)';
 
     document.documentElement.style.setProperty('background', bgColor, 'important');
     document.documentElement.style.setProperty('background-image', bgGradient, 'important');
