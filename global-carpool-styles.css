@@ -1,0 +1,111 @@
+/* ========================================
+   CARPOOL Global Site Styles
+   Apply this CSS globally across all pages
+   ======================================== */
+
+/* Breadcrumb Navigation - Consistent across all pages */
+nav[aria-label="Breadcrumb"] {
+  padding: 12px 24px !important;
+  background: #f9fafb !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  margin: 0 !important;
+}
+
+nav[aria-label="Breadcrumb"] ol {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  gap: 8px !important;
+  font-size: 14px !important;
+  color: #6b7280 !important;
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+nav[aria-label="Breadcrumb"] a {
+  color: #500000 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+nav[aria-label="Breadcrumb"] a:hover {
+  color: #6a0000 !important;
+  text-decoration: underline !important;
+}
+
+nav[aria-label="Breadcrumb"] [aria-current="page"] span {
+  color: #374151 !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure no unwanted margins/padding on main containers */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#main,
+main {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Prevent Avada theme from adding extra margins */
+.fusion-body #main {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#content,
+section#content,
+.content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Footer consistency */
+footer[itemtype*="WPFooter"] {
+  background: #500000 !important;
+  color: #fff !important;
+  padding: 48px 24px !important;
+  text-align: center !important;
+  margin: 60px 0 0 0 !important;
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.1) !important;
+}
+
+footer[itemtype*="WPFooter"] > div {
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  nav[aria-label="Breadcrumb"] {
+    padding: 10px 16px !important;
+  }
+
+  nav[aria-label="Breadcrumb"] ol {
+    font-size: 13px !important;
+    gap: 6px !important;
+  }
+
+  footer[itemtype*="WPFooter"] {
+    padding: 40px 20px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  nav[aria-label="Breadcrumb"],
+  footer[itemtype*="WPFooter"] {
+    display: none !important;
+  }
+}
