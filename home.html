@@ -77,6 +77,7 @@ body .carpool-landing,
   font-size:16px;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
 }
 .carpool-wrap{
   max-width:var(--shell-max);
@@ -1747,6 +1748,19 @@ Changes posted on Facebook &amp; Instagram.</p>
    Utility / DOM Ready
   ----------------------------*/
   function onReady(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
+
+  /* ---------------------------
+   Force background on body/html
+  ----------------------------*/
+  (function applyBackground(){
+    var bgColor = '#fafafa';
+    var bgGradient = 'radial-gradient(at 27% 37%, rgba(124,45,18,0.08) 0, transparent 50%), radial-gradient(at 97% 21%, rgba(220,38,38,0.06) 0, transparent 50%), radial-gradient(at 52% 99%, rgba(234,88,12,0.05) 0, transparent 50%)';
+
+    document.documentElement.style.setProperty('background', bgColor, 'important');
+    document.documentElement.style.setProperty('background-image', bgGradient, 'important');
+    document.body.style.setProperty('background', bgColor, 'important');
+    document.body.style.setProperty('background-image', bgGradient, 'important');
+  })();
 
   /* ============================================================
    HOMEPAGE LOGIC
