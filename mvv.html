@@ -283,40 +283,42 @@
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
     }
     
-    .carpool-mvv .wrap{ 
-      max-width:1100px; 
-      margin:0 auto; 
-      padding:40px 24px 80px; 
+    .carpool-mvv .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:48px 20px 72px;
     }
 
     /* ---- Page Header (matching other pages) ---- */
-    .carpool-mvv .page-head{ 
-      margin:0 0 40px; 
-      text-align:left; 
+    .carpool-mvv .page-head{
+      margin:0 0 12px;
+      text-align:left;
     }
-    
+
     .carpool-mvv .page-head h1{
-      margin:0 0 10px; 
-      font-weight:900; 
+      margin:0;
+      font-weight:900;
       letter-spacing:.2px;
-      line-height:1.1; 
-      font-size:clamp(30px,3.6vw,46px);
+      line-height:1.2;
+      font-size:clamp(28px,3.6vw,42px);
     }
-    
+
     .carpool-mvv .page-head h1::after{
-      content:""; 
-      display:block; 
-      width:96px; 
-      height:3px; 
-      margin:14px 0 0;
-      background:linear-gradient(90deg,var(--accent),var(--accent-400)); 
+      content:"";
+      display:block;
+      width:90px;
+      height:3px;
+      margin:12px 0 0;
+      background:linear-gradient(90deg,var(--accent),#8c3a3a);
       border-radius:999px;
     }
-    
-    .carpool-mvv .sub{ 
-      margin:10px 0 0; 
-      color:var(--muted); 
-      font-size:clamp(15px,1.6vw,17px);
+
+    .carpool-mvv .sub{
+      margin:10px 0 32px;
+      color:var(--muted);
+      font-size:clamp(15px,1.8vw,17px);
+      line-height:1.6;
+      max-width:800px;
     }
 
     /* ---- Mission & Vision Grid ---- */
@@ -593,9 +595,9 @@
     }
 
     /* ---- Mobile Refinements ---- */
-    @media (max-width:700px){
-      .carpool-mvv .wrap{ 
-        padding:32px 18px 60px; 
+    @media (max-width:640px){
+      .carpool-mvv .wrap{
+        padding:32px 16px 56px;
       }
       
       .carpool-mvv .card,

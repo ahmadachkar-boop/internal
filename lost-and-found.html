@@ -24,19 +24,19 @@
 .carpool-lost{
   color:var(--text);
 }
-.carpool-lost .wrap{ max-width:1000px; margin:0 auto; padding:40px 18px 72px; }
+.carpool-lost .wrap{ max-width:1100px; margin:0 auto; padding:48px 20px 72px; }
 
 /* ---- Page header ---- */
-.carpool-lost .page-head{ margin:0 0 24px; text-align:left; }
+.carpool-lost .page-head{ margin:0 0 12px; text-align:left; }
 .carpool-lost .page-head h1{
-  margin:0 0 10px; font-weight:900; letter-spacing:.2px;
-  line-height:1.1; font-size:clamp(30px,3.6vw,46px);
+  margin:0; font-weight:900; letter-spacing:.2px;
+  line-height:1.2; font-size:clamp(28px,3.6vw,42px);
 }
 .carpool-lost .page-head h1::after{
-  content:""; display:block; width:96px; height:3px; margin:14px 0 0;
-  background:linear-gradient(90deg,var(--accent),var(--accent-300)); border-radius:999px;
+  content:""; display:block; width:90px; height:3px; margin:12px 0 0;
+  background:linear-gradient(90deg,var(--accent),#8c3a3a); border-radius:999px;
 }
-.carpool-lost .page-head .sub{ margin:10px 0 0; color:var(--muted); font-size:clamp(15px,1.6vw,17px); }
+.carpool-lost .page-head .sub{ margin:10px 0 20px; color:var(--muted); font-size:clamp(15px,1.8vw,17px); line-height:1.6; }
 
 /* ---- Notice box ---- */
 .carpool-lost .notice{
@@ -189,8 +189,8 @@
 }
 
 /* Mobile tweaks */
-@media (max-width:700px){
-  .carpool-lost .wrap{ padding:28px 14px 48px; }
+@media (max-width:640px){
+  .carpool-lost .wrap{ padding:32px 16px 56px; }
   .carpool-lost .form-card{ padding:18px; }
 }
 
