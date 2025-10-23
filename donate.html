@@ -195,6 +195,159 @@
       "addressCountry": "US"
     }
     </script>
+    <style>
+/* ===== CARPOOL — Give page (force-clean layout) ===== */
+.carpool-give { --accent:#500000; --text:#111827; --muted:#6b7280; --bg:#fff; --radius:14px; color:var(--text); background:var(--bg); }
+
+/* Title */
+.carpool-give .page-head{ margin:0 0 32px; text-align:left; }
+.carpool-give .page-head h1{
+   font-weight:900; letter-spacing:.2px; font-size:clamp(28px,3.6vw,42px);
+}
+
+
+/* -------- root layout: hard force a simple grid -------- */
+.carpool-give .give-grid{
+  /* kill any previous layout type from the theme */
+  display:grid !important;
+  grid-auto-flow: row dense !important;
+  grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; /* 2 cols on desktop */
+  gap:24px !important;
+  justify-items: stretch !important;
+  align-items: stretch !important;
+  justify-content: start !important;
+  align-content: start !important;
+  width:100% !important;
+  margin:0 !important;
+  text-align:left !important;
+  position:relative;
+  float:none !important;
+  clear:none !important;
+}
+
+/* collapse to one column on small screens */
+@media (max-width: 900px){
+  .carpool-give .give-grid{ grid-template-columns: 1fr !important; gap:16px !important; }
+}
+
+/* nuke theme “ghost” nodes that create the blank first column */
+.carpool-give .give-grid::before,
+.carpool-give .give-grid::after{ content:none !important; display:none !important; }
+.carpool-give .give-grid > .fusion-clearfix,
+.carpool-give .give-grid > .fusion-clear,
+.carpool-give .give-grid > br{ display:none !important; }
+
+
+
+/* make Endowment span full width under the two cards */
+.carpool-give .endowment{ grid-column: 1 / -1 !important; }
+
+/* Cards */
+.carpool-give .card{
+  background:#fff; border:1px solid rgba(17,24,39,.10);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:0 10px 26px -14px rgba(0,0,0,.16);
+}
+.carpool-give .card h2{ margin:0 0 12px; font-size:clamp(18px,2.4vw,24px); font-weight:900; }
+.carpool-give .lead, .carpool-give .card p{ margin:0 0 10px; line-height:1.7; }
+.carpool-give .card .actions{ margin-top:12px; }
+
+/* Address box */
+.carpool-give .addr{
+  margin:8px 0 0; padding:12px;
+  border:1px solid rgba(17,24,39,.12);
+  border-radius:12px; background:#fafafa; line-height:1.6; font-style:normal;
+}
+
+/* Button fallback (if theme doesn't provide .btn) */
+.carpool-give .btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:10px 16px; border-radius:12px; font-weight:700; text-decoration:none;
+  border:1px solid var(--accent); color:var(--accent); background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.08); transition:.2s ease;
+}
+.carpool-give .btn:hover{ background:#fff6f6; color:#6d1a1a; transform:translateY(-1px); }
+/* === Give page: hard-fix layout + kill ghost nodes === */
+.carpool-give .give-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2, minmax(320px, 1fr)) !important;
+  gap:24px !important;
+  grid-auto-flow:row dense !important;
+  margin:0 !important;
+}
+@media (max-width:900px){
+  .carpool-give .give-grid{ grid-template-columns:1fr !important; gap:16px !important; }
+}
+
+/*  The culprit: stray paragraphs inserted by the editor */
+.carpool-give .give-grid > p{ 
+  display:none !important; 
+  margin:0 !important; padding:0 !important; height:0 !important; border:0 !important;
+}
+/* paragraphs that only contain a single <br> (common WP artifact) */
+.carpool-give .give-grid > p > br:only-child{ display:none !important; }
+
+/* Also hide common Fusion helper nodes that can occupy a grid cell */
+.carpool-give .give-grid::before,
+.carpool-give .give-grid::after,
+.carpool-give .give-grid > .fusion-clearfix,
+.carpool-give .give-grid > .fusion-clear,
+.carpool-give .give-grid > br{
+  display:none !important; content:none !important;
+}
+
+/* Ensure cards place normally */
+.carpool-give .give-grid > *{
+  grid-column:auto !important; grid-row:auto !important; float:none !important; margin:0 !important;
+}
+
+/* Endowment spans full width under the two cards */
+.carpool-give .endowment{ grid-column:1 / -1 !important; }
+
+
+
+
+
+/* Give page — mobile-only title size */
+@media (max-width: 700px) {
+  .carpool-give .page-head h1,
+  .carpool-give .page-head h1.fusion-responsive-typography-calculated {
+    font-size: 26px !important;     /* match your other pages on phones */
+    line-height: 1.25 !important;
+    letter-spacing: .2px;            /* same tracking as elsewhere */
+    --fontSize: initial;             /* neutralize Avada variable on mobile */
+  }
+
+  /* keep underline exactly the same positioning on mobile */
+  .carpool-give .page-head h1::after {
+    margin: 12px 0 0 0 !important;
+    width: 84px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent, #500000), #8c3a3a);
+    border-radius: 999px;
+  }
+}
+
+/* ===== CARPOOL — Donate/Give page: match MVV shell + title ===== */
+
+
+/* Subtitle */
+body.fusion-body .carpool-give .page-head .sub{
+  margin:6px 0 0 !important;
+  color:var(--muted, #6b7280) !important;
+  text-align:left !important;
+}
+
+
+
+
+
+
+
+
+
+    </style>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
 
