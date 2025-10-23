@@ -44,18 +44,21 @@ nav[aria-label="Breadcrumb"] [aria-current="page"] span {
 body {
   margin: 0 !important;
   padding: 0 !important;
+  overflow-x: visible !important;
 }
 
 #main,
 main {
   margin: 0 !important;
   padding: 0 !important;
+  overflow-x: visible !important;
 }
 
 /* Prevent Avada theme from adding extra margins */
 .fusion-body #main {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  overflow-x: visible !important;
 }
 
 #content,
@@ -63,6 +66,7 @@ section#content,
 .content {
   margin: 0 !important;
   padding: 0 !important;
+  overflow-x: visible !important;
 }
 
 /* Remove Avada fusion-row side margins/padding that create white borders */
@@ -72,6 +76,7 @@ section#content,
   margin-left: 0 !important;
   margin-right: 0 !important;
   max-width: 100% !important;
+  overflow-x: visible !important;
 }
 
 /* Also target fusion-row-wrapper for comprehensive coverage */
@@ -80,6 +85,7 @@ section#content,
   padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  overflow-x: visible !important;
 }
 
 /* Target fusion columns that might have padding */
@@ -87,6 +93,7 @@ section#content,
 .fusion-column-wrapper {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  overflow-x: visible !important;
 }
 
 /* Footer consistency */
