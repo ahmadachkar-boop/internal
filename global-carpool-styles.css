@@ -95,7 +95,7 @@ footer[itemtype*="WPFooter"] {
   color: #fff !important;
   padding: 48px 24px !important;
   text-align: center !important;
-  margin: 60px 0 0 0 !important;
+  margin: 20px 0 0 0 !important;
   width: 100vw !important;
   position: relative !important;
   left: 50% !important;
@@ -116,7 +116,7 @@ footer[itemtype*="WPFooter"] > div {
    ======================================== */
 .carpool-global-cta {
   max-width: 1600px !important;
-  margin: 48px auto 0 !important;
+  margin: 48px auto 20px !important;
   padding: 24px 20px !important;
   background: #f9fafb !important;
   border: 1px solid #e5e7eb !important;
@@ -186,11 +186,12 @@ body.home .carpool-global-cta,
 
   footer[itemtype*="WPFooter"] {
     padding: 40px 20px !important;
+    margin: 16px 0 0 0 !important;
   }
 
   .carpool-global-cta {
     padding: 20px 16px !important;
-    margin: 32px auto 0 !important;
+    margin: 32px auto 16px !important;
   }
 
   .carpool-global-cta h2 {
