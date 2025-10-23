@@ -481,8 +481,10 @@
       box-shadow:var(--shadow);
       overflow:hidden;
       position:relative;
-      display:grid; place-items:center;
-      padding:24px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
       aspect-ratio: 4 / 3;
       transition: all .35s cubic-bezier(.4,0,.2,1);
       cursor:pointer;
@@ -500,14 +502,20 @@
     .logo-tile:hover::before{ opacity:1; }
     
     .logo-tile a{
-      position:absolute; inset:0; display:grid; place-items:center;
+      position:absolute; inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
       text-decoration:none; z-index:1;
     }
     .logo-img{
-      max-width: 85%;
-      max-height: 85%;
-      width:auto; height:auto;
-      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
       display:block;
       transition: all .35s cubic-bezier(.4,0,.2,1);
       filter: saturate(.95) brightness(.98);
@@ -643,11 +651,19 @@
       .carpool-sponsors .wrap{
         padding:32px 16px 56px;
       }
-      
+
+      .logo-tile{
+        padding:20px;
+      }
+
+      .logo-tile a{
+        padding:20px;
+      }
+
       .carpool-sponsors .thanks{
         padding:24px 20px;
       }
-      
+
       .carpool-sponsors .related-links{
         padding:24px 20px;
       }
