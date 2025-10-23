@@ -114,7 +114,9 @@ footer[itemtype*="WPFooter"] > div {
    Global CTA Section (Learn More About CARPOOL)
    Compact design for all pages EXCEPT home
    ======================================== */
-.carpool-global-cta {
+.carpool-global-cta,
+#carpool-staff .carpool-global-cta,
+#carpool-staff .carpool-wrap > .carpool-global-cta {
   max-width: 1600px !important;
   margin: 48px auto 20px !important;
   padding: 24px 20px !important;
@@ -189,7 +191,9 @@ body.home .carpool-global-cta,
     margin: 16px 0 0 0 !important;
   }
 
-  .carpool-global-cta {
+  .carpool-global-cta,
+  #carpool-staff .carpool-global-cta,
+  #carpool-staff .carpool-wrap > .carpool-global-cta {
     padding: 20px 16px !important;
     margin: 32px auto 16px !important;
   }
