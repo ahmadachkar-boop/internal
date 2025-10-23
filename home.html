@@ -1674,6 +1674,68 @@ body.home.fusion-body[class] :is(#wrapper,#main,.site,.fusion-wrapper,.fusion-co
 }
 
 /* ========================================================================== */
+/* ======= ADDITIONAL FIXES FOR TEXT COLORS AND BACKGROUNDS ================ */
+/* ========================================================================== */
+
+/* Fix card text to be white/beige */
+.carpool-landing .info-grid > .card,
+.carpool-landing .info-grid > .card p,
+.carpool-landing .info-grid > .card strong,
+.carpool-landing .card {
+  color: var(--hall-text-secondary) !important;
+}
+
+/* Make sure card headings inside cards are orange */
+.carpool-landing .info-grid > .card h2 {
+  color: var(--hall-accent) !important;
+}
+
+/* Fix button text - team spotlight buttons and other action buttons need white text */
+.carpool-landing .ts-btn,
+.carpool-landing .info-grid .ts-btn,
+#team-spotlight .ts-btn,
+.ts-actions .ts-btn {
+  color: var(--hall-text-heading) !important;
+  background: color-mix(in srgb, var(--hall-accent) 18%, var(--hall-card-bg)) !important;
+  border: 1px solid var(--hall-accent) !important;
+}
+
+.carpool-landing .ts-btn:hover,
+#team-spotlight .ts-btn:hover,
+.ts-actions .ts-btn:hover {
+  color: var(--hall-text-heading) !important;
+  background: color-mix(in srgb, var(--hall-accent) 30%, var(--hall-card-bg)) !important;
+}
+
+/* Make sure CTA section and its children have transparent backgrounds */
+.carpool-landing .cta-section,
+.carpool-landing .cta-section *:not(.cta-tile):not(.cta-support):not(.chip):not(.social) {
+  background-color: transparent !important;
+}
+
+/* Ensure CTA headings are properly styled */
+.carpool-landing .cta-section .cta-head .eyebrow {
+  background: var(--hall-card-bg) !important;
+  color: var(--hall-text-secondary) !important;
+}
+
+/* Fix video frame border if it's showing white */
+.carpool-landing .video-frame {
+  background: transparent !important;
+  border-color: rgba(255,122,0,0.4) !important;
+}
+
+/* Ensure all links in cards are properly colored */
+.carpool-landing .info-grid > .card a:not(.btn) {
+  color: var(--hall-accent) !important;
+  text-decoration: underline;
+}
+
+.carpool-landing .info-grid > .card a:not(.btn):hover {
+  color: color-mix(in srgb, var(--hall-accent) 80%, #ffffff) !important;
+}
+
+/* ========================================================================== */
 /* =========== END HALLOWEEN STYLES ========================================= */
 /* ========================================================================== */
 </style>
