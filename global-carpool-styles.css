@@ -65,6 +65,30 @@ section#content,
   padding: 0 !important;
 }
 
+/* Remove Avada fusion-row side margins/padding that create white borders */
+.fusion-row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Also target fusion-row-wrapper for comprehensive coverage */
+.fusion-row-wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Target fusion columns that might have padding */
+.fusion-layout-column,
+.fusion-column-wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* Footer consistency */
 footer[itemtype*="WPFooter"] {
   background: #500000 !important;
