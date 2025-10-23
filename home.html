@@ -1713,6 +1713,24 @@ body.home.fusion-body[class] :is(#wrapper,#main,.site,.fusion-wrapper,.fusion-co
   background-color: transparent !important;
 }
 
+/* Force CTA section to have NO background - higher specificity */
+body.home .carpool-landing .cta-section,
+section.cta-section,
+.cta-section,
+body .cta-section {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Override the conic gradient background variable */
+body.home .carpool-landing {
+  --cta-bg: transparent !important;
+  --cta-bg-size: auto !important;
+  --cta-bg-position: center !important;
+  --cta-bg-repeat: no-repeat !important;
+}
+
 /* Ensure CTA headings are properly styled */
 .carpool-landing .cta-section .cta-head .eyebrow {
   background: var(--hall-card-bg) !important;
