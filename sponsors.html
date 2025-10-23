@@ -481,13 +481,14 @@
       box-shadow:var(--shadow);
       overflow:hidden;
       position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      padding:28px !important;
       aspect-ratio: 4 / 3;
       transition: all .35s cubic-bezier(.4,0,.2,1);
       cursor:pointer;
+      margin:0 !important;
     }
     .logo-tile::before{
       content:''; position:absolute; inset:0;
@@ -502,23 +503,28 @@
     .logo-tile:hover::before{ opacity:1; }
     
     .logo-tile a{
-      position:absolute; inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
-      text-decoration:none; z-index:1;
+      position:absolute !important;
+      inset:0 !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      padding:28px !important;
+      margin:0 !important;
+      text-decoration:none;
+      z-index:1;
     }
     .logo-img{
-      max-width: 100%;
-      max-height: 100%;
-      width:auto;
-      height:auto;
-      object-fit:contain;
-      object-position:center;
-      display:block;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      width:auto !important;
+      height:auto !important;
+      object-fit:contain !important;
+      object-position:center !important;
+      display:block !important;
       transition: all .35s cubic-bezier(.4,0,.2,1);
       filter: saturate(.95) brightness(.98);
+      margin:0 !important;
+      padding:0 !important;
     }
     .logo-tile:hover .logo-img{ 
       transform: scale(1.08); 
@@ -649,15 +655,15 @@
     /* ---- Mobile Refinements ---- */
     @media (max-width:640px){
       .carpool-sponsors .wrap{
-        padding:32px 16px 56px;
+        padding:32px 16px 56px !important;
       }
 
       .logo-tile{
-        padding:20px;
+        padding:20px !important;
       }
 
       .logo-tile a{
-        padding:20px;
+        padding:20px !important;
       }
 
       .carpool-sponsors .thanks{
@@ -667,6 +673,21 @@
       .carpool-sponsors .related-links{
         padding:24px 20px;
       }
+    }
+
+    /* Override any global CSS that might interfere */
+    .carpool-sponsors .logo-grid,
+    .carpool-sponsors .logo-grid *{
+      box-sizing:border-box !important;
+    }
+
+    .carpool-sponsors figure,
+    .carpool-sponsors figure *{
+      margin:0 !important;
+    }
+
+    .carpool-sponsors .logo-tile img{
+      padding:0 !important;
     }
 
     /* ---- Reduced Motion ---- */
