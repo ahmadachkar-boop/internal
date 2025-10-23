@@ -61,17 +61,10 @@
 /* Base */
 .carpool-landing *{ box-sizing:border-box; }
 
-/* Ensure background applies with high specificity */
-html:has(.carpool-landing),
-body:has(.carpool-landing),
-body.carpool-landing,
-body .carpool-landing,
+/* Ensure background applies - CRITICAL: separate rules to prevent selector group invalidation */
 .carpool-landing{
   background:var(--bg) !important;
   background-image:var(--gradient-mesh) !important;
-}
-
-.carpool-landing{
   color:var(--text);
   font-family:var(--font-primary);
   line-height:1.6;
@@ -81,6 +74,21 @@ body .carpool-landing,
   min-height:100vh;
   position: relative;
   overflow-x: hidden;
+}
+
+/* Try to apply to body as well (separate rule for safety) */
+body .carpool-landing{
+  background:var(--bg) !important;
+  background-image:var(--gradient-mesh) !important;
+}
+
+/* Modern browsers only - :has() support */
+@supports selector(:has(*)) {
+  html:has(.carpool-landing),
+  body:has(.carpool-landing) {
+    background:var(--bg) !important;
+    background-image:var(--gradient-mesh) !important;
+  }
 }
 
 /* ===== STARRY NIGHT SKY - Static Stars ===== */
@@ -1892,6 +1900,8 @@ Changes posted on Facebook &amp; Instagram.</p>
    Force Starry Night Halloween background on body/html
   ----------------------------*/
   (function applyBackground(){
+    console.log('[CARPOOL] Applying Halloween background to body/html');
+
     var bgColor = '#0a0e27';  // Deep midnight blue
     var bgGradient = 'radial-gradient(ellipse at top, #1a1f3a 0%, transparent 60%), radial-gradient(ellipse at bottom left, rgba(138,43,226,0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(255,107,0,0.1) 0%, transparent 50%), linear-gradient(180deg, #0a0e27 0%, #141b3d 50%, #0f1430 100%)';
 
@@ -1908,6 +1918,8 @@ Changes posted on Facebook &amp; Instagram.</p>
     document.body.style.setProperty('background', bgColor, 'important');
     document.body.style.setProperty('background-image', fullBackground, 'important');
     document.body.style.setProperty('background-size', '200px 200px, 300px 300px, 400px 400px, 100% 100%', 'important');
+
+    console.log('[CARPOOL] Background applied - body background:', document.body.style.background);
   })();
 
   /* ---------------------------
@@ -1915,11 +1927,16 @@ Changes posted on Facebook &amp; Instagram.</p>
   ----------------------------*/
   function createStarfield(){
     var section = document.querySelector('.carpool-landing');
-    if (!section) return;
+    if (!section) {
+      console.warn('[CARPOOL] .carpool-landing section not found - stars not created');
+      return;
+    }
+
+    console.log('[CARPOOL] Creating starfield with 100 stars + moon');
 
     // Create stars container
     var starsContainer = document.createElement('div');
-    starsContainer.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;';
+    starsContainer.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden;';
     starsContainer.id = 'stars-container';
 
     // Generate 100 random stars
@@ -1961,6 +1978,8 @@ Changes posted on Facebook &amp; Instagram.</p>
         }';
       document.head.appendChild(style);
     }
+
+    console.log('[CARPOOL] Starfield created successfully - check for #stars-container element');
   }
 
   /* ---------------------------
@@ -1968,7 +1987,12 @@ Changes posted on Facebook &amp; Instagram.</p>
   ----------------------------*/
   function initHalloweenDecorations(){
     var section = document.querySelector('.carpool-landing');
-    if (!section) return;
+    if (!section) {
+      console.warn('[CARPOOL] .carpool-landing section not found - decorations not initialized');
+      return;
+    }
+
+    console.log('[CARPOOL] Initializing Halloween decorations (shooting stars, bats, ghosts)');
 
     // Create shooting stars
     function createShootingStar() {
