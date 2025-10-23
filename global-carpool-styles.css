@@ -58,7 +58,12 @@ main {
   padding-bottom: 0 !important;
 }
 
-
+#content,
+section#content,
+.content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 /* Remove Avada fusion-row side margins/padding that create white borders */
 .fusion-row {
@@ -88,11 +93,11 @@ main {
 footer[itemtype*="WPFooter"] {
   background: #500000 !important;
   color: #fff !important;
-  padding: 20px 10px !important;
+  padding: 10px 3px !important;
   text-align: center !important;
-  margin: 0px 0 0 0 !important;
+  margin: 20px 0 0 0 !important;
   width: 100vw !important;
-  position: relative 
+  position: relative !important;
   left: 50% !important;
   right: 50% !important;
   margin-left: -50vw !important;
@@ -166,6 +171,7 @@ footer[itemtype*="WPFooter"] > div {
 
 /* Hide on home page */
 body.home .carpool-global-cta,
+.page-home .carpool-global-cta {
   display: none !important;
 }
 
@@ -181,8 +187,7 @@ body.home .carpool-global-cta,
   }
 
   footer[itemtype*="WPFooter"] {
-    padding: 40px 20px !important;
-    margin: 16px 0 0 0 !important;
+    padding: 10px 15px !important;
   }
 
   .carpool-global-cta,
