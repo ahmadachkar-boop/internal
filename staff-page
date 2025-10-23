@@ -774,10 +774,23 @@
         grid-template-columns:repeat(2,1fr) !important;
       }
     }
-    
+
     @media (max-width:900px) and (min-width:769px) {
       #carpool-staff div.grid {
         grid-template-columns:repeat(2,1fr) !important;
+      }
+    }
+
+    /* Larger screens - make cards smaller by adding more columns */
+    @media (min-width:1200px) {
+      #carpool-staff div.grid {
+        grid-template-columns:repeat(4,1fr) !important;
+      }
+    }
+
+    @media (min-width:1600px) {
+      #carpool-staff div.grid {
+        grid-template-columns:repeat(5,1fr) !important;
       }
     }
   </style>
