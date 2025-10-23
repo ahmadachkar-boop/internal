@@ -289,7 +289,7 @@
     .carpool-story .wrap{
       max-width:1600px;
       margin:0 auto;
-      padding:48px 12px 72px;
+      padding:48px 24px 72px;
     }
 
     /* ---- Page Header (matching other pages) ---- */
@@ -457,13 +457,16 @@
 
     /* ---- Photo Gallery ---- */
     .carpool-story .gallery{
-      margin:48px 0 0;
+      margin:48px auto 0;
       text-align:center;
+      width:100%;
+      display:block;
     }
-    
+
     .carpool-story .gallery h2{
-      text-align:center; 
-      margin:0 0 32px; 
+      text-align:center;
+      margin:0 auto 32px;
+      width:100%; 
       font-size:clamp(24px,2.8vw,32px); 
       font-weight:900;
       color:var(--accent);
@@ -488,8 +491,10 @@
       grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
       gap:20px;
       justify-items:center;
+      justify-content:center;
       margin:0 auto;
-      max-width:1400px;
+      max-width:100%;
+      width:100%;
     }
     
     @media (max-width:900px){
