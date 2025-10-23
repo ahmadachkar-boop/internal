@@ -171,7 +171,7 @@ a:focus-visible, button:focus-visible {
   display:grid;
   grid-template-columns:auto 1fr;
   gap:16px;
-  background:#fff;
+  background:var(--card) !important;
   border:none;
   border-radius:var(--radius-xl);
   padding:20px 24px;
@@ -333,7 +333,7 @@ a:focus-visible, button:focus-visible {
 }
 .info-grid > .card{
   grid-area:left; min-width:0;
-  background: var(--card);
+  background: var(--card) !important;
   border: none;
   border-radius: var(--radius-xl);
   padding: 40px 36px 36px;
@@ -469,7 +469,7 @@ a:focus-visible, button:focus-visible {
   border-color:rgba(124,45,18,.2);
 }
 .faq details[open]{
-  background:var(--card);
+  background:var(--card) !important;
   box-shadow:var(--shadow-md);
 }
 .faq summary{
@@ -546,7 +546,7 @@ a:focus-visible, button:focus-visible {
 
 .how-it-works .hiw-step{
   position:relative;
-  background:var(--card);
+  background:var(--card) !important;
   border:none;
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow-md);
@@ -555,7 +555,7 @@ a:focus-visible, button:focus-visible {
   transition:all 0.4s var(--ease-smooth);
   isolation:isolate;
   min-width: 0;
-  overflow:hidden;
+  overflow:visible;
 }
 
 .how-it-works .hiw-step:hover{
@@ -783,7 +783,7 @@ a:focus-visible, button:focus-visible {
   background: transparent;
   position: relative;
   margin: 64px 0 0;
-  padding: 48px 0 64px;
+  padding: 48px 0 0;
   width: 100%;
   max-width: var(--shell-max);
   margin-left: auto;
@@ -867,7 +867,7 @@ a:focus-visible, button:focus-visible {
   border:none;
   border-radius:var(--radius-xl);
   padding:24px 20px;
-  background:var(--card);
+  background:var(--card) !important;
   color:#1a0a2e;
   box-shadow:var(--shadow-md);
   transition: all 0.4s var(--ease-smooth);
