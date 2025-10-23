@@ -339,7 +339,7 @@
 /* ===== Featured Video Container ===== */
 .carpool-news .video-container{
   position: relative;
-  margin: 32px 0 48px;
+  margin: 0px 0 0px;
   padding: 0 20px;
   background: 
     radial-gradient(ellipse 400px 100% at 0% 50%, rgba(80,0,0,.03), transparent 60%),
@@ -532,6 +532,49 @@
 
 .carpool-news .card .btn:active{
   transform: translateY(0);
+}
+
+/* ---- Internal Links Section (matching other pages) ---- */
+.carpool-news .related-links{
+  margin: 48px 0;
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid rgba(80,0,0,.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.carpool-news .related-links h2{
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.carpool-news .related-links ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.carpool-news .related-links a{
+  display: block;
+  padding: 14px 18px;
+  background: rgba(80,0,0,.04);
+  border: 1px solid rgba(80,0,0,.1);
+  border-radius: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all .2s ease;
+}
+
+.carpool-news .related-links a:hover{
+  background: var(--accent);
+  color: #fff;
+  transform: translateX(4px);
 }
 
 /* ===== Entrance Animations ===== */
@@ -866,26 +909,26 @@
 
   </div>
 
-  <!-- Global CTA (Learn More) -->
+  <!-- Related Links for Internal SEO -->
   <aside class="carpool-global-cta" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">Learn More About CARPOOL</h2>
-    <ul>
-      <li><a href="https://carpool.tamu.edu/">Request a Free Safe Ride</a></li>
-      <li><a href="https://carpool.tamu.edu/story/">Our Story Since 1999</a></li>
-      <li><a href="https://carpool.tamu.edu/apply-for-carpool/">Join as a Volunteer</a></li>
-      <li><a href="https://carpool.tamu.edu/staff/">Meet Our Leadership Team</a></li>
-      <li><a href="https://carpool.tamu.edu/faq/">Frequently Asked Questions</a></li>
-      <li><a href="https://carpool.tamu.edu/donate/">Support with a Donation</a></li>
-    </ul>
-  </aside>
+      <h2 id="cta-heading">Learn More About CARPOOL</h2>
+      <ul>
+        <li><a href="https://carpool.tamu.edu/">Request a Free Safe Ride</a></li>
+        <li><a href="https://carpool.tamu.edu/story/">Our Story Since 1999</a></li>
+        <li><a href="https://carpool.tamu.edu/apply-for-carpool/">Join as a Volunteer</a></li>
+        <li><a href="https://carpool.tamu.edu/staff/">Meet Our Leadership Team</a></li>
+        <li><a href="https://carpool.tamu.edu/faq/">Frequently Asked Questions</a></li>
+        <li><a href="https://carpool.tamu.edu/donate/">Support with a Donation</a></li>
+      </ul>
+    </aside>
 
 </div>
 </section>
 </main>
 
-<!-- Global Footer -->
+<!-- Full-Width Maroon Footer -->
 <footer itemscope itemtype="https://schema.org/WPFooter" style="background: #500000; color: #fff; padding: 48px 24px; text-align: center; margin: 60px 0 0 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-shadow: 0 -4px 20px rgba(0,0,0,.1);">
-  <div style="max-width: 1600px; margin: 0 auto;">
+  <div style="max-width: 1100px; margin: 0 auto;">
     <p style="margin: 0 0 16px; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;">
       <strong itemprop="name">CARPOOL</strong> - Student-run 501(c)(3) non-profit
     </p>

@@ -402,15 +402,15 @@
       letter-spacing:.2px;
       font-size:clamp(28px,3.6vw,42px);
       line-height:1.2;
-      text-align: center;
+      text-align: left;
     }
-    .carpool-sponsors h1::after{
-      content:""; 
-      display:block; 
-      width:90px; 
-      height:3px; 
-      margin:12px auto 0;
-      background:linear-gradient(90deg,var(--accent),#8c3a3a); 
+    .carpool-sponsors .page-head h1::after{
+      content:"";
+      display:block;
+      width:90px;
+      height:3px;
+      margin:12px 0 0;
+      background:linear-gradient(90deg,var(--accent),#8c3a3a);
       border-radius:999px;
     }
     .carpool-sponsors .intro{
@@ -572,6 +572,49 @@
       position:absolute; width:1px; height:1px; 
       padding:0; margin:-1px; overflow:hidden; 
       clip:rect(0,0,0,0); border:0; 
+    }
+
+    /* ---- Internal Links Section (matching Story page) ---- */
+    .carpool-sponsors .related-links{
+      margin:48px 0;
+      padding:32px;
+      background:var(--card);
+      border:1px solid rgba(80,0,0,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    
+    .carpool-sponsors .related-links h2{
+      margin:0 0 20px;
+      font-size:22px;
+      font-weight:800;
+      color:var(--accent);
+    }
+    
+    .carpool-sponsors .related-links ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:12px;
+    }
+    
+    .carpool-sponsors .related-links a{
+      display:block;
+      padding:14px 18px;
+      background:rgba(80,0,0,.04);
+      border:1px solid rgba(80,0,0,.1);
+      border-radius:8px;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      transition:all .2s ease;
+    }
+    
+    .carpool-sponsors .related-links a:hover{
+      background:var(--accent);
+      color:#fff;
+      transform:translateX(4px);
     }
 
     /* Subtle entrance animations */
@@ -856,7 +899,7 @@
       </div>
     </section>
 
-    <!-- Global CTA (Learn More) -->
+    <!-- Related Links for Internal SEO -->
     <aside class="carpool-global-cta" aria-labelledby="cta-heading">
       <h2 id="cta-heading">Learn More About CARPOOL</h2>
       <ul>
@@ -873,9 +916,9 @@
 </section>
 </main>
 
-<!-- Global Footer -->
+<!-- Full-Width Maroon Footer -->
 <footer itemscope itemtype="https://schema.org/WPFooter" style="background: #500000; color: #fff; padding: 48px 24px; text-align: center; margin: 60px 0 0 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-shadow: 0 -4px 20px rgba(0,0,0,.1);">
-  <div style="max-width: 1600px; margin: 0 auto;">
+  <div style="max-width: 1100px; margin: 0 auto;">
     <p style="margin: 0 0 16px; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;">
       <strong itemprop="name">CARPOOL</strong> - Student-run 501(c)(3) non-profit
     </p>
