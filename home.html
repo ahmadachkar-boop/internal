@@ -208,10 +208,16 @@ a:focus-visible, button:focus-visible {
   margin: 0;
   line-height: 1.6;
   font-size:1.05rem;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
 }
 .carpool-banner strong, .carpool-banner em { white-space: normal; }
 
 /* Error / downtime style */
+.carpool-banner.error{
+  border-top-color: #dc2626;
+}
 .carpool-banner.error::before{
   background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
 }
@@ -220,16 +226,21 @@ a:focus-visible, button:focus-visible {
   color:#dc2626;
   border-color:rgba(220,38,38,0.2);
 }
+.carpool-banner.error .banner-text{ color: #dc2626; }
 .carpool-banner.error .banner-text strong{ color: #dc2626; }
 
 /* Success / running style */
-.carpool-banner.success .icon{
-  background: #f3f4f6;
-  color:var(--accent);
-  font-size:24px;
-  border-color:rgba(0,0,0,0.1);
+.carpool-banner.success{
+  border-top-color: #10b981;
 }
-.carpool-banner.success .banner-text strong{ color: var(--accent); }
+.carpool-banner.success .icon{
+  background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.15) 100%);
+  color:#10b981;
+  font-size:24px;
+  border-color:rgba(16,185,129,0.2);
+}
+.carpool-banner.success .banner-text{ color: #10b981; }
+.carpool-banner.success .banner-text strong{ color: #10b981; }
 
 /* --- Hero --- */
 .hero{ text-align:center; margin: 24px 0 40px; position: relative; }
@@ -943,6 +954,7 @@ a:focus-visible, button:focus-visible {
   display:flex;
   flex-direction:column;
   justify-content:center;
+  align-items:flex-start;
   line-height:1.4;
   overflow:visible;
 }
@@ -1276,6 +1288,9 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
     padding-left: 14px;
     padding-right: 14px;
   }
+  .info-grid .card h2::after {
+    left: 14px;
+  }
   .info-grid .faq details {
     padding: 10px 12px;
     border-radius: 10px;
@@ -1314,7 +1329,9 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
     width: 32px;
     height: 32px;
     font-size: 16px;
-    line-height: 32px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
   }
 
   .how-it-works .hiw-step::before {
@@ -1542,7 +1559,9 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
     width: 28px;
     height: 28px;
     font-size: 14px;
-    line-height: 28px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
   }
   .how-it-works .hiw-icon {
     width: 24px;
