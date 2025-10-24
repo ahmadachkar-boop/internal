@@ -684,12 +684,12 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Text */
-.ts-info{ display: grid; align-content: start; gap: 8px; }
+.ts-info{ display: grid; align-content: start; gap: 8px; position: relative; }
 .ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: var(--text-heading); }
 .ts-role{ margin: 0; color: var(--text); font-weight: 700; opacity: 0.7; }
 .ts-actions{
   display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
-  position: static;
+  position: relative;
   padding-right: calc(var(--ts-ctrl-w) * 2 + var(--ts-ctrl-gap) + 16px);
 }
 .ts-btn{
@@ -778,14 +778,13 @@ a:focus-visible, button:focus-visible {
 }
 #team-spotlight .ts-controls button:hover{ background:#f3f4f6; }
 
-/* Position "View all staff" button at bottom left on desktop */
+/* Position "View all staff" button at bottom left of info section on desktop */
 @media (min-width: 701px) {
   #team-spotlight .ts-actions a[href="/staff/"] {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
+    bottom: 0;
+    left: 0;
     margin: 0;
-    z-index: 3;
   }
   #team-spotlight .ts-actions a[href^="mailto:"] {
     display: inline-flex;
