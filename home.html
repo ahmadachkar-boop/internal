@@ -99,7 +99,7 @@ body .carpool-landing{
 .carpool-wrap{
   max-width:var(--shell-max);
   margin:0 auto;
-  padding:48px var(--shell-pad) 5px;
+  padding:48px var(--shell-pad) 0;
   position: relative;
   z-index: 2;
 }
@@ -175,25 +175,25 @@ a:focus-visible, button:focus-visible {
 .carpool-banner{
   display:grid;
   grid-template-columns:auto 1fr;
-  gap:16px;
+  gap:12px;
   background:var(--card);
   border:none;
   border-radius:var(--radius-xl);
-  padding:20px 24px;
+  padding:14px 18px;
   box-shadow:var(--shadow-md);
-  margin:32px 0 24px;
+  margin:24px 0 20px;
   position:relative;
   overflow:hidden;
   transition:all 0.3s var(--ease-smooth);
-  border-top: 4px solid var(--accent);
+  border-top: 3px solid var(--accent);
 }
 .carpool-banner:hover{
   transform:translateY(-2px);
   box-shadow:var(--shadow-lg);
 }
 .carpool-banner .icon{
-  width:48px;
-  height:48px;
+  width:40px;
+  height:40px;
   border-radius:var(--radius-md);
   background:#f3f4f6;
   color:var(--accent);
@@ -201,7 +201,7 @@ a:focus-visible, button:focus-visible {
   align-items:center;
   justify-content:center;
   font-weight:900;
-  font-size:24px;
+  font-size:20px;
   line-height:1;
   border:2px solid rgba(0,0,0,.1);
   flex-shrink:0;
@@ -209,8 +209,8 @@ a:focus-visible, button:focus-visible {
 }
 .carpool-banner .banner-text {
   margin: 0;
-  line-height: 1.6;
-  font-size:1.05rem;
+  line-height: 1.5;
+  font-size:1rem;
   align-self:center;
 }
 .carpool-banner strong, .carpool-banner em { white-space: normal; }
@@ -227,7 +227,6 @@ a:focus-visible, button:focus-visible {
   color:#dc2626;
   border-color:rgba(220,38,38,0.2);
 }
-.carpool-banner.error .banner-text{ color: #dc2626; }
 .carpool-banner.error .banner-text strong{ color: #dc2626; }
 
 /* Success / running style */
@@ -240,14 +239,13 @@ a:focus-visible, button:focus-visible {
   font-size:24px;
   border-color:rgba(16,185,129,0.2);
 }
-.carpool-banner.success .banner-text{ color: #10b981; }
 .carpool-banner.success .banner-text strong{ color: #10b981; }
 
 /* --- Hero --- */
 .hero{ text-align:center; margin: 24px 0 40px; position: relative; }
 .hero h1{
   margin:0 0 32px;
-  font-size:clamp(36px,5vw,64px);
+  font-size:clamp(36px,3vw,64px);
   font-weight:900;
   letter-spacing:-1px;
   line-height: 1.15;
@@ -315,15 +313,17 @@ a:focus-visible, button:focus-visible {
   padding:0 .4em;
   border-radius:var(--radius-sm);
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image:
+    var(--gradient-soft),
+    linear-gradient(to right, var(--accent) 0%, var(--accent-light) 100%);
+  background-size: 100% 100%, 100% 4px;
+  background-position: 0 0, 0 100%;
+  background-repeat: no-repeat;
 }
 .hero-highlight .promise-pop::after{
-  content:"";
-  position:absolute;
-  left:0; bottom:0;
-  width:100%; height:4px;
-  background:var(--gradient-primary);
-  opacity:0.4;
-  border-radius:var(--radius-full);
+  display: none;
 }
 
 /* --- Info grid (card left, video right) --- */
@@ -547,8 +547,22 @@ a:focus-visible, button:focus-visible {
   padding: 0;
   list-style: none;
   justify-items: stretch;
+  align-items: stretch;
   width: 100%;
   max-width: 100%;
+}
+
+.how-it-works .hiw-step-wrapper{
+  position:relative;
+  min-width: 0;
+  transition:all 0.4s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.how-it-works .hiw-step-wrapper:hover .hiw-step{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:var(--shadow-xl);
 }
 
 .how-it-works .hiw-step{
@@ -557,23 +571,22 @@ a:focus-visible, button:focus-visible {
   border:none;
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow-md);
-  padding:48px 24px 32px;
+  padding:20px 24px 32px;
   text-align:center;
   transition:all 0.4s var(--ease-smooth);
   isolation:isolate;
   min-width: 0;
   overflow:hidden;
-}
-
-.how-it-works .hiw-step:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:var(--shadow-xl);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .how-it-works .hiw-step::before{
   content:"";
   position:absolute;
-  inset:0 0 auto 0;
+  top:0; left:0; right:0;
   height:6px;
   border-radius:var(--radius-xl) var(--radius-xl) 0 0;
   background: var(--gradient-primary);
@@ -595,6 +608,7 @@ a:focus-visible, button:focus-visible {
   font-weight:900;
   font-size:1.25rem;
   color:#ffffff;
+  z-index:1;
 }
 
 .how-it-works .hiw-icon{
@@ -637,7 +651,7 @@ a:focus-visible, button:focus-visible {
 }
 .team-spotlight h2{
   grid-area: title;
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   text-align: center;
   font-weight: 800;
   font-size: clamp(28px,3.5vw,42px);
@@ -647,10 +661,10 @@ a:focus-visible, button:focus-visible {
   -webkit-text-fill-color:transparent;
   background-clip:text;
   position:relative;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 .team-spotlight h2::after{
-  content:""; display:block; height:4px; width:80px; margin:16px auto 0;
+  content:""; display:block; height:4px; width:80px; margin:12px auto 0;
   background:var(--gradient-primary);
   border-radius:var(--radius-full);
   box-shadow:0 2px 8px rgba(0,0,0,0.15);
@@ -704,9 +718,9 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Text */
-.ts-info{ display: grid; align-content: start; gap: 8px; position: relative; }
-.ts-name{ margin: 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: var(--text-heading); }
-.ts-role{ margin: 0; color: var(--text); font-weight: 700; opacity: 0.7; }
+.ts-info{ display: grid; align-content: start; gap: 0; position: relative; }
+.ts-name{ margin: 0 0 2px 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: var(--text-heading); }
+.ts-role{ margin: 0 0 8px 0; color: var(--text); font-weight: 700; opacity: 0.7; }
 .ts-actions{
   display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
   position: relative;
@@ -722,7 +736,7 @@ a:focus-visible, button:focus-visible {
 
 /* Facts block */
 #team-spotlight .ts-facts{
-  max-height: 220px;
+  max-height: 280px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   position: relative;
@@ -801,11 +815,16 @@ a:focus-visible, button:focus-visible {
 /* Position "View all staff" button at bottom left of info section on desktop */
 @media (min-width: 701px) {
   #team-spotlight .ts-info {
-    align-content: space-between;
+    align-content: start;
     min-height: 220px;
+    display: flex;
+    flex-direction: column;
   }
   #team-spotlight .ts-facts {
     margin-bottom: 50px;
+    max-height: none;
+    flex: 1;
+    min-height: 140px;
   }
   #team-spotlight .ts-actions a[href="/staff/"] {
     position: absolute;
@@ -967,6 +986,7 @@ a:focus-visible, button:focus-visible {
   overflow:hidden;
   text-overflow:ellipsis;
   color:var(--text-heading);
+  margin:0;
 }
 .cta-copy .meta{
   display:block;
@@ -974,7 +994,7 @@ a:focus-visible, button:focus-visible {
   font-weight:500;
   font-size:0.95rem;
   line-height:1.4;
-  padding-bottom:.12em;
+  margin-top:4px;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -1317,7 +1337,7 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
   }
 
   .how-it-works .hiw-step {
-    padding: 38px 7px 10px;
+    padding: 20px 7px 10px;
     border-radius: 10px;
     min-height: 130px;
     min-width: 0;
@@ -1552,7 +1572,7 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
     gap: 1px;
   }
   .how-it-works .hiw-step {
-    padding: 25px 4px 8px;
+    padding: 20px 4px 8px;
     min-height: 110px;
   }
   .how-it-works .badge {
@@ -1580,7 +1600,7 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
 @media (prefers-reduced-motion: reduce) {
   .ts-slide,
   .ride-modal__card,
-  .how-it-works .hiw-step,
+  .how-it-works .hiw-step-wrapper,
   * {
     animation: none;
     transition: none;
@@ -1682,20 +1702,26 @@ Your browser does not support the video tag.
 <section class="section how-it-works" aria-labelledby="hiw-heading">
   <h2 id="hiw-heading">How It Works</h2>
   <ol class="hiw-steps">
-    <li class="hiw-step">
+    <li class="hiw-step-wrapper">
       <span class="badge">1</span>
-      <h3 class="hiw-title">Call CARPOOL</h3>
-      <p class="hiw-text">Dial (979) 693-9905 when you're ready to head home.</p>
+      <div class="hiw-step">
+        <h3 class="hiw-title">Call CARPOOL</h3>
+        <p class="hiw-text">Dial (979) 693-9905 when you're ready to head home.</p>
+      </div>
     </li>
-    <li class="hiw-step">
+    <li class="hiw-step-wrapper">
       <span class="badge">2</span>
-      <h3 class="hiw-title">Volunteer picks you up</h3>
-      <p class="hiw-text">A student driver & navigator meet you at your location.</p>
+      <div class="hiw-step">
+        <h3 class="hiw-title">Volunteer picks you up</h3>
+        <p class="hiw-text">A student driver & navigator meet you at your location.</p>
+      </div>
     </li>
-    <li class="hiw-step">
+    <li class="hiw-step-wrapper">
       <span class="badge">3</span>
-      <h3 class="hiw-title">Get home safe</h3>
-      <p class="hiw-text">We'll take you home within Bryan/College Station for free.</p>
+      <div class="hiw-step">
+        <h3 class="hiw-title">Get home safe</h3>
+        <p class="hiw-text">We'll take you home within Bryan/College Station for free.</p>
+      </div>
     </li>
   </ol>
 </section>
@@ -1706,9 +1732,9 @@ Your browser does not support the video tag.
 <section id="hours" class="section" aria-labelledby="hours-heading">
 <h2 id="hours-heading">Hours of Operation</h2>
 <div class="hours mt-6">
-<p class="big">Fridays &amp; Saturdays • 10:00 pm – 3:00 am</p>
-<p class="note">While Texas A&amp;M classes are in session. No service during summer months.
-Changes posted on Facebook &amp; Instagram.</p>
+<p class="big">Fridays & Saturdays • 10:00 pm – 3:00 am</p>
+<p class="note">While Texas A&M classes are in session. No service during summer months.
+Changes posted on Facebook & Instagram.</p>
 </div>
 </section>
 
@@ -1792,6 +1818,28 @@ Changes posted on Facebook &amp; Instagram.</p>
   </div>
 </section>
 
+<!-- Global Footer -->
+<footer itemscope itemtype="https://schema.org/WPFooter" style="background: #500000; color: #fff; padding: 48px 24px; text-align: center; margin: 60px 0 0 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; box-shadow: 0 -4px 20px rgba(0,0,0,.1);">
+  <div style="max-width: 1600px; margin: 0 auto;">
+    <p style="margin: 0 0 16px; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;">
+      <strong itemprop="name">CARPOOL</strong> - Student-run 501(c)(3) non-profit
+    </p>
+    <p style="margin: 0 0 20px; font-size: 15px; opacity: 0.95;">
+      Serving Bryan/College Station since 1999 • Over 297,588 free rides given
+    </p>
+    <p style="margin: 0 0 24px; font-size: 15px;">
+      <a href="tel:+19796939905" style="color: #fff; text-decoration: none; padding: 10px 20px; background: rgba(255,255,255,0.15); border-radius: 6px; display: inline-block; margin: 0 8px 8px 0; transition: background 0.2s;" itemprop="telephone">📞 Call: (979) 693-9905</a>
+      <a href="mailto:publicrelations.carpool@gmail.com" style="color: #fff; text-decoration: none; padding: 10px 20px; background: rgba(255,255,255,0.15); border-radius: 6px; display: inline-block; margin: 0 8px 8px 0; transition: background 0.2s;" itemprop="email">✉️ Email Us</a>
+    </p>
+    <div style="margin: 0; font-size: 14px; opacity: 0.95; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <img src="https://carpool.tamu.edu/wp-content/uploads/2016/11/Logo_SGA.png" alt="Student Government Association Logo" style="height: 50px; width: auto; filter: brightness(0) invert(1);" />
+      <p style="margin: 0; text-align: center;">
+        CARPOOL is a member of the Student Government Association's (SGA) Executive Branch. For more information please see <a href="https://sga.tamu.edu" style="color: #fff; text-decoration: underline;" target="_blank" rel="noopener">sga.tamu.edu</a>.
+      </p>
+    </div>
+  </div>
+  <meta itemprop="copyrightHolder" content="CARPOOL">
+</footer>
 </div>
 </section>
 
@@ -2185,7 +2233,7 @@ Changes posted on Facebook &amp; Instagram.</p>
 
     function animateOnScroll(){
       if (!("IntersectionObserver" in window)) return;
-      var elements = document.querySelectorAll('.info-grid > .card, .info-grid > .video-wrap, .cta-grid .tile, .how-it-works .hiw-step, #hours .hours, #team-spotlight, .team-spotlight .ts-stage, .carpool-banner, .hero-highlight');
+      var elements = document.querySelectorAll('.info-grid > .card, .info-grid > .video-wrap, .cta-grid .tile, .how-it-works .hiw-step-wrapper, #hours .hours, #team-spotlight, .team-spotlight .ts-stage, .carpool-banner, .hero-highlight');
       var isMobile = window.matchMedia("(max-width: 700px)").matches;
       var rootStyle = getComputedStyle(document.documentElement);
       var baseDuration = parseFloat(rootStyle.getPropertyValue('--anim-duration')) || 1.0;
@@ -2197,7 +2245,7 @@ Changes posted on Facebook &amp; Instagram.</p>
         entries.forEach(function(entry, index){
           if (entry.isIntersecting) {
             var el = entry.target;
-            if (el.matches('.how-it-works .hiw-step')) {
+            if (el.matches('.how-it-works .hiw-step-wrapper')) {
               el.style.animation = 'fadeInUpBounce ' + duration + 's cubic-bezier(0.34, 1.56, 0.64, 1) ' + (index*stagger) + 's forwards';
             } else if (el.matches('#team-spotlight, .team-spotlight .ts-stage')) {
               el.style.animation = 'fadeInScale ' + (duration*0.8) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94) ' + (index*stagger) + 's forwards';
@@ -2214,7 +2262,7 @@ Changes posted on Facebook &amp; Instagram.</p>
       }, { threshold: isMobile ? 0.08 : 0.12, rootMargin: '0px 0px 10px 0px' });
       elements.forEach(function(el){
         el.style.opacity = 0; el.style.transform = 'translateY(25px) scale(0.95)';
-        if (el.matches('.how-it-works .hiw-step')) el.style.transform = 'translateY(30px) scale(0.9)';
+        if (el.matches('.how-it-works .hiw-step-wrapper')) el.style.transform = 'translateY(30px) scale(0.9)';
         else if (el.matches('#team-spotlight, .team-spotlight .ts-stage')) el.style.transform = 'translateY(15px) scale(0.98)';
         else if (el.matches('#hours .hours')) el.style.transform = 'translateX(-20px) scale(0.98)';
         observer.observe(el);
