@@ -1,0 +1,82 @@
+/* ===================================================================
+   CARPOOL HALLOWEEN THEME - Custom CSS for Avada Builder
+
+   To activate this theme:
+   1. Go to Avada > Theme Options > Custom CSS
+   2. Copy and paste this entire CSS file
+   3. Save changes
+
+   This will override the professional theme with Halloween colors:
+   - Orange accents (#ff6b00, #ff8c00)
+   - Dark purple/eggplant backgrounds (#1a0a2e)
+
+   To remove: Simply delete this custom CSS from Avada settings
+   =================================================================== */
+
+/* What is CARPOOL heading - Halloween purple */
+.info-grid .card h2 {
+  color: #1a0a2e !important;
+}
+.info-grid .card h2::after {
+  background: #1a0a2e !important;
+}
+
+/* Paragraph text - Halloween purple */
+.info-grid .card p {
+  color: #1a0a2e !important;
+}
+
+/* FAQ styling - Halloween purple */
+.faq summary {
+  color: #1a0a2e !important;
+}
+
+.faq .answer {
+  color: #1a0a2e !important;
+}
+
+/* How It Works section - Halloween badge (orange on dark purple) */
+.how-it-works .badge {
+  background: #1a0a2e !important;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(255,107,0,0.3) !important;
+  color: #ff6b00 !important;
+}
+
+/* How It Works - Halloween purple headings */
+.how-it-works .hiw-title {
+  color: #1a0a2e !important;
+}
+
+.how-it-works .hiw-text {
+  color: #1a0a2e !important;
+}
+
+/* Team Spotlight - Halloween orange border */
+.team-spotlight {
+  --ts-border: 1px solid rgba(255,107,0,.3) !important;
+}
+
+/* Team Spotlight - Halloween purple text */
+.ts-name {
+  color: #1a0a2e !important;
+}
+
+.ts-role {
+  color: #1a0a2e !important;
+}
+
+/* Team Spotlight buttons - Halloween purple background with orange text */
+.ts-btn {
+  border: 1px solid rgba(26,10,46,.3) !important;
+  background: #1a0a2e !important;
+  color: #ff8c00 !important;
+}
+
+.ts-btn:hover {
+  background: #0f0520 !important;
+}
+
+/* CTA tiles - Halloween purple text */
+.cta-tile {
+  color: #1a0a2e !important;
+}
