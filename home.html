@@ -71,11 +71,6 @@
   min-height:100vh;
   position: relative;
   overflow-x: hidden;
-  width: 100%;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
 }
 
 /* Try to apply to body as well (separate rule for safety) */
@@ -220,16 +215,13 @@ a:focus-visible, button:focus-visible {
 .carpool-banner.error .banner-text strong{ color: #dc2626; }
 
 /* Success / running style */
-.carpool-banner.success::before{
-  background: linear-gradient(90deg, #059669 0%, #10b981 100%);
-}
 .carpool-banner.success .icon{
-  background: linear-gradient(135deg, rgba(5,150,105,0.1) 0%, rgba(16,185,129,0.15) 100%);
-  color:#059669;
+  background: #f3f4f6;
+  color:var(--accent);
   font-size:24px;
-  border-color:rgba(5,150,105,0.2);
+  border-color:rgba(0,0,0,0.1);
 }
-.carpool-banner.success .banner-text strong{ color: #059669; }
+.carpool-banner.success .banner-text strong{ color: var(--accent); }
 
 /* --- Hero --- */
 .hero{ text-align:center; margin: 24px 0 40px; position: relative; }
@@ -395,7 +387,7 @@ a:focus-visible, button:focus-visible {
 .video-wrap{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:center;
   justify-content:flex-start;
   width:100%;
 }
@@ -440,7 +432,7 @@ a:focus-visible, button:focus-visible {
 .video-caption{
   font-size:0.95rem;
   color:var(--muted-accessible, var(--muted));
-  text-align:left;
+  text-align:center;
   margin-top:16px;
   font-weight:500;
   width:100%;
@@ -786,17 +778,26 @@ a:focus-visible, button:focus-visible {
 }
 #team-spotlight .ts-controls button:hover{ background:#f3f4f6; }
 
-/* Position "View all staff" button with controls on desktop */
+/* Position "View all staff" button at bottom of card on desktop */
 @media (min-width: 701px) {
+  .team-spotlight {
+    grid-template-rows: auto minmax(0, auto) auto;
+    grid-template-areas:
+      "title"
+      "stage"
+      "footer";
+  }
   #team-spotlight .ts-actions a[href="/staff/"] {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    margin: 0;
-    z-index: 3;
+    grid-area: footer;
+    margin: 16px auto 0;
+    display: inline-flex;
+    position: static;
+  }
+  #team-spotlight .ts-actions a[href^="mailto:"] {
+    display: inline-flex;
   }
   #team-spotlight .ts-actions {
-    padding-right: 0;
+    padding-right: calc(var(--ts-ctrl-w) * 2 + var(--ts-ctrl-gap) + 16px);
   }
 }
 
