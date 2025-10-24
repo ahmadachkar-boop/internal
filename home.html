@@ -551,6 +551,17 @@ a:focus-visible, button:focus-visible {
   max-width: 100%;
 }
 
+.how-it-works .hiw-step-wrapper{
+  position:relative;
+  min-width: 0;
+  transition:all 0.4s var(--ease-smooth);
+}
+
+.how-it-works .hiw-step-wrapper:hover .hiw-step{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:var(--shadow-xl);
+}
+
 .how-it-works .hiw-step{
   position:relative;
   background:var(--card);
@@ -562,11 +573,7 @@ a:focus-visible, button:focus-visible {
   transition:all 0.4s var(--ease-smooth);
   isolation:isolate;
   min-width: 0;
-}
-
-.how-it-works .hiw-step:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:var(--shadow-xl);
+  overflow:hidden;
 }
 
 .how-it-works .hiw-step::before{
@@ -594,6 +601,7 @@ a:focus-visible, button:focus-visible {
   font-weight:900;
   font-size:1.25rem;
   color:#ffffff;
+  z-index:1;
 }
 
 .how-it-works .hiw-icon{
@@ -1585,7 +1593,7 @@ body:has(.ride-modal-root #ride-modal-toggle:checked):has(#ride-card-open:not([h
 @media (prefers-reduced-motion: reduce) {
   .ts-slide,
   .ride-modal__card,
-  .how-it-works .hiw-step,
+  .how-it-works .hiw-step-wrapper,
   * {
     animation: none;
     transition: none;
@@ -1687,20 +1695,26 @@ Your browser does not support the video tag.
 <section class="section how-it-works" aria-labelledby="hiw-heading">
   <h2 id="hiw-heading">How It Works</h2>
   <ol class="hiw-steps">
-    <li class="hiw-step">
+    <li class="hiw-step-wrapper">
       <span class="badge">1</span>
-      <h3 class="hiw-title">Call CARPOOL</h3>
-      <p class="hiw-text">Dial (979) 693-9905 when you're ready to head home.</p>
+      <div class="hiw-step">
+        <h3 class="hiw-title">Call CARPOOL</h3>
+        <p class="hiw-text">Dial (979) 693-9905 when you're ready to head home.</p>
+      </div>
     </li>
-    <li class="hiw-step">
+    <li class="hiw-step-wrapper">
       <span class="badge">2</span>
-      <h3 class="hiw-title">Volunteer picks you up</h3>
-      <p class="hiw-text">A student driver & navigator meet you at your location.</p>
+      <div class="hiw-step">
+        <h3 class="hiw-title">Volunteer picks you up</h3>
+        <p class="hiw-text">A student driver & navigator meet you at your location.</p>
+      </div>
     </li>
-    <li class="hiw-step">
+    <li class="hiw-step-wrapper">
       <span class="badge">3</span>
-      <h3 class="hiw-title">Get home safe</h3>
-      <p class="hiw-text">We'll take you home within Bryan/College Station for free.</p>
+      <div class="hiw-step">
+        <h3 class="hiw-title">Get home safe</h3>
+        <p class="hiw-text">We'll take you home within Bryan/College Station for free.</p>
+      </div>
     </li>
   </ol>
 </section>
@@ -2190,7 +2204,7 @@ Changes posted on Facebook &amp; Instagram.</p>
 
     function animateOnScroll(){
       if (!("IntersectionObserver" in window)) return;
-      var elements = document.querySelectorAll('.info-grid > .card, .info-grid > .video-wrap, .cta-grid .tile, .how-it-works .hiw-step, #hours .hours, #team-spotlight, .team-spotlight .ts-stage, .carpool-banner, .hero-highlight');
+      var elements = document.querySelectorAll('.info-grid > .card, .info-grid > .video-wrap, .cta-grid .tile, .how-it-works .hiw-step-wrapper, #hours .hours, #team-spotlight, .team-spotlight .ts-stage, .carpool-banner, .hero-highlight');
       var isMobile = window.matchMedia("(max-width: 700px)").matches;
       var rootStyle = getComputedStyle(document.documentElement);
       var baseDuration = parseFloat(rootStyle.getPropertyValue('--anim-duration')) || 1.0;
@@ -2202,7 +2216,7 @@ Changes posted on Facebook &amp; Instagram.</p>
         entries.forEach(function(entry, index){
           if (entry.isIntersecting) {
             var el = entry.target;
-            if (el.matches('.how-it-works .hiw-step')) {
+            if (el.matches('.how-it-works .hiw-step-wrapper')) {
               el.style.animation = 'fadeInUpBounce ' + duration + 's cubic-bezier(0.34, 1.56, 0.64, 1) ' + (index*stagger) + 's forwards';
             } else if (el.matches('#team-spotlight, .team-spotlight .ts-stage')) {
               el.style.animation = 'fadeInScale ' + (duration*0.8) + 's cubic-bezier(0.25, 0.46, 0.45, 0.94) ' + (index*stagger) + 's forwards';
@@ -2219,7 +2233,7 @@ Changes posted on Facebook &amp; Instagram.</p>
       }, { threshold: isMobile ? 0.08 : 0.12, rootMargin: '0px 0px 10px 0px' });
       elements.forEach(function(el){
         el.style.opacity = 0; el.style.transform = 'translateY(25px) scale(0.95)';
-        if (el.matches('.how-it-works .hiw-step')) el.style.transform = 'translateY(30px) scale(0.9)';
+        if (el.matches('.how-it-works .hiw-step-wrapper')) el.style.transform = 'translateY(30px) scale(0.9)';
         else if (el.matches('#team-spotlight, .team-spotlight .ts-stage')) el.style.transform = 'translateY(15px) scale(0.98)';
         else if (el.matches('#hours .hours')) el.style.transform = 'translateX(-20px) scale(0.98)';
         observer.observe(el);
