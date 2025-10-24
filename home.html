@@ -75,16 +75,16 @@
 
 /* Try to apply to body as well (separate rule for safety) */
 body .carpool-landing{
-  background:var(--bg) !important;
-  background-image:var(--gradient-mesh) !important;
+  background:var(--bg);
+  background-image:var(--gradient-mesh);
 }
 
 /* Modern browsers only - :has() support */
 @supports selector(:has(*)) {
   html:has(.carpool-landing),
   body:has(.carpool-landing) {
-    background:var(--bg) !important;
-    background-image:var(--gradient-mesh) !important;
+    background:var(--bg);
+    background-image:var(--gradient-mesh);
   }
 }
 
@@ -168,7 +168,7 @@ a:focus-visible, button:focus-visible {
   display:grid;
   grid-template-columns:auto 1fr;
   gap:16px;
-  background:var(--card) !important;
+  background:var(--card);
   border:none;
   border-radius:var(--radius-xl);
   padding:20px 24px;
@@ -330,7 +330,7 @@ a:focus-visible, button:focus-visible {
 }
 .info-grid > .card{
   grid-area:left; min-width:0;
-  background: var(--card) !important;
+  background: var(--card);
   border: none;
   border-radius: var(--radius-xl);
   padding: 40px 36px 36px;
@@ -466,7 +466,7 @@ a:focus-visible, button:focus-visible {
   border-color:rgba(124,45,18,.2);
 }
 .faq details[open]{
-  background:var(--card) !important;
+  background:var(--card);
   box-shadow:var(--shadow-md);
 }
 .faq summary{
@@ -543,7 +543,7 @@ a:focus-visible, button:focus-visible {
 
 .how-it-works .hiw-step{
   position:relative;
-  background:var(--card) !important;
+  background:var(--card);
   border:none;
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow-md);
@@ -780,7 +780,7 @@ a:focus-visible, button:focus-visible {
   background: transparent;
   position: relative;
   margin: 64px 0 0;
-  padding: 48px 0 0;
+  padding: 48px 0 64px;
   width: 100%;
   max-width: var(--shell-max);
   margin-left: auto;
@@ -864,7 +864,7 @@ a:focus-visible, button:focus-visible {
   border:none;
   border-radius:var(--radius-xl);
   padding:24px 20px;
-  background:var(--card) !important;
+  background:var(--card);
   color:var(--text);
   box-shadow:var(--shadow-md);
   transition: all 0.4s var(--ease-smooth);
