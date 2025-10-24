@@ -66,7 +66,7 @@
   }
 }
 
-/* White cards on dark background */
+/* Orange cards on dark background */
 .carpool-landing .info-grid > .card,
 .carpool-landing .how-it-works .hiw-step-wrapper .hiw-step,
 .carpool-landing .cta-tile,
@@ -75,20 +75,20 @@
 .carpool-landing .video-frame,
 .carpool-landing .team-spotlight .ts-stage,
 .carpool-landing .cta-support {
-  background: #fff !important;
-  color: #111 !important;
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
 }
 
 /* Banner background override */
 .carpool-landing .carpool-banner {
-  background: #fff !important;
-  color: #111 !important;
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
 }
 
 /* FAQ details open state */
 .carpool-landing .faq details[open] {
-  background: #fff !important;
-  color: #111 !important;
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
 }
 
 /* White text for headers on dark background */
@@ -102,20 +102,42 @@
   background-clip: text !important;
 }
 
-/* Hero heading */
+/* Hero heading - white text on dark background */
 .carpool-landing .hero h1 {
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* CTA heading - dark text for orange card */
+.carpool-landing .cta-head h2 {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
 
-/* CTA heading */
-.carpool-landing .cta-head h2 {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+/* Card headings - dark text on orange background */
+.carpool-landing .info-grid > .card h2,
+.carpool-landing .how-it-works .hiw-step h3,
+.carpool-landing .cta-tile strong {
+  color: #1f2937 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* Card text - dark on orange background */
+.carpool-landing .info-grid > .card p,
+.carpool-landing .how-it-works .hiw-step p,
+.carpool-landing .cta-tile .meta,
+.carpool-landing .hero-highlight .stat-label,
+.carpool-landing .hero-highlight .hero-promise,
+.carpool-landing .carpool-banner .banner-text,
+.carpool-landing .cta-support .chip {
+  color: #1f2937 !important;
 }
 
 /* White text on dark background areas */
@@ -124,24 +146,25 @@
   color: #e0e0e0 !important;
 }
 
-/* Stat value with gradient */
+/* Stat value - dark text on orange background */
 .carpool-landing .hero-highlight .stat-value {
-  background: var(--gradient-primary) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  color: #1f2937 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
 }
 
-/* Badge with white background and gradient text */
+/* Badge with orange background and white text */
 .carpool-landing .how-it-works .badge {
-  background: #fff !important;
-  color: transparent !important;
-  background-image: var(--gradient-primary) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
+  background: #ff6b00 !important;
+  color: #ffffff !important;
   border-color: var(--bg) !important;
-  box-shadow: var(--shadow-md), 0 0 0 1px rgba(124,45,18,0.1) !important;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(255,107,0,0.3) !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  background-image: none !important;
 }
 
 /* Button glow effects */
@@ -232,9 +255,10 @@
   border-color: rgba(124,45,18,.2) !important;
 }
 
-/* Promise pop background */
+/* Promise pop - darker background on orange card */
 .carpool-landing .hero-highlight .promise-pop {
-  background: var(--gradient-soft) !important;
+  background: rgba(0,0,0,0.15) !important;
+  color: #1f2937 !important;
 }
 
 /* Colored top borders on cards */
@@ -249,9 +273,13 @@
 }
 
 /* Section heading underlines */
-.carpool-landing .section h2::after,
-.carpool-landing .info-grid .card h2::after {
+.carpool-landing .section h2::after {
   background: var(--gradient-primary) !important;
+}
+
+/* Card heading underline - darker on orange background */
+.carpool-landing .info-grid .card h2::after {
+  background: #1f2937 !important;
 }
 
 /* Twinkle animation for stars (added by JavaScript in Avada footer) */
