@@ -703,9 +703,9 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Text */
-.ts-info{ display: grid; align-content: start; gap: 8px; position: relative; }
-.ts-name{ margin: 0 0 4px 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: var(--text-heading); }
-.ts-role{ margin: -4px 0 0 0; color: var(--text); font-weight: 700; opacity: 0.7; }
+.ts-info{ display: grid; align-content: start; gap: 0; position: relative; }
+.ts-name{ margin: 0 0 2px 0; font: 800 clamp(20px, 2.6vw, 24px)/1.2 var(--font-primary); color: var(--text-heading); }
+.ts-role{ margin: 0 0 8px 0; color: var(--text); font-weight: 700; opacity: 0.7; }
 .ts-actions{
   display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;
   position: relative;
@@ -800,11 +800,16 @@ a:focus-visible, button:focus-visible {
 /* Position "View all staff" button at bottom left of info section on desktop */
 @media (min-width: 701px) {
   #team-spotlight .ts-info {
-    align-content: space-between;
+    align-content: start;
     min-height: 220px;
+    display: flex;
+    flex-direction: column;
   }
   #team-spotlight .ts-facts {
     margin-bottom: 50px;
+    max-height: none;
+    flex: 1;
+    min-height: 140px;
   }
   #team-spotlight .ts-actions a[href="/staff/"] {
     position: absolute;
