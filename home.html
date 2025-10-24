@@ -309,7 +309,6 @@ a:focus-visible, button:focus-visible {
 }
 /* Subtle pop for key phrase */
 .hero-highlight .promise-pop{
-  position:relative;
   font-weight:800;
   background:var(--gradient-soft);
   padding:0 .4em;
@@ -317,15 +316,11 @@ a:focus-visible, button:focus-visible {
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  background-image:
-    var(--gradient-soft),
-    linear-gradient(to right, var(--accent) 0%, var(--accent-light) 100%);
-  background-size: 100% 100%, 100% 4px;
-  background-position: 0 0, 0 100%;
-  background-repeat: no-repeat;
-}
-.hero-highlight .promise-pop::after{
-  display: none;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: none;
 }
 
 /* --- Info grid (card left, video right) --- */
