@@ -1,0 +1,172 @@
+/* ========================================
+   HALLOWEEN THEME OVERRIDE FOR CARPOOL HOMEPAGE
+
+   Usage: Paste this entire file into Avada → Theme Options → Custom CSS
+
+   To activate Halloween theme: Add this CSS
+   To deactivate: Remove this CSS from Custom CSS field
+
+   Without this CSS, the page will display the professional
+   neutral theme with light gray backgrounds and maroon accents.
+   ======================================== */
+
+/* Halloween Color Variables Override */
+:root {
+  --bg: #0a0e27 !important;           /* Deep midnight blue */
+  --card: #ff8c00 !important;         /* Halloween orange */
+  --accent: #ff6b00 !important;       /* Bright Halloween orange */
+  --accent-light: #ff8533 !important;
+  --text: #1f2937 !important;         /* Keep dark for card readability */
+  --text-heading: #ffffff !important; /* White headings on dark background */
+  --muted: #e0e0e0 !important;
+
+  /* Halloween gradient mesh for background */
+  --gradient-mesh:
+    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 800px at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 400px at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%) !important;
+}
+
+/* Force dark starry background on landing section */
+.carpool-landing {
+  background: #0a0e27 !important;
+  background-image:
+    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 800px at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 400px at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%) !important;
+  color: #ffffff !important;
+}
+
+/* Force dark background on html/body when landing page is present */
+@supports selector(:has(*)) {
+  html:has(.carpool-landing),
+  body:has(.carpool-landing) {
+    background: #0a0e27 !important;
+    background-image:
+      radial-gradient(ellipse 800px 600px at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 600px 800px at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 1000px 400px at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%) !important;
+  }
+}
+
+/* Force orange backgrounds on all cards */
+.carpool-landing .info-grid > .card {
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+}
+
+.carpool-landing .how-it-works .hiw-step {
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+  overflow: visible !important;
+}
+
+.carpool-landing .cta-tile {
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+}
+
+.carpool-landing .carpool-banner {
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+}
+
+.carpool-landing .faq details[open] {
+  background: #ff8c00 !important;
+  color: #1f2937 !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+}
+
+/* White text for headers on dark background */
+.carpool-landing h1,
+.carpool-landing h2,
+.carpool-landing h3,
+.carpool-landing .hero-title {
+  color: #ffffff !important;
+}
+
+/* White for main text on dark background */
+.carpool-landing > .carpool-wrap > p,
+.carpool-landing .hero-subtitle {
+  color: #e0e0e0 !important;
+}
+
+/* Ensure card content stays dark on orange background */
+.carpool-landing .info-grid > .card h2,
+.carpool-landing .info-grid > .card h3,
+.carpool-landing .info-grid > .card p,
+.carpool-landing .hiw-step h3,
+.carpool-landing .hiw-step p,
+.carpool-landing .cta-tile h3,
+.carpool-landing .cta-tile p,
+.carpool-landing .cta-tile strong,
+.carpool-landing .cta-tile .meta {
+  color: #1f2937 !important;
+}
+
+/* Badge with orange glow */
+.carpool-landing .how-it-works .badge {
+  background: #ff6b00 !important;
+  color: #ffffff !important;
+  border-color: #0a0e27 !important;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4) !important;
+}
+
+/* Halloween button glow effects */
+.carpool-landing .cta-primary {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.4), 0 0 40px rgba(255, 107, 0, 0.2) !important;
+}
+
+.carpool-landing .cta-primary:hover {
+  box-shadow: 0 12px 32px rgba(255, 107, 0, 0.5), 0 0 60px rgba(255, 107, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Remove bottom spacing from CTA section for Halloween */
+.carpool-landing .cta-section {
+  padding: 48px 0 0 !important;
+}
+
+/* Team Spotlight with orange borders */
+.carpool-landing .team-spotlight {
+  --ts-border: 1px solid rgba(255, 107, 0, 0.3) !important;
+}
+
+/* Orange CTA section gradient */
+.carpool-landing .cta-section::before {
+  background: radial-gradient(60% 100% at 50% 100%, rgba(255, 107, 0, 0.12), transparent 70%) !important;
+}
+
+/* Twinkle animation for stars (added by JavaScript in Avada footer) */
+@keyframes twinkleStar {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Shooting star animation */
+@keyframes shootingStar {
+  0% { transform: translate(0, 0) rotate(-45deg); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translate(-300px, 300px) rotate(-45deg); opacity: 0; }
+}
+
+/* Bat animation */
+@keyframes flyBat {
+  0% { transform: translateX(-100px) translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 100px)) translateY(-50px); opacity: 0; }
+}
+
+/* Ghost animation */
+@keyframes floatGhost {
+  0% { transform: translateX(-100px) translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateX(calc(100vw + 100px)) translateY(-30px) rotate(10deg); opacity: 0; }
+}
