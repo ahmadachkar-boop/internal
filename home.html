@@ -143,7 +143,7 @@ body .carpool-landing{
 /* Section headings */
 .section{ margin:48px 0 24px; }
 .section h2{
-  text-align:center; margin:0 0 32px;
+  text-align:center; margin:0 0 24px;
   font-size:clamp(28px,3.5vw,42px); font-weight:800;
   letter-spacing: -0.5px;
   background:var(--gradient-primary);
@@ -151,10 +151,10 @@ body .carpool-landing{
   -webkit-text-fill-color:transparent;
   background-clip:text;
   position:relative;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 .section h2::after{
-  content:""; display:block; height:4px; width:80px; margin:16px auto 0;
+  content:""; display:block; height:4px; width:80px; margin:12px auto 0;
   background:var(--gradient-primary);
   border-radius:var(--radius-full);
   box-shadow:0 2px 8px rgba(0,0,0,0.15);
@@ -197,20 +197,21 @@ a:focus-visible, button:focus-visible {
   border-radius:var(--radius-md);
   background:#f3f4f6;
   color:var(--accent);
-  display:grid;
-  place-items:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-weight:900;
-  font-size:20px;
+  font-size:24px;
   line-height:1;
   border:2px solid rgba(0,0,0,.1);
+  flex-shrink:0;
+  align-self:center;
 }
 .carpool-banner .banner-text {
   margin: 0;
   line-height: 1.6;
   font-size:1.05rem;
-  display: flex;
-  align-items: center;
-  min-height: 48px;
+  align-self:center;
 }
 .carpool-banner strong, .carpool-banner em { white-space: normal; }
 
@@ -535,8 +536,8 @@ a:focus-visible, button:focus-visible {
 
 /* HOW IT WORKS Section */
 .how-it-works,
-.how-it-works * { box-sizing: border-box; overflow: visible; }
-.how-it-works { max-width: 100%; margin-inline: auto; margin-top: 48px; }
+.how-it-works * { box-sizing: border-box; }
+.how-it-works { max-width: 100%; margin-inline: auto; margin-top: 48px; overflow: visible; }
 
 .how-it-works .hiw-steps{
   display: grid;
@@ -561,7 +562,7 @@ a:focus-visible, button:focus-visible {
   transition:all 0.4s var(--ease-smooth);
   isolation:isolate;
   min-width: 0;
-  overflow:visible;
+  overflow:hidden;
 }
 
 .how-it-works .hiw-step:hover{
@@ -954,7 +955,6 @@ a:focus-visible, button:focus-visible {
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:flex-start;
   line-height:1.4;
   overflow:visible;
 }
