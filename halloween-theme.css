@@ -8,15 +8,34 @@
 
    This will override the professional theme with Halloween colors:
    - Orange accents (#ff6b00, #ff8c00)
-   - Dark purple/eggplant backgrounds (#1a0a2e)
+   - Dark purple/eggplant (#1a0a2e)
 
    To remove: Simply delete this custom CSS from Avada settings
    =================================================================== */
+
+/* ========== CARD BACKGROUNDS - Orange ========== */
+.info-grid > .card,
+.how-it-works .hiw-step,
+.cta-tile,
+.carpool-banner,
+#hours .hours,
+.hero-highlight,
+.cta-support {
+  background: #ff8c00 !important;
+}
+
+/* FAQ open state - orange background */
+.faq details[open] {
+  background: #ff8c00 !important;
+}
+
+/* ========== TEXT COLORS - Dark Purple ========== */
 
 /* What is CARPOOL heading - Halloween purple */
 .info-grid .card h2 {
   color: #1a0a2e !important;
 }
+
 .info-grid .card h2::after {
   background: #1a0a2e !important;
 }
@@ -35,13 +54,6 @@
   color: #1a0a2e !important;
 }
 
-/* How It Works section - Halloween badge (orange on dark purple) */
-.how-it-works .badge {
-  background: #1a0a2e !important;
-  box-shadow: var(--shadow-md), 0 0 0 1px rgba(255,107,0,0.3) !important;
-  color: #ff6b00 !important;
-}
-
 /* How It Works - Halloween purple headings */
 .how-it-works .hiw-title {
   color: #1a0a2e !important;
@@ -49,11 +61,6 @@
 
 .how-it-works .hiw-text {
   color: #1a0a2e !important;
-}
-
-/* Team Spotlight - Halloween orange border */
-.team-spotlight {
-  --ts-border: 1px solid rgba(255,107,0,.3) !important;
 }
 
 /* Team Spotlight - Halloween purple text */
@@ -65,6 +72,38 @@
   color: #1a0a2e !important;
 }
 
+/* CTA tiles - Halloween purple text */
+.cta-tile {
+  color: #1a0a2e !important;
+}
+
+.cta-copy strong,
+.cta-copy .meta {
+  color: #1a0a2e !important;
+}
+
+/* ========== BADGES - Orange on Dark Purple ========== */
+
+/* How It Works section - Halloween badge (orange on dark purple) */
+.how-it-works .badge {
+  background: #1a0a2e !important;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(255,107,0,0.3) !important;
+  color: #ff6b00 !important;
+  border-color: #ff8c00 !important;
+}
+
+/* Fix badge circles - show full circle */
+.how-it-works .hiw-step {
+  overflow: visible !important;
+}
+
+/* ========== TEAM SPOTLIGHT - Orange/Purple Theme ========== */
+
+/* Team Spotlight - Halloween orange border */
+.team-spotlight .ts-stage {
+  border: 1px solid rgba(255,107,0,.3) !important;
+}
+
 /* Team Spotlight buttons - Halloween purple background with orange text */
 .ts-btn {
   border: 1px solid rgba(26,10,46,.3) !important;
@@ -74,9 +113,119 @@
 
 .ts-btn:hover {
   background: #0f0520 !important;
+  color: #ff6b00 !important;
 }
 
-/* CTA tiles - Halloween purple text */
-.cta-tile {
+/* ========== ICON BACKGROUNDS - Dark Purple with Orange ========== */
+
+/* CTA icons - dark purple background with orange icon */
+.cta-icon {
+  background: #1a0a2e !important;
+  border-color: rgba(255,107,0,.3) !important;
+  color: #ff6b00 !important;
+}
+
+/* How It Works icons - dark purple background */
+.how-it-works .hiw-icon {
+  background: #1a0a2e !important;
+  border-color: rgba(255,107,0,.3) !important;
+  color: #ff6b00 !important;
+}
+
+/* Banner icon - dark purple */
+.carpool-banner .icon {
+  background: #1a0a2e !important;
+  border-color: rgba(255,107,0,.3) !important;
+  color: #ff6b00 !important;
+}
+
+/* ========== BORDERS AND ACCENTS - Orange ========== */
+
+/* Top borders for cards - orange gradient */
+.info-grid > .card::before,
+.how-it-works .hiw-step::before,
+.cta-tile::before,
+.hero-highlight::before,
+#hours .hours::before,
+.carpool-banner::before,
+.cta-support::before {
+  background: linear-gradient(90deg, #ff6b00 0%, #ff8c00 100%) !important;
+}
+
+/* ========== BUTTONS AND CHIPS - Orange Theme ========== */
+
+/* Support chips - dark purple with orange text */
+.cta-support .chip {
+  background: #1a0a2e !important;
+  border-color: rgba(255,107,0,.3) !important;
+  color: #ff8c00 !important;
+}
+
+.cta-support .chip:hover {
+  background: #0f0520 !important;
+  color: #ff6b00 !important;
+}
+
+/* Social icons - dark purple with orange */
+.cta-social .social {
+  background: #1a0a2e !important;
+  border-color: rgba(255,107,0,.3) !important;
+  color: #ff6b00 !important;
+}
+
+.cta-social .social:hover {
+  background: #0f0520 !important;
+  color: #ff8c00 !important;
+}
+
+/* ========== FAQ STYLING ========== */
+
+/* FAQ details - orange tinted background */
+.faq details {
+  background: rgba(255,140,0,0.3) !important;
+  border-color: rgba(255,107,0,.3) !important;
+}
+
+.faq details:hover {
+  background: rgba(255,140,0,0.4) !important;
+  border-color: rgba(255,107,0,.5) !important;
+}
+
+/* ========== LAYOUT ADJUSTMENTS ========== */
+
+/* Remove bottom spacing under CTA section */
+.cta-section {
+  padding: 48px 0 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ========== SECTION HEADINGS - Orange Gradient ========== */
+
+.section h2 {
+  background: linear-gradient(135deg, #1a0a2e 0%, #2a1a3e 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.section h2::after {
+  background: linear-gradient(90deg, #ff6b00 0%, #ff8c00 100%) !important;
+}
+
+/* ========== HERO SECTION ========== */
+
+/* Hero promise highlight - orange background */
+.hero-highlight .promise-pop {
+  background: rgba(255,140,0,0.3) !important;
   color: #1a0a2e !important;
+}
+
+.hero-highlight .promise-pop::after {
+  background: linear-gradient(90deg, #ff6b00 0%, #ff8c00 100%) !important;
+}
+
+/* ========== VIDEO FRAME - Orange Border ========== */
+
+.video-frame::before {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
 }
