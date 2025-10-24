@@ -12,134 +12,246 @@
 
 /* Halloween Color Variables Override */
 :root {
-  --bg: #0a0e27 !important;           /* Deep midnight blue */
-  --card: #ff8c00 !important;         /* Halloween orange */
-  --accent: #ff6b00 !important;       /* Bright Halloween orange */
-  --accent-light: #ff8533 !important;
-  --text: #1f2937 !important;         /* Keep dark for card readability */
-  --text-heading: #ffffff !important; /* White headings on dark background */
-  --muted: #e0e0e0 !important;
+  /* Halloween color palette */
+  --accent: #ff6b00 !important; /* Bright Halloween orange */
+  --accent-light: #ff8c00 !important;
+  --accent-gradient: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
+  --bg: #1a0a2e !important; /* Deep dark purple */
+  --text: #ffffff !important;
+  --muted: #b8a4c9 !important;
+  --muted-accessible: #9d88b3 !important;
+  --card: #2d1b4e !important;
 
-  /* Halloween gradient mesh for background */
-  --gradient-mesh:
-    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 600px 800px at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 1000px 400px at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%) !important;
+  /* BOLD Halloween gradients */
+  --gradient-primary: linear-gradient(135deg, #ff6b00 0%, #ff8c00 50%, #ffa500 100%) !important;
+  --gradient-soft: linear-gradient(135deg, rgba(255,107,0,0.3) 0%, rgba(138,43,226,0.3) 100%) !important;
+  --gradient-mesh: radial-gradient(at 20% 30%, rgba(255,107,0,0.4) 0, transparent 40%),
+                   radial-gradient(at 80% 20%, rgba(138,43,226,0.5) 0, transparent 45%),
+                   radial-gradient(at 40% 80%, rgba(255,140,0,0.35) 0, transparent 40%),
+                   radial-gradient(at 90% 70%, rgba(75,0,130,0.4) 0, transparent 45%),
+                   linear-gradient(135deg, #0f0520 0%, #1a0a2e 50%, #2d1550 100%) !important;
+
+  /* Spooky Halloween shadows with glow */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 1px 4px rgba(138,43,226,.2) !important;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.4), 0 2px 4px -1px rgba(138,43,226,.3) !important;
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,.5), 0 4px 6px -2px rgba(255,107,0,.3) !important;
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,.6), 0 10px 10px -5px rgba(138,43,226,.4) !important;
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,.8) !important;
+  --shadow-colored: 0 8px 32px -8px rgba(255,107,0,.6), 0 0 40px rgba(138,43,226,.4) !important;
+
+  --text-heading: #ffffff !important;
+  --text-secondary: #b8a4c9 !important;
+  --ring: rgba(255, 107, 0, 0.5) !important;
 }
 
-/* Force dark starry background on landing section */
+/* Force dark background with mesh gradient on landing section */
 .carpool-landing {
-  background: #0a0e27 !important;
-  background-image:
-    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 600px 800px at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 1000px 400px at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%) !important;
-  color: #ffffff !important;
+  background: var(--bg) !important;
+  background-image: var(--gradient-mesh) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  color: var(--text) !important;
 }
 
 /* Force dark background on html/body when landing page is present */
 @supports selector(:has(*)) {
   html:has(.carpool-landing),
   body:has(.carpool-landing) {
-    background: #0a0e27 !important;
-    background-image:
-      radial-gradient(ellipse 800px 600px at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 600px 800px at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 1000px 400px at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%) !important;
+    background: var(--bg) !important;
+    background-image: var(--gradient-mesh) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
   }
 }
 
-/* Force orange backgrounds on all cards */
-.carpool-landing .info-grid > .card {
-  background: #ff8c00 !important;
-  color: #1f2937 !important;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+/* White cards on dark background */
+.carpool-landing .info-grid > .card,
+.carpool-landing .how-it-works .hiw-step-wrapper .hiw-step,
+.carpool-landing .cta-tile,
+.carpool-landing .hero-highlight,
+.carpool-landing #hours .hours,
+.carpool-landing .video-frame,
+.carpool-landing .team-spotlight .ts-stage,
+.carpool-landing .cta-support {
+  background: #fff !important;
+  color: #111 !important;
 }
 
-.carpool-landing .how-it-works .hiw-step {
-  background: #ff8c00 !important;
-  color: #1f2937 !important;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
-  overflow: visible !important;
-}
-
-.carpool-landing .cta-tile {
-  background: #ff8c00 !important;
-  color: #1f2937 !important;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
-}
-
+/* Banner background override */
 .carpool-landing .carpool-banner {
-  background: #ff8c00 !important;
-  color: #1f2937 !important;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+  background: #fff !important;
+  color: #111 !important;
 }
 
+/* FAQ details open state */
 .carpool-landing .faq details[open] {
-  background: #ff8c00 !important;
-  color: #1f2937 !important;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.3) !important;
+  background: #fff !important;
+  color: #111 !important;
 }
 
 /* White text for headers on dark background */
 .carpool-landing h1,
-.carpool-landing h2,
-.carpool-landing h3,
-.carpool-landing .hero-title {
+.carpool-landing .section h2,
+.carpool-landing .team-spotlight h2 {
   color: #ffffff !important;
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
-/* White for main text on dark background */
+/* Hero heading */
+.carpool-landing .hero h1 {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* CTA heading */
+.carpool-landing .cta-head h2 {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* White text on dark background areas */
 .carpool-landing > .carpool-wrap > p,
 .carpool-landing .hero-subtitle {
   color: #e0e0e0 !important;
 }
 
-/* Ensure card content stays dark on orange background */
-.carpool-landing .info-grid > .card h2,
-.carpool-landing .info-grid > .card h3,
-.carpool-landing .info-grid > .card p,
-.carpool-landing .hiw-step h3,
-.carpool-landing .hiw-step p,
-.carpool-landing .cta-tile h3,
-.carpool-landing .cta-tile p,
-.carpool-landing .cta-tile strong,
-.carpool-landing .cta-tile .meta {
-  color: #1f2937 !important;
+/* Stat value with gradient */
+.carpool-landing .hero-highlight .stat-value {
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
-/* Badge with orange glow */
+/* Badge with white background and gradient text */
 .carpool-landing .how-it-works .badge {
-  background: #ff6b00 !important;
-  color: #ffffff !important;
-  border-color: #0a0e27 !important;
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4) !important;
+  background: #fff !important;
+  color: transparent !important;
+  background-image: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  border-color: var(--bg) !important;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(124,45,18,0.1) !important;
 }
 
-/* Halloween button glow effects */
-.carpool-landing .cta-primary {
-  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.4), 0 0 40px rgba(255, 107, 0, 0.2) !important;
+/* Button glow effects */
+.carpool-landing .btn {
+  background: var(--gradient-primary) !important;
+  box-shadow: var(--shadow-colored) !important;
 }
 
-.carpool-landing .cta-primary:hover {
-  box-shadow: 0 12px 32px rgba(255, 107, 0, 0.5), 0 0 60px rgba(255, 107, 0, 0.3) !important;
-  transform: translateY(-2px) !important;
+.carpool-landing .btn:hover {
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(124,45,18,0.1) !important;
 }
 
-/* Remove bottom spacing from CTA section for Halloween */
-.carpool-landing .cta-section {
-  padding: 48px 0 0 !important;
+/* CTA icon backgrounds */
+.carpool-landing .cta-icon {
+  background: var(--gradient-soft) !important;
+  color: var(--accent) !important;
+  border-color: rgba(124,45,18,.15) !important;
 }
 
-/* Team Spotlight with orange borders */
+/* Team Spotlight border */
 .carpool-landing .team-spotlight {
-  --ts-border: 1px solid rgba(255, 107, 0, 0.3) !important;
+  --ts-border: 1px solid rgba(17,24,39,.10) !important;
 }
 
-/* Orange CTA section gradient */
+/* CTA section gradient */
 .carpool-landing .cta-section::before {
-  background: radial-gradient(60% 100% at 50% 100%, rgba(255, 107, 0, 0.12), transparent 70%) !important;
+  background: radial-gradient(60% 100% at 50% 100%, rgba(124,45,18,.08), transparent 70%) !important;
+}
+
+/* Eyebrow badge */
+.carpool-landing .cta-head .eyebrow {
+  border-color: rgba(124,45,18,.15) !important;
+  background: var(--gradient-soft) !important;
+  color: var(--accent) !important;
+}
+
+/* Support chips */
+.carpool-landing .cta-support .chip {
+  background: var(--gradient-soft) !important;
+  border-color: rgba(124,45,18,.12) !important;
+  color: var(--accent) !important;
+}
+
+.carpool-landing .cta-support .chip:hover {
+  background: var(--gradient-primary) !important;
+  color: #fff !important;
+}
+
+/* Social icons */
+.carpool-landing .cta-social .social {
+  background: var(--gradient-soft) !important;
+  border-color: rgba(124,45,18,.12) !important;
+  color: var(--accent) !important;
+}
+
+.carpool-landing .cta-social .social:hover {
+  background: var(--gradient-primary) !important;
+  color: #fff !important;
+}
+
+/* How it works icon */
+.carpool-landing .how-it-works .hiw-icon {
+  background: var(--gradient-soft) !important;
+  border-color: rgba(124,45,18,.15) !important;
+  color: var(--accent) !important;
+}
+
+/* Service banner icon */
+.carpool-landing .carpool-banner .icon {
+  background: var(--gradient-soft) !important;
+  color: var(--accent) !important;
+  border-color: rgba(124,45,18,.15) !important;
+}
+
+/* Video frame border effect */
+.carpool-landing .video-frame::before {
+  background: var(--gradient-primary) !important;
+  opacity: 0.6 !important;
+}
+
+/* FAQ details hover */
+.carpool-landing .faq details {
+  background: var(--gradient-soft) !important;
+  border-color: rgba(124,45,18,.12) !important;
+}
+
+.carpool-landing .faq details:hover {
+  border-color: rgba(124,45,18,.2) !important;
+}
+
+/* Promise pop background */
+.carpool-landing .hero-highlight .promise-pop {
+  background: var(--gradient-soft) !important;
+}
+
+/* Colored top borders on cards */
+.carpool-landing .info-grid > .card::before,
+.carpool-landing .how-it-works .hiw-step::before,
+.carpool-landing .cta-tile::before,
+.carpool-landing .hero-highlight::before,
+.carpool-landing #hours .hours::before,
+.carpool-landing .cta-support::before,
+.carpool-landing .carpool-banner::before {
+  background: var(--gradient-primary) !important;
+}
+
+/* Section heading underlines */
+.carpool-landing .section h2::after,
+.carpool-landing .info-grid .card h2::after {
+  background: var(--gradient-primary) !important;
 }
 
 /* Twinkle animation for stars (added by JavaScript in Avada footer) */
