@@ -8,19 +8,49 @@
 
    This will override the professional theme with Halloween colors:
    - Orange accents (#ff6b00, #ff8c00)
-   - Dark purple/eggplant (#1a0a2e)
+   - Dark purple/eggplant backgrounds (#1a0a2e)
+   - Black backgrounds for main sections (#0a0a0a)
 
    To remove: Simply delete this custom CSS from Avada settings
    =================================================================== */
 
+/* ========== MAIN BACKGROUNDS - Dark Halloween ========== */
+
+/* Override the entire page background - dark Halloween */
+.carpool-landing,
+body .carpool-landing,
+html:has(.carpool-landing),
+body:has(.carpool-landing),
+html,
+body {
+  background: #0a0a0a !important;
+  background-image: linear-gradient(180deg, #1a0a2e 0%, #0a0a0a 100%) !important;
+}
+
+/* Main wrapper - dark background */
+.carpool-wrap {
+  background: transparent !important;
+}
+
+/* Section backgrounds */
+.section,
+.cta-section {
+  background: transparent !important;
+}
+
 /* ========== CARD BACKGROUNDS - Orange ========== */
+
+/* All main cards - bright orange */
 .info-grid > .card,
 .how-it-works .hiw-step,
 .cta-tile,
 .carpool-banner,
 #hours .hours,
 .hero-highlight,
-.cta-support {
+.cta-support,
+.cta-primary,
+.cta-accent,
+.cta-neutral {
   background: #ff8c00 !important;
 }
 
@@ -29,7 +59,74 @@
   background: #ff8c00 !important;
 }
 
-/* ========== TEXT COLORS - Dark Purple ========== */
+/* Video frame - keep white for video contrast */
+.video-frame {
+  background: #fff !important;
+}
+
+/* Modal backgrounds - dark purple */
+.ride-modal__card {
+  background: #1a0a2e !important;
+  color: #ff8c00 !important;
+}
+
+.ride-modal__head {
+  background: linear-gradient(180deg, #ff6b00 0%, #ff8c00 100%) !important;
+}
+
+.ride-modal__body {
+  background: #1a0a2e !important;
+  color: #fff !important;
+}
+
+/* Team spotlight stage - orange */
+.team-spotlight .ts-stage {
+  background: #ff8c00 !important;
+  border: 1px solid rgba(255,107,0,.3) !important;
+}
+
+/* Team photo background */
+.ts-photo {
+  background: #f6f7f9 !important;
+}
+
+/* Team facts background - dark purple */
+#team-spotlight .ts-facts {
+  background: linear-gradient(180deg, #1a0a2e, #2a1a3e) !important;
+  color: #ff8c00 !important;
+  border-color: rgba(255,107,0,.3) !important;
+}
+
+#team-spotlight .ts-fact .k {
+  color: #ff6b00 !important;
+}
+
+#team-spotlight .ts-fact .v {
+  color: #fff !important;
+}
+
+/* Team controls - white buttons */
+#team-spotlight .ts-controls .ts-prev,
+#team-spotlight .ts-controls .ts-next {
+  background: #1a0a2e !important;
+  color: #ff8c00 !important;
+  border-color: rgba(255,107,0,.3) !important;
+}
+
+#team-spotlight .ts-controls button:hover {
+  background: #0f0520 !important;
+  color: #ff6b00 !important;
+}
+
+/* ========== TEXT COLORS - Dark Purple & White ========== */
+
+/* Hero heading - keep dark for contrast */
+.hero h1 {
+  background: linear-gradient(135deg, #1a0a2e 0%, #2a1a3e 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
 
 /* What is CARPOOL heading - Halloween purple */
 .info-grid .card h2 {
@@ -41,7 +138,9 @@
 }
 
 /* Paragraph text - Halloween purple */
-.info-grid .card p {
+.info-grid .card p,
+.info-grid .card p strong,
+.info-grid .card p em {
   color: #1a0a2e !important;
 }
 
@@ -63,7 +162,7 @@
   color: #1a0a2e !important;
 }
 
-/* Team Spotlight - Halloween purple text */
+/* Team Spotlight - Halloween purple text on orange background */
 .ts-name {
   color: #1a0a2e !important;
 }
@@ -79,6 +178,55 @@
 
 .cta-copy strong,
 .cta-copy .meta {
+  color: #1a0a2e !important;
+}
+
+/* CTA heading - white on dark background */
+.cta-head h2 {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.cta-head .sub {
+  color: #ff8c00 !important;
+}
+
+.cta-head .eyebrow {
+  background: rgba(255,140,0,0.2) !important;
+  color: #ff6b00 !important;
+  border-color: rgba(255,107,0,.3) !important;
+}
+
+/* Banner text - dark purple on orange */
+.carpool-banner .banner-text,
+.carpool-banner .banner-text strong {
+  color: #1a0a2e !important;
+}
+
+/* Hours text - dark purple */
+.hours .big {
+  color: #1a0a2e !important;
+}
+
+.hours .note {
+  color: #1a0a2e !important;
+}
+
+/* Hero highlight stats - orange/purple */
+.hero-highlight .stat-value {
+  background: linear-gradient(135deg, #1a0a2e 0%, #2a1a3e 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.hero-highlight .stat-label {
+  color: #1a0a2e !important;
+}
+
+.hero-highlight .hero-promise {
   color: #1a0a2e !important;
 }
 
@@ -99,14 +247,9 @@
 
 /* ========== TEAM SPOTLIGHT - Orange/Purple Theme ========== */
 
-/* Team Spotlight - Halloween orange border */
-.team-spotlight .ts-stage {
-  border: 1px solid rgba(255,107,0,.3) !important;
-}
-
 /* Team Spotlight buttons - Halloween purple background with orange text */
 .ts-btn {
-  border: 1px solid rgba(26,10,46,.3) !important;
+  border: 2px solid rgba(255,107,0,.5) !important;
   background: #1a0a2e !important;
   color: #ff8c00 !important;
 }
@@ -199,10 +342,15 @@
   margin-bottom: 0 !important;
 }
 
+/* CTA section glow effect */
+.cta-section::before {
+  background: radial-gradient(60% 100% at 50% 100%, rgba(255,107,0,.15), transparent 70%) !important;
+}
+
 /* ========== SECTION HEADINGS - Orange Gradient ========== */
 
 .section h2 {
-  background: linear-gradient(135deg, #1a0a2e 0%, #2a1a3e 100%) !important;
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -216,16 +364,53 @@
 
 /* Hero promise highlight - orange background */
 .hero-highlight .promise-pop {
-  background: rgba(255,140,0,0.3) !important;
+  background: rgba(26,10,46,0.3) !important;
   color: #1a0a2e !important;
 }
 
 .hero-highlight .promise-pop::after {
-  background: linear-gradient(90deg, #ff6b00 0%, #ff8c00 100%) !important;
+  background: linear-gradient(90deg, #1a0a2e 0%, #2a1a3e 100%) !important;
 }
 
 /* ========== VIDEO FRAME - Orange Border ========== */
 
 .video-frame::before {
   background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
+}
+
+.video-caption {
+  color: #ff8c00 !important;
+}
+
+/* ========== BUTTONS ========== */
+
+/* Main CTA button - orange gradient */
+.btn {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%) !important;
+  box-shadow: 0 8px 32px -8px rgba(255,107,0,.5) !important;
+  color: #1a0a2e !important;
+}
+
+.btn:hover {
+  box-shadow: 0 25px 50px -12px rgba(255,107,0,.4) !important;
+}
+
+/* Modal buttons */
+.ride-btn--call {
+  background: #ff6b00 !important;
+  color: #1a0a2e !important;
+}
+
+.ride-btn--call:hover {
+  background: #ff8c00 !important;
+}
+
+.ride-btn--secondary {
+  background: #1a0a2e !important;
+  color: #ff8c00 !important;
+  border-color: rgba(255,107,0,.3) !important;
+}
+
+.ride-btn--secondary:hover {
+  background: #0f0520 !important;
 }
