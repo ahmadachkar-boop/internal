@@ -547,6 +547,7 @@ a:focus-visible, button:focus-visible {
   padding: 0;
   list-style: none;
   justify-items: stretch;
+  align-items: stretch;
   width: 100%;
   max-width: 100%;
 }
@@ -555,6 +556,8 @@ a:focus-visible, button:focus-visible {
   position:relative;
   min-width: 0;
   transition:all 0.4s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
 }
 
 .how-it-works .hiw-step-wrapper:hover .hiw-step{
@@ -574,6 +577,10 @@ a:focus-visible, button:focus-visible {
   isolation:isolate;
   min-width: 0;
   overflow:hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .how-it-works .hiw-step::before{
