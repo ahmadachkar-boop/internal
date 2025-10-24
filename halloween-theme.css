@@ -85,9 +85,40 @@
   color: #1f2937 !important;
 }
 
-/* FAQ details open state */
+/* Banner success/error states - high contrast on orange background */
+.carpool-landing .carpool-banner.success .banner-text,
+.carpool-landing .carpool-banner.success .banner-text strong {
+  color: #065f46 !important; /* Dark green for contrast on orange */
+}
+
+.carpool-landing .carpool-banner.success .icon {
+  color: #065f46 !important;
+  background: rgba(6, 95, 70, 0.15) !important;
+  border-color: rgba(6, 95, 70, 0.3) !important;
+}
+
+.carpool-landing .carpool-banner.error .banner-text,
+.carpool-landing .carpool-banner.error .banner-text strong {
+  color: #7f1d1d !important; /* Dark red for contrast on orange */
+}
+
+.carpool-landing .carpool-banner.error .icon {
+  color: #7f1d1d !important;
+  background: rgba(127, 29, 29, 0.15) !important;
+  border-color: rgba(127, 29, 29, 0.3) !important;
+}
+
+/* FAQ details open state - orange background needs dark text */
 .carpool-landing .faq details[open] {
   background: #ff8c00 !important;
+  color: #1f2937 !important;
+}
+
+.carpool-landing .faq details[open] summary {
+  color: #1f2937 !important;
+}
+
+.carpool-landing .faq details[open] .answer {
   color: #1f2937 !important;
 }
 
@@ -167,26 +198,50 @@
   background-image: none !important;
 }
 
-/* Button glow effects */
+/* Button glow effects - ensure white text */
 .carpool-landing .btn {
   background: var(--gradient-primary) !important;
   box-shadow: var(--shadow-colored) !important;
+  color: #ffffff !important;
 }
 
 .carpool-landing .btn:hover {
   box-shadow: var(--shadow-xl), 0 0 0 1px rgba(124,45,18,0.1) !important;
+  color: #ffffff !important;
 }
 
-/* CTA icon backgrounds */
+/* CTA icon backgrounds - on orange cards, needs better contrast */
 .carpool-landing .cta-icon {
-  background: var(--gradient-soft) !important;
-  color: var(--accent) !important;
-  border-color: rgba(124,45,18,.15) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  color: #1f2937 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Team Spotlight border */
+/* Team Spotlight - text on orange background */
 .carpool-landing .team-spotlight {
   --ts-border: 1px solid rgba(17,24,39,.10) !important;
+}
+
+.carpool-landing .team-spotlight .ts-stage .ts-name {
+  color: #1f2937 !important;
+}
+
+.carpool-landing .team-spotlight .ts-stage .ts-role {
+  color: #1f2937 !important;
+}
+
+.carpool-landing .team-spotlight .ts-stage .ts-fact {
+  color: #1f2937 !important;
+}
+
+.carpool-landing .team-spotlight .ts-btn {
+  background: var(--gradient-primary) !important;
+  color: #ffffff !important;
+}
+
+.carpool-landing .team-spotlight .ts-btn:hover {
+  background: var(--accent-light) !important;
+  color: #ffffff !important;
 }
 
 /* CTA section gradient */
@@ -201,42 +256,44 @@
   color: var(--accent) !important;
 }
 
-/* Support chips */
+/* Support chips - better contrast on orange card */
 .carpool-landing .cta-support .chip {
-  background: var(--gradient-soft) !important;
-  border-color: rgba(124,45,18,.12) !important;
-  color: var(--accent) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #1f2937 !important;
 }
 
 .carpool-landing .cta-support .chip:hover {
   background: var(--gradient-primary) !important;
-  color: #fff !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
 }
 
-/* Social icons */
+/* Social icons - better contrast on orange card */
 .carpool-landing .cta-social .social {
-  background: var(--gradient-soft) !important;
-  border-color: rgba(124,45,18,.12) !important;
-  color: var(--accent) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #1f2937 !important;
 }
 
 .carpool-landing .cta-social .social:hover {
   background: var(--gradient-primary) !important;
-  color: #fff !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
 }
 
-/* How it works icon */
+/* How it works icon - on orange card, needs better contrast */
 .carpool-landing .how-it-works .hiw-icon {
-  background: var(--gradient-soft) !important;
-  border-color: rgba(124,45,18,.15) !important;
-  color: var(--accent) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #1f2937 !important;
 }
 
-/* Service banner icon */
+/* Service banner icon - on orange card, needs better contrast */
 .carpool-landing .carpool-banner .icon {
-  background: var(--gradient-soft) !important;
-  color: var(--accent) !important;
-  border-color: rgba(124,45,18,.15) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  color: #1f2937 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Video frame border effect */
