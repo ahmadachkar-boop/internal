@@ -71,6 +71,11 @@
   min-height:100vh;
   position: relative;
   overflow-x: hidden;
+  width: 100%;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
 
 /* Try to apply to body as well (separate rule for safety) */
@@ -177,13 +182,7 @@ a:focus-visible, button:focus-visible {
   position:relative;
   overflow:hidden;
   transition:all 0.3s var(--ease-smooth);
-}
-.carpool-banner::before{
-  content:'';
-  position:absolute;
-  top:0; left:0; right:0;
-  height:4px;
-  background:var(--gradient-primary);
+  border-top: 4px solid var(--accent);
 }
 .carpool-banner:hover{
   transform:translateY(-2px);
@@ -193,7 +192,7 @@ a:focus-visible, button:focus-visible {
   width:48px;
   height:48px;
   border-radius:var(--radius-md);
-  background:var(--gradient-soft);
+  background:#f3f4f6;
   color:var(--accent);
   display:grid;
   place-items:center;
@@ -396,8 +395,8 @@ a:focus-visible, button:focus-visible {
 .video-wrap{
   display:flex;
   flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  align-items:flex-start;
+  justify-content:flex-start;
   width:100%;
 }
 .video-frame{
@@ -405,7 +404,7 @@ a:focus-visible, button:focus-visible {
   max-width:560px;
   aspect-ratio:16/9;
   overflow:hidden;
-  margin:auto;
+  margin:0;
   padding:0;
   background:#fff;
   border:none;
@@ -441,9 +440,11 @@ a:focus-visible, button:focus-visible {
 .video-caption{
   font-size:0.95rem;
   color:var(--muted-accessible, var(--muted));
-  text-align:center;
+  text-align:left;
   margin-top:16px;
   font-weight:500;
+  width:100%;
+  max-width:560px;
 }
 
 /* --- FAQ (inline on homepage card) --- */
@@ -549,7 +550,7 @@ a:focus-visible, button:focus-visible {
   transition:all 0.4s var(--ease-smooth);
   isolation:isolate;
   min-width: 0;
-  overflow:hidden;
+  overflow:visible;
 }
 
 .how-it-works .hiw-step:hover{
@@ -624,10 +625,23 @@ a:focus-visible, button:focus-visible {
 }
 .team-spotlight h2{
   grid-area: title;
-  margin: 0 0 12px;
+  margin: 0 0 32px;
   text-align: center;
-  font-weight: 900;
-  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 800;
+  font-size: clamp(28px,3.5vw,42px);
+  letter-spacing: -0.5px;
+  background:var(--gradient-primary);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  position:relative;
+  padding-bottom: 20px;
+}
+.team-spotlight h2::after{
+  content:""; display:block; height:4px; width:80px; margin:16px auto 0;
+  background:var(--gradient-primary);
+  border-radius:var(--radius-full);
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 #team-spotlight #team-spotlight-title{
   text-align: center;
@@ -771,6 +785,20 @@ a:focus-visible, button:focus-visible {
   cursor: pointer;
 }
 #team-spotlight .ts-controls button:hover{ background:#f3f4f6; }
+
+/* Position "View all staff" button with controls on desktop */
+@media (min-width: 701px) {
+  #team-spotlight .ts-actions a[href="/staff/"] {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    margin: 0;
+    z-index: 3;
+  }
+  #team-spotlight .ts-actions {
+    padding-right: 0;
+  }
+}
 
 /* CTA SECTION */
 .cta-section{
