@@ -7,10 +7,10 @@
   --accent-light:#6a0000;
   --accent-gradient: linear-gradient(135deg, #500000 0%, #6a0000 100%);
   --bg:#f9fafb;               /* Light gray background */
-  --text:#1f2937;
+  --text:#1f2937;             /* Dark text for readability on orange */
   --muted:#6b7280;
   --muted-accessible:#4b5563;
-  --card:#ffffff;             /* White cards */
+  --card:#ff8c00;             /* Orange cards for Halloween */
 
   /* Professional gradients */
   --gradient-primary: linear-gradient(135deg, #500000 0%, #6a0000 50%, #7a0000 100%);
@@ -263,7 +263,7 @@ a:focus-visible, button:focus-visible {
   margin:32px auto 48px;
   padding:48px 40px;
   max-width:960px;
-  background:#fff;
+  background:var(--card);
   border:none;
   border-radius:var(--radius-xl);
   box-shadow:var(--shadow-lg);
@@ -415,7 +415,7 @@ a:focus-visible, button:focus-visible {
   overflow:hidden;
   margin:0;
   padding:0;
-  background:#fff;
+  background:var(--card);
   border:none;
   box-shadow:var(--shadow-lg);
   border-radius:var(--radius-xl);
@@ -507,7 +507,7 @@ a:focus-visible, button:focus-visible {
 }
 
 #hours .hours {
-  background: #fff;
+  background: var(--card);
   border: none;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
@@ -946,7 +946,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .cta-primary, .cta-accent, .cta-neutral{
-  background:#fff;
+  background:var(--card);
 }
 
 .cta-icon{
@@ -1003,7 +1003,7 @@ a:focus-visible, button:focus-visible {
   gap:12px;
   flex-wrap:wrap;
   margin-top:32px;
-  background: #fff;
+  background: var(--card);
   border:none;
   border-radius:var(--radius-xl);
   padding:20px 24px;
