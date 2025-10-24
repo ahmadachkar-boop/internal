@@ -562,7 +562,6 @@ a:focus-visible, button:focus-visible {
   transition:all 0.4s var(--ease-smooth);
   isolation:isolate;
   min-width: 0;
-  overflow:hidden;
 }
 
 .how-it-works .hiw-step:hover{
@@ -573,7 +572,7 @@ a:focus-visible, button:focus-visible {
 .how-it-works .hiw-step::before{
   content:"";
   position:absolute;
-  inset:0 0 auto 0;
+  top:0; left:0; right:0;
   height:6px;
   border-radius:var(--radius-xl) var(--radius-xl) 0 0;
   background: var(--gradient-primary);
@@ -637,7 +636,7 @@ a:focus-visible, button:focus-visible {
 }
 .team-spotlight h2{
   grid-area: title;
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   text-align: center;
   font-weight: 800;
   font-size: clamp(28px,3.5vw,42px);
@@ -647,10 +646,10 @@ a:focus-visible, button:focus-visible {
   -webkit-text-fill-color:transparent;
   background-clip:text;
   position:relative;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 .team-spotlight h2::after{
-  content:""; display:block; height:4px; width:80px; margin:16px auto 0;
+  content:""; display:block; height:4px; width:80px; margin:12px auto 0;
   background:var(--gradient-primary);
   border-radius:var(--radius-full);
   box-shadow:0 2px 8px rgba(0,0,0,0.15);
@@ -967,6 +966,7 @@ a:focus-visible, button:focus-visible {
   overflow:hidden;
   text-overflow:ellipsis;
   color:var(--text-heading);
+  margin:0;
 }
 .cta-copy .meta{
   display:block;
@@ -974,7 +974,7 @@ a:focus-visible, button:focus-visible {
   font-weight:500;
   font-size:0.95rem;
   line-height:1.4;
-  padding-bottom:.12em;
+  margin-top:4px;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
