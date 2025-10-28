@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recognize the signs of alcohol poisoning and learn when to call 911. Interactive symptom checker, emergency response guide, and life-saving information for College Station students.">
+    <meta name="keywords" content="alcohol poisoning, alcohol overdose, signs of alcohol poisoning, when to call 911, college drinking safety, Texas A&M safety, emergency response, BAC danger levels">
+    <title>Signs of Alcohol Poisoning - When to Call 911 | CARPOOL Safety Guide</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #500000;
+            --accent-light: #6a0000;
+            --accent-600: hsl(350 84% 24%);
+            --bg: #f9fafb;
+            --text: #111827;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --danger-dark: #991b1b;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow: 0 4px 20px -8px rgba(0,0,0,.12);
+            --shadow-lg: 0 10px 40px -12px rgba(0,0,0,.18);
+            --gap: clamp(22px, 3vw, 34px);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .carpool-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 24px);
+        }
+
+        /* Emergency Alert Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
+            color: white;
+            padding: clamp(24px, 4vw, 36px);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: var(--gap);
+            box-shadow: var(--shadow-lg);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .emergency-banner h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .emergency-banner p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .emergency-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .emergency-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: white;
+            color: var(--danger);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .emergency-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .emergency-btn.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: var(--gap);
+        }
+
+        .page-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--gap);
+            margin-bottom: var(--gap);
+        }
+
+        @media (min-width: 1024px) {
+            .content-grid.two-col {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 4vw, 36px);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card h2, .card h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .card h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            margin-top: 24px;
+        }
+
+        /* Symptom Checklist */
+        .symptom-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .symptom-item {
+            background: var(--bg);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .symptom-item:hover {
+            background: #f3f4f6;
+        }
+
+        .symptom-item.checked {
+            background: #fee2e2;
+            border-color: var(--danger);
+        }
+
+        .symptom-checkbox {
+            width: 28px;
+            height: 28px;
+            border: 3px solid var(--muted);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
+            font-size: 1.25rem;
+        }
+
+        .symptom-item.checked .symptom-checkbox {
+            background: var(--danger);
+            border-color: var(--danger);
+            color: white;
+        }
+
+        .symptom-content {
+            flex: 1;
+        }
+
+        .symptom-content strong {
+            display: block;
+            color: var(--text);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .symptom-content small {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .severity-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .severity-badge.critical {
+            background: var(--danger);
+            color: white;
+        }
+
+        .severity-badge.serious {
+            background: var(--warning);
+            color: white;
+        }
+
+        .severity-badge.moderate {
+            background: #fbbf24;
+            color: var(--text);
+        }
+
+        .symptom-alert {
+            margin-top: 24px;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .symptom-alert.show {
+            display: block;
+        }
+
+        .symptom-alert.danger {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-left: 4px solid var(--danger);
+        }
+
+        .symptom-alert.warning {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+        }
+
+        .symptom-alert h4 {
+            color: var(--danger);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .symptom-alert.warning h4 {
+            color: var(--warning);
+        }
+
+        /* BAC Levels Chart */
+        .bac-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .bac-level {
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.2s;
+        }
+
+        .bac-level:hover {
+            transform: translateX(4px);
+        }
+
+        .bac-level.safe {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-left: 4px solid var(--success);
+        }
+
+        .bac-level.caution {
+            background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+            border-left: 4px solid #eab308;
+        }
+
+        .bac-level.warning {
+            background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+            border-left: 4px solid var(--warning);
+        }
+
+        .bac-level.danger {
+            background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+            border-left: 4px solid var(--danger);
+        }
+
+        .bac-level.critical {
+            background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+            border-left: 4px solid var(--danger-dark);
+            color: white;
+        }
+
+        .bac-percentage {
+            font-size: 2rem;
+            font-weight: 700;
+            min-width: 120px;
+        }
+
+        .bac-info h4 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .bac-level.critical h4,
+        .bac-level.critical p {
+            color: white;
+        }
+
+        /* Steps List */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .step-content ul {
+            margin-top: 12px;
+            padding-left: 20px;
+        }
+
+        .step-content li {
+            margin-bottom: 6px;
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 2px solid var(--danger);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: var(--gap) 0;
+        }
+
+        .warning-box h3 {
+            color: var(--danger);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box ul {
+            padding-left: 24px;
+        }
+
+        .warning-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-left: 4px solid #3b82f6;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .info-box strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: clamp(32px, 5vw, 56px);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--gap) 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            padding: 12px 24px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb-list {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 1280px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .breadcrumb-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '›';
+            color: var(--muted);
+            font-size: 1.2rem;
+        }
+
+        .breadcrumb-list a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .breadcrumb-list a:hover {
+            opacity: 0.7;
+        }
+
+        .breadcrumb-list [aria-current="page"] {
+            color: var(--text);
+        }
+
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .do-box, .dont-box {
+            padding: 20px;
+            border-radius: var(--radius-md);
+        }
+
+        .do-box {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-left: 4px solid var(--success);
+        }
+
+        .dont-box {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-left: 4px solid var(--danger);
+        }
+
+        .do-box h4 {
+            color: var(--success);
+            margin-bottom: 12px;
+        }
+
+        .dont-box h4 {
+            color: var(--danger);
+            margin-bottom: 12px;
+        }
+
+        .do-box ul, .dont-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .do-box li::before {
+            content: '✓ ';
+            color: var(--success);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .dont-box li::before {
+            content: '✗ ';
+            color: var(--danger);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .do-box li, .dont-box li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://carpool.tamu.edu/">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name" aria-current="page">Alcohol Poisoning Signs</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </nav>
+
+    <main>
+        <div class="carpool-wrap">
+            <!-- Emergency Banner -->
+            <div class="emergency-banner">
+                <h1>🚨 Recognize Alcohol Poisoning - It Can Save a Life</h1>
+                <p>If someone shows signs of alcohol poisoning, call 911 immediately. Every second counts.</p>
+                <div class="emergency-buttons">
+                    <a href="tel:911" class="emergency-btn">📞 Call 911 Now</a>
+                    <a href="tel:+19796939905" class="emergency-btn secondary">🚗 CARPOOL: (979) 693-9905</a>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>Know the Signs - Take Action</h2>
+                <p>Alcohol poisoning is a life-threatening emergency. Learn to recognize the symptoms and know what to do to save a life.</p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid two-col">
+                <!-- Symptom Checklist Card -->
+                <div class="card">
+                    <h2>
+                        <span>✓</span>
+                        Symptom Checklist
+                    </h2>
+                    <p>Click on symptoms you observe. If ANY are present, call 911 immediately.</p>
+
+                    <div class="symptom-checklist">
+                        <div class="symptom-item" data-severity="critical" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Unconscious or unresponsive</strong>
+                                <small>Cannot be woken up or doesn't respond to stimuli</small>
+                            </div>
+                            <span class="severity-badge critical">Critical</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="critical" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Slow or irregular breathing</strong>
+                                <small>Less than 8 breaths per minute or 10+ seconds between breaths</small>
+                            </div>
+                            <span class="severity-badge critical">Critical</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="critical" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Blue or pale skin</strong>
+                                <small>Especially lips, fingernails, or face</small>
+                            </div>
+                            <span class="severity-badge critical">Critical</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="critical" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Low body temperature</strong>
+                                <small>Hypothermia, cold or clammy skin</small>
+                            </div>
+                            <span class="severity-badge critical">Critical</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="critical" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Seizures</strong>
+                                <small>Convulsions or uncontrollable shaking</small>
+                            </div>
+                            <span class="severity-badge critical">Critical</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="serious" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Vomiting while unconscious</strong>
+                                <small>High choking risk - turn them on their side</small>
+                            </div>
+                            <span class="severity-badge serious">Serious</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="serious" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Confusion or stupor</strong>
+                                <small>Extreme disorientation, can't respond to questions</small>
+                            </div>
+                            <span class="severity-badge serious">Serious</span>
+                        </div>
+
+                        <div class="symptom-item" data-severity="serious" onclick="toggleSymptom(this)">
+                            <div class="symptom-checkbox"></div>
+                            <div class="symptom-content">
+                                <strong>Difficulty remaining conscious</strong>
+                                <small>Passing out repeatedly or can't stay awake</small>
+                            </div>
+                            <span class="severity-badge serious">Serious</span>
+                        </div>
+                    </div>
+
+                    <div class="symptom-alert danger" id="symptomAlert">
+                        <h4>⚠️ CALL 911 IMMEDIATELY</h4>
+                        <p><strong>One or more critical symptoms detected.</strong></p>
+                        <p>Do not wait for all symptoms to appear. A person who is unconscious or can't be woken up may die.</p>
+                        <a href="tel:911" class="emergency-btn" style="margin-top: 16px; display: inline-flex;">📞 Call 911 Now</a>
+                    </div>
+                </div>
+
+                <!-- BAC Danger Zones Card -->
+                <div class="card">
+                    <h2>
+                        <span>📊</span>
+                        BAC Danger Zones
+                    </h2>
+                    <p>Blood Alcohol Content levels and their effects on the body.</p>
+
+                    <div class="bac-chart">
+                        <div class="bac-level safe">
+                            <div class="bac-percentage">0.00-0.05%</div>
+                            <div class="bac-info">
+                                <h4>Minimal Effects</h4>
+                                <p>Slight relaxation, minor impairment</p>
+                            </div>
+                        </div>
+
+                        <div class="bac-level caution">
+                            <div class="bac-percentage">0.06-0.10%</div>
+                            <div class="bac-info">
+                                <h4>Impaired</h4>
+                                <p>Reduced coordination, impaired judgment</p>
+                            </div>
+                        </div>
+
+                        <div class="bac-level warning">
+                            <div class="bac-percentage">0.11-0.20%</div>
+                            <div class="bac-info">
+                                <h4>Highly Intoxicated</h4>
+                                <p>Severe impairment, risk of blackouts</p>
+                            </div>
+                        </div>
+
+                        <div class="bac-level danger">
+                            <div class="bac-percentage">0.21-0.30%</div>
+                            <div class="bac-info">
+                                <h4>Dangerous</h4>
+                                <p>Risk of unconsciousness, vomiting, memory loss</p>
+                            </div>
+                        </div>
+
+                        <div class="bac-level critical">
+                            <div class="bac-percentage">0.31%+</div>
+                            <div class="bac-info">
+                                <h4>LIFE-THREATENING</h4>
+                                <p>Risk of coma, respiratory failure, death</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Important Note:</strong>
+                        Alcohol poisoning can occur at BAC levels as low as 0.25%. Some people may show symptoms at even lower levels depending on tolerance, body weight, and other factors.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Response Card -->
+            <div class="card">
+                <h2>
+                    <span>🚑</span>
+                    What to Do While Waiting for Help
+                </h2>
+                <p>Follow these critical steps after calling 911:</p>
+
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Call 911 First</h4>
+                            <p>Don't wait. Call immediately if you suspect alcohol poisoning. Tell them:</p>
+                            <ul>
+                                <li>Your exact location</li>
+                                <li>Person's age and symptoms</li>
+                                <li>What they drank and how much (if known)</li>
+                                <li>Any other substances involved</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Position Them Safely</h4>
+                            <p>If unconscious or vomiting:</p>
+                            <ul>
+                                <li>Turn them on their side (recovery position)</li>
+                                <li>Keep head tilted to prevent choking</li>
+                                <li>Support their back with a pillow or bundled clothing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Keep Them Warm</h4>
+                            <p>Alcohol poisoning can cause dangerous drops in body temperature.</p>
+                            <ul>
+                                <li>Cover with blankets or jackets</li>
+                                <li>Do not leave them outside in cold weather</li>
+                                <li>Do not put them in a hot bath</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Stay With Them</h4>
+                            <p>Never leave them alone. Monitor their condition constantly.</p>
+                            <ul>
+                                <li>Check their breathing regularly</li>
+                                <li>Watch for changes in skin color</li>
+                                <li>Try to keep them awake and sitting up if conscious</li>
+                                <li>Be prepared to perform CPR if needed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Prepare Information for Paramedics</h4>
+                            <p>Gather details to help emergency responders:</p>
+                            <ul>
+                                <li>What and how much they drank</li>
+                                <li>Time drinking started and ended</li>
+                                <li>Any medications or drugs taken</li>
+                                <li>Pre-existing medical conditions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="do-dont-grid">
+                    <div class="do-box">
+                        <h4>✓ DO</h4>
+                        <ul>
+                            <li>Call 911 immediately</li>
+                            <li>Turn them on their side</li>
+                            <li>Keep them warm</li>
+                            <li>Stay with them</li>
+                            <li>Monitor breathing</li>
+                            <li>Be honest with paramedics</li>
+                        </ul>
+                    </div>
+
+                    <div class="dont-box">
+                        <h4>✗ DON'T</h4>
+                        <ul>
+                            <li>Give them coffee or food</li>
+                            <li>Put them in a cold shower</li>
+                            <li>Make them vomit</li>
+                            <li>Give them more alcohol</li>
+                            <li>Let them "sleep it off"</li>
+                            <li>Leave them alone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Box -->
+            <div class="warning-box">
+                <h3>⚠️ Common Misconceptions That Can Be Deadly</h3>
+                <ul>
+                    <li><strong>"They just need to sleep it off"</strong> – BAC can continue rising even after drinking stops. They could die in their sleep.</li>
+                    <li><strong>"Coffee will sober them up"</strong> – Nothing speeds up alcohol metabolism. Only time works, and they may not have time.</li>
+                    <li><strong>"A cold shower will help"</strong> – This can cause shock and dangerous temperature drops.</li>
+                    <li><strong>"They'll be fine, they've been this drunk before"</strong> – Each episode is different. What was "fine" before could be fatal now.</li>
+                    <li><strong>"I don't want to get them in trouble"</strong> – Texas has Medical Amnesty laws protecting both the victim and caller from minor legal consequences.</li>
+                </ul>
+            </div>
+
+            <!-- Statistics Card -->
+            <div class="card">
+                <h2>
+                    <span>📈</span>
+                    College Drinking Statistics
+                </h2>
+                <p>Understanding the scope of alcohol-related emergencies among college students.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,519</div>
+                        <div class="stat-label">College students die annually from alcohol-related injuries</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">696,000</div>
+                        <div class="stat-label">Students assaulted by another student who had been drinking</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">97,000</div>
+                        <div class="stat-label">Students experience alcohol-related sexual assault yearly</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">50%</div>
+                        <div class="stat-label">Of college students binge drink (4-5+ drinks in 2 hours)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">1,825</div>
+                        <div class="stat-label">Deaths could be prevented with bystander intervention</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">60%</div>
+                        <div class="stat-label">Of college students consume alcohol monthly</div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>You Can Save a Life:</strong>
+                    Most alcohol-related deaths occur because bystanders don't recognize the symptoms or are afraid to call for help. In Texas, Medical Amnesty laws protect you when seeking help for someone experiencing alcohol poisoning.
+                </div>
+            </div>
+
+            <!-- Texas Medical Amnesty -->
+            <div class="card">
+                <h2>
+                    <span>⚖️</span>
+                    Texas Medical Amnesty Law
+                </h2>
+                <p>Don't let fear of legal consequences prevent you from calling for help.</p>
+
+                <h3>Legal Protections When You Call 911</h3>
+                <p>Under Texas law, both the person experiencing a medical emergency and the person seeking help are protected from minor alcohol-related charges if:</p>
+
+                <ul style="margin-top: 16px; padding-left: 24px;">
+                    <li>You call 911 or seek emergency medical assistance</li>
+                    <li>You provide your name and location to authorities</li>
+                    <li>You remain with the person until help arrives</li>
+                    <li>The evidence of the offense was obtained as a result of seeking medical assistance</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>Texas A&M University Policy:</strong>
+                    Texas A&M supports the state's Medical Amnesty Law. Students who seek emergency medical help for themselves or others will not face university disciplinary action for alcohol-related violations. Your health and safety come first.
+                </div>
+
+                <p style="margin-top: 20px;"><strong>Bottom line:</strong> Saving a life is always more important than any potential legal or disciplinary consequences. When in doubt, call 911.</p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Plan Ahead - Drink Responsibly</h2>
+                <p>The best way to avoid alcohol poisoning is to drink responsibly and always have a plan for getting home safely.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+19796939905" class="cta-btn">Call CARPOOL: (979) 693-9905</a>
+                    <a href="/am-i-sober/" class="cta-btn secondary">Check Your BAC</a>
+                    <a href="/safe-ride-program/" class="cta-btn secondary">Learn About CARPOOL</a>
+                </div>
+            </div>
+
+            <!-- Additional Resources -->
+            <div class="card">
+                <h2>
+                    <span>📞</span>
+                    Emergency & Support Resources
+                </h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card" style="border-top-color: var(--danger);">
+                        <div class="stat-label" style="margin-bottom: 8px;"><strong>Emergency</strong></div>
+                        <div class="stat-number" style="font-size: 2rem;">911</div>
+                        <div class="stat-label">Life-threatening emergencies</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label" style="margin-bottom: 8px;"><strong>CARPOOL Safe Rides</strong></div>
+                        <div class="stat-number" style="font-size: 1.75rem;">(979) 693-9905</div>
+                        <div class="stat-label">Free designated driver service</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label" style="margin-bottom: 8px;"><strong>Texas A&M Police</strong></div>
+                        <div class="stat-number" style="font-size: 1.75rem;">(979) 845-2345</div>
+                        <div class="stat-label">Non-emergency campus safety</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label" style="margin-bottom: 8px;"><strong>Counseling Services</strong></div>
+                        <div class="stat-number" style="font-size: 1.75rem;">(979) 845-4427</div>
+                        <div class="stat-label">Student mental health support</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label" style="margin-bottom: 8px;"><strong>Student Health Services</strong></div>
+                        <div class="stat-number" style="font-size: 1.75rem;">(979) 458-4584</div>
+                        <div class="stat-label">Medical care for students</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label" style="margin-bottom: 8px;"><strong>Poison Control</strong></div>
+                        <div class="stat-number" style="font-size: 1.75rem;">1-800-222-1222</div>
+                        <div class="stat-label">24/7 poisoning information</div>
+                    </div>
+                </div>
+
+                <h3>About CARPOOL</h3>
+                <p>CARPOOL is a student-run organization providing free designated driver services in Bryan-College Station. We're here to get you home safely, no questions asked, no judgment.</p>
+
+                <ul style="margin-top: 16px; padding-left: 24px;">
+                    <li><strong>100% Free</strong> – No fees, no tips, no catch</li>
+                    <li><strong>Confidential</strong> – Your privacy is protected</li>
+                    <li><strong>Available Thu-Sat nights</strong> – When you need us most</li>
+                    <li><strong>We drive YOUR car</strong> – You wake up with your vehicle at home</li>
+                    <li><strong>297,000+ safe rides</strong> – Trusted by the Aggie community since 1983</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let checkedSymptoms = 0;
+
+        function toggleSymptom(element) {
+            element.classList.toggle('checked');
+
+            const checkbox = element.querySelector('.symptom-checkbox');
+            if (element.classList.contains('checked')) {
+                checkbox.textContent = '✓';
+                checkedSymptoms++;
+            } else {
+                checkbox.textContent = '';
+                checkedSymptoms--;
+            }
+
+            // Show alert if any symptoms checked
+            const alert = document.getElementById('symptomAlert');
+            if (checkedSymptoms > 0) {
+                alert.classList.add('show');
+                // Scroll to alert
+                setTimeout(() => {
+                    alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            } else {
+                alert.classList.remove('show');
+            }
+        }
+
+        // Add keyboard accessibility
+        document.querySelectorAll('.symptom-item').forEach(item => {
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('role', 'checkbox');
+            item.setAttribute('aria-checked', 'false');
+
+            item.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleSymptom(this);
+                    this.setAttribute('aria-checked', this.classList.contains('checked'));
+                }
+            });
+        });
+
+        // Emergency banner pulse effect
+        const banner = document.querySelector('.emergency-banner');
+        let pulseCount = 0;
+        const pulseInterval = setInterval(() => {
+            pulseCount++;
+            if (pulseCount >= 3) {
+                clearInterval(pulseInterval);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
