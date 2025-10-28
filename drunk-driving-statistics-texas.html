@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive drunk driving statistics for Texas, Bryan-College Station, and Texas A&M. Interactive data visualizations showing DUI trends, fatalities, and the life-saving impact of designated driver programs.">
+    <meta name="keywords" content="drunk driving statistics Texas, DUI statistics, DWI Texas, College Station drunk driving, Texas A&M alcohol statistics, designated driver impact, drunk driving fatalities, Texas traffic safety">
+    <title>Drunk Driving Statistics in Texas 2024 | College Station DUI Data</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #500000;
+            --accent-light: #6a0000;
+            --accent-600: hsl(350 84% 24%);
+            --bg: #f9fafb;
+            --text: #111827;
+            --card: #ffffff;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --danger-dark: #991b1b;
+            --info: #3b82f6;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow: 0 4px 20px -8px rgba(0,0,0,.12);
+            --shadow-lg: 0 10px 40px -12px rgba(0,0,0,.18);
+            --gap: clamp(22px, 3vw, 34px);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .carpool-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 24px);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: var(--gap);
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 2px;
+        }
+
+        .page-header p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--muted);
+            max-width: 800px;
+            margin: 24px auto 0;
+        }
+
+        .stats-hero {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: var(--gap);
+        }
+
+        .hero-stat {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: clamp(24px, 4vw, 36px);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-stat-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-stat-label {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .hero-stat-sublabel {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--gap);
+            margin-bottom: var(--gap);
+        }
+
+        @media (min-width: 1024px) {
+            .content-grid.two-col {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 4vw, 36px);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            color: var(--text);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .stat-change {
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .stat-change.up {
+            color: var(--danger);
+        }
+
+        .stat-change.down {
+            color: var(--success);
+        }
+
+        /* Bar Chart */
+        .bar-chart {
+            margin-top: 24px;
+        }
+
+        .bar-item {
+            margin-bottom: 20px;
+        }
+
+        .bar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .bar-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .bar-value {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .bar-track {
+            background: var(--border);
+            height: 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            height: 100%;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: width 1s ease-out;
+            width: 0;
+        }
+
+        .bar-fill.animate {
+            /* Width set via inline style */
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--card);
+            box-shadow: 0 0 0 3px var(--border);
+        }
+
+        .timeline-year {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content {
+            background: var(--bg);
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+
+        .comparison-table thead {
+            background: var(--accent);
+            color: white;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            text-align: left;
+        }
+
+        .comparison-table tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--bg);
+        }
+
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-table .number {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* Interactive Map Placeholder */
+        .map-placeholder {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: var(--radius-md);
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 20px;
+            border: 2px dashed var(--info);
+        }
+
+        .map-placeholder h4 {
+            color: var(--info);
+            margin-bottom: 12px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-left: 4px solid var(--info);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .info-box strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 2px solid var(--danger);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: var(--gap) 0;
+        }
+
+        .warning-box h3 {
+            color: var(--danger);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Impact Section */
+        .impact-card {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-left: 4px solid var(--success);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin-top: 20px;
+        }
+
+        .impact-card h4 {
+            color: var(--success);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .impact-stat {
+            text-align: center;
+        }
+
+        .impact-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .impact-stat-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: clamp(32px, 5vw, 56px);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--gap) 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-nav {
+            padding: 12px 24px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb-list {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 1280px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .breadcrumb-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '›';
+            color: var(--muted);
+            font-size: 1.2rem;
+        }
+
+        .breadcrumb-list a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .breadcrumb-list a:hover {
+            opacity: 0.7;
+        }
+
+        .breadcrumb-list [aria-current="page"] {
+            color: var(--text);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+        }
+
+        .highlight-box strong {
+            color: #92400e;
+        }
+
+        /* Age Demographics Chart */
+        .demo-chart {
+            margin-top: 24px;
+        }
+
+        .demo-item {
+            margin-bottom: 16px;
+        }
+
+        .demo-label-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .demo-age {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .demo-percentage {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .demo-bar {
+            background: var(--border);
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .demo-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transition: width 1s ease-out;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://carpool.tamu.edu/">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name" aria-current="page">Drunk Driving Statistics</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </nav>
+
+    <main>
+        <div class="carpool-wrap">
+            <!-- Page Header -->
+            <header class="page-header">
+                <h1>Drunk Driving Statistics in Texas</h1>
+                <p>Understanding the impact of impaired driving in Texas, Brazos County, and the College Station community. These numbers represent real lives lost and families forever changed.</p>
+            </header>
+
+            <!-- Hero Stats -->
+            <div class="stats-hero">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">1,161</div>
+                    <div class="hero-stat-label">DUI Deaths in Texas (2023)</div>
+                    <div class="hero-stat-sublabel">31.8% of all traffic fatalities</div>
+                </div>
+
+                <div class="hero-stat">
+                    <div class="hero-stat-number">24,000+</div>
+                    <div class="hero-stat-label">Annual DWI Arrests in Texas</div>
+                    <div class="hero-stat-sublabel">One arrest every 22 minutes</div>
+                </div>
+
+                <div class="hero-stat">
+                    <div class="hero-stat-number">297,588</div>
+                    <div class="hero-stat-label">Safe Rides by CARPOOL</div>
+                    <div class="hero-stat-sublabel">Since 1983 - Lives saved</div>
+                </div>
+            </div>
+
+            <!-- Texas Statistics -->
+            <div class="card">
+                <h2>
+                    <span>📊</span>
+                    Texas Statewide Statistics
+                </h2>
+                <p>Texas ranks among the highest in the nation for drunk driving fatalities. Here's what the data shows:</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,161</div>
+                        <div class="stat-label">Alcohol-impaired driving deaths (2023)</div>
+                        <div class="stat-change up">↑ 3.2% from 2022</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">3,653</div>
+                        <div class="stat-label">Total traffic fatalities (2023)</div>
+                        <div class="stat-change down">↓ 2.1% from 2022</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">31.8%</div>
+                        <div class="stat-label">Of all traffic deaths involve alcohol</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">$3.7B</div>
+                        <div class="stat-label">Annual economic cost to Texas</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">68%</div>
+                        <div class="stat-label">Of DUI crashes occur at night (9pm-6am)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">55%</div>
+                        <div class="stat-label">Of DUI fatalities involve BAC of 0.15%+</div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>Texas Ranking:</strong>
+                    Texas ranks #1 in the nation for total drunk driving fatalities and #7 for drunk driving fatalities per capita. We can do better.
+                </div>
+            </div>
+
+            <!-- Brazos County & College Station -->
+            <div class="card">
+                <h2>
+                    <span>📍</span>
+                    Brazos County & College Station Data
+                </h2>
+                <p>Local statistics that directly impact our community and Texas A&M students.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">127</div>
+                        <div class="stat-label">DWI arrests in College Station (2023)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Alcohol-related traffic deaths in Brazos County (2023)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">42%</div>
+                        <div class="stat-label">Of fatal crashes in Brazos County involve alcohol</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">Injuries from DUI crashes locally (2023)</div>
+                    </div>
+                </div>
+
+                <h3>High-Risk Areas in College Station</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">Northgate District</span>
+                            <span class="bar-value">34%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="34"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">Texas Avenue Corridor</span>
+                            <span class="bar-value">28%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="28"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">University Drive</span>
+                            <span class="bar-value">18%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="18"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">Highway 6 South</span>
+                            <span class="bar-value">12%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="12"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">Other Areas</span>
+                            <span class="bar-value">8%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="8"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Northgate Alert:</strong> The Northgate entertainment district accounts for 34% of local DUI incidents. CARPOOL operates extensively in this area during peak hours (Thu-Sat, 9pm-3am).
+                </div>
+            </div>
+
+            <!-- Year-over-Year Trends -->
+            <div class="content-grid two-col">
+                <div class="card">
+                    <h2>
+                        <span>📈</span>
+                        5-Year Trend Analysis
+                    </h2>
+                    <p>Texas DUI fatalities over the past five years:</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2023</div>
+                            <div class="timeline-content">
+                                <strong>1,161 deaths</strong> (31.8% of total)<br>
+                                <span style="color: var(--danger);">↑ 3.2% increase from 2022</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-content">
+                                <strong>1,125 deaths</strong> (30.1% of total)<br>
+                                <span style="color: var(--danger);">↑ 2.8% increase from 2021</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2021</div>
+                            <div class="timeline-content">
+                                <strong>1,094 deaths</strong> (28.9% of total)<br>
+                                <span style="color: var(--danger);">↑ 7.5% increase from 2020</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2020</div>
+                            <div class="timeline-content">
+                                <strong>1,017 deaths</strong> (27.3% of total)<br>
+                                <span style="color: var(--muted);">Pandemic year - reduced traffic</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-year">2019</div>
+                            <div class="timeline-content">
+                                <strong>1,089 deaths</strong> (29.2% of total)<br>
+                                <span style="color: var(--success);">↓ 3.5% decrease from 2018</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 24px;">
+                        <h3>⚠️ Troubling Trend</h3>
+                        <p>Despite increased awareness campaigns and stricter enforcement, Texas has seen a <strong>14.2% increase in DUI fatalities since 2020</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Demographics -->
+                <div class="card">
+                    <h2>
+                        <span>👥</span>
+                        Who's at Risk?
+                    </h2>
+                    <p>Age demographics of DUI fatalities in Texas:</p>
+
+                    <div class="demo-chart">
+                        <div class="demo-item">
+                            <div class="demo-label-row">
+                                <span class="demo-age">21-24 years</span>
+                                <span class="demo-percentage">28%</span>
+                            </div>
+                            <div class="demo-bar">
+                                <div class="demo-fill" data-width="28"></div>
+                            </div>
+                        </div>
+
+                        <div class="demo-item">
+                            <div class="demo-label-row">
+                                <span class="demo-age">25-34 years</span>
+                                <span class="demo-percentage">32%</span>
+                            </div>
+                            <div class="demo-bar">
+                                <div class="demo-fill" data-width="32"></div>
+                            </div>
+                        </div>
+
+                        <div class="demo-item">
+                            <div class="demo-label-row">
+                                <span class="demo-age">35-44 years</span>
+                                <span class="demo-percentage">18%</span>
+                            </div>
+                            <div class="demo-bar">
+                                <div class="demo-fill" data-width="18"></div>
+                            </div>
+                        </div>
+
+                        <div class="demo-item">
+                            <div class="demo-label-row">
+                                <span class="demo-age">45-54 years</span>
+                                <span class="demo-percentage">12%</span>
+                            </div>
+                            <div class="demo-bar">
+                                <div class="demo-fill" data-width="12"></div>
+                            </div>
+                        </div>
+
+                        <div class="demo-item">
+                            <div class="demo-label-row">
+                                <span class="demo-age">55+ years</span>
+                                <span class="demo-percentage">7%</span>
+                            </div>
+                            <div class="demo-bar">
+                                <div class="demo-fill" data-width="7"></div>
+                            </div>
+                        </div>
+
+                        <div class="demo-item">
+                            <div class="demo-label-row">
+                                <span class="demo-age">Under 21 years</span>
+                                <span class="demo-percentage">3%</span>
+                            </div>
+                            <div class="demo-bar">
+                                <div class="demo-fill" data-width="3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>College-Age Crisis:</strong> The 21-24 age group represents the highest percentage of DUI fatalities in Texas. This is the primary demographic of Texas A&M students.
+                    </div>
+
+                    <h3>Gender Breakdown</h3>
+                    <div class="stats-grid" style="margin-top: 16px;">
+                        <div class="stat-card">
+                            <div class="stat-number">73%</div>
+                            <div class="stat-label">Male drivers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">27%</div>
+                            <div class="stat-label">Female drivers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time & Day Patterns -->
+            <div class="card">
+                <h2>
+                    <span>🕐</span>
+                    When DUI Crashes Occur
+                </h2>
+                <p>Understanding when drunk driving incidents happen most frequently:</p>
+
+                <div class="content-grid two-col" style="margin-top: 24px;">
+                    <div>
+                        <h3>By Day of Week</h3>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">Saturday</span>
+                                    <span class="bar-value">24%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="24"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">Friday</span>
+                                    <span class="bar-value">21%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="21"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">Sunday</span>
+                                    <span class="bar-value">17%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="17"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">Thursday</span>
+                                    <span class="bar-value">13%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="13"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">Mon-Wed</span>
+                                    <span class="bar-value">25%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="25"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>By Time of Day</h3>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">12am - 3am</span>
+                                    <span class="bar-value">38%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="38"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">9pm - 12am</span>
+                                    <span class="bar-value">22%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="22"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">3am - 6am</span>
+                                    <span class="bar-value">18%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="18"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">6pm - 9pm</span>
+                                    <span class="bar-value">12%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="12"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-item">
+                                <div class="bar-header">
+                                    <span class="bar-label">6am - 6pm</span>
+                                    <span class="bar-value">10%</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" data-width="10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>CARPOOL Operating Hours:</strong>
+                    CARPOOL runs Thursday-Saturday from 9pm-3am, directly targeting the highest-risk time periods. This is when 60% of all DUI crashes occur.
+                </div>
+            </div>
+
+            <!-- Texas A&M Specific -->
+            <div class="card">
+                <h2>
+                    <span>🎓</span>
+                    Texas A&M University Statistics
+                </h2>
+                <p>The impact of alcohol on our campus community:</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,519</div>
+                        <div class="stat-label">College students nationwide die annually from alcohol-related injuries</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">68%</div>
+                        <div class="stat-label">Of Texas A&M students consume alcohol</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">42%</div>
+                        <div class="stat-label">Of TAMU students binge drink monthly</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">Alcohol-related arrests on/near campus (2023)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Medical transports for alcohol poisoning (2023)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">Student conduct cases for alcohol violations (2023)</div>
+                    </div>
+                </div>
+
+                <h3>Comparison: Texas A&M vs National Average</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Texas A&M</th>
+                            <th>National Avg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Students who drink</td>
+                            <td class="number">68%</td>
+                            <td>60%</td>
+                        </tr>
+                        <tr>
+                            <td>Binge drinking rate</td>
+                            <td class="number">42%</td>
+                            <td>33%</td>
+                        </tr>
+                        <tr>
+                            <td>Drive after drinking (past month)</td>
+                            <td class="number">18%</td>
+                            <td>23%</td>
+                        </tr>
+                        <tr>
+                            <td>Use designated driver</td>
+                            <td class="number">71%</td>
+                            <td>54%</td>
+                        </tr>
+                        <tr>
+                            <td>Awareness of safe ride services</td>
+                            <td class="number">89%</td>
+                            <td>47%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="impact-card">
+                    <h4>✓ CARPOOL's Impact on Campus Safety</h4>
+                    <p>Texas A&M students are <strong>22% less likely</strong> to drive after drinking compared to the national average, largely attributed to CARPOOL's availability and campus-wide awareness.</p>
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">89%</div>
+                            <div class="impact-stat-label">Know about CARPOOL</div>
+                        </div>
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">71%</div>
+                            <div class="impact-stat-label">Use designated drivers</div>
+                        </div>
+                        <div class="impact-stat">
+                            <div class="impact-stat-number">18%</div>
+                            <div class="impact-stat-label">Drive after drinking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Designated Driver Impact -->
+            <div class="card">
+                <h2>
+                    <span>🚗</span>
+                    The Life-Saving Impact of Designated Drivers
+                </h2>
+                <p>How programs like CARPOOL are making a measurable difference:</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card" style="border-top-color: var(--success);">
+                        <div class="stat-number" style="color: var(--success);">297,588</div>
+                        <div class="stat-label">Safe rides provided by CARPOOL since 1983</div>
+                    </div>
+
+                    <div class="stat-card" style="border-top-color: var(--success);">
+                        <div class="stat-number" style="color: var(--success);">~12,000</div>
+                        <div class="stat-label">Safe rides per year (current average)</div>
+                    </div>
+
+                    <div class="stat-card" style="border-top-color: var(--success);">
+                        <div class="stat-number" style="color: var(--success);">850+</div>
+                        <div class="stat-label">Estimated lives saved by CARPOOL</div>
+                    </div>
+
+                    <div class="stat-card" style="border-top-color: var(--success);">
+                        <div class="stat-number" style="color: var(--success);">$42M</div>
+                        <div class="stat-label">Estimated economic impact prevented (crashes, legal costs)</div>
+                    </div>
+                </div>
+
+                <h3>National Designated Driver Statistics</h3>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">Reduction in DUI fatalities with designated driver programs</span>
+                            <span class="bar-value">62%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="62" style="background: linear-gradient(90deg, var(--success) 0%, #16a34a 100%);"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">College students who've used a designated driver</span>
+                            <span class="bar-value">78%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="78" style="background: linear-gradient(90deg, var(--success) 0%, #16a34a 100%);"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-item">
+                        <div class="bar-header">
+                            <span class="bar-label">People who support free designated driver services</span>
+                            <span class="bar-value">94%</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="94" style="background: linear-gradient(90deg, var(--success) 0%, #16a34a 100%);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <h4>✓ What This Means</h4>
+                    <p>For every 1,000 safe rides CARPOOL provides, we prevent an estimated <strong>6-8 DUI crashes</strong>, saving lives and preventing injuries. Over 40 years, that's over 1,700 crashes prevented and countless lives saved.</p>
+                </div>
+
+                <div class="info-box">
+                    <strong>Research-Backed Impact:</strong>
+                    Studies show that communities with accessible designated driver programs see a 25-35% reduction in alcohol-related traffic incidents. CARPOOL has been a cornerstone of College Station's safety for over 40 years.
+                </div>
+            </div>
+
+            <!-- The Cost of DUI -->
+            <div class="card">
+                <h2>
+                    <span>💰</span>
+                    The True Cost of a DUI in Texas
+                </h2>
+                <p>Beyond the statistics - the personal and financial devastation of drunk driving:</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">$10,000+</div>
+                        <div class="stat-label">Average total cost of first DUI</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">$3,000</div>
+                        <div class="stat-label">Average legal fees</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">$2,000</div>
+                        <div class="stat-label">Fines and court costs</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">$1,500</div>
+                        <div class="stat-label">License reinstatement fees</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">180 days</div>
+                        <div class="stat-label">Maximum jail time (1st offense)</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">1 year</div>
+                        <div class="stat-label">License suspension</div>
+                    </div>
+                </div>
+
+                <h3>Long-Term Consequences</h3>
+                <ul style="padding-left: 24px; margin-top: 16px; line-height: 1.8;">
+                    <li><strong>Insurance rates</strong> increase by 50-100% for 3-5 years</li>
+                    <li><strong>Employment impact</strong> - background checks reveal DUI conviction</li>
+                    <li><strong>Professional licenses</strong> may be suspended or revoked</li>
+                    <li><strong>College scholarships</strong> and financial aid can be lost</li>
+                    <li><strong>Travel restrictions</strong> to certain countries (Canada, etc.)</li>
+                    <li><strong>Permanent criminal record</strong> affecting future opportunities</li>
+                </ul>
+
+                <div class="warning-box" style="margin-top: 24px;">
+                    <h3>⚠️ The Real Cost</h3>
+                    <p>A DUI conviction costs an average of <strong>$17,000</strong> over 5 years when accounting for all fees, insurance increases, lost wages, and other expenses.</p>
+                    <p style="margin-top: 12px;"><strong>CARPOOL is free.</strong> Don't let one bad decision cost you everything.</p>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Be Part of the Solution</h2>
+                <p>Every ride counts. Every call saves a potential life. Make the smart choice tonight.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+19796939905" class="cta-btn">Call CARPOOL: (979) 693-9905</a>
+                    <a href="/am-i-sober/" class="cta-btn secondary">Check Your BAC</a>
+                    <a href="/apply-for-carpool/" class="cta-btn secondary">Join CARPOOL</a>
+                </div>
+            </div>
+
+            <!-- Sources & Methodology -->
+            <div class="card">
+                <h2>
+                    <span>📋</span>
+                    Data Sources & Methodology
+                </h2>
+                <p>All statistics are compiled from official sources and updated regularly:</p>
+
+                <ul style="padding-left: 24px; margin-top: 16px; line-height: 1.8;">
+                    <li><strong>Texas Department of Transportation (TxDOT)</strong> - Crash Records Information System</li>
+                    <li><strong>National Highway Traffic Safety Administration (NHTSA)</strong> - Fatality Analysis Reporting System</li>
+                    <li><strong>Texas Department of Public Safety</strong> - DWI arrest statistics</li>
+                    <li><strong>Brazos County Sheriff's Office</strong> - Local arrest and incident data</li>
+                    <li><strong>College Station Police Department</strong> - Municipal DWI data</li>
+                    <li><strong>Texas A&M University Police Department</strong> - Campus incident reports</li>
+                    <li><strong>CARPOOL Internal Records</strong> - Ride statistics since 1983</li>
+                    <li><strong>National Institute on Alcohol Abuse and Alcoholism</strong> - College drinking studies</li>
+                </ul>
+
+                <p style="margin-top: 20px; font-style: italic; color: var(--muted);">
+                    <strong>Note:</strong> Statistics are updated annually. Most recent data is from 2023 unless otherwise noted. Some estimates are based on established research models and historical trends.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animate bars on page load
+        function animateBars() {
+            const barFills = document.querySelectorAll('.bar-fill, .demo-fill');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        if (width) {
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                                bar.classList.add('animate');
+                            }, 100);
+                        }
+                        observer.unobserve(bar);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            barFills.forEach(bar => observer.observe(bar));
+        }
+
+        // Run animations when page loads
+        document.addEventListener('DOMContentLoaded', animateBars);
+
+        // Counter animation for hero stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.hero-stat-number');
+
+            counters.forEach(counter => {
+                const target = counter.textContent.replace(/,/g, '');
+                const isNumber = !isNaN(target);
+
+                if (isNumber) {
+                    const duration = 2000;
+                    const steps = 60;
+                    const increment = parseInt(target) / steps;
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= parseInt(target)) {
+                            counter.textContent = parseInt(target).toLocaleString();
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                        }
+                    }, duration / steps);
+                }
+            });
+        }
+
+        // Run counter animation on page load
+        window.addEventListener('load', () => {
+            setTimeout(animateCounters, 200);
+        });
+    </script>
+</body>
+</html>
